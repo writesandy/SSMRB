@@ -5,14 +5,15 @@
 
 ## *__Project Definition and Value__*
 
-### Our team was approached by All Media Painters in McMinneville, Oregon who were interested in a website for their painting group. The artists in the group meet weekly to work on art together and also independently take commissions for artwork. 
+### Our team was approached by All Media Painters in McMinneville, Oregon to develop a website for their painting group. The artists in the group meet weekly to work on art and occaisionally individual members accept commissions for custom artwork. 
 
-### Our team decided to develop an app for a wider audience, while meeting the needs of AMP-McMinneville. This fills a need in the art community for small painting groups or independent artists to:
+### Our team decided to scale the app to serve a wider audience, while meeting the needs of AMP-McMinneville. The app will support the art community meeting needs for small groups or independent artists to:
 
-1. Easy plug and play portfolio.
-2. Community visibility for local artists.
-3. Communication of events and tips/tricks for different artistic mediums.
-3. Location for artists to make contacts for commission work.
+1. Upload images into standard portfolio to showcase their art.
+2. Provide community visibility for local artists.
+3. Facilitate communication of events.
+4. Community for sharing tips and methods for varied artistic mediums.
+3. Create a location for artists to make contacts for commission work.
 
 ## *__Team Roles__*
 
