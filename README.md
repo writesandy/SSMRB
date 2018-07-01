@@ -22,4 +22,8 @@
 * ```Sama Sandy - Interface Experience/Design, Web Development & Production, SEO```
 * ```Sandra Peterson - Web Development & Production, PM```
 
-## 
+## *__Week 1 Project Board/Schedule__*
+![Project Board/Schedule](./assets/images/Wk1_Project_Board_Sched.png)
+
+## *__UI/UX Component Views__*
+ADD IMAGES HERE
