@@ -27,4 +27,4 @@
 <a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/Wk1_Project_Board_Sched.png)</a>
 
 ## *__UI/UX Component Views__*
-ADD IMAGES HERE
+ADD IMAGES HERE PLEASE
