@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import {
   getFromStorage,
   setInStorage,
-} from './storage.js';
+} from '../../utils/storage.js';
 
 class Home extends Component {
   constructor(props) {
