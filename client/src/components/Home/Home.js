@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import './home.css';
+import style from "../vendor/style.less";
 
 import {
   getFromStorage,
@@ -15,10 +17,10 @@ class Home extends Component {
       token: '',
       signUpError: '',
       signInError: '',
-      signInEmail: '',
-      signInPassword: '',
+      signInEmail: 'Your Email Address is your UserName',
+      signInPassword: '8 characters long, please',
       signUpEmail: '',
-      signUpPassword: '',
+      signUpPassword: '8 Characters long, please',
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -101,7 +103,7 @@ class Home extends Component {
       body: { //JSON.stringify({
         email: signUpEmail,
         password: signUpPassword,
-      }//),
+      }//)
     }).then(res => res.json())
       .then(json => {
         console.log('json', json);
@@ -210,7 +212,7 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div>
+        <div classname={style.less}>
           <div>
             {
               (signInError) ? (
