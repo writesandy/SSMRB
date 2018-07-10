@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -16,6 +17,11 @@ const UserSchema = new mongoose.Schema({
   signUpDate: {
     type: Date,
     default: Date.now()
+  },
+  loginAttempts: 
+  {
+    type: int,
+    default: ''
   }
 });
 UserSchema.methods.generateHash = function(password) {

@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import {
   getFromStorage,
   setInStorage,
-} from '../../utils/storage.js';
+} from '../../utils/storage';
 
 class Home extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class Home extends Component {
     this.state = {
       isLoading: true,
       token: '',
-      signUpError: 'There was an error signing in to the page',
-      signInError: 'There was an error signing in to the system',
-      signInEmail: 'Youremail@domain.com',
-      signInPassword: '*********',
+      signUpError: '',
+      signInError: '',
+      signInEmail: '',
+      signInPassword: '',
       signUpEmail: '',
       signUpPassword: '',
     };
@@ -96,12 +96,12 @@ class Home extends Component {
     fetch('/api/account/signup', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'text/html'// this also could be json data
       },
-      body: JSON.stringify({
+      body: { //JSON.stringify({
         email: signUpEmail,
         password: signUpPassword,
-      }),
+      }//),
     }).then(res => res.json())
       .then(json => {
         console.log('json', json);
@@ -136,7 +136,7 @@ class Home extends Component {
     fetch('/api/account/signin', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'html/test'
       },
       body: JSON.stringify({
         email: signInEmail,
