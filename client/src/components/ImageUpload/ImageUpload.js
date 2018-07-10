@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import './ImageUpload.css';
 import axios from 'axios';
-import { List, ListItem } from "../../components/List";
+import { List } from "../../components/List";
 
 class ImageUpload extends Component {
 
     state = {
-      selectedFile: []
+      selectedFile: [],
+      name: ''
     }
   
     fileSelectedHandler = event => {
+    console.log(event.target.files)
       this.setState({
-        selectedFile: event.target.files[0]
+        selectedFile: event.target.files[0],
+        name: event.target.files[0].name
       })
     }
   
@@ -20,7 +23,7 @@ class ImageUpload extends Component {
       fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
       axios.post(fd, {})
         .then(res => {
-          console.log(res);
+          console.log('this is res in fileUploadHandler', res);
         })
     }
 
@@ -31,35 +34,28 @@ class ImageUpload extends Component {
           this.setState({selectedFile: newState})
         }
       }
-  
+
     render() {
       return (
         <div className="App">
             <input 
-                style={{display: 'none'}}
-                type="file" 
-                onChange={this.fileSelectedHandler}
-                ref={fileInput => this.fileInput = fileInput}/>
+            style={{display: 'none'}}
+            type="file" 
+            onChange={this.fileSelectedHandler}
+            ref={fileInput => this.fileInput = fileInput}/>            
             <button onClick={() => this.fileInput.click()}>Pick File</button>
-            {console.log(this.state.selectedFile)}
-            {this.state.selectedFile.length ? (
-            <List>
-                <h3>Items to upload</h3>
-                {this.state.selectedFile.map((file, item) => (
-                    <ListItem key={file._id}>
-                        <div className='selectedFile'>
-                            {file.name}
-                        </div>
-                        <div className='url'>
-                            <button onClick={this.delete.bind(this, item)}>Delete</button> 
-                        </div>
-                    </ListItem>
-                ))}
-            </List>
-                ) : (
-                <h3 className="noResults">No Results to Display</h3>
-            )}
             <button onClick={this.fileUploadHandler}>Upload</button>
+            <h3> Image to be uploaded </h3>
+            {this.state.name ? (
+                <List>
+                    <div className='fileName'>
+                        {this.state.name}
+                        {console.log('this is here', this.state)}
+                    </div>
+                </List>
+            ) : (
+                <h5 className="noResults">No Image has been chosen</h5>
+            )}
         </div>
       )
     }
