@@ -38,6 +38,8 @@ class Home extends Component {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
+      console.log ("obj:", obj);
+      console.log("token", token);
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
