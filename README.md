@@ -24,7 +24,16 @@
 * ```Sandra Peterson - Web Development & Production, PM```
 
 ## *__Week 1 Project Board/Schedule__*
-<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/Wk1_Project_Board_Sched.png)</a>
+(click image to go to full page)
+<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board.png)</a>
 
 ## *__UI/UX Component Views__*
-ADD IMAGES HERE
+<a href="https://xd.adobe.com/view/11a68c82-c643-42f9-6a28-9af1a68ff448-6797/">Click to View Dynamic UI/UX in XD Adobe</a>
+
+## *__Xtensio User Profiles__*
+(click image to go to full page)
+ 
+<a href="https://app.xtensio.com/lp04bthh">![Group Leader User Profile](./assets/images/art-group-leader.png)</a>
+<a href="https://app.xtensio.com/lp04bthh">![Group Member User Profile](./assets/images/art-member.png)</a>
+<a href="https://app.xtensio.com/lp04bthh">![Art Enthusiast Profile](./assets/images/art-enthusiast.png)</a>
+
