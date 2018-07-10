@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import './ImageUpload.css';
 import axios from 'axios';
-import { List } from "../../components/List";
+// import { List, ListName } from "../../components/List";
 
 class ImageUpload extends Component {
-
-    state = {
-      selectedFile: [],
-      name: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      file: null
     }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    // console.log(event.target)
+    this.setState({
+      file: URL.createObjectURL(event.target.files[0]),
+      name: event.target.files[0].name
+    })
+  }
   
     fileSelectedHandler = event => {
     console.log(event.target.files)
@@ -28,7 +39,7 @@ class ImageUpload extends Component {
     }
 
     delete(item){
-        const newState = this.state.selectedFile.slice();
+        const newState = this.state.file.slice();
         if (newState.indexOf(item) > -1) {
           newState.splice(newState.indexOf(item), 1);
           this.setState({selectedFile: newState})
@@ -41,18 +52,15 @@ class ImageUpload extends Component {
             <input 
             style={{display: 'none'}}
             type="file" 
-            onChange={this.fileSelectedHandler}
+            onChange={this.handleChange}
             ref={fileInput => this.fileInput = fileInput}/>            
             <button onClick={() => this.fileInput.click()}>Pick File</button>
             <button onClick={this.fileUploadHandler}>Upload</button>
             <h3> Image to be uploaded </h3>
             {this.state.name ? (
-                <List>
                     <div className='fileName'>
-                        {this.state.name}
-                        {console.log('this is here', this.state)}
+                        <img className='uploadImage' alt={`Name of file being uploaded ${this.state.name}`} src={this.state.file} onClick={this.delete}/>
                     </div>
-                </List>
             ) : (
                 <h5 className="noResults">No Image has been chosen</h5>
             )}

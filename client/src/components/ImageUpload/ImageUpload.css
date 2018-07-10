@@ -4,3 +4,7 @@
 .box__error {
   display: none;
 }
+
+.uploadImage {
+  max-width: 20%;
+}
