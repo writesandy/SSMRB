@@ -14,11 +14,18 @@ class ImageUpload extends Component {
   }
 
   handleChange(event) {
-    // console.log(event.target)
-    this.setState({
-      file: URL.createObjectURL(event.target.files[0]),
-      name: event.target.files[0].name
-    })
+    console.log(event.target.files)
+    if (event.target.files.length < 1) {
+      this.setState({
+        name: '',
+        file: null
+      })
+    } else {
+      this.setState({
+        file: URL.createObjectURL(event.target.files[0]),
+        name: event.target.files[0].name
+      })
+    }
   }
   
     fileSelectedHandler = event => {
@@ -26,6 +33,13 @@ class ImageUpload extends Component {
       this.setState({
         selectedFile: event.target.files[0],
         name: event.target.files[0].name
+      })
+    }
+
+    delete = event => {
+      this.setState({
+        file: null,
+        name: ''
       })
     }
   
@@ -38,14 +52,6 @@ class ImageUpload extends Component {
         })
     }
 
-    delete(item){
-        const newState = this.state.file.slice();
-        if (newState.indexOf(item) > -1) {
-          newState.splice(newState.indexOf(item), 1);
-          this.setState({selectedFile: newState})
-        }
-      }
-
     render() {
       return (
         <div className="App">
@@ -55,7 +61,6 @@ class ImageUpload extends Component {
             onChange={this.handleChange}
             ref={fileInput => this.fileInput = fileInput}/>            
             <button onClick={() => this.fileInput.click()}>Pick File</button>
-            <button onClick={this.fileUploadHandler}>Upload</button>
             <h3> Image to be uploaded </h3>
             {this.state.name ? (
                     <div className='fileName'>
@@ -64,6 +69,7 @@ class ImageUpload extends Component {
             ) : (
                 <h5 className="noResults">No Image has been chosen</h5>
             )}
+            <button onClick={this.fileUploadHandler}>Upload</button>
         </div>
       )
     }
