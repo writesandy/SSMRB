@@ -4,7 +4,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const db = require('../models/');
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 router.use(bodyParser.urlencoded({
   extended: true,
@@ -26,7 +26,7 @@ router.post('/', (req, res, next) => {
       errors,
     });
   } else {
-    const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+    const hashedPassword = bcryptjs.hashSync(req.body.password, 8);
     db.User.create({
       username: req.body.username,
       password: hashedPassword,
