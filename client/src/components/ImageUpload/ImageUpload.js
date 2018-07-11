@@ -41,6 +41,7 @@ class ImageUpload extends Component {
         file: null,
         name: ''
       })
+      console.log(this.state)
     }
   
     fileUploadHandler = () => {
