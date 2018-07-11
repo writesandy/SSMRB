@@ -106,15 +106,15 @@ class Home extends Component {
         email: signUpEmail,
         password: signUpPassword,
       })
-    }).then(res => {console.log(res); res.json()})
+    }).then(res => res.json())
       .then(json => {
         console.log('json', json);
         if (json.success) {
           this.setState({
             signUpError: json.message,
             isLoading: false,
-            signUpEmail: 'rikkihon@gmail.com',
-            signUpPassword: '1234',
+            signUpEmail: '',
+            signUpPassword: '',
           });
         } else {
           this.setState({

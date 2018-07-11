@@ -6,14 +6,17 @@ router.route("/signup").post( (req, res, next) => {
   
   const { body } = req;
   console.log(body);
+
   const {
     password
   } = body;
+
   let {
     email
   } = body;
 
   if (!email) {
+    console.log("no email")
     return res.send({
       success: false,
       message: 'Error: Email cannot be blank.'
@@ -28,7 +31,7 @@ router.route("/signup").post( (req, res, next) => {
 
   email = email.toLowerCase();
   email = email.trim();
-
+  console.log(email);
   // Steps:
   // 1. Verify email doesn't exist
   // 2. Save
@@ -52,6 +55,7 @@ router.route("/signup").post( (req, res, next) => {
 
     newUser.email = email;
     newUser.password = newUser.generateHash(password);
+    console.log(newUser);
     newUser.save((err, user) => {
       if (err) {
         return res.send({
@@ -59,6 +63,7 @@ router.route("/signup").post( (req, res, next) => {
           message: 'Error: Server error'
         });
       }
+      console.log(res.success);
       return res.send({
         success: true,
         message: 'Signed up'
