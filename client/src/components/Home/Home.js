@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import './home.css';
-import style from "../vendor/style.less";
+//import style from "..styles/vendor/style.less";
 
 import {
   getFromStorage,
@@ -100,12 +100,12 @@ class Home extends Component {
     fetch('/api/account/signup', {
       method: 'POST',
       headers: {
-        'Content-Type': 'text/html'// this also could be json data
+        'Content-Type': 'application/json'// this also could be json data
       },
-      body: { //JSON.stringify({
+      body: JSON.stringify({
         email: signUpEmail,
         password: signUpPassword,
-      }//)
+      })
     }).then(res => res.json())
       .then(json => {
         console.log('json', json);
@@ -214,7 +214,7 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div classname={style.less}>
+        <div>
           <div>
             {
               (signInError) ? (

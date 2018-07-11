@@ -1,12 +1,13 @@
-const User = require('../../models/User');
-const UserSession = require('../../models/UserSession');
+const User = require('../../../models/users');
+const UserSession = require('../../../models/UserSession');
+const router = require("express").Router()
 
 
-module.exports = (app) => {
+module.exports = (router) => {
   /*
    * Sign up
    */
-  app.post('/api/account/signup', (req, res, next) => {
+  router.post('/api/account/signup', (req, res, next) => {
     const { body } = req;
     const {
       password
@@ -70,7 +71,7 @@ module.exports = (app) => {
 
   });
 
-  app.post('/api/account/signin', (req, res, next) => {
+  router.post('/api/account/signin', (req, res, next) => {
     const { body } = req;
     const {
       password
@@ -142,7 +143,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get('/api/account/verify', (req, res, next) => {
+  router.get('/api/account/verify', (req, res, next) => {
     // Get the token
     const { query } = req;
     const { token } = query;
@@ -176,7 +177,7 @@ module.exports = (app) => {
     });
   });
 
-  app.get('/api/account/logout', (req, res, next) => {
+  router.get('/api/account/logout', (req, res, next) => {
     // Get the token
     const { query } = req;
     const { token } = query;

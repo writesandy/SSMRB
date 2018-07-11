@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
   },
   loginAttempts: 
   {
-    type: int,
+    type: Number,
     default: ''
   }
 });
