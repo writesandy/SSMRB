@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const artistsRoutes = require("./artists");
-const home = require("./account/signin.js")
+const account = require("./account/signin.js")
 // Article routes
 router.use("/saved", artistsRoutes);
 
-router.use("/articles",)
+router.use("/account", account)
 
 module.exports = router;
