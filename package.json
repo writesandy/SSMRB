@@ -24,20 +24,16 @@
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "dotenv": "^6.0.0",
-<<<<<<< HEAD
-    "express": "^4.16.3",
-=======
     "express": "^4.15.4",
     "flow-bin": "^0.76.0",
->>>>>>> 79807c12ceb5cdac89aa81328622e6a3c1d92736
     "mongoose": "^5.0.17",
-    "whatwg-fetch": "^2.0.4",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-grid-gallery": "^0.5.1",
     "react-images": "^0.5.17",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "^1.1.4",
+    "whatwg-fetch": "^2.0.4"
   }
 }
