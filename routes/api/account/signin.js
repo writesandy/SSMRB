@@ -180,12 +180,13 @@ router.route('/verify').get( (req, res, next) => {
     }
   });
 });
-router.get('/logout').get( (req, res, next) => {  
+
+router.route('/logout').get( (req, res, next) => {  
 
 //     // Get the token
   const { query } = req;
   const { token } = query;
-  // ?token=test
+   //token=test
 
   // Verify the token is one of a kind and it's not deleted.
 
@@ -208,6 +209,7 @@ router.get('/logout').get( (req, res, next) => {
     return res.send({
       success: true,
       message: 'Good'
+//we should try to send the user back to the main page here
     });
   });
 });

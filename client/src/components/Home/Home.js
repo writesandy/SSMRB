@@ -17,10 +17,10 @@ class Home extends Component {
       token: '',
       signUpError: '',
       signInError: '',
-      signInEmail: 'Your Email Address is your UserName',
-      signInPassword: '8 characters long, please',
+      signInEmail: '',
+      signInPassword: '',
       signUpEmail: '',
-      signUpPassword: '8 Characters long, please',
+      signUpPassword: '',
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -140,7 +140,7 @@ class Home extends Component {
     fetch('/api/account/signin', {
       method: 'POST',
       headers: {
-        'Content-Type': 'html/test'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: signInEmail,
@@ -148,7 +148,6 @@ class Home extends Component {
       }),
     }).then(res => res.json())
       .then(json => {
-        console.log('json', json);
         if (json.success) {
           setInStorage('the_main_app', { token: json.token });
           this.setState({
