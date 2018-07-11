@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import ImageUpload from './components/ImageUpload'
+
+import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <ImageUpload />
+        <ArtistThumbnail />
       </div>
     );
   }
