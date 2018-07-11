@@ -4,7 +4,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const db = require('../models/');
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 router.use(bodyParser.urlencoded({
   extended: true,
