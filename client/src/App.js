@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ImageUpload from './components/ImageUpload'
-import Gallery from './components/Gallery'
+import GalleryComponent from './components/Gallery'
 
 class App extends Component {
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <ImageUpload />
-        <Gallery />
+        <GalleryComponent />
       </div>
     );
   }
