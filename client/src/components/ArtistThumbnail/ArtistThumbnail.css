@@ -1,3 +1,19 @@
+/* Fonts */
+h4 {
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+h6 {
+    font-size: 9px;
+    margin-top: 6px;
+    margin-bottom: 9px;
+}
+
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 /* Artist Thumbanails */
 .artist-thumbnail-container {
     position: relative;
@@ -6,30 +22,29 @@
 div.artist-thumbnail {
     position: relative;
     height: 275px;
-    margin: 15px 0px;
+    margin: 5px 5px;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: lightblue;
 }
 
 .artist-thumbnail-image {
     object-fit: cover;
     width:100%;
     height: 100%;
-    background-color: lightblue;
 }
 
 .artist-thumbnail-text-block {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.90);
     color: #2699FB;
     padding-bottom: 10px;
     padding-top:10px;
 }
 
-h4,p {
-	padding-left: 20px;
-    padding-right: 20px;
-}
+
 
 /* Social Icons */
     .social-icon {
@@ -44,7 +59,7 @@ h4,p {
         text-align: center;
         text-decoration: none;
         color: #2699FB;
-        margin: 5px;
+        margin: 5px 10px;
     }
     
     .fa:hover {
