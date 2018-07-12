@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
+import ArtistThumbnail from './components/ArtistThumbnail';
 import ImageUpload from './components/ImageUpload'
 import GalleryComponent from './components/Gallery'
 
@@ -10,8 +10,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ArtistThumbnail />
-        {/* <ImageUpload />
+      
+         {/*<ArtistThumbnail />
+        <ImageUpload />
         <GalleryComponent /> */}
       </div>
     );

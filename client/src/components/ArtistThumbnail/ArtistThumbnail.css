@@ -5,9 +5,7 @@ h4 {
 }
 
 h6 {
-    font-size: 9px;
-    margin-top: 6px;
-    margin-bottom: 9px;
+    font-size: 9px !important;
 }
 
 p {
@@ -15,27 +13,30 @@ p {
     padding-right: 20px;
 }
 /* Artist Thumbanails */
-.artist-thumbnail-container {
+.artist-container {
     position: relative;
-    font-family: Arial;
 }
-div.artist-thumbnail {
-    position: relative;
+.artist-thumbnail-container.col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-12 {
     height: 275px;
-    margin: 5px 5px;
-    padding-left: 0;
-    padding-right: 0;
-    background-color: lightblue;
+    overflow: hidden;
+    padding-left:7.5px;
+    padding-right: 7.5px;
+    margin-bottom: 15px;
+    
 }
+.artist-thumbnail {
+    background-color: lightblue;    
 
+}
 .artist-thumbnail-image {
     object-fit: cover;
     width:100%;
     height: 100%;
+    min-height: 275px;
 }
 
 .artist-thumbnail-text-block {
-    position: absolute;
+    position: sticky;
     bottom: 0px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.90);

@@ -1,6 +1,7 @@
 import React from "react";
 import "./ArtistThumbnail.css";
-import Artists from "./artistThumbnails.json";
+import Artists from "../artistSeed.json";
+import SocialIcons from '../Social Icons'
 
 
 class ArtistThumbnail extends React.Component {
@@ -10,18 +11,20 @@ class ArtistThumbnail extends React.Component {
 
     render () {
         return (
-            <div className="artist-thumbnail-container">
+            <div className="artist-container">
               {this.state.Artists.map(artist => (
-                <div className="artist-thumbnail col-lg-3 col-md-4 col-sm-6 col-xs-12" key={artist.id}>
-                    <img className="artist-thumbnail-image" src={artist.image} alt="" />
-                    <div className="artist-thumbnail-text-block">
-                        <h4>{artist.first} {artist.last}</h4>
-                        <h6>{artist.title}</h6>
-                        <div>
-                            <a href={artist.instagram} class="fa fa-instagram"></a>
-                            <a href={artist.twitter} class="fa fa-twitter"></a>
-                            <a href={artist.linkedin} class="fa fa-linkedin"></a>
-                            <a href={artist.website} class="fa fa-globe"></a>
+                <div className="artist-thumbnail-container col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">  
+                    <div className="artist-thumbnail" key={artist.id}>
+                        <img className="artist-thumbnail-image" src={artist.image} alt="" />
+                        <div className="artist-thumbnail-text-block">
+                            <h4>{artist.first} {artist.last}</h4>
+                            <h6>{artist.title.toUpperCase()}</h6>
+                            <SocialIcons 
+                                instagram={artist.instagram}
+                                twitter={artist.twitter}
+                                linkedin={artist.linkedin}
+                                website={artist.website}
+                            />
                         </div>
                     </div>
                 </div>
