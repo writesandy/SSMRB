@@ -1,0 +1,9 @@
+.container-fluid{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
