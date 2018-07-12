@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <ArtistThumbnail />
-        <ImageUpload />
-        <GalleryComponent />
+        {/* <ImageUpload />
+        <GalleryComponent /> */}
       </div>
     );
   }
