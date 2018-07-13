@@ -7,8 +7,8 @@ const UserSchema = new mongoose.Schema({
   isDeleted: { type: Boolean, default: false },
   signUpDate: { type: Date, default: Date.now() },
   loginAttempts: { type: Number, default: '' },
-  profilePhoto: { data: Buffer, type: String },
-  galleryPhotos: { data: Buffer, type: String }
+  profilePhoto: { data: Buffer, type: Array },
+  galleryPhotos: { data: Buffer, type: Array }
 });
 
 UserSchema.methods.generateHash = function(password) {
