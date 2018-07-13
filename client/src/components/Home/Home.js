@@ -38,12 +38,14 @@ class Home extends Component {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
+      console.log('token', token)
       // Verify token
       console.log ("obj:", obj);
       console.log("token", token);
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
+          
           if (json.success) {
             this.setState({
               token,
@@ -54,8 +56,10 @@ class Home extends Component {
               isLoading: false,
             });
           }
-        });
-    } else {
+        }).catch(err=>{
+          console.log(err)
+        })
+      } else {
       this.setState({
         isLoading: false,
       });
@@ -211,7 +215,7 @@ class Home extends Component {
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-
+       console.log("this is a string" , token)
     if (!token) {
       return (
         <div class='col-sm-6'>

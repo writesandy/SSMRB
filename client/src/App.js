@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
- 
-//import logo from './logo.svg';
 import Home from './components/Home/Home.js';
 import Community from './components/Community/community.js'
 import './App.css';
 
-import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
-import ImageUpload from './components/ImageUpload'
-import GalleryComponent from './components/Gallery'
+//import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
+//import ImageUpload from './components/ImageUpload'
+//import GalleryComponent from './components/Gallery'
 
 
 class App extends Component {
@@ -18,11 +16,11 @@ class App extends Component {
  
         <header className="App-header">
         <Home></Home>
-        <Community></Community>
+        <Community />
 
-        <ArtistThumbnail></ArtistThumbnail>
-        <ImageUpload></ImageUpload>
-        <GalleryComponent></GalleryComponent>
+        {/* <ArtistThumbnail></ArtistThumbnail>
+        <ImageUpload></ImageUpload> */}
+        {/* GalleryComponent></GalleryComponent> */}
      </header>
       </div>
     );
