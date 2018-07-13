@@ -1,5 +1,75 @@
-.art {
-    margin-bottom:25px;
-}
+/* Gallery */
+    #art-gallery {
+        max-height: 600px;
+        padding-top: 15px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    /* Gallery Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
 
-/* Modal */
+        /* Track */
+        ::-webkit-scrollbar-track {
+            /* box-shadow: inset 0 0 5px grey;  */
+            border-radius: 5px;
+            border: solid lightgrey 1px ;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lightgrey; 
+            border-radius: 5px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2699FB; 
+        }
+
+    /* Gallery Thumbnails */
+        .art {
+            /* height: 150px; */
+            float:left;
+            padding-bottom: 25px;
+        }
+
+        .art-img:hover {
+            transform: scale(1.1) rotate(-2.5deg);
+            box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+        }
+
+        .art-img {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+    /* Art Feature Modal */
+        .ReactModal__Content {
+            width: fit-content;
+            height: fit-content;
+            max-height: 75%;
+            max-width: 75%;
+            margin: auto;
+        }
+
+        .close-btn {
+            background-color: #ffffff00;
+            border: none;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        i.fa.fa-close {
+            font-size: 20px;
+            margin: 0 0;
+            color: lightgray;
+        }
+
+        #feature-image {
+            width: 100%;
+        }
