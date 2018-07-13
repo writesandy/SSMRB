@@ -1,7 +1,7 @@
 import React from 'react';
-import GalleryComponent from '../../components/Gallery'
 import './ArtistProfiles.css'
 import Artists from '../../components/artistSeed.json'
+import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 
 
@@ -11,6 +11,7 @@ class ArtistProfiles extends React.Component {
         super();
         this.state = {
             showModal: false,
+            modalArt:"",
             Artists
         };
         
@@ -18,7 +19,8 @@ class ArtistProfiles extends React.Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
-    handleOpenModal () {
+    handleOpenModal (art, e) {
+        this.setState({modalArt:`${art}`});
         this.setState({ showModal: true });
       }
       
@@ -28,17 +30,19 @@ class ArtistProfiles extends React.Component {
 
     
     render () {
+        console.log(this.state);
         return (
             <div>
             {/* Header */}
                 <h2>HEADER</h2>
             {/* ArtistBio */}
-                <h2>Artist Image and Bio</h2>
+                <ArtistBio/>
             {/* Gallery */}
                 <div id="art-gallery">
                     {this.state.Artists[0].art.map ((art, index) => {
+                            let boundItemClick = this.handleOpenModal.bind(this,art);
                             return (
-                                <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={this.handleOpenModal} style={{height:200}}>
+                                <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
                                     <img className="art-img" src={art} />
                                 </div>
                             )
@@ -46,8 +50,8 @@ class ArtistProfiles extends React.Component {
                 </div>
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal}>
-                    <img id="feature-image" src="https://images.pexels.com/photos/900102/pexels-photo-900102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                    <button className="close-btn" onClick={this.handleCloseModal}><i class="fa fa-close"/></button>
+                    <img id="feature-image" src={this.state.modalArt} />
+                    <button className="close-btn" onClick={this.handleCloseModal}><i className="fa fa-close"/></button>
                 </ReactModal>
              {/* Footer */}
             </div>            

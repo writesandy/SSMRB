@@ -30,7 +30,7 @@
 
     /* Gallery Thumbnails */
         .art {
-            /* height: 150px; */
+            height: 200px;
             float:left;
             padding-bottom: 25px;
         }
@@ -51,9 +51,10 @@
         .ReactModal__Content {
             width: fit-content;
             height: fit-content;
-            max-height: 75%;
-            max-width: 75%;
+            max-height: 65%;
+            max-width: 65%;
             margin: auto;
+            overflow: hidden;
         }
 
         .close-btn {
@@ -71,5 +72,7 @@
         }
 
         #feature-image {
-            width: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            
         }
