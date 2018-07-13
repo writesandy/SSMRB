@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import './home.css';
+import 'bootstrap/dist/css/bootstrap.css';
 //import style from "..styles/vendor/style.less";
 
 import {
@@ -213,14 +214,14 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div>
+        <div class='col-sm-6'>
           <div>
             {
               (signInError) ? (
                 <p>{signInError}</p>
               ) : (null)
             }
-            <p>Sign In</p>
+            <p>Welcome, Existing users! Please Sign In</p>
             <input
               type="email"
               placeholder="Email"
@@ -245,7 +246,8 @@ class Home extends Component {
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <p>Sign Up</p>
+            <p>Not Yet a Member? 
+              Sign Up</p>
             <input
               type="email"
               placeholder="Email"

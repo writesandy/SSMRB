@@ -6,8 +6,9 @@
     overflow-x: hidden;
   }
   
-  .list-overflow-container ul {
-    margin: 0;
+  .col-sm-6 p {
+    color: lightblue;
+    background-color: darkblue;
   }
   
   .list-overflow-container li {
@@ -16,8 +17,8 @@
     border-right: none;
   }
   
-  .list-overflow-container li * {
-    cursor: pointer;
+  .btn-success {
+    background-color: blue;
   }
   
   .list-overflow-container li a {
