@@ -785,6 +785,8 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 Import required React Bootstrap components within ```src/App.js``` file or your custom component files:
 
+
+
 ```js
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 ```
