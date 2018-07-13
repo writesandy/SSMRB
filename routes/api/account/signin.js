@@ -7,6 +7,7 @@ router.route("/signup").post( (req, res, next) => {
   const { body } = req;
   console.log(body);
 
+<<<<<<< HEAD
   const {
     password
   } = body;
@@ -14,6 +15,11 @@ router.route("/signup").post( (req, res, next) => {
   let {
     email
   } = body;
+=======
+  const { password } = body;
+
+  let { email } = body;
+>>>>>>> c2a850bc6adace00254d4483c04533b088cfe1f4
 
   if (!email) {
     console.log("no email")
@@ -216,5 +222,8 @@ router.route('/logout').get( (req, res, next) => {
 
 module.exports = router;
 
+<<<<<<< HEAD
 
  
+=======
+>>>>>>> c2a850bc6adace00254d4483c04533b088cfe1f4

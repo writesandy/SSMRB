@@ -3,6 +3,10 @@
 # dependencies
 /node_modules
 /client/node_modules
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2a850bc6adace00254d4483c04533b088cfe1f4
 # testing
 /coverage
 

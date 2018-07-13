@@ -20,13 +20,28 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+<<<<<<< HEAD
     "bcrypt": "^3.0.0",
+=======
+    "bcryptjs": "^2.4.3",
+>>>>>>> c2a850bc6adace00254d4483c04533b088cfe1f4
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "dotenv": "^6.0.0",
     "express": "^4.15.4",
     "flow-bin": "^0.76.0",
     "mongoose": "^5.0.17",
+<<<<<<< HEAD
+=======
+    "path": "^0.12.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-grid-gallery": "^0.5.1",
+    "react-images": "^0.5.17",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.4",
+>>>>>>> c2a850bc6adace00254d4483c04533b088cfe1f4
     "whatwg-fetch": "^2.0.4"
   }
 }
