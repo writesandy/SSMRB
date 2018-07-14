@@ -3,8 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## Table of Contents
- 
+## Table of Contents 
+
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
@@ -21,7 +21,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Formatting Code Automatically](#formatting-code-automatically)
 - [Changing the Page `<title>`](#changing-the-page-title)
 - [Installing a Dependency](#installing-a-dependency)
-- [Importing a Component](#importing-a-component)
+- [Importing a PureComponent](#importing-a-component)
 - [Code Splitting](#code-splitting)
 - [Adding a Stylesheet](#adding-a-stylesheet)
 - [Post-Processing CSS](#post-processing-css)
@@ -58,7 +58,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Command Line Interface](#command-line-interface)
   - [Version Control Integration](#version-control-integration)
   - [Writing Tests](#writing-tests)
-  - [Testing Components](#testing-components)
+  - [Testing PureComponents](#testing-components)
   - [Using Third Party Assertion Libraries](#using-third-party-assertion-libraries)
   - [Initializing Test Environment](#initializing-test-environment)
   - [Focusing and Excluding Tests](#focusing-and-excluding-tests)
@@ -70,10 +70,10 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Debugging Tests](#debugging-tests)
   - [Debugging Tests in Chrome](#debugging-tests-in-chrome)
   - [Debugging Tests in Visual Studio Code](#debugging-tests-in-visual-studio-code)
-- [Developing Components in Isolation](#developing-components-in-isolation)
+- [Developing PureComponents in Isolation](#developing-components-in-isolation)
   - [Getting Started with Storybook](#getting-started-with-storybook)
   - [Getting Started with Styleguidist](#getting-started-with-styleguidist)
-- [Publishing Components to npm](#publishing-components-to-npm)
+- [Publishing PureComponents to npm](#publishing-components-to-npm)
 - [Making a Progressive Web App](#making-a-progressive-web-app)
   - [Opting Out of Caching](#opting-out-of-caching)
   - [Offline-First Considerations](#offline-first-considerations)
@@ -168,7 +168,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001/](http://localhost:3000/) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
@@ -378,7 +378,7 @@ yarn add react-router
 
 This works for any library, not just `react-router`.
 
-## Importing a Component
+## Importing a PureComponent
 
 This project setup supports ES6 modules thanks to Babel.<br>
 While you can still use `require()` and `module.exports`, we encourage you to use [`import` and `export`](http://exploringjs.com/es6/ch_modules.html) instead.
@@ -388,9 +388,9 @@ For example:
 ### `Button.js`
 
 ```js
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Button extends Component {
+class Button extends PureComponent {
   render() {
     // ...
   }
@@ -403,10 +403,10 @@ export default Button; // Don’t forget to use export default!
 
 
 ```js
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Button from './Button'; // Import a component from another file
 
-class DangerButton extends Component {
+class DangerButton extends PureComponent {
   render() {
     return <Button color="red" />;
   }
@@ -445,9 +445,9 @@ export { moduleA };
 ### `App.js`
 
 ```js
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class App extends Component {
+class App extends PureComponent {
   handleClick = () => {
     import('./moduleA')
       .then(({ moduleA }) => {
@@ -495,10 +495,10 @@ This project setup uses [Webpack](https://webpack.js.org/) for handling all asse
 ### `Button.js`
 
 ```js
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Button.css'; // Tell Webpack that Button.js uses these styles
 
-class Button extends Component {
+class Button extends PureComponent {
   render() {
     // You can use them as regular CSS styles
     return <div className="Button" />;
@@ -1323,7 +1323,7 @@ it('sums numbers', () => {
 All `expect()` matchers supported by Jest are [extensively documented here](https://facebook.github.io/jest/docs/en/expect.html#content).<br>
 You can also use [`jest.fn()` and `expect(fn).toBeCalled()`](https://facebook.github.io/jest/docs/en/expect.html#tohavebeencalled) to create “spies” or mock functions.
 
-### Testing Components
+### Testing PureComponents
 
 There is a broad spectrum of component testing techniques. They range from a “smoke test” verifying that a component renders without throwing, to shallow rendering and testing some of the output, to full rendering and testing component lifecycle and state changes.
 
@@ -1691,7 +1691,7 @@ Use the following [`launch.json`](https://code.visualstudio.com/docs/editor/debu
 }
 ```
 
-## Developing Components in Isolation
+## Developing PureComponents in Isolation
 
 Usually, in an app, you have a lot of UI components, and each of them has many different states.
 For an example, a simple button component could have following states:
@@ -1771,7 +1771,7 @@ Learn more about React Styleguidist:
 * [GitHub Repo](https://github.com/styleguidist/react-styleguidist)
 * [Documentation](https://react-styleguidist.js.org/docs/getting-started.html)
 
-## Publishing Components to npm
+## Publishing PureComponents to npm
 
 Create React App doesn't provide any built-in functionality to publish a component to npm. If you're ready to extract a component from your project so other people can use it, we recommend moving it to a separate directory outside of your project and then using a tool like [nwb](https://github.com/insin/nwb#react-components-and-libraries) to prepare it for publishing.
 

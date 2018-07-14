@@ -1,0 +1,69 @@
+/* Fonts */
+h4 {
+    font-size: medium;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+h6 {
+    font-size: 9px !important;
+    margin-bottom: 0px;
+}
+
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* Artist Thumbanails */
+.artist-container {
+    position: relative;
+}
+.artist-thumbnail-container.col-xl-3.col-lg-3.col-md-4.col-sm-6.col-xs-12 {
+    height: 275px;
+    overflow: hidden;
+    padding-left:7.5px;
+    padding-right: 7.5px;
+    margin-bottom: 15px;
+    float:left;
+}
+.artist-thumbnail {
+    background-color: lightblue;    
+
+}
+.artist-thumbnail-image {
+    object-fit: cover;
+    width:100%;
+    height: 100%;
+    min-height: 275px;
+}
+
+.artist-thumbnail-text-block {
+    position: sticky;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.90);
+    color: #2699FB;
+    padding-bottom: 10px;
+    padding-top:10px;
+}
+
+/* Social Icons */
+    .social-icon {
+        width: 20px;
+        height: 20px;
+        margin: 2px 2px;
+        border-radius:50%;
+        background: none;
+    }
+    .fa {
+        font-size: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #2699FB;
+        margin: 5px 10px;
+    }
+    
+    .fa:hover {
+        opacity: 0.7;
+    }
+       

@@ -1,0 +1,23 @@
+/* Social Icons */
+.social {
+    color: #2699FB;
+    height:20px;
+}
+a.fa {
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #2699FB;
+    margin: 0 0;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+a.fa.socialMax{
+    text-align:right;
+    visibility: hidden;
+    height: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
