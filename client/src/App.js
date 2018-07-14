@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SignIn from './components/SignIn/signin.js';
 //import Community from './components/Community/community.js'
 import './App.css';
+import Signin from './components/SignIn'
 
 //import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
 //import ImageUpload from './components/ImageUpload'
@@ -13,15 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
- 
-        <header className="App__header--top">
-        <SignIn/>
-        {/* <Community /> */}
-
-        {/* <ArtistThumbnail></ArtistThumbnail>
-        <ImageUpload></ImageUpload> */}
-        {/* GalleryComponent></GalleryComponent> */}
-     </header>
+        <Signin/>
+        <ArtistThumbnail />
+        <ImageUpload />
+        <GalleryComponent />
       </div>
     );
   }
