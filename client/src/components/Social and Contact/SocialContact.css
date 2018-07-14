@@ -1,0 +1,26 @@
+/* Social Icons */
+.socialContact{
+    color: #2699FB;
+    margin: 15px 0;
+    margin-top: 20px;
+}
+a.fa.socialContactMin {
+    font-size: 10px;
+    text-align: left;
+    text-decoration: none;
+    color: #2699FB;
+    margin: 0 0;
+    padding-left: 0px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+a.fa.socialContactMax{
+    text-align:right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-left:0px;
+    padding-right:0px;
+}
