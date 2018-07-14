@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './ImageUpload.css';
 import API from '../../utils/API'
 
-class ImageUpload extends Component {
+class ImageUpload extends PureComponent {
 
     componentDidMount() {
         API.getImages().then(res=> console.log('check here', res.data))

@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
 import 'bootstrap/dist/css/bootstrap.css';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
-import './signin.css';
+import './Signin.css';
 import ArtistBio from '/Users/rikki/Desktop/SSMRB/client/src/components/AristBio'
 
 //import style from "..styles/vendor/style.less";
 
-import {
-  getFromStorage,
-  setInStorage,
-} from '../../utils/storage';
+import {getFromStorage, setInStorage} from '../../utils/storage';
 
-class Home extends Component {
+class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -296,4 +293,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default SignIn;

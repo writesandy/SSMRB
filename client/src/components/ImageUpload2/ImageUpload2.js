@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './ImageUpload2.css';
 // import axios from 'axios';
 // import { List, ListName } from "../../components/List";
 
-class ImageUpload2 extends Component {
+class ImageUpload2 extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {

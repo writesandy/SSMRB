@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SignIn from './components/SignIn/signin.js';
 //import Community from './components/Community/community.js'
 import './App.css';
 import Signin from './components/SignIn'
@@ -18,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Signin/>
+        {/* <Signin/> */}
         <ArtistThumbnail />
         <ImageUpload2 />
         <ImageUpload />
