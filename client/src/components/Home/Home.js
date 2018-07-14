@@ -4,6 +4,7 @@ import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './home.scss';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
+import TextureImage from './Home/textureimage.jpeg'
 //import style from "..styles/vendor/style.less";
 
 import {
@@ -229,6 +230,7 @@ class Home extends Component {
       return (
   <span class = 'sign-in-page'>
         <div class = 'col-12 col-md-8 pink'>
+        <img class='second-background'src={TextureImage}/>
         <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
         </div>
         
