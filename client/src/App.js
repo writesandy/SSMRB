@@ -13,11 +13,11 @@ class App extends PureComponent {
     return (
       <div className="App">
         <ArtistProfiles />
-        {/* <Signin/>
+        <Signin/>
         <ArtistThumbnail />
         <ImageUpload2 />
         <ImageUpload />
-        <GalleryComponent /> */}
+        <GalleryComponent />
       </div>
     );
   }

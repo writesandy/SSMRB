@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
 import 'bootstrap/dist/css/bootstrap.css';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
-import './Signin.css';
-// import ArtistBio from './components/AristBio'
+import './SignIn.css';
+
 
 //import style from "..styles/vendor/style.less";
 
