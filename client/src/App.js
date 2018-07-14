@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from './components/Home/Home.js';
+import SignIn from './components/SignIn/signin.js';
 //import Community from './components/Community/community.js'
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
  
         <header className="App__header--top">
-        <Home></Home>
+        <SignIn/>>
         {/* <Community /> */}
 
         {/* <ArtistThumbnail></ArtistThumbnail>
