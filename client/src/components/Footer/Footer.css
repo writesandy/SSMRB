@@ -1,0 +1,23 @@
+.footer{
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+}
+.footer-header{
+    padding-bottom: 1.5rem!important;
+    padding-top: 1.5rem!important;
+    color: #fff;
+    text-align: left;
+
+}
+.container{
+    text-align: left;
+}
+.page-footer {
+        background-color: lightgrey;
+}
+
+.footer-copyright {
+}
+
+
+
