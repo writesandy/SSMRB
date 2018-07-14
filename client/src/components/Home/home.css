@@ -7,9 +7,6 @@
     height: 100%;
 
 }
-.second-background{
-    background-image: url('./Home/textureimage.jpeg') repeat;
-}
 .sign-in-page{
     display: flex;
     flex-direction: row;

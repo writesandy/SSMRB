@@ -230,7 +230,6 @@ class Home extends Component {
       return (
   <span class = 'sign-in-page'>
         <div class = 'col-12 col-md-8 pink'>
-        <img class='second-background'src={TextureImage}/>
         <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
         </div>
         
