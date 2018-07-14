@@ -2,7 +2,7 @@ import React from 'react';
 import Gallery from 'react-grid-gallery'
 // import { render } from 'react-dom';
 
-class GalleryComponent extends React.Component {
+class GalleryPureComponent extends React.PureComponent {
     
     render() {
         const IMAGES =
@@ -39,4 +39,4 @@ class GalleryComponent extends React.Component {
    
   }
 
-  export default GalleryComponent;
+  export default GalleryPureComponent;

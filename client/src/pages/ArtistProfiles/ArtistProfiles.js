@@ -5,7 +5,7 @@ import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 
 
-class ArtistProfiles extends React.Component {
+class ArtistProfiles extends React.PureComponent {
 
     constructor () {
         super();

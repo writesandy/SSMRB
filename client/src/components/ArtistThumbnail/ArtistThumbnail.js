@@ -4,7 +4,7 @@ import Artists from "../artistSeed.json";
 import SocialIcons from '../Social Icons'
 
 
-class ArtistThumbnail extends React.Component {
+class ArtistThumbnail extends React.PureComponent {
     state = {
         Artists
       };
@@ -25,6 +25,7 @@ class ArtistThumbnail extends React.Component {
                                 linkedin={artist.linkedin}
                                 website={artist.website}
                                 email={artist.email}
+                                phone={artist.phone}
                             />
                         </div>
                     </div>

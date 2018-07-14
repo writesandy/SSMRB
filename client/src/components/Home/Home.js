@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
 import './home.css';
 //import style from "..styles/vendor/style.less";
@@ -8,7 +8,7 @@ import {
   setInStorage,
 } from '../../utils/storage';
 
-class Home extends Component {
+class Home extends PureComponent {
   constructor(props) {
     super(props);
 
