@@ -4,11 +4,11 @@ import HeaderNav from './components/HeaderNav'
 import Carousel from './components/Carousel/Carousel'
 import About from './components/About/About'
 import Footer from './components/Footer/Footer'
-import Signin from './components/SignIn'
+import SignIn from './components/SignIn'
 import ArtistProfiles from './pages/ArtistProfiles'
 import ArtistThumbnail from './components/ArtistThumbnail';
 import ImageUpload from './components/ImageUpload'
-import GalleryPureComponent from './components/Gallery'
+import GalleryComponent from './components/Gallery'
 //import Community from './components/Community/community.js'
 
 class App extends PureComponent {
@@ -20,12 +20,12 @@ class App extends PureComponent {
         <Carousel fluid={true}/>
         <About />
         <Footer />
-        {/* <ArtistProfiles />
-        <Signin/>
+        <ArtistProfiles />
+        <SignIn/>
         <ArtistThumbnail />
         <ImageUpload />
         <GalleryComponent />
-      </div> */}
+      </div>
     );
   }
 }
