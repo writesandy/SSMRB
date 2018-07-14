@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react';
 import './App.css';
+import HeaderNav from './components/HeaderNav'
+import Carousel from './components/Carousel/Carousel'
+import About from './components/About/About'
+import Footer from './components/Footer/Footer'
 import SignIn from './components/SignIn'
 import ArtistProfiles from './pages/ArtistProfiles'
 import ArtistThumbnail from './components/ArtistThumbnail';
@@ -12,11 +16,15 @@ class App extends PureComponent {
   render() {
     return (
       <div className="App">
+        <HeaderNav />
+        <Carousel fluid={true}/>
+        <About />
+        <Footer />
         <ArtistProfiles />
         <SignIn/>
         <ArtistThumbnail />
         <ImageUpload />
-        <GalleryComponent /> */}
+        <GalleryComponent />
       </div>
     );
   }
