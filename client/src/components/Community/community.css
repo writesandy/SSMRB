@@ -1,0 +1,35 @@
+.list-overflow-container {
+    max-height: 545px;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .col-sm-6 p {
+    color: lightblue;
+    background-color: darkblue;
+  }
+  
+  .list-overflow-container li {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .btn-success {
+    background-color: blue;
+  }
+  
+  .list-overflow-container li a {
+    color: #2A878C;
+  }
+  
+  .list-overflow-container li:first-child {
+    border-top: none;
+  }
+  
+  .list-overflow-container li:last-child {
+    border-bottom: none;
+  
+  }  

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-import './home.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import PinkPhoto from './pexels-photo-1111367.jpeg'
+import './SignIn.css';
+import ArtistBio from './components/ArtistBio'
+
 //import style from "..styles/vendor/style.less";
 
 import {
@@ -17,10 +21,10 @@ class Home extends Component {
       token: '',
       signUpError: '',
       signInError: '',
-      signInEmail: 'Your Email Address is your UserName',
-      signInPassword: '8 characters long, please',
+      signInEmail: '',
+      signInPassword: '',
       signUpEmail: '',
-      signUpPassword: '8 Characters long, please',
+      signUpPassword: '',
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -33,16 +37,26 @@ class Home extends Component {
     this.logout = this.logout.bind(this);
   }
 
+//make the above into a fat arrow function 
+// bindThis => (this){
+
+// }
+
+
+
+
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
+      console.log('token', token)
       // Verify token
       console.log ("obj:", obj);
       console.log("token", token);
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
+          
           if (json.success) {
             this.setState({
               token,
@@ -53,8 +67,10 @@ class Home extends Component {
               isLoading: false,
             });
           }
-        });
-    } else {
+        }).catch(err=>{
+          console.log(err)
+        })
+      } else {
       this.setState({
         isLoading: false,
       });
@@ -140,7 +156,7 @@ class Home extends Component {
     fetch('/api/account/signin', {
       method: 'POST',
       headers: {
-        'Content-Type': 'html/test'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: signInEmail,
@@ -148,7 +164,6 @@ class Home extends Component {
       }),
     }).then(res => res.json())
       .then(json => {
-        console.log('json', json);
         if (json.success) {
           setInStorage('the_main_app', { token: json.token });
           this.setState({
@@ -211,17 +226,21 @@ class Home extends Component {
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-
     if (!token) {
       return (
-        <div>
+  <span class = 'sign-in-page'>
+        <div class = 'col-12 col-md-8 pink'>
+        <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
+        </div>
+        
+        <div class='col-12 col-md-4'>
           <div>
             {
               (signInError) ? (
                 <p>{signInError}</p>
               ) : (null)
             }
-            <p>Sign In</p>
+            <h3>Welcome, Existing users! Please Sign In</h3>
             <input
               type="email"
               placeholder="Email"
@@ -236,40 +255,42 @@ class Home extends Component {
               onChange={this.onTextboxChangeSignInPassword}
             />
             <br />
-            <button onClick={this.onSignIn}>Sign In</button>
+            <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
           </div>
           <br />
           <br />
           <div>
+         
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <p>Sign Up</p>
-            <input
+            <h3>Not Yet a Member?<br></br>Sign Up</h3>
+            <input class
               type="email"
               placeholder="Email"
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}
             /><br />
-            <input
+            <input class 
               type="password"
               placeholder="Password"
               value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
-            <button onClick={this.onSignUp}>Sign Up</button>
+            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
           </div>
-
-        </div>
+          </div>
+  
+   </span>
       );
     }
 
     return (
       <div>
-        <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
+             <ArtistBio/>
+        <button type='button' class='btn btn-primary' onClick={this.logout}>Logout</button>
       </div>
     );
   }
