@@ -27,7 +27,7 @@
 (click image to go to full page)
 <a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board.png)</a>
 
-## *__UI/UX Component Views__*
+## *__UI/UX PureComponent Views__*
 <a href="https://xd.adobe.com/view/11a68c82-c643-42f9-6a28-9af1a68ff448-6797/">Click to View Dynamic UI/UX in XD Adobe</a>
 
 ## *__Xtensio User Profiles__*

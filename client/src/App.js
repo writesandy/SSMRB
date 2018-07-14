@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import SignIn from './components/SignIn';
-
+import React, { PureComponent } from 'react';
 import './App.css';
+import Signin from './components/SignIn'
+import ArtistProfiles from './pages/ArtistProfiles'
+import ArtistThumbnail from './components/ArtistThumbnail';
+import ImageUpload from './components/ImageUpload'
+import GalleryPureComponent from './components/Gallery'
+//import Community from './components/Community/community.js'
 
-
-//import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
-//import ImageUpload from './components/ImageUpload'
-//import GalleryComponent from './components/Gallery'
-
-
-class App extends Component {
+class App extends PureComponent {
 
   render() {
     return (
       <div className="App">
- 
-        <header className="App__header--top">
-        <SignIn/>
-       
-
-        {/* <ArtistThumbnail></ArtistThumbnail>
-        <ImageUpload></ImageUpload> */}
-        {/* GalleryComponent></GalleryComponent> */}
-     </header>
+        <ArtistProfiles />
+        <Signin/>
+        <ArtistThumbnail />
+        <ImageUpload />
+        <GalleryComponent /> */}
       </div>
     );
   }
