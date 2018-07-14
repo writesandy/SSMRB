@@ -3,6 +3,37 @@ import './ImageUpload.css';
 import API from '../../utils/API'
 
 class ImageUpload extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      file: null
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    console.log(event.target.files)
+    if (event.target.files.length < 1) {
+      this.setState({
+        name: '',
+        file: null
+      })
+    } else {
+      this.setState({
+        file: URL.createObjectURL(event.target.files[0]),
+        name: event.target.files[0].name
+      })
+    }
+  }
+  
+    fileSelectedHandler = event => {
+    console.log(event.target.files)
+      this.setState({
+        selectedFile: event.target.files[0],
+        name: event.target.files[0].name
+      })
+    }
 
     componentDidMount() {
         API.getImages().then(res=> console.log('check here', res.data))

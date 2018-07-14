@@ -1,6 +1,9 @@
 import React from "react";
 import "./ArtistThumbnail.css";
+import Artists from "../artistSeed.json";
+import SocialIcons from '../Social Icons'
 
+<<<<<<< HEAD
 const ArtistThumbnail = () => (
         <div className="col-md-3 artist_thumbnail_container">
             <div className="col-md-3 artist_thumbnail">
@@ -13,9 +16,39 @@ const ArtistThumbnail = () => (
                         <a alt="twitter social icon" href="https://twitter.com/" className="fa fa-twitter"></a>
                         <a alt="linkedin social icon" href="https://www.linkedin.com/" className="fa fa-linkedin"></a>
                         <a alt="squarespace social icon" href="https://www.squarespace.com/tour/portfolio-website/?channel=pnb&subchannel=go&campaign=consumer-art-united-states&subcampaign=(search-us-consumer-pnb_artist-websites_e)&source=us_art&gclid=CjwKCAjwspHaBRBFEiwA0eM3kRKF6hhj1QGI7XD3u-Gnjnd6p4YdIlvUA7aYWoiLW4BrIt5pHQR16RoCQcQQAvD_BwE" className="fa fa-globe"></a>
-                </div>
-            </div>
-        </div>
-    );
+=======
 
-export default ArtistThumbnail;
+class ArtistThumbnail extends React.PureComponent {
+    state = {
+        Artists
+      };
+
+    render () {
+        return (
+            <div className="artist-container">
+              {this.state.Artists.map(artist => (
+                <div className="artist-thumbnail-container col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">  
+                    <div className="artist-thumbnail" key={artist.id}>
+                        <img className="artist-thumbnail-image" src={artist.image} alt="" />
+                        <div className="artist-thumbnail-text-block">
+                            <h4>{artist.first} {artist.last}</h4>
+                            <h6>{artist.title.toUpperCase()}</h6>
+                            <SocialIcons 
+                                instagram={artist.instagram}
+                                twitter={artist.twitter}
+                                linkedin={artist.linkedin}
+                                website={artist.website}
+                                email={artist.email}
+                                phone={artist.phone}
+                            />
+                        </div>
+                    </div>
+>>>>>>> 76e0cb4147029d849c8eae176be97488eeb42715
+                </div>
+              ))}
+            </div>            
+        ) 
+    }
+}
+
+ export default ArtistThumbnail;

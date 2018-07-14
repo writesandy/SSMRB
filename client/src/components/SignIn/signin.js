@@ -286,7 +286,7 @@ class SignIn extends PureComponent {
 
     return (
       <div>
-             <ArtistBio/>
+             
         <button type='button' class='btn btn-primary' onClick={this.logout}>Logout</button>
       </div>
     );
