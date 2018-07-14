@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
  
         <header className="App__header--top">
-        <SignIn/>>
+        <SignIn/>
         {/* <Community /> */}
 
         {/* <ArtistThumbnail></ArtistThumbnail>

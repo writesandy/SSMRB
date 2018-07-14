@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import './home.scss';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
- 
+import './signin.css';
+import ArtistBio from '/Users/rikki/Desktop/SSMRB/client/src/components/AristBio'
+
 //import style from "..styles/vendor/style.less";
 
 import {
@@ -289,7 +289,7 @@ class Home extends Component {
 
     return (
       <div>
-        <p>Account</p>
+             <ArtistBio/>
         <button type='button' class='btn btn-primary' onClick={this.logout}>Logout</button>
       </div>
     );
