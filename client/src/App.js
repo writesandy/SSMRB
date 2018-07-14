@@ -4,7 +4,7 @@ import Signin from './components/SignIn'
 import ArtistProfiles from './pages/ArtistProfiles'
 import ArtistThumbnail from './components/ArtistThumbnail';
 import ImageUpload from './components/ImageUpload'
-import GalleryPureComponent from './components/Gallery'
+import GalleryComponent from './components/Gallery'
 //import Community from './components/Community/community.js'
 
 class App extends PureComponent {
@@ -15,7 +15,6 @@ class App extends PureComponent {
         <ArtistProfiles />
         <Signin/>
         <ArtistThumbnail />
-        <ImageUpload2 />
         <ImageUpload />
         <GalleryComponent />
       </div>
