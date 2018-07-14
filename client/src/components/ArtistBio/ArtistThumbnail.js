@@ -24,7 +24,6 @@ class ArtistThumbnail extends React.Component {
                                 twitter={artist.twitter}
                                 linkedin={artist.linkedin}
                                 website={artist.website}
-                                email={artist.email}
                             />
                         </div>
                     </div>
