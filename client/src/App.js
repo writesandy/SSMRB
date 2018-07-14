@@ -20,12 +20,12 @@ class App extends PureComponent {
         <Carousel fluid={true}/>
         <About />
         <Footer />
-        {/* <ArtistProfiles /> */}
-        {/* <Signin/>
+        {/* <ArtistProfiles />
+        <Signin/>
         <ArtistThumbnail />
         <ImageUpload />
-        <GalleryComponent /> */}
-      </div>
+        <GalleryComponent />
+      </div> */}
     );
   }
 }

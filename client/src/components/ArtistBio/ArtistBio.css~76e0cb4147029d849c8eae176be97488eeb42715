@@ -1,0 +1,19 @@
+.artistBio {
+    margin-bottom: 50px;
+    max-height: 500px;
+}
+
+.BioLeft {
+    max-height: 100%;
+}
+
+.BioRight {
+    max-height: 100%;
+    overflow: auto;
+}
+
+.profileImage {
+    max-width: 100%;
+    max-height: 100%;
+}
+
