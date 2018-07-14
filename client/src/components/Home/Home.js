@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './home.scss';
+import PinkPhoto from './pexels-photo-1111367.jpeg'
 //import style from "..styles/vendor/style.less";
 
 import {
@@ -33,6 +35,14 @@ class Home extends Component {
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
   }
+
+//make the above into a fat arrow function 
+// bindThis => (this){
+
+// }
+
+
+
 
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
@@ -215,17 +225,21 @@ class Home extends Component {
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-       console.log("this is a string" , token)
     if (!token) {
       return (
-        <div class='col-sm-6'>
+  <span class = 'sign-in-page'>
+        <div class = 'col-12 col-md-8 pink'>
+        <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
+        </div>
+        
+        <div class='col-12 col-md-4'>
           <div>
             {
               (signInError) ? (
                 <p>{signInError}</p>
               ) : (null)
             }
-            <p>Welcome, Existing users! Please Sign In</p>
+            <h3>Welcome, Existing users! Please Sign In</h3>
             <input
               type="email"
               placeholder="Email"
@@ -240,41 +254,42 @@ class Home extends Component {
               onChange={this.onTextboxChangeSignInPassword}
             />
             <br />
-            <button onClick={this.onSignIn}>Sign In</button>
+            <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
           </div>
           <br />
           <br />
           <div>
+         
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <p>Not Yet a Member? 
-              Sign Up</p>
-            <input
+            <h3>Not Yet a Member?<br></br>Sign Up</h3>
+            <input class
               type="email"
               placeholder="Email"
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}
             /><br />
-            <input
+            <input class 
               type="password"
               placeholder="Password"
               value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
-            <button onClick={this.onSignUp}>Sign Up</button>
+            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
           </div>
-
-        </div>
+          </div>
+  
+   </span>
       );
     }
 
     return (
       <div>
         <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
+        <button type='button' class='btn btn-primary' onClick={this.logout}>Logout</button>
       </div>
     );
   }

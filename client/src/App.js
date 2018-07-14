@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/Home/Home.js';
-import Community from './components/Community/community.js'
+//import Community from './components/Community/community.js'
 import './App.css';
 
 //import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
@@ -14,9 +14,9 @@ class App extends Component {
     return (
       <div className="App">
  
-        <header className="App-header">
+        <header className="App__header--top">
         <Home></Home>
-        <Community />
+        {/* <Community /> */}
 
         {/* <ArtistThumbnail></ArtistThumbnail>
         <ImageUpload></ImageUpload> */}

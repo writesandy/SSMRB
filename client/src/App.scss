@@ -1,5 +1,8 @@
+$test: blue;
+$secondpink: #da449e;
 .App {
   text-align: center;
+  background-color: $test
 }
 
 .App-logo {

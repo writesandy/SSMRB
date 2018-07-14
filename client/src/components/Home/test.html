@@ -1,0 +1,55 @@
+<div class="card">
+        <div>
+        <img style= class= 'sign-in-page;' src="/Users/rikki/Desktop/SSMRB/client/src/components/Home/pexels-photo-1111367.jpeg" alt={'pink-styling-image'}/>
+        </div>
+        
+        <div class='col-md-6'>
+          <div>
+            {
+              (signInError) ? (
+                <p>{signInError}</p>
+              ) : (null)
+            }
+            <p class='col-md-6 pink-page pull-right pink-login-page'>Welcome, Existing users! Please Sign In</p>
+            <input
+              type="email"
+              placeholder="Email"
+              value={signInEmail}
+              onChange={this.onTextboxChangeSignInEmail}
+            />
+            <br />
+            <input
+              type="password"
+              placeholder="Password"
+              value={signInPassword}
+              onChange={this.onTextboxChangeSignInPassword}
+            />
+            <br />
+            <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
+          </div>
+          <br />
+          <br />
+          <div>
+            {
+              (signUpError) ? (
+                <p>{signUpError}</p>
+              ) : (null)
+            }
+            <p>Not Yet a Member? 
+              Sign Up</p>
+            <input class
+              type="email"
+              placeholder="Email"
+              value={signUpEmail}
+              onChange={this.onTextboxChangeSignUpEmail}
+            /><br />
+            <input class 
+              type="password"
+              placeholder="Password"
+              value={signUpPassword}
+              onChange={this.onTextboxChangeSignUpPassword}
+            /><br />
+            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
+          </div>
+          </div>
+   </div>
