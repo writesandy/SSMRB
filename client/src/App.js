@@ -9,6 +9,7 @@ import Signin from './components/SignIn'
 //import GalleryComponent from './components/Gallery'
 
 
+
 class App extends Component {
 
   render() {

@@ -13,4 +13,7 @@ router
   .put(usersController.update)
   .delete(usersController.remove);
 
+router.router("/artist")
+.get(usersController.findById)
+
 module.exports = router;
