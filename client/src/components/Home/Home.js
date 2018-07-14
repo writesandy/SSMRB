@@ -4,7 +4,7 @@ import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './home.scss';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
-import TextureImage from './Home/textureimage.jpeg'
+ 
 //import style from "..styles/vendor/style.less";
 
 import {
