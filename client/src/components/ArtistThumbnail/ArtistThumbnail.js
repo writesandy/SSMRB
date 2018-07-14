@@ -9,10 +9,10 @@ const ArtistThumbnail = () => (
                     <h4>Paula Picasso</h4>
                     <h6>CO-FOUNDER &amp; CTO</h6>
                     <div className="artist_thumbnail_social">
-                        <a alt="instagram social icon" href="https://www.instagram.com/?hl=en" class="fa fa-instagram"></a>
-                        <a alt="twitter social icon" href="https://twitter.com/" class="fa fa-twitter"></a>
-                        <a alt="linkedin social icon" href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
-                        <a alt="squarespace social icon" href="https://www.squarespace.com/tour/portfolio-website/?channel=pnb&subchannel=go&campaign=consumer-art-united-states&subcampaign=(search-us-consumer-pnb_artist-websites_e)&source=us_art&gclid=CjwKCAjwspHaBRBFEiwA0eM3kRKF6hhj1QGI7XD3u-Gnjnd6p4YdIlvUA7aYWoiLW4BrIt5pHQR16RoCQcQQAvD_BwE" class="fa fa-globe"></a>
+                        <a alt="instagram social icon" href="https://www.instagram.com/?hl=en" className="fa fa-instagram"></a>
+                        <a alt="twitter social icon" href="https://twitter.com/" className="fa fa-twitter"></a>
+                        <a alt="linkedin social icon" href="https://www.linkedin.com/" className="fa fa-linkedin"></a>
+                        <a alt="squarespace social icon" href="https://www.squarespace.com/tour/portfolio-website/?channel=pnb&subchannel=go&campaign=consumer-art-united-states&subcampaign=(search-us-consumer-pnb_artist-websites_e)&source=us_art&gclid=CjwKCAjwspHaBRBFEiwA0eM3kRKF6hhj1QGI7XD3u-Gnjnd6p4YdIlvUA7aYWoiLW4BrIt5pHQR16RoCQcQQAvD_BwE" className="fa fa-globe"></a>
                 </div>
             </div>
         </div>

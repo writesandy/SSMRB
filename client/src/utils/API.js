@@ -10,6 +10,9 @@ const API = {
   deleteUser: function(id) {
     return axios.delete('/api/users/' + id);
   },
+  getImages: function() {
+    return axios.get("/images");
+  }
 };
 
 export default API;
