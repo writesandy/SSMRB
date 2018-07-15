@@ -1,0 +1,17 @@
+html, body, #root {
+    height: 100%;
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.contentArea {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+  }

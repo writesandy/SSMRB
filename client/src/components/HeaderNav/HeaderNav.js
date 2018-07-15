@@ -1,7 +1,7 @@
 import React from "react";
 import './HeaderNav.css';
-
 import {Link} from 'react-router-dom';
+import SignIn from '../SignIn'
 
 const HeaderNav = props => (
     <div className="container-fluid sticky">
@@ -21,8 +21,7 @@ const HeaderNav = props => (
                 </div>
 
                 <div className="rightside-Nav">
-                    <Link to="/SignIn" className="navbar-brand login" href="#">Login</Link>
-
+                    <SignIn />
                 </div>
             </div>
 

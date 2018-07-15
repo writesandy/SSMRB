@@ -1,13 +1,12 @@
 /* Fonts */
 .artistName {
     font-size: medium;
-    margin-left:auto;
-    margin-right:auto;
+    text-align: center;
 }
 
 .artistTitle {
     font-size: 9px !important;
-    margin-bottom: 0px;
+    text-align: center;
 }
 
 p {
@@ -17,9 +16,10 @@ p {
 /* Artist Thumbanails */
 .artist-container {
     position: relative;
+    overflow: hidden;
 }
 .artist-thumbnail-container {
-    height: 275px;
+    height: 300px;
     overflow: hidden;
     padding-left:7.5px;
     padding-right: 7.5px;
@@ -44,6 +44,7 @@ p {
     color: #2699FB;
     padding-bottom: 10px;
     padding-top:10px;
+    overflow: hidden;
 }
 
 /* Social Icons */
