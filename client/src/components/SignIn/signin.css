@@ -1,0 +1,16 @@
+.pink {
+    background: linear-gradient(to bottom right, #e959c6, #e856c3, #a62b65,#96234d);
+    height: 100%;
+
+}
+.sign-in-page{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height:2000px;
+}
+.pink-login-page {
+    font: Roboto;
+    font-size: 25px;
+}
