@@ -1,8 +1,3 @@
-.pink {
-    background: linear-gradient(to bottom right, #e959c6, #e856c3, #a62b65,#96234d);
-    height: 100%;
-
-}
 .sign-in-page{
     display: flex;
     flex-direction: row;
@@ -14,3 +9,11 @@
     font: Roboto;
     font-size: 25px;
 }
+
+/* Modal */
+    .ReactModal__Content{
+        max-width: 100%;
+        width: 100%;
+        max-height: 75%
+    
+    }
