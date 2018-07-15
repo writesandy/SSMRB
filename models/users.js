@@ -19,6 +19,8 @@ const UserSchema = new mongoose.Schema({
   image: {data: Buffer, type: String, default: 'https://images.pexels.com/photos/556069/pexels-photo-556069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'}
 });
 
+
+
 UserSchema.methods.generateHash = function(password) {
   return bcryptjs.hashSync(password, bcryptjs.genSaltSync(8), null);
 };
