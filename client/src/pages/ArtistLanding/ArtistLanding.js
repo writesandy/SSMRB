@@ -3,7 +3,7 @@ import './ArtistLanding.css'
 import ArtistThumbnail from '../../components/ArtistThumbnail';
 
 
-class ArtistProfiles extends PureComponent {
+class ArtistLanding extends PureComponent {
 
     render () {
         return (
@@ -15,4 +15,4 @@ class ArtistProfiles extends PureComponent {
 
 }
 
-export default ArtistProfiles;
+export default ArtistLanding;

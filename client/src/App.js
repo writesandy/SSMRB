@@ -12,6 +12,7 @@ import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
+import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
 
 
 
@@ -22,12 +23,14 @@ class App extends PureComponent {
       <Router>
         <div>
           <HeaderNav />
-          <Switch>
-            <Route exact path='/' component={About}/>
-            <Route path='/Artist' component={ArtistLanding}/>
-            <Route path='/Gallery' component={GalleryComponent}/>
-            {/* <Route path='Community' component={Community}/> */}
-          </Switch>
+          <div className="contentArea">
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/Artist' component={ArtistLanding}/>
+              <Route path='/Gallery' component={GalleryComponent}/>
+              {/* <Route path='Community' component={Community}/> */}
+            </Switch>
+          </div>
           <Footer />
         </div>
       </Router>
