@@ -1,6 +1,5 @@
 import React from 'react';
 import './Community.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import beardImage from './Image.Beard.png';
 
 
