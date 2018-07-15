@@ -4,7 +4,7 @@ import Carousel from '../../components/Carousel'
 import About from '../../components/About'
 
 
-class Home extends React.PureComponent {
+class Home extends PureComponent {
 
     render () {
         return(
