@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './ArtistProfiles.css'
-import ArtistBio from '../../components/ArtistThumbnail'
+import ArtistThumbnail from '../../components/ArtistThumbnail';
 
 
-class ArtistProfiles extends React.PureComponent {
+class ArtistProfiles extends PureComponent {
 
     render () {
-        <ArtistThumbnail />
+        return (
+            <div>
+                <ArtistThumbnail />
+            </div>
+        )
     }
 
 }

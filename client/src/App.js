@@ -8,7 +8,9 @@ import HeaderNav from './components/HeaderNav';
 import Footer from './components/Footer/Footer';
 
 // Pages
-import Home from './'
+import Home from './pages/Home'
+import ArtistLanding from './pages/ArtistLanding'
+import GalleryComponent from './components/Gallery'
 
 
 
@@ -20,8 +22,8 @@ class App extends PureComponent {
         <div>
           <HeaderNav />
           <Switch>
-            <Route path='/' component={Carousel}/>
-            <Route path='Artist' component={About}/>
+            <Route path='/' component={Home}/>
+            <Route path='Artist' component={ArtistLanding}/>
             <Route path='Gallery' component={GalleryComponent}/>
             {/* <Route path='Community' component={Community}/> */}
           </Switch>
@@ -32,27 +34,5 @@ class App extends PureComponent {
     )
   }
 }
-
-
-
-
-// class App extends PureComponent {
-
-//   render() {
-//     return (
-//       <div className="App">
-//         <HeaderNav />
-//         <Carousel fluid={true}/>
-//         <About />
-//         <Footer />
-//         <ArtistProfiles />
-//         <SignIn/>
-//         <ArtistThumbnail />
-//         <ImageUpload />
-//         <GalleryComponent />
-//       </div>
-//     );
-//   }
-// }
 
 export default App;
