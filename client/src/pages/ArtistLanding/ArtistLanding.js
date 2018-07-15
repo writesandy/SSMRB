@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import './ArtistProfiles.css'
+import './ArtistLanding.css'
 import ArtistThumbnail from '../../components/ArtistThumbnail';
 
 
