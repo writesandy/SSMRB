@@ -1,20 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import './Home.css'
-import Carousel from '../../components/Carousel'
-import About from '../../components/About'
 
+// Components
+    import About from '../../components/About'
 
-class Home extends PureComponent {
-
-    render () {
-        return(
+const Home = props => (
             <div>
-                <Carousel fluid="true" />
                 <About />
             </div>
-        )        
-    }
-
-}
+        )
 
 export default Home;
