@@ -12,7 +12,7 @@ import {
   setInStorage,
 } from '../../utils/storage';
 
-class Home extends PureComponent {
+class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
