@@ -22,7 +22,7 @@ class App extends PureComponent {
   render() {
     return (
       <Router>
-        <div>
+        <div id="page">
           <HeaderNav />
           <div className="contentArea">
             <Switch>
