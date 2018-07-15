@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import SignIn from './components/SignIn/signin.js';
 //import Community from './components/Community/community.js'
 import './App.css';
 import Signin from './components/SignIn';
