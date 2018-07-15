@@ -7,7 +7,7 @@ import beardImage from './Image.Beard.png';
 
    
 const Community = () => (
-  <div class='col-sm-6'>Flavor Text About our Project. 
+  <div class='flavor col-sm-6'>Flavor Text About our Project. 
   Come see our favorite artists and their projects. 
   These are people who are really talented and have a community to share. 
   <img src={beardImage} className="beard-image" alt="beard-image" />
