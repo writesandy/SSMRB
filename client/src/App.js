@@ -13,6 +13,7 @@ import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
+import ArtistThumbnail from './components/ArtistThumbnail';
 
 
 
@@ -26,7 +27,7 @@ class App extends PureComponent {
           <div className="contentArea">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/Artist' component={ArtistLanding}/>
+              <Route path='/Artist' component={ArtistThumbnail}/>
               <Route path='/Gallery' component={GalleryComponent}/>
               {/* <Route path='Community' component={Community}/> */}
             </Switch>
