@@ -12,7 +12,7 @@ import {
   setInStorage,
 } from '../../utils/storage';
 
-class Home extends PureComponent {
+class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -296,4 +296,4 @@ class Home extends PureComponent {
   }
 }
 
-export default Home;
+export default SignIn;
