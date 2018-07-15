@@ -1,6 +1,5 @@
 import React from "react";
 import './HeaderNav.css';
-
 import {Link} from 'react-router-dom';
 
 const HeaderNav = props => (

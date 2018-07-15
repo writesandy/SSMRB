@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
+import ReactModal from 'react-modal';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
 import './SignIn.css';
 
@@ -227,6 +228,7 @@ class SignIn extends PureComponent {
     }
     if (!token) {
       return (
+        <ReactModal isOpen={this.state.showModal}>
   <span class = 'sign-in-page'>
         <div class = 'col-12 col-md-8 pink'>
         <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
@@ -283,6 +285,7 @@ class SignIn extends PureComponent {
           </div>
   
    </span>
+   </ReactModal>
       );
     }
 
