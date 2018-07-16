@@ -278,7 +278,7 @@ onSignUp() {
     }
     if (!token) {
       return (
-  <span class = 'sign-in-page'>     
+  <span class = 'sign-in-page'> 
         <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
           <div>
             {
@@ -367,8 +367,8 @@ onSignUp() {
             /><br />
             <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
           </div>
+          
           </div>
-  
    </span>
       );
     }  

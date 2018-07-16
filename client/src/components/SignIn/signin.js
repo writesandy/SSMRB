@@ -28,7 +28,6 @@ class SignIn extends PureComponent {
       //Modal
       showModal:false,
       //Toggle Sign In & Sign Up
-      showSignIn: true,
       showSignUp: false,
     };
 
@@ -41,6 +40,8 @@ class SignIn extends PureComponent {
     //Modal
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleSignIn = this.handleSignIn.bind(this);
   }
 
 //make the above into a fat arrow function 
@@ -203,13 +204,15 @@ class SignIn extends PureComponent {
   }
   
   handleCloseModal () {
-  this.setState({ showModal: false });
+    this.setState({ showModal: false });
   };
 
-  onNewMember(e) {
-    e.preventDefault();
-    this.setState({showSignUp: !this.state.showSignUp});
-    this.setState({showSignIn: !this.state.showSignIn});
+  handleSignUp(){
+    this.setState({showSignUp: true});
+  }
+
+  handleSignIn(){
+    this.setState({showSignUp: false})
   }
 
   render() {
@@ -219,8 +222,6 @@ class SignIn extends PureComponent {
       signInError,
       signInEmail,
       signInPassword,
-      signInVisibility,
-      signUpVisibility
     } = this.state;
 
     if (isLoading) {
@@ -253,7 +254,7 @@ class SignIn extends PureComponent {
                                                             backgroundSize: 'cover'
                                                           }
                                                         }}>
-          {this.state.showSignIn && <span className= 'sign-in-page' style={signInVisibility}>                
+          {!this.state.showSignUp && <span className= 'sign-in-page'>                
                 <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
                   <div id="signInForm">
                     {
@@ -277,12 +278,13 @@ class SignIn extends PureComponent {
                     />
                     <br />
                     <button type='button' className='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
-                    <h6>Not a Member? <a href="#" onClick={this.onNewMember.bind(this)}>Sign Up</a></h6>
                   </div>
                 </div>
                   </span> }
-  {/* When Sign In is hidden, show sign up component here */}
+          <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
+          {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <a href="#" onClick={this.handleSignUp}>Sign Up</a></h6>}
           {this.state.showSignUp && <SignUp />}
+          {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <a href="#" onClick={this.handleSignIn}>Sign In</a></h6>}
         </ ReactModal>
         </a>
       );

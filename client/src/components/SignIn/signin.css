@@ -34,3 +34,23 @@
 .ReactModal__Body--open {
     overflow-y: hidden;
   }
+
+.memberStatus{
+    position: absolute;
+    bottom:20px;
+    right: 20px;
+}
+#closeLogin{
+    position:absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #777;
+}
+#closeLogin:hover{
+    color:#2699FB;
+}
+#closeX{
+    font-weight: bold;
+}
