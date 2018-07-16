@@ -29,5 +29,14 @@
     "mdbreact": "^4.5.1",
     "mongoose": "^5.0.17",
     "whatwg-fetch": "^2.0.4"
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writesandy/SSMRB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/writesandy/SSMRB/issues"
+  },
+  "homepage": "https://github.com/writesandy/SSMRB#readme"
 }
