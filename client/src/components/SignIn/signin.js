@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import 'whatwg-fetch';
-import PinkPhoto from './pexels-photo-1111367.jpeg';
+import SignUp from '../SignUp';
 import './SignIn.css';
 
 
@@ -11,6 +11,9 @@ import {
   getFromStorage,
   setInStorage,
 } from '../../utils/storage';
+
+// Bind modal to Login Button
+ReactModal.setAppElement('#root');
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -23,8 +26,10 @@ class SignIn extends PureComponent {
       signInEmail: '',
       signInPassword: '',
       //Modal
-      showModal:false
-
+      showModal:false,
+      //Toggle Sign In & Sign Up
+      showSignIn: true,
+      showSignUp: false,
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -201,6 +206,12 @@ class SignIn extends PureComponent {
   this.setState({ showModal: false });
   };
 
+  onNewMember(e) {
+    e.preventDefault();
+    this.setState({showSignUp: !this.state.showSignUp});
+    this.setState({showSignIn: !this.state.showSignIn});
+  }
+
   render() {
     const {
       isLoading,
@@ -208,6 +219,8 @@ class SignIn extends PureComponent {
       signInError,
       signInEmail,
       signInPassword,
+      signInVisibility,
+      signUpVisibility
     } = this.state;
 
     if (isLoading) {
@@ -218,20 +231,36 @@ class SignIn extends PureComponent {
       //Add specific class to ReactModal
 
       return (
-        <a className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
+        <a id="signInModalTrigger" className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
 
-        <ReactModal isOpen={this.state.showModal}>
-          <span class = 'sign-in-page'>
-                <img class='modalImage' src="https://images.pexels.com/photos/1111367/pexels-photo-1111367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt={'pink-styling'}/>
-                
-                <div class='modalFields col-12  col-xs-12 col-sm-12 col-md-6'>
-                  <div>
+        <ReactModal isOpen={this.state.showModal} style={{content: {
+                                                            position: 'relative',
+                                                            top: 'unset',
+                                                            left: 'unset',
+                                                            right: 'unset',
+                                                            bottom: 'unset',
+                                                            border: '1px solid grey',
+                                                            background: 'rgb(255, 255, 255)',
+                                                            overflow: 'hidden',
+                                                            borderRadius: '0px',
+                                                            outline: 'none',
+                                                            padding: '0px',
+                                                            width: '75%',
+                                                            height: '60%',
+                                                            margin: '80px 12.5%',
+                                                            backgroundImage: 'url(https://images.pexels.com/photos/1111367/pexels-photo-1111367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
+                                                            backgroundPosition: 'left',
+                                                            backgroundSize: 'cover'
+                                                          }
+                                                        }}>
+          {this.state.showSignIn && <span className= 'sign-in-page' style={signInVisibility}>                
+                <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
+                  <div id="signInForm">
                     {
                       (signInError) ? (
                         <p>{signInError}</p>
                       ) : (null)
                     }
-                    <h3></h3>
                     <input
                       className="signInInput"
                       type="email"
@@ -239,7 +268,6 @@ class SignIn extends PureComponent {
                       value={signInEmail}
                       onChange={this.onTextboxChangeSignInEmail}
                     />
-                    <br />
                     <input
                       className="signInInput"
                       type="password"
@@ -248,10 +276,13 @@ class SignIn extends PureComponent {
                       onChange={this.onTextboxChangeSignInPassword}
                     />
                     <br />
-                    <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
+                    <button type='button' className='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
+                    <h6>Not a Member? <a href="#" onClick={this.onNewMember.bind(this)}>Sign Up</a></h6>
                   </div>
                 </div>
-          </span>
+                  </span> }
+  {/* When Sign In is hidden, show sign up component here */}
+          {this.state.showSignUp && <SignUp />}
         </ ReactModal>
         </a>
       );
@@ -260,7 +291,7 @@ class SignIn extends PureComponent {
     return (
       <div>
              
-        <button type='button' class='btn btn-primary' onClick={this.logout}>Logout</button>
+        <button type='button' className='btn btn-primary' onClick={this.logout}>Logout</button>
       </div>
     );
   }

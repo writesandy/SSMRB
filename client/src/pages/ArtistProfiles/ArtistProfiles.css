@@ -47,7 +47,7 @@
         }
 
     /* Art Feature Modal */
-        .ReactModal__Content {
+        /* .ReactModal__Content {
             width: fit-content;
             height: fit-content;
             max-height: 65%;
@@ -75,4 +75,4 @@
             max-height: 100%;
             max-width: 100%;
             
-        }
+        } */

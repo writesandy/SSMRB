@@ -278,12 +278,8 @@ onSignUp() {
     }
     if (!token) {
       return (
-  <span class = 'sign-in-page'>
-        <div class = 'col-12 col-md-8 pink'>
-        Styling will go here
-        </div>
-        
-        <div class='col-12 col-md-4'>
+  <span class = 'sign-in-page'>     
+        <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
           <div>
             {
               (signUpError) ? (
@@ -346,7 +342,7 @@ onSignUp() {
               onChange={this.onTextboxChangeSignUpEmail}
             />
             <br />
-            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Create Profile</button>
+            <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Create Profile</button>
           </div>
           <br />
           <br />
@@ -357,7 +353,6 @@ onSignUp() {
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <h3>Not Yet a Member?<br></br>Sign Up</h3>
             <input class
               type="email"
               placeholder="Email"
@@ -370,7 +365,7 @@ onSignUp() {
               value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
-            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
+            <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
           </div>
           </div>
   
