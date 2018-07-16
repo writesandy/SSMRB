@@ -30,7 +30,7 @@
     /* Gallery Thumbnails */
         .art {
             height: 200px;
-            float:left;
+            /* float:left; */
             padding-bottom: 25px;
         }
 

@@ -17,8 +17,8 @@ class ArtistThumbnail extends React.PureComponent {
                     <div className="artist-thumbnail" key={artist.id}>
                         <img className="artist-thumbnail-image" src={artist.image} alt="" />
                         <div className="artist-thumbnail-text-block">
-                            <h4>{artist.first} {artist.last}</h4>
-                            <h6>{artist.title.toUpperCase()}</h6>
+                            <h4 className="artistName">{artist.first} {artist.last}</h4>
+                            <h6 className="artistTitle">{artist.title}</h6>
                             <SocialIcons 
                                 instagram={artist.instagram}
                                 twitter={artist.twitter}

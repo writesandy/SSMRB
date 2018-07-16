@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
-import 'bootstrap/dist/css/bootstrap.css';
+import ReactModal from 'react-modal';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
 import './SignIn.css';
 
@@ -22,6 +22,8 @@ class SignIn extends PureComponent {
       signInPassword: '',
       signUpEmail: '',
       signUpPassword: '',
+      //for modal
+      showModal: false
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -32,6 +34,11 @@ class SignIn extends PureComponent {
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
+
+    //for modal
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+
   }
 
 //make the above into a fat arrow function 
@@ -208,6 +215,15 @@ class SignIn extends PureComponent {
     }
   }
 
+  //Functions that Open/Close modal
+    handleOpenModal (art, e) {
+      this.setState({ showModal: true });
+    }
+    
+    handleCloseModal () {
+    this.setState({ showModal: false });
+    };
+
   render() {
     const {
       isLoading,
@@ -224,63 +240,71 @@ class SignIn extends PureComponent {
       return (<div><p>Loading...</p></div>);
     }
     if (!token) {
+
+      //Add specific class to ReactModal
+
       return (
-  <span class = 'sign-in-page'>
-        <div class = 'col-12 col-md-8 pink'>
-        <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
-        </div>
-        
-        <div class='col-12 col-md-4'>
-          <div>
-            {
-              (signInError) ? (
-                <p>{signInError}</p>
-              ) : (null)
-            }
-            <h3>Welcome, Existing users! Please Sign In</h3>
-            <input
-              type="email"
-              placeholder="Email"
-              value={signInEmail}
-              onChange={this.onTextboxChangeSignInEmail}
-            />
-            <br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signInPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <br />
-            <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
-          </div>
-          <br />
-          <br />
-          <div>
-         
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-            <h3>Not Yet a Member?<br></br>Sign Up</h3>
-            <input class
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            /><br />
-            <input class 
-              type="password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            /><br />
-            <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-          </div>
-          </div>
-  
-   </span>
+        <a className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
+
+        <ReactModal ref="signInModal" isOpen={this.state.showModal}>
+          <span class = 'sign-in-page'>
+                <div class = 'col-12 col-md-8'>
+                <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
+                </div>
+                
+                <div class='col-12 col-md-4'>
+                  <div>
+                    {
+                      (signInError) ? (
+                        <p>{signInError}</p>
+                      ) : (null)
+                    }
+                    <h3>Welcome, Existing users! Please Sign In</h3>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      value={signInEmail}
+                      onChange={this.onTextboxChangeSignInEmail}
+                    />
+                    <br />
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={signInPassword}
+                      onChange={this.onTextboxChangeSignInPassword}
+                    />
+                    <br />
+                    <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
+                  </div>
+                  <br />
+                  <br />
+                  <div>
+                
+                    {
+                      (signUpError) ? (
+                        <p>{signUpError}</p>
+                      ) : (null)
+                    }
+                    <h3>Not Yet a Member?<br></br>Sign Up</h3>
+                    <input class
+                      type="email"
+                      placeholder="Email"
+                      value={signUpEmail}
+                      onChange={this.onTextboxChangeSignUpEmail}
+                    /><br />
+                    <input class 
+                      type="password"
+                      placeholder="Password"
+                      value={signUpPassword}
+                      onChange={this.onTextboxChangeSignUpPassword}
+                    /><br />
+                    <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
+                  </div>
+                  </div>
+          
+          </span>
+        </ ReactModal>
+        </a>
       );
     }
 
