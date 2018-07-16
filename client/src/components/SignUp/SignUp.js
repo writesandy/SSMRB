@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
 import './SignUp.css'
 
+
 import {
     getFromStorage,
     setInStorage,
@@ -42,6 +43,7 @@ import {
       if (obj && obj.token) {
         const { token } = obj;
         // Verify token
+        console.log(token)
         fetch('/api/account/verify?token=' + token)
           .then(res => res.json())
           .then(json => {
@@ -126,7 +128,7 @@ onSignUp() {
     });
 
     // Post request to backend
-    fetch('/api/account/signup', {
+    fetch('routes/api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'// this also could be json data
@@ -185,7 +187,7 @@ onSignUp() {
   //   });
 
   //   // Post request to backend
-  //   fetch('/api/account/signup', {
+  //   fetch('routes/api/account/signup', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -234,7 +236,8 @@ onSignUp() {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/logout?token=' + token)
+      console.log(token);
+      fetch('routes/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {

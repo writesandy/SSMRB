@@ -128,7 +128,7 @@ class SignIn extends PureComponent {
     });
 
     // Post request to backend
-    fetch('/api/account/signin', {
+    fetch('routes/api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -165,7 +165,7 @@ class SignIn extends PureComponent {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/logout?token=' + token)
+      fetch('routes/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
