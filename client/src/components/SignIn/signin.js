@@ -250,14 +250,14 @@ class SignIn extends PureComponent {
           <span class = 'sign-in-page'>
                 <img class='modalImage' src="https://images.pexels.com/photos/1111367/pexels-photo-1111367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt={'pink-styling'}/>
                 
-                <div class='modalFields col-12 col-md-4'>
+                <div class='modalFields col-12  col-xs-12 col-sm-12 col-md-6'>
                   <div>
                     {
                       (signInError) ? (
                         <p>{signInError}</p>
                       ) : (null)
                     }
-                    <h3>Welcome, Existing users! Please Sign In</h3>
+                    <h3></h3>
                     <input
                       className="signInUpInput"
                       type="email"

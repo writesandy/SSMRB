@@ -19,6 +19,8 @@
     position: absolute !important;
     right: 0px;
     padding-right: 20px !important;
+    background-color: white !important;
+    height:100%;
 }
 .signInUpInput {
     width: 100%;
