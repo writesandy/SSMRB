@@ -1,8 +1,11 @@
 import React, { PureComponent } from 'react';
-import 'whatwg-fetch';
 import ReactModal from 'react-modal';
-import PinkPhoto from './pexels-photo-1111367.jpeg'
+import 'whatwg-fetch';
+import PinkPhoto from './pexels-photo-1111367.jpeg';
 import './SignIn.css';
+
+
+//import style from "..styles/vendor/style.less";
 
 import {
   getFromStorage,
@@ -16,29 +19,23 @@ class SignIn extends PureComponent {
     this.state = {
       isLoading: true,
       token: '',
-      signUpError: '',
       signInError: '',
       signInEmail: '',
       signInPassword: '',
-      signUpEmail: '',
-      signUpPassword: '',
-      //for modal
-      showModal: false
+      //Modal
+      showModal:false
+
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
     
     this.onSignIn = this.onSignIn.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
 
-    //for modal
+    //Modal
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-
   }
 
 //make the above into a fat arrow function 
@@ -46,17 +43,10 @@ class SignIn extends PureComponent {
 
 // }
 
-
-
-
   componentDidMount() {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
-      console.log('token', token)
-      // Verify token
-      console.log ("obj:", obj);
-      console.log("token", token);
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
@@ -92,58 +82,45 @@ class SignIn extends PureComponent {
       signInPassword: event.target.value,
     });
   }
+  // onSignUp() {
+  //   // Grab state
+  //   const {
+  //     signInEmail,
+  //     signInPassword,
+  //   } = this.state;
 
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
+  //   this.setState({
+  //     isLoading: true,
+  //   });
 
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value,
-    });
-  }
-
-  onSignUp() {
-    // Grab state
-    const {
-      signUpEmail,
-      signUpPassword,
-    } = this.state;
-
-    this.setState({
-      isLoading: true,
-    });
-
-    // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'// this also could be json data
-      },
-      body: JSON.stringify({
-        email: signUpEmail,
-        password: signUpPassword,
-      })
-    }).then(res => res.json())
-      .then(json => {
-        console.log('json', json);
-        if (json.success) {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            signUpEmail: '',
-            signUpPassword: '',
-          });
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-          });
-        }
-      });
-  }
+  //   // Post request to backend
+  //   fetch('/api/account/sign', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'// this also could be json data
+  //     },
+  //     body: JSON.stringify({
+  //       email: signInEmail,
+  //       password: signInPassword,
+  //     })
+  //   }).then(res => res.json())
+  //     .then(json => {
+  //       console.log('json', json);
+  //       if (json.success) {
+  //         this.setState({
+  //           signInError: json.message,
+  //           isLoading: false,
+  //           signUpEmail: '',
+  //           signUpPassword: '',
+  //         });
+  //       } else {
+  //         this.setState({
+  //           signUpError: json.message,
+  //           isLoading: false,
+  //         });
+  //       }
+  //     });
+  // }
 
   onSignIn() {
     // Grab state
@@ -157,7 +134,7 @@ class SignIn extends PureComponent {
     });
 
     // Post request to backend
-    fetch('/api/account/signin', {
+    fetch('routes/api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -194,7 +171,7 @@ class SignIn extends PureComponent {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/logout?token=' + token)
+      fetch('routes/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
@@ -216,13 +193,13 @@ class SignIn extends PureComponent {
   }
 
   //Functions that Open/Close modal
-    handleOpenModal (art, e) {
-      this.setState({ showModal: true });
-    }
-    
-    handleCloseModal () {
-    this.setState({ showModal: false });
-    };
+  handleOpenModal (art, e) {
+    this.setState({ showModal: true });
+  }
+  
+  handleCloseModal () {
+  this.setState({ showModal: false });
+  };
 
   render() {
     const {
@@ -231,9 +208,6 @@ class SignIn extends PureComponent {
       signInError,
       signInEmail,
       signInPassword,
-      signUpEmail,
-      signUpPassword,
-      signUpError,
     } = this.state;
 
     if (isLoading) {
@@ -259,7 +233,7 @@ class SignIn extends PureComponent {
                     }
                     <h3></h3>
                     <input
-                      className="signInUpInput"
+                      className="signInInput"
                       type="email"
                       placeholder="Email"
                       value={signInEmail}
@@ -267,7 +241,7 @@ class SignIn extends PureComponent {
                     />
                     <br />
                     <input
-                      className="signInUpInput"
+                      className="signInInput"
                       type="password"
                       placeholder="Password"
                       value={signInPassword}
@@ -276,34 +250,7 @@ class SignIn extends PureComponent {
                     <br />
                     <button type='button' class='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
                   </div>
-                  <br />
-                  <br />
-                  <div>
-                
-                    {
-                      (signUpError) ? (
-                        <p>{signUpError}</p>
-                      ) : (null)
-                    }
-                    <h3>Not Yet a Member?<br></br>Sign Up</h3>
-                    <input
-                      className="signInUpInput"
-                      type="email"
-                      placeholder="Email"
-                      value={signUpEmail}
-                      onChange={this.onTextboxChangeSignUpEmail}
-                    /><br />
-                    <input
-                      className="signInUpInput" 
-                      type="password"
-                      placeholder="Password"
-                      value={signUpPassword}
-                      onChange={this.onTextboxChangeSignUpPassword}
-                    /><br />
-                    <button type='button' class='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-                  </div>
-                  </div>
-          
+                </div>
           </span>
         </ ReactModal>
         </a>
