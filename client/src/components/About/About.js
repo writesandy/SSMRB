@@ -7,8 +7,8 @@ const About = props => (
             <div className="col-lg-12">
                 <h3>ABOUT US</h3>
             </div>
-            <div className="col-lg-4 col-md-4 col-sm-12">
-                <p>
+            <div className="about-us-1 col-lg-4 col-md-4 col-sm-12">
+                <p className="about-paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Nunc tristique vel turpis ut ullamcorper. Integer ante elit, tempor et ante in, elementum sagittis nunc.
                     Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
@@ -25,8 +25,8 @@ const About = props => (
 
 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                <p>
+            <div className="about-us-2 col-lg-3 col-md-3 col-sm-12">
+                <p className="about-paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Nunc tristique vel turpis ut ullamcorper. Integer ante elit, tempor et ante in, elementum sagittis nunc.
                     Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
@@ -40,12 +40,10 @@ const About = props => (
                     Nunc tristique vel turpis ut ullamcorper.
                     Integer ante elit, tempor et ante in, elementum sagittis nunc.
                     Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
-                    Aliquam blandit vulputate libero at posuere. Nunc varius orci sed leo dapibus, sit amet facilisis nunc viverra.
-                    Duis sit amet ullamcorper mi.
                     </p>
             </div>
 
-            <div class="col-lg-5 col-md-5 col-sm-12">
+            <div class="services-offerings col-lg-5 col-md-5 col-sm-12">
                 One of two columns
                 </div>
         </div>

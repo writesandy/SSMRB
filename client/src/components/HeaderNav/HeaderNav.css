@@ -1,7 +1,7 @@
 .container-fluid{
+    padding: 0px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px;
 }
   
 .navbar{
@@ -14,9 +14,6 @@
 
 }
 
-.rightside-Nav{
-    float: right;
-}
 
 .sticky{
     top: 0;
