@@ -1,11 +1,14 @@
 import React from 'react';
-import './Home.css'
+import './Home.css';
+
 
 // Components
-    import About from '../../components/About'
+    import About from '../../components/About';
+    import Carousel from '../../components/Carousel';
 
 const Home = props => (
             <div>
+                <Carousel />,
                 <About />
             </div>
         )

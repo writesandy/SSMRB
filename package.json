@@ -43,5 +43,14 @@
     "react-scripts": "^1.1.4",
     "uuid": "^3.3.2",
     "whatwg-fetch": "^2.0.4"
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writesandy/SSMRB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/writesandy/SSMRB/issues"
+  },
+  "homepage": "https://github.com/writesandy/SSMRB#readme"
 }
