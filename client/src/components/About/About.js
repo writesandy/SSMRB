@@ -18,7 +18,7 @@ const About = props => (
                     Etiam euismod leo eu tellus rutrum, a mollis mauris venenatis. In in facilisis dolor. Praesent id iaculis massa. Donec non maximus neque.
                     </p>
                 <p className="about-image">
-                    <img src="https://i.imgur.com/9lJaU1c.jpg" class="img-fluid" alt="Responsive image" />
+                    <img src="https://i.imgur.com/9lJaU1c.jpg" class="img-fluid" alt="Responsive" />
 
                 </p>
 

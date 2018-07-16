@@ -13,7 +13,7 @@ class ArtistBio extends React.Component {
             <div className="artistBio">
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div >
-                        <img className="profileImage" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+                        <img className="profileImage" alt="User" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
                     </div>
                     <SocialIcons 
                         instagram={this.state.Artists[0].instagram}
