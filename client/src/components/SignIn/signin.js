@@ -4,9 +4,6 @@ import ReactModal from 'react-modal';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
 import './SignIn.css';
 
-
-//import style from "..styles/vendor/style.less";
-
 import {
   getFromStorage,
   setInStorage,
@@ -249,13 +246,11 @@ class SignIn extends PureComponent {
       return (
         <a className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
 
-        <ReactModal ref="signInModal" isOpen={this.state.showModal}>
+        <ReactModal isOpen={this.state.showModal}>
           <span class = 'sign-in-page'>
-                <div class = 'col-12 col-md-8'>
-                <img class='img-fluid max-width: 50% height: auto' src={PinkPhoto} alt={'pink-styling'}/>
-                </div>
+                <img class='modalImage' src="https://images.pexels.com/photos/1111367/pexels-photo-1111367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt={'pink-styling'}/>
                 
-                <div class='col-12 col-md-4'>
+                <div class='modalFields col-12 col-md-4'>
                   <div>
                     {
                       (signInError) ? (
@@ -264,6 +259,7 @@ class SignIn extends PureComponent {
                     }
                     <h3>Welcome, Existing users! Please Sign In</h3>
                     <input
+                      className="signInUpInput"
                       type="email"
                       placeholder="Email"
                       value={signInEmail}
@@ -271,6 +267,7 @@ class SignIn extends PureComponent {
                     />
                     <br />
                     <input
+                      className="signInUpInput"
                       type="password"
                       placeholder="Password"
                       value={signInPassword}
@@ -289,13 +286,15 @@ class SignIn extends PureComponent {
                       ) : (null)
                     }
                     <h3>Not Yet a Member?<br></br>Sign Up</h3>
-                    <input class
+                    <input
+                      className="signInUpInput"
                       type="email"
                       placeholder="Email"
                       value={signUpEmail}
                       onChange={this.onTextboxChangeSignUpEmail}
                     /><br />
-                    <input class 
+                    <input
+                      className="signInUpInput" 
                       type="password"
                       placeholder="Password"
                       value={signUpPassword}

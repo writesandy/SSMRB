@@ -54,6 +54,7 @@
             max-width: 65%;
             margin: auto;
             overflow: hidden;
+            padding: 0px;
         }
 
         .close-btn {
