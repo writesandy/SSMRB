@@ -12,6 +12,9 @@ const API = {
   },
   getImages: function() {
     return axios.get("/images");
+  },
+  saveImages: function(userImage) {
+    return axios.post('/images/upload', userImage);
   }
 };
 

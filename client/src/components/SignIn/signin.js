@@ -3,11 +3,8 @@ import 'whatwg-fetch';
 import ReactModal from 'react-modal';
 import PinkPhoto from './pexels-photo-1111367.jpeg'
 import './SignIn.css';
-
-
-//import style from "..styles/vendor/style.less";
-
 import {getFromStorage, setInStorage} from '../../utils/storage';
+//import style from "..styles/vendor/style.less";
 
 class SignIn extends PureComponent {
   constructor(props) {

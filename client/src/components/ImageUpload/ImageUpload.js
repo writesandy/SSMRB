@@ -6,8 +6,9 @@ class ImageUpload extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
-      file: null
+        files: [],
+        name: '',
+        file: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -47,7 +48,8 @@ class ImageUpload extends PureComponent {
     }
 
     componentDidMount() {
-        API.getImages().then(res=> console.log('check here', res.data))
+        API.getImages()
+            .then(res=> console.log('check here', res.data))
     }
 
 render() {
@@ -65,6 +67,11 @@ render() {
                         <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
                     </form>
                         <hr/>
+                        <div className="container-fluid">
+                            <div className="images">
+                                {console.log(API.getImages())}
+                            </div>                        
+                        </div>
                         {/* <% if(files){ %>
                             <% files.forEach(function(file) { %>
                                 <div class="card card-body mb-3">
