@@ -9,8 +9,19 @@ class ImageUpload extends PureComponent {
       name: '',
       file: null
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+    handleSubmit(event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      fetch('/upload', {
+          method: 'POST',
+          body: data,
+      });
+    }
+
 
   handleChange(event) {
     console.log(event.target.files)
@@ -45,7 +56,7 @@ render() {
             <div className="row">
                 <div className="col-md-6 m-auto">
                     <h1 className="text-center display-4 my-4">Mongo File Uploads</h1>
-                    <form action="/upload" method="POST" encType="multipart/form-data">
+                    <form onSubmit={this.handleSubmit} method="POST" encType="multipart/form-data">
                         <div className="custom-file mb-3">
                             <input type="file" name="file" id="file" className="custom-file-input"/>
                             <label htmlFor="file" className="custom-file-label">Choose File</label>

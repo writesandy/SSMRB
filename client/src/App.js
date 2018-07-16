@@ -14,7 +14,7 @@ import GalleryComponent from './components/Gallery'
 // import About from './components/About'
 // import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
 import ArtistThumbnail from './components/ArtistThumbnail';
-// import ImageUpload from './components/ImageUpload'
+import ImageUpload from './components/ImageUpload'
 //import Community from './components/Community/Community'
 class App extends PureComponent {
   render() {
@@ -29,6 +29,7 @@ class App extends PureComponent {
               <Route path='/Gallery' component={GalleryComponent}/>
               {/* <Route path='Community' component={Community}/> */}
             </Switch>
+            <ImageUpload />
           </div>
           <Footer />
         </div>
