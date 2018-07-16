@@ -26,3 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.contentArea {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  margin-bottom:  0px;
+}
+.container-fluid {
+padding: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}

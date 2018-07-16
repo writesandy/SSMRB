@@ -1,5 +1,7 @@
 import React from "react";
 import './HeaderNav.css';
+import {Link} from 'react-router-dom';
+import SignIn from '../SignIn'
 
 const HeaderNav = props => (
     <div className="container-fluid sticky">
@@ -11,16 +13,15 @@ const HeaderNav = props => (
                     <span className="icon-bar"></span>
                 </button>
                 <div className="leftside-Nav">
-                    <a className="navbar-brand" href="#">Artist United</a>
-                    <a className="navbar-brand" href="#">Community</a>
-                    <a className="navbar-brand" href="#">Artist</a>
-                    <a className="navbar-brand" href="#">Events</a>
-                    <a className="navbar-brand" href="#">Gallery</a>
+                    <Link to="/" className="navbar-brand">Artist United</Link>
+                    <Link to="/Community" className="navbar-brand">Community</Link>
+                    <Link to="/Artist" className="navbar-brand">Artist</Link>
+                    <Link to="/Events" className="navbar-brand">Events</Link>
+                    <Link to="/Gallery" className="navbar-brand">Gallery</Link>
                 </div>
 
                 <div className="rightside-Nav">
-                    <a className="navbar-brand login" href="#">Login</a>
-
+                    <SignIn />
                 </div>
             </div>
 

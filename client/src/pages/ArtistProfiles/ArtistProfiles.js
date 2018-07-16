@@ -33,8 +33,6 @@ class ArtistProfiles extends React.PureComponent {
         console.log(this.state);
         return (
             <div>
-            {/* Header */}
-                <h2>HEADER</h2>
             {/* ArtistBio */}
                 <ArtistBio/>
             {/* Gallery */}
