@@ -25,7 +25,7 @@ const About = props => (
 
 
             </div>
-            <div className="about-us-2 col-lg-3 col-md-3 col-sm-12">
+            <div className="about-us-2 col-lg-4 col-md-4 col-sm-12">
                 <p className="about-paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Nunc tristique vel turpis ut ullamcorper. Integer ante elit, tempor et ante in, elementum sagittis nunc.
