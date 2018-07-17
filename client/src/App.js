@@ -13,7 +13,6 @@ import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
-import ArtistThumbnail from './components/ArtistThumbnail';
 
 
 
@@ -28,8 +27,8 @@ class App extends PureComponent {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/Artist' component={ArtistLanding}/>
+              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
               <Route path='/Gallery' component={GalleryComponent}/>
-              {/* <Route path='Community' component={Community}/> */}
             </Switch>
           </div>
           <Footer />
