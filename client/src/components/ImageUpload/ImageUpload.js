@@ -47,7 +47,8 @@ class ImageUpload extends PureComponent {
     }
 
     componentDidMount() {
-        API.getImages().then(res=> console.log('check here', res.data))
+        API.getImages()
+            .then(res=> console.log('check here', res.data))
     }
 
 render() {

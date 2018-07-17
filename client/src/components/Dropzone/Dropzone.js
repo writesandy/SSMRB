@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import './TestUploader.css';
+import './Dropzone.css';
 import Dropzone from 'react-dropzone';
  
-class TestUploader extends React.PureComponent {
+class Dropzone extends React.PureComponent {
     constructor() {
         super()
         this.state = { 
@@ -33,4 +33,4 @@ class TestUploader extends React.PureComponent {
         );
       }
     }
-export default TestUploader;
+export default Dropzone;
