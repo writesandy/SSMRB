@@ -3,6 +3,7 @@ import './ArtistProfiles.css'
 import Artists from '../../components/artistSeed.json'
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
+import API from "../../utils/API"
 
 
 class ArtistProfiles extends React.PureComponent {
@@ -27,6 +28,8 @@ class ArtistProfiles extends React.PureComponent {
     handleCloseModal () {
     this.setState({ showModal: false });
     };
+
+
 
     
     render () {

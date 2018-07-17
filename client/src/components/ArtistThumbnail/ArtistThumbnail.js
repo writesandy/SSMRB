@@ -3,6 +3,7 @@ import "./ArtistThumbnail.css";
 import Artists from "../artistSeed.json";
 import {Link} from 'react-router-dom';
 import SocialIcons from '../Social Icons';
+import API from "../../utils/API"
 
 
 
@@ -10,6 +11,13 @@ class ArtistThumbnail extends React.PureComponent {
     state = {
         Artists
       };
+
+      componentDidMount() {
+        console.log('it mounted')
+        API.getArtists();
+        //.then 
+    }
+
 
     render () {
         return (

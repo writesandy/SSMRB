@@ -2,11 +2,12 @@ import axios from "axios";
 
 export default {
   // Gets all arists
-  getArtist: function() {
+  getArtists: function() {
+    console.log('it works get artists')
     return axios.get("/api/artist");
   },
   // Gets the artist with the given id
-  getArtist: function(id) {
+  getOneArtist: function(id) {
     return axios.get("/api/artist/" + id);
   },
   // Deletes the artist with the given id
