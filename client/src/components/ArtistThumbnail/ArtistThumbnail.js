@@ -1,7 +1,9 @@
 import React from "react";
 import "./ArtistThumbnail.css";
 import Artists from "../artistSeed.json";
-import SocialIcons from '../Social Icons'
+import {Link} from 'react-router-dom';
+import SocialIcons from '../Social Icons';
+
 
 
 class ArtistThumbnail extends React.PureComponent {
