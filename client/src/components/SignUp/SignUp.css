@@ -16,3 +16,11 @@
     font: Roboto;
     font-size: 25px;
 }
+
+#signUpForm {
+    margin-top: 20px;
+}
+.signUpInput {
+    width: 100%;
+    margin-bottom: 15px;
+}

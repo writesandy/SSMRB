@@ -280,71 +280,71 @@ onSignUp() {
       return (
   <span class = 'sign-in-page'> 
         <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-          <div>
+          <div id="signUpForm">
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
               ) : (null)
             }
             <input
-              type="firstname"
-              placeholder="First Name"
-              value={firstName}
-              onChange={this.onTextboxChangefirstName}
-            />
-            <br />
-            <input
-              type="Last Name"
-              placeholder="lastName"
-              value={lastName}
-              onChange={this.onTextboxChangelastName}
-            />
-            <br />
-            <input
-              type="phoneNumber"
-              placeholder="phoneNumber"
-              value={phoneNumber}
-              onChange={this.onTextboxChangephoneNumber}
-            />
-            <br />
-            <input
-              type="ArtistBio"
-              placeholder="ArtistBio"
-              value={ArtistBio}
-              onChange={this.onTextboxChangeArtistBio}
-            />
-            <br />
-            <input
-              type="InstagramHandle"
-              placeholder="InstagramHandle"
-              value={InstagramHandle}
-              onChange={this.onTextboxInstagramHandle}
-            />
-            <br />
-            <input
-              type="TwitterHandle"
-              placeholder="TwitterHandle"
-              value={TwitterHandle}
-              onChange={this.onTextboxTwitterHandle}
-            />
-            <br />
-            <input
-              type="signUpPassword"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <br />
-            <input
+              className="signUpInput"
               type="signUpEmail"
               placeholder="signUpEmail"
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}
             />
-            <br />
-            <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Create Profile</button>
+            <input
+              className="signUpInput"
+              type="signUpPassword"
+              placeholder="Password"
+              value={signUpPassword}
+              onChange={this.onTextboxChangeSignInPassword}
+            />
+            <input
+              className="signUpInput"
+              type="firstname"
+              placeholder="First Name"
+              value={firstName}
+              onChange={this.onTextboxChangefirstName}
+            />
+            <input
+              className="signUpInput"
+              type="Last Name"
+              placeholder="lastName"
+              value={lastName}
+              onChange={this.onTextboxChangelastName}
+            />
+            <input
+              className="signUpInput"
+              type="phoneNumber"
+              placeholder="phoneNumber"
+              value={phoneNumber}
+              onChange={this.onTextboxChangephoneNumber}
+            />
+            <input
+              className="signUpInput"
+              type="InstagramHandle"
+              placeholder="InstagramHandle"
+              value={InstagramHandle}
+              onChange={this.onTextboxInstagramHandle}
+            />
+            <input
+              className="signUpInput"
+              type="TwitterHandle"
+              placeholder="TwitterHandle"
+              value={TwitterHandle}
+              onChange={this.onTextboxTwitterHandle}
+            />
+            <input
+              className="signUpInput"
+              type="ArtistBio"
+              placeholder="ArtistBio"
+              value={ArtistBio}
+              onChange={this.onTextboxChangeArtistBio}
+            />
+            <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
           </div>
-          <br />
+          {/* <br />
           <br />
           <div>
          
@@ -366,7 +366,7 @@ onSignUp() {
               onChange={this.onTextboxChangeSignUpPassword}
             /><br />
             <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-          </div>
+          </div> */}
           
           </div>
    </span>

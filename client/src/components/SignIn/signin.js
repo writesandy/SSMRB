@@ -277,7 +277,7 @@ class SignIn extends PureComponent {
                       onChange={this.onTextboxChangeSignInPassword}
                     />
                     <br />
-                    <button type='button' className='btn btn-primary' onClick={this.onSignIn}>Sign In</button>
+                    <button type='button' className='btn btn-primary signInUpBtn'  onClick={this.onSignIn}>Sign In</button>
                   </div>
                 </div>
                   </span> }

@@ -18,6 +18,7 @@
     position: absolute !important;
     right: 0px;
     padding-right: 20px !important;
+    padding-left:20px !important;
     background-color: white !important;
     height:100%;
 }
@@ -52,4 +53,11 @@
 }
 #closeX{
     font-weight: bold;
+}
+.signInUpBtn {
+    background-image: none !important;
+    background-color: #2699FB !important;
+    border-radius: 0px !important;
+    border: none !important;
+    width: 100% !important;
 }
