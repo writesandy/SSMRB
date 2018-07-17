@@ -47,7 +47,26 @@ class ArtistProfiles extends React.PureComponent {
                     })}
                 </div>
                 {/* Art Feature Modal */}
-                <ReactModal isOpen={this.state.showModal}>
+                <ReactModal isOpen={this.state.showModal} style={
+                    {content: {
+                        position: 'relative',
+                        top: 'unset',
+                        left: 'unset',
+                        right: 'unset',
+                        bottom: 'unset',
+                        border: '1px solid grey',
+                        background: 'white',
+                        overflow: 'hidden',
+                        borderRadius: '0px',
+                        outline: 'none',
+                        padding: '0px',
+                        width: 'fit-content',
+                        height: 'fit-content',
+                        margin: '80px auto',
+                        maxHight: '65%',
+                        maxWidth: '65%',
+                    }
+                }}>
                     <img id="feature-image" src={this.state.modalArt} />
                     <button className="close-btn" onClick={this.handleCloseModal}><i className="fa fa-close"/></button>
                 </ReactModal>
