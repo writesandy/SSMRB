@@ -289,7 +289,7 @@ onSignUp() {
             <input
               className="signUpInput"
               type="signUpEmail"
-              placeholder="signUpEmail"
+              placeholder="Email"
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}
             />
@@ -310,35 +310,35 @@ onSignUp() {
             <input
               className="signUpInput"
               type="Last Name"
-              placeholder="lastName"
+              placeholder="Last Name"
               value={lastName}
               onChange={this.onTextboxChangelastName}
             />
             <input
               className="signUpInput"
               type="phoneNumber"
-              placeholder="phoneNumber"
+              placeholder="Phone Number"
               value={phoneNumber}
               onChange={this.onTextboxChangephoneNumber}
             />
             <input
               className="signUpInput"
               type="InstagramHandle"
-              placeholder="InstagramHandle"
+              placeholder="Instagram Handle"
               value={InstagramHandle}
               onChange={this.onTextboxInstagramHandle}
             />
             <input
               className="signUpInput"
               type="TwitterHandle"
-              placeholder="TwitterHandle"
+              placeholder="Twitter Handle"
               value={TwitterHandle}
               onChange={this.onTextboxTwitterHandle}
             />
             <input
               className="signUpInput"
               type="ArtistBio"
-              placeholder="ArtistBio"
+              placeholder="A "
               value={ArtistBio}
               onChange={this.onTextboxChangeArtistBio}
             />
