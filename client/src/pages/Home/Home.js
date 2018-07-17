@@ -8,7 +8,7 @@ import './Home.css';
 
 const Home = props => (
             <div>
-                <Carousel />,
+                <Carousel />
                 <About />
             </div>
         )
