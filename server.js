@@ -25,14 +25,14 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes)
 
-app.post('/', (requestAnimationFrame, res) => {
+app.post('/', (req, res) => {
   res.send();
 })
 
 mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
-const dbUri = process.env.MONGODB_URI || "mongodb://localhost:27017/login_demo_db";
+const dbUri = process.env.MONGODB_URI || "mongodb://localhost:27017/artist_db";
 
 mongoose.connect(dbUri).then(() => console.log('connected to DB!')).catch((err) => console.log(err));
 
@@ -42,6 +42,7 @@ mongoose.connection.once('open', function () {
   // Init stream
   gfs = Grid(mongoose.connection.db, mongoose.mongo);
   gfs.collection('uploads');
+//   console.log(gfs);
 })
 
 // Create storage engine
@@ -69,14 +70,14 @@ const upload = multer({ storage });
 // @desc Loads form
 app.get('/images', (req, res) => { 
   gfs.files.find().toArray((err, files) => {
-      console.log('before actions', files)
+    //   console.log('before actions', files)
       // Check if files
       if(!files || files.length ===0) {
-        console.log('after false', files)
+        // console.log('after false', files)
           res.send({files: false})
       } else {
           files.map(file => {
-            console.log('after true: ', files)
+            // console.log('after true: ', files)
               if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
                   file.isImage = true;
               } else {
@@ -93,7 +94,7 @@ app.get('/images', (req, res) => {
 // @desc Uploads file to DB
 app.post('/upload', upload.single('file'), (req, res) => {
   // res.json({file: req.file});
-  console.log('test')
+  console.log('this is req.file: ', req.file)
 })
 
 // @route GET /files
@@ -128,7 +129,7 @@ app.get('/files/:filename/', (req, res) => {
 
 // @route GET /image/:filename
 // @desc Display image
-app.get('/image/:filename/', (req, res) => {
+app.get('/images/:filename/', (req, res) => {
   gfs.files.findOne({filename: req.params.filename}, (err, file) => {
       if (!file || file.length ===0) {
           return res.status(404).json({

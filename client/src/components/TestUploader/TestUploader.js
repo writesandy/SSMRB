@@ -1,32 +1,36 @@
 import React, { PureComponent } from 'react';
 import './TestUploader.css';
-import ImageUploader from 'react-images-upload';
+import Dropzone from 'react-dropzone';
  
-class TestUploader extends React.Component {
- 
-    constructor(props) {
-        super(props);
-         this.state = { pictures: [] };
-         this.onDrop = this.onDrop.bind(this);
-    }
- 
-    onDrop(picture) {
-        this.setState({
-            pictures: this.state.pictures.concat(picture),
-        });
-    }
- 
-    render() {
+class TestUploader extends React.PureComponent {
+    constructor() {
+        super()
+        this.state = { 
+            accepted: [],
+            rejected:[] 
+        }
+      }
+    
+      render() {
         return (
-            <ImageUploader
-                withIcon={true}
-                buttonText='Choose images'
-                onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-            />
+          <section>
+            <div className="dropzone">
+              <Dropzone 
+                accept="image/jpeg, image/png"
+                onDrop={(accepted, rejected) => { this.setState({ accepted, rejected }); }}>
+                <p>Try dropping some files here, or click to select files to upload.</p>
+              </Dropzone>
+            </div>
+            <aside>
+              <h2>Images to upload</h2>
+              <ul>
+                {
+                  this.state.accepted.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                }
+              </ul>
+            </aside>
+          </section>
         );
+      }
     }
-}
-
-export default ImageUpload;
+export default TestUploader;

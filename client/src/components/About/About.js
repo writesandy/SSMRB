@@ -2,8 +2,8 @@ import React from "react";
 import './About.css';
 
 const About = props => (
-    <div class="container">
-        <div class="row">
+    <div className="container">
+        <div className="row">
             <div className="col-lg-12">
                 <h3>ABOUT US</h3>
             </div>
@@ -18,7 +18,7 @@ const About = props => (
                     Etiam euismod leo eu tellus rutrum, a mollis mauris venenatis. In in facilisis dolor. Praesent id iaculis massa. Donec non maximus neque.
                     </p>
                 <p className="about-image">
-                    <img src="https://i.imgur.com/9lJaU1c.jpg" class="img-fluid" alt="Responsive" />
+                    <img src="https://i.imgur.com/9lJaU1c.jpg" className="img-fluid" alt="Responsive" />
 
                 </p>
 
@@ -43,7 +43,7 @@ const About = props => (
                     </p>
             </div>
 
-            <div class="services-offerings col-lg-5 col-md-5 col-sm-12">
+            <div className="services-offerings col-lg-5 col-md-5 col-sm-12">
                 One of two columns
                 </div>
         </div>

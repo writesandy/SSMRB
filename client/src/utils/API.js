@@ -14,7 +14,13 @@ const API = {
     return axios.get("/images");
   },
   saveImages: function(userImage) {
-    return axios.post('/images/upload', userImage);
+    return axios.post('/upload', userImage);
+  },
+  findImage: function(id) {
+    return axios.get("/images/:filename" + id)
+  },
+  deleteImage: function(id) {
+    return axios.delete('files/:id', + id);
   }
 };
 
