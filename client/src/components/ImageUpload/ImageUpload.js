@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
 import './ImageUpload.css';
 import API from '../../utils/API'
+import { List, ListItem } from "../../components/List";
 
 class ImageUpload extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
       name: '',
-      file: null
+      file: null,
+      files: []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -22,33 +24,32 @@ class ImageUpload extends PureComponent {
       });
     }
 
-
-  handleChange(event) {
-    console.log(event.target.files)
-    if (event.target.files.length < 1) {
-      this.setState({
-        name: '',
-        file: null
-      })
-    } else {
-      this.setState({
-        file: URL.createObjectURL(event.target.files[0]),
-        name: event.target.files[0].name
-      })
-    }
-  }
-  
-    fileSelectedHandler = event => {
-    console.log(event.target.files)
-      this.setState({
-        selectedFile: event.target.files[0],
-        name: event.target.files[0].name
-      })
+    loadSavedImages = () => {
+        API.getImages()
+            .then(res => {
+                this.setState({ files: res.data })
+            })
+            .catch(err => console.log(err))
     }
 
     componentDidMount() {
-        API.getImages()
-            .then(res=> console.log('check here', res.data))
+        // API.getImages()
+        //     .then(res=> console.log('check here', res.data))
+    }
+
+    findOneImage = id => {
+        API.findImage(id)
+    }
+
+    handleDelete = id => {
+        API.deleteImage(id)
+            .then(res => {
+                this.loadSavedImages();
+            })
+    }
+
+    deleteImage = id => {
+        
     }
 
 render() {
@@ -66,22 +67,24 @@ render() {
                         <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
                     </form>
                         <hr/>
-                        {/* <% if(files){ %>
-                            <% files.forEach(function(file) { %>
-                                <div class="card card-body mb-3">
-                                    <% if(file.isImage) { %>
-                                        <img src="image/<%= file.filename %>" alt="">
-                                    <% } else { %>
-                                        <%= file.filename %>
-                                    <% } %>
-                                    <form method= "POST" action="/files/<%= file._id %>?_method=DELETE">
-                                    <button class="btn btn-danger btn-block mt-4">Delete</button>
-                                    </form>
-                                </div>
-                            <% }) %>
-                        <% } else { %>
-                            <p>No files to show</p>
-                        <% } %> */}
+                       <div className="container">
+                            <div className="row">
+                            {console.log(this.state.files)}
+                                {this.state.files.length ? (
+                                <List>    
+                                    {this.state.files.map((files) => (
+                                        <ListItem key={files._id} id={files._id}>
+                                            <div className='col-md-12 image'>
+                                                {files.id}
+                                            </div>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                                ) : (
+                                    <h3 className="noResults">No Results to Display</h3>
+                                )}
+                            </div>
+                       </div>
                 </div>
             </div>
         </div>                  

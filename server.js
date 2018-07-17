@@ -70,21 +70,21 @@ const upload = multer({ storage });
 // @desc Loads form
 app.get('/images', (req, res) => { 
   gfs.files.find().toArray((err, files) => {
-      console.log('before actions', files)
+    //   console.log('before actions', files)
       // Check if files
       if(!files || files.length ===0) {
-        console.log('after false', files)
-          res.render({files: false})
+        // console.log('after false', files)
+          res.send({files: false})
       } else {
           files.map(file => {
-            console.log('after true: ', files)
+            // console.log('after true: ', files)
               if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
                   file.isImage = true;
               } else {
                   file.isImage = false;
               }
           })
-          res.render({files: files});
+          res.send({files: files});
 
       }
   });
@@ -94,7 +94,7 @@ app.get('/images', (req, res) => {
 // @desc Uploads file to DB
 app.post('/upload', upload.single('file'), (req, res) => {
   // res.json({file: req.file});
-  console.log('test')
+  console.log('this is req.file: ', req.file)
 })
 
 // @route GET /files
@@ -129,7 +129,7 @@ app.get('/files/:filename/', (req, res) => {
 
 // @route GET /image/:filename
 // @desc Display image
-app.get('/image/:filename/', (req, res) => {
+app.get('/images/:filename/', (req, res) => {
   gfs.files.findOne({filename: req.params.filename}, (err, file) => {
       if (!file || file.length ===0) {
           return res.status(404).json({
