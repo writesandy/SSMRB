@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
-import './SignUp.css'
+import './SignUpProfile.css'
 
 
 import {
@@ -8,7 +8,7 @@ import {
     setInStorage,
   } from '../../utils/storage';
 
-  class SignUp extends PureComponent {
+  class SignUpProfile extends PureComponent {
     constructor(props) {
       super(props);
   
@@ -367,14 +367,12 @@ onSignUp() {
             /><br />
             <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
           </div> */}
-  {/* Transition to SignUpProfile After "Create Profile" is clicked */}
           
-
           </div>
    </span>
       );
     }  
   }
 }
-export default SignUp;
+export default SignUpProfile;
    
