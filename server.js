@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes)
 
-app.post('/', (requestAnimationFrame, res) => {
+app.post('/', (req, res) => {
   res.send();
 })
 
@@ -42,6 +42,7 @@ mongoose.connection.once('open', function () {
   // Init stream
   gfs = Grid(mongoose.connection.db, mongoose.mongo);
   gfs.collection('uploads');
+//   console.log(gfs);
 })
 
 // Create storage engine
@@ -73,7 +74,7 @@ app.get('/images', (req, res) => {
       // Check if files
       if(!files || files.length ===0) {
         console.log('after false', files)
-          res.send({files: false})
+          res.render({files: false})
       } else {
           files.map(file => {
             console.log('after true: ', files)
@@ -83,7 +84,7 @@ app.get('/images', (req, res) => {
                   file.isImage = false;
               }
           })
-          res.send({files: files});
+          res.render({files: files});
 
       }
   });
