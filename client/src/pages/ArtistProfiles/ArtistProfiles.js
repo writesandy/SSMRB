@@ -68,7 +68,7 @@ class ArtistProfiles extends React.PureComponent {
                     }
                 }}>
                     <img id="feature-image" src={this.state.modalArt} />
-                    <button className="close-btn" onClick={this.handleCloseModal}><i className="fa fa-close"/></button>
+                    <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
                 </ReactModal>
              {/* Footer */}
             </div>            

@@ -30,7 +30,6 @@
     /* Gallery Thumbnails */
         .art {
             height: 200px;
-            /* float:left; */
             padding-bottom: 25px;
         }
 
@@ -66,3 +65,18 @@
             max-width: 100%;
             
         } 
+/* Media Queries */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 575px) {
+    .art {
+        height: 250px;
+    }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .art {
+        height: 200px;
+    }
+} 
