@@ -27,7 +27,7 @@ class App extends PureComponent {
           <div className="contentArea">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/Artist' component={ArtistProfiles}/>
+              <Route path='/Artist' component={ArtistLanding}/>
               <Route path='/Gallery' component={GalleryComponent}/>
               {/* <Route path='Community' component={Community}/> */}
             </Switch>
