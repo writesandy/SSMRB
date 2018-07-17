@@ -1,32 +1,26 @@
-.box__dragndrop,
-.box__uploading,
-.box__success,
-.box__error {
-  display: none;
+.submitButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 10px;
 }
 
-.uploadImage {
-  max-width: 20%;
-  position: relative;
-  display: inline-block;
+#uploader {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
-/* Tooltip text */
-.tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
+.noResults {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
-/* Show the tooltip text when you mouse over the uploadImage container */
-.uploadImage:hover .tooltiptext {
-  visibility: visible;
+.uploadHeader {
+    text-align: center;
+    margin-bottom: 20px;
 }
