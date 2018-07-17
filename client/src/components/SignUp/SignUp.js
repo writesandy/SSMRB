@@ -7,6 +7,7 @@ import {
     getFromStorage,
     setInStorage,
   } from '../../utils/storage';
+import SignUpProfile from '../SignUpProfile/SignUpProfile';
 
   class SignUp extends PureComponent {
     constructor(props) {
@@ -24,6 +25,8 @@ import {
         firstName: '',
         lastName: '',
         phoneNumber: '',
+        //Toggle to SignUpProfile after "Create Profile" is clicked
+        showSignUpProfile: false,
       };
       this.onTextboxChangeTwitterHandle = this.onTextboxChangeTwitterHandle.bind(this);
       this.onTextboxChangeInstagramHandle = this.onTextboxChangeInstagramHandle.bind(this);
@@ -278,102 +281,103 @@ onSignUp() {
     }
     if (!token) {
       return (
-  <span class = 'sign-in-page'> 
-        <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-          <div id="signUpForm">
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-            <input
-              className="signUpInput"
-              type="signUpEmail"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            />
-            <input
-              className="signUpInput"
-              type="signUpPassword"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <input
-              className="signUpInput"
-              type="firstname"
-              placeholder="First Name"
-              value={firstName}
-              onChange={this.onTextboxChangefirstName}
-            />
-            <input
-              className="signUpInput"
-              type="Last Name"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={this.onTextboxChangelastName}
-            />
-            {/* <input
-              className="signUpInput"
-              type="phoneNumber"
-              placeholder="Phone Number"
-              value={phoneNumber}
-              onChange={this.onTextboxChangephoneNumber}
-            />
-            <input
-              className="signUpInput"
-              type="InstagramHandle"
-              placeholder="Instagram Handle"
-              value={InstagramHandle}
-              onChange={this.onTextboxInstagramHandle}
-            />
-            <input
-              className="signUpInput"
-              type="TwitterHandle"
-              placeholder="Twitter Handle"
-              value={TwitterHandle}
-              onChange={this.onTextboxTwitterHandle}
-            />
-            <input
-              className="signUpInput"
-              type="ArtistBio"
-              placeholder="A "
-              value={ArtistBio}
-              onChange={this.onTextboxChangeArtistBio}
-            /> */}
-            <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
-          </div>
-          {/* <br />
-          <br />
-          <div>
-         
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-            <input class
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            /><br />
-            <input class 
-              type="password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            /><br />
-            <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-          </div> */}
-  {/* Transition to SignUpProfile After "Create Profile" is clicked */}
+        <div>
+        {!this.state.showSignUpProfile && <span class = 'sign-in-page'> 
+          <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
+            <div id="signUpForm">
+              {
+                (signUpError) ? (
+                  <p>{signUpError}</p>
+                ) : (null)
+              }
+              <input
+                className="signUpInput"
+                type="signUpEmail"
+                placeholder="Email"
+                value={signUpEmail}
+                onChange={this.onTextboxChangeSignUpEmail}
+              />
+              <input
+                className="signUpInput"
+                type="signUpPassword"
+                placeholder="Password"
+                value={signUpPassword}
+                onChange={this.onTextboxChangeSignInPassword}
+              />
+              <input
+                className="signUpInput"
+                type="firstname"
+                placeholder="First Name"
+                value={firstName}
+                onChange={this.onTextboxChangefirstName}
+              />
+              <input
+                className="signUpInput"
+                type="Last Name"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={this.onTextboxChangelastName}
+              />
+              {/*<input
+                className="signUpInput"
+                type="phoneNumber"
+                placeholder="Phone Number"
+                value={phoneNumber}
+                onChange={this.onTextboxChangephoneNumber}
+              />
+              <input
+                className="signUpInput"
+                type="InstagramHandle"
+                placeholder="Instagram Handle"
+                value={InstagramHandle}
+                onChange={this.onTextboxInstagramHandle}
+              />
+              <input
+                className="signUpInput"
+                type="TwitterHandle"
+                placeholder="Twitter Handle"
+                value={TwitterHandle}
+                onChange={this.onTextboxTwitterHandle}
+              />
+              <input
+                className="signUpInput"
+                type="ArtistBio"
+                placeholder="A "
+                value={ArtistBio}
+                onChange={this.onTextboxChangeArtistBio}
+              />*/}
+              <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+            </div>
+            {/* <br />
+            <br />
+            <div>
           
-
-          </div>
-   </span>
+              {
+                (signUpError) ? (
+                  <p>{signUpError}</p>
+                ) : (null)
+              }
+              <input class
+                type="email"
+                placeholder="Email"
+                value={signUpEmail}
+                onChange={this.onTextboxChangeSignUpEmail}
+              /><br />
+              <input class 
+                type="password"
+                placeholder="Password"
+                value={signUpPassword}
+                onChange={this.onTextboxChangeSignUpPassword}
+              /><br />
+              <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
+            </div> */}
+        </div>
+      </span>}
+    </div>
       );
-    }  
+    } 
+    // if statement for !loading & has token
+      // {this.state.showSignUpProfile && <SignUpProfile />}
   }
 }
 export default SignUp;

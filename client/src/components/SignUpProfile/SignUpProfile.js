@@ -276,7 +276,7 @@ onSignUp() {
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-    if (!token) {
+    if (token) {
       return (
   <span class = 'sign-in-page'> 
         <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
@@ -286,7 +286,7 @@ onSignUp() {
                 <p>{signUpError}</p>
               ) : (null)
             }
-            <input
+            {/* <input
               className="signUpInput"
               type="signUpEmail"
               placeholder="Email"
@@ -313,8 +313,8 @@ onSignUp() {
               placeholder="Last Name"
               value={lastName}
               onChange={this.onTextboxChangelastName}
-            />
-            {/* <input
+            /> */}
+            <input
               className="signUpInput"
               type="phoneNumber"
               placeholder="Phone Number"
@@ -341,8 +341,8 @@ onSignUp() {
               placeholder="A "
               value={ArtistBio}
               onChange={this.onTextboxChangeArtistBio}
-            /> */}
-            <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+            />
+            {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button> */}
           </div>
           {/* <br />
           <br />

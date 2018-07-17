@@ -21,6 +21,7 @@
     padding-left:20px !important;
     background-color: white !important;
     height:100%;
+    box-shadow: -5px 0px 15px 0px #00000021;
 }
 
 #signInForm {
