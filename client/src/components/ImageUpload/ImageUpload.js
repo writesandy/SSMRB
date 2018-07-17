@@ -21,7 +21,36 @@ class ImageUpload extends PureComponent {
       fetch('/upload', {
           method: 'POST',
           body: data,
-      });
+      })
+      .then(this.state.files.forEach((elem) => {
+          console.log('LOOOOOOOK HEEEERE: ', this.state.files)
+        if(elem._id === event.target.id){
+            API.saveImages({
+                filename: elem.filename
+            })
+            .then(res => {
+                this.state.files.push(res.userImage)
+                this.loadSavedImages();
+            })
+            .catch(err => console.log(err));
+        }
+    }))
+    }
+
+    saveImages = (event) => {
+        event.preventDefault();
+        this.state.files.forEach((elem) => {
+            if(elem._id === event.target.id){
+                API.saveImages({
+                    filename: elem.filename
+                })
+                .then(res => {
+                    this.state.files.push(res.userImage)
+                    this.loadSavedImages();
+                })
+                .catch(err => console.log(err));
+            }
+        })
     }
 
     loadSavedImages = () => {
@@ -73,9 +102,9 @@ render() {
                                 {this.state.files.length ? (
                                 <List>    
                                     {this.state.files.map((files) => (
-                                        <ListItem key={files._id} id={files._id}>
+                                        <ListItem key={files.id} id={files.id}>
                                             <div className='col-md-12 image'>
-                                                {files.id}
+                                                {files.filename}
                                             </div>
                                         </ListItem>
                                     ))}

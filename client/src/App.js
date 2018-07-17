@@ -7,10 +7,10 @@ import Footer from './components/Footer/Footer';
 // import About from './components/About'
 // import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
 import ArtistThumbnail from './components/ArtistThumbnail';
-import ImageUpload from './components/ImageUpload'
 //import Community from './components/Community/Community'
 // import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
+import ImageUpload from './components/ImageUpload'
 // Pages
 import Home from './pages/Home'
 
@@ -27,8 +27,9 @@ class App extends PureComponent {
               <Route path='/Gallery' component={GalleryComponent}/>
               {/* <Route path='Community' component={Community}/> */}
             </Switch>
-            <ImageUpload />
           </div>
+          <ImageUpload />
+
           <Footer />
         </div>
       </Router>
