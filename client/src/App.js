@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import './App.css';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// Constant Across All Pages
+// import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 import Footer from './components/Footer/Footer';
 
@@ -27,8 +26,10 @@ class App extends PureComponent {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/Artist' component={ArtistLanding}/>
-              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
               <Route path='/Gallery' component={GalleryComponent}/>
+
+              {/* Do not keep -- just for creating the page */}
+              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
             </Switch>
           </div>
           <Footer />

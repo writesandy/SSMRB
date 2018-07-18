@@ -10,7 +10,7 @@ class Home extends React.PureComponent {
     render() {
         return (
             <div>
-                <Carousel />,
+                <Carousel />
                 <About />
             </div>    
         )

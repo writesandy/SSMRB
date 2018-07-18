@@ -1,79 +1,124 @@
 import React, { PureComponent } from 'react';
 import './ImageUpload.css';
-import axios from 'axios';
-// import { List, ListName } from "../../components/List";
+import API from '../../utils/API'
+import { List, ListItem } from "../../components/List";
 
 class ImageUpload extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
       name: '',
-      file: null
+      file: null,
+      files: []
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event) {
-    console.log(event.target.files)
-    if (event.target.files.length < 1) {
-      this.setState({
-        name: '',
-        file: null
+    handleSubmit(event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      fetch('/upload', {
+          method: 'POST',
+          body: data,
       })
-    } else {
-      this.setState({
-        file: URL.createObjectURL(event.target.files[0]),
-        name: event.target.files[0].name
-      })
-    }
-  }
-  
-    fileSelectedHandler = event => {
-    console.log(event.target.files)
-      this.setState({
-        selectedFile: event.target.files[0],
-        name: event.target.files[0].name
-      })
+      .then(this.state.files.forEach((elem) => {
+          console.log('LOOOOOOOK HEEEERE: ', this.state.files)
+        if(elem._id === event.target.id){
+            API.saveImages({
+                filename: elem.filename
+            })
+            .then(res => {
+                this.state.files.push(res.userImage)
+                this.loadSavedImages();
+            })
+            .catch(err => console.log(err));
+        }
+    }))
     }
 
-    delete = event => {
-      this.setState({
-        file: null,
-        name: ''
-      })
-      console.log(this.state)
-    }
-  
-    fileUploadHandler = () => {
-      const fd = new FormData();
-      fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-      axios.post(fd, {})
-        .then(res => {
-          console.log('this is res in fileUploadHandler', res);
+    saveImages = (event) => {
+        event.preventDefault();
+        this.state.files.forEach((elem) => {
+            if(elem._id === event.target.id){
+                API.saveImages({
+                    filename: elem.filename
+                })
+                .then(res => {
+                    this.state.files.push(res.userImage)
+                    this.loadSavedImages();
+                })
+                .catch(err => console.log(err));
+            }
         })
     }
 
-    render() {
-      return (
-        <div className="App">
-            <input 
-            style={{display: 'none'}}
-            type="file" 
-            onChange={this.handleChange}
-            ref={fileInput => this.fileInput = fileInput}/>            
-            <button onClick={() => this.fileInput.click()}>Pick File</button>
-            <h3> Image to be uploaded </h3>
-            {this.state.name ? (
-                    <div className='fileName'>
-                        <img className='uploadImage' alt={`Name of file being uploaded ${this.state.name}`} src={this.state.file} onClick={this.delete}/>
-                    </div>
-            ) : (
-                <h5 className="noResults">No Image has been chosen</h5>
-            )}
-            <button onClick={this.fileUploadHandler}>Upload</button>
-        </div>
-      )
+    loadSavedImages = () => {
+        API.getImages()
+            .then(res => {
+                this.setState({ files: res.data })
+            })
+            .catch(err => console.log(err))
+    }
+
+    componentDidMount() {
+        // API.getImages()
+        //     .then(res=> console.log('check here', res.data))
+    }
+
+    findOneImage = id => {
+        API.findImage(id)
+    }
+
+    handleDelete = id => {
+        API.deleteImage(id)
+            .then(res => {
+                this.loadSavedImages();
+            })
+    }
+
+    deleteImage = id => {
+        
+    }
+
+render() {
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6 m-auto">
+                    <h1 className="text-center display-4 my-4">Mongo File Uploads</h1>
+                    {/* <form action="/upload" method="POST" encType="multipart/form-data"> */}
+                    <form onSubmit={this.handleSubmit} method="POST" encType="multipart/form-data">   
+                        <div className="custom-file mb-3">
+                            <input type="file" name="file" id="file" className="custom-file-input"/>
+                            <label htmlFor="file" className="custom-file-label">Choose File</label>
+                        </div>
+                        <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
+                    </form>
+                        <hr/>
+                       <div className="container">
+                            <div className="row">
+                            {console.log(this.state.files)}
+                                {this.state.files.length ? (
+                                <List>    
+                                    {this.state.files.map((files) => (
+                                        <ListItem key={files.id} id={files.id}>
+                                            <div className='col-md-12 image'>
+                                                {files.filename}
+                                            </div>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                                ) : (
+                                    <h3 className="noResults">No Results to Display</h3>
+                                )}
+                            </div>
+                       </div>
+                </div>
+            </div>
+        </div>                  
+        )
     }
 }
-  
-  export default ImageUpload;
+
+    export default ImageUpload;
