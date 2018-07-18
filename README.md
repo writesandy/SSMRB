@@ -1,7 +1,10 @@
 # SSMRB - Project #3
 
 
-# Week One Deliverables
+# Week Two Deliverables
+
+## *__All Artist United on Heroku__*
+### <a href="https://allartistunited.herokuapp.com/">All Artist United</a>
 
 ## *__Project Definition and Value__*
 
@@ -23,9 +26,10 @@
 * ```Sama Sandy - Interface Experience/Design, Web Development & Production, SEO```
 * ```Sandra Peterson - Web Development & Production, PM```
 
-## *__Week 1 Project Board/Schedule__*
+## *__Week 2 Project Board/Schedule__*
 (click image to go to full page)
-<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board.png)</a>
+
+<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board-wk-2.png)</a>
 
 ## *__UI/UX PureComponent Views__*
 <a href="https://xd.adobe.com/view/11a68c82-c643-42f9-6a28-9af1a68ff448-6797/">Click to View Dynamic UI/UX in XD Adobe</a>
