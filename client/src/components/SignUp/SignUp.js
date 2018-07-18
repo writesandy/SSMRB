@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
 import './SignUp.css'
-
-
 import {
     getFromStorage,
     setInStorage,
   } from '../../utils/storage';
-import SignUpProfile from '../SignUpProfile/SignUpProfile';
-
   class SignUp extends PureComponent {
     constructor(props) {
       super(props);
@@ -25,6 +21,7 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
         firstName: '',
         lastName: '',
         phoneNumber: '',
+        artistBoolean: true,
         //Toggle to SignUpProfile after "Create Profile" is clicked
         showSignUpProfile: false,
       };
@@ -36,9 +33,9 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
       this.onTextboxChangephoneNumber = this.onTextboxChangephoneNumber.bind(this);
       this.onTextboxChangefirstName = this.onTextboxChangefirstName.bind(this);
       this.onTextboxChangelastName = this.onTextboxChangelastName.bind(this);
-     
       this.onSignUp = this.onSignUp.bind(this);
-      this.logout = this.logout.bind(this);
+      this.logout = this.logout.bind(this); 
+      //this.handleInputChange = this.handleInputChange.bind(this);
     }
   
     componentDidMount() {
@@ -46,7 +43,6 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
       if (obj && obj.token) {
         const { token } = obj;
         // Verify token
-        console.log(token)
         fetch('/api/account/verify?token=' + token)
           .then(res => res.json())
           .then(json => {
@@ -70,13 +66,20 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
         });
       }
     }
-
+   
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+    // update(field) {
+    //   return (e) => {
+    //     this.setState({[field]: e.target.value});
+    //   };
+    // }
   onTextboxChangeSignUpEmail(event) {
     this.setState({
       signUpEmail: event.target.value,
     });
   }
-
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
@@ -102,7 +105,6 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
       firstName: event.target.value,
     });
   }
-
   onTextboxChangelastName(event) {
     this.setState({
       lastName: event.target.value,
@@ -113,6 +115,11 @@ import SignUpProfile from '../SignUpProfile/SignUpProfile';
       ArtistBio: event.target.value,
     });
   }
+ onClickbox(event){
+   this.setState({
+      artistBoolean: event.target.value,
+   });
+}
 onSignUp() {
     // Grab state
     const {
@@ -124,14 +131,13 @@ onSignUp() {
       firstName,
       lastName,
       phoneNumber,
+      artistBoolean,
     } = this.state;
-
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
-    fetch('routes/api/account/signin', {
+    fetch('/api/account/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'// this also could be json data
@@ -145,15 +151,17 @@ onSignUp() {
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,
+        artistBoolean: artistBoolean,
       })
     }).then(res => res.json())
       .then(json => {
-        console.log('json', json);
+        console.log('json', json)
         if (json.success) {
           setInStorage('the_main_app', {token: json.token});
           this.setState({
             signUpError: json.message,
             isLoading: false,
+            artistBoolean: true,
             signUpEmail: '',
             signUpPassword: '',
             TwitterHandle: '',
@@ -162,6 +170,8 @@ onSignUp() {
             firstName: '',
             lastName: '',
             phoneNumber: '',
+            
+           
           });
         } else {
           this.setState({
@@ -171,66 +181,6 @@ onSignUp() {
         }
       });
   }
-
-  // onSignUp() {
-  //   // Grab state
-  //   const {
-  //     signUpEmail,
-  //     signUpPassword,
-  //     TwitterHandle,
-  //     InstagramHandle,
-  //     ArtistBio,
-  //     firstName,
-  //     lastName,
-  //     phoneNumber,
-  //   } = this.state;
-
-  //   this.setState({
-  //     isLoading: true,
-  //   });
-
-  //   // Post request to backend
-  //   fetch('routes/api/account/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       email: signUpEmail,
-  //       password: signUpPassword,
-  //       TwitterHandle: TwitterHandle,
-  //       InstagramHandle: InstagramHandle,
-  //       ArtistBio: ArtistBio,
-  //       firstName: firstName,
-  //       lastName: lastName,
-  //       phoneNumber: phoneNumber, 
-  //     }),
-  //   }).then(res => res.json())
-  //     .then(json => {
-  //       if (json.success) {
-  //         setInStorage('the_main_app', { token: json.token });
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //           signUpPassword: '',
-  //           signUpEmail: '',
-  //           InstagramHandle: '',
-  //           ArtistBio: '',
-  //           TwitterHandle: '',
-  //           firstName: '',
-  //           lastName:'',
-  //           phoneNumber:'',
-  //           token: json.token,
-  //         });
-  //       } else {
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //         });
-  //       }
-  //     });
-  // }
-
   logout() {
     this.setState({
       isLoading: true,
@@ -239,8 +189,7 @@ onSignUp() {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      console.log(token);
-      fetch('routes/api/account/logout?token=' + token)
+      fetch('/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
@@ -260,7 +209,6 @@ onSignUp() {
       });
     }
   }
-
   render() {
     const {
       isLoading,
@@ -268,6 +216,7 @@ onSignUp() {
       signUpEmail,
       signUpPassword,
       signUpError,
+      artistBoolean,
       firstName,
       lastName,
       ArtistBio,
@@ -275,110 +224,112 @@ onSignUp() {
       InstagramHandle,
       TwitterHandle,
     } = this.state;
-
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
     if (!token) {
       return (
-        <div>
-        {!this.state.showSignUpProfile && <span class = 'sign-in-page'> 
-          <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-            <div id="signUpForm">
-              {
-                (signUpError) ? (
-                  <p>{signUpError}</p>
-                ) : (null)
-              }
-              <input
-                className="signUpInput"
-                type="signUpEmail"
-                placeholder="Email"
-                value={signUpEmail}
-                onChange={this.onTextboxChangeSignUpEmail}
-              />
-              <input
-                className="signUpInput"
-                type="signUpPassword"
-                placeholder="Password"
-                value={signUpPassword}
-                onChange={this.onTextboxChangeSignInPassword}
-              />
-              <input
-                className="signUpInput"
-                type="firstname"
-                placeholder="First Name"
-                value={firstName}
-                onChange={this.onTextboxChangefirstName}
-              />
-              <input
-                className="signUpInput"
-                type="Last Name"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={this.onTextboxChangelastName}
-              />
-              {/*<input
-                className="signUpInput"
-                type="phoneNumber"
-                placeholder="Phone Number"
-                value={phoneNumber}
-                onChange={this.onTextboxChangephoneNumber}
-              />
-              <input
-                className="signUpInput"
-                type="InstagramHandle"
-                placeholder="Instagram Handle"
-                value={InstagramHandle}
-                onChange={this.onTextboxInstagramHandle}
-              />
-              <input
-                className="signUpInput"
-                type="TwitterHandle"
-                placeholder="Twitter Handle"
-                value={TwitterHandle}
-                onChange={this.onTextboxTwitterHandle}
-              />
-              <input
-                className="signUpInput"
-                type="ArtistBio"
-                placeholder="A "
-                value={ArtistBio}
-                onChange={this.onTextboxChangeArtistBio}
-              />*/}
-              <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
-            </div>
-            {/* <br />
-            <br />
-            <div>
-          
-              {
-                (signUpError) ? (
-                  <p>{signUpError}</p>
-                ) : (null)
-              }
-              <input class
-                type="email"
-                placeholder="Email"
-                value={signUpEmail}
-                onChange={this.onTextboxChangeSignUpEmail}
-              /><br />
-              <input class 
-                type="password"
-                placeholder="Password"
-                value={signUpPassword}
-                onChange={this.onTextboxChangeSignUpPassword}
-              /><br />
-              <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-            </div> */}
+          <div>
+            {!this.state.showSignUpProfile && <span class = 'sign-in-page'>
+                <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
+                    <div id="signUpForm">
+                        {
+                        (signUpError) ? (
+                            <p>{signUpError}</p>
+                        ) : (null)
+                        }
+                        <form>
+                            <input
+                                type="firstName"
+                                placeholder="Your First Name"
+                                // defaultValue={firstName}
+                                value={firstName}
+                                onChange={this.onTextboxChangefirstName}
+                                //onChange={this.update('firstName')}
+                                className="signUpInput"
+                            />
+                            <input
+                                type="lastName"
+                                placeholder="Your Last Name"
+                                defaultValue={lastName}
+                                //value={lastName}
+                                //onChange={this.update('lastName')}
+                                onChange={this.onTextboxChangeLastName}
+                                className="signUpInput"
+                            />
+                            <input
+                                type="signUpEmail"
+                                placeholder="YourEmail@domain.com"
+                                //defaultValue={signUpEmail}
+                                value={signUpEmail}
+                                onChange={this.onTextboxChangeSignUpEmail}
+                                className="signUpInput"
+                            />
+                            <input
+                                type="signUpPassword"
+                                placeholder="Password"
+                                //defaultValue={signUpPassword}
+                                value={signUpPassword}
+                                //onChange={this.handleChange}
+                                onChange={this.onTextboxChangeSignUpPassword}
+                                className="signUpInput"
+                            />
+
+                            <div id="artistBooleanGroup">
+                                <input 
+                                    type="checkbox" data-reverse
+                                    data-group-cls="btn-group-sm"
+                                    placeholder="True"
+                                    defaultValue={artistBoolean}
+                                    onChange={this.oncheckBoxUpdate}
+                                    id="artistBoolean"
+                                />
+                                <h6 id="artistBooleanLabel">I am an Artist United member.</h6>
+                            </div>
+                            {/* <input
+                            type="phoneNumber"
+                            placeholder="800-867-5309"
+                            defaultValue={phoneNumber}
+                            //value={phoneNumber}
+                            onChange={this.onTextboxChangephoneNumber}
+                            />
+                            <br />
+                            <label htmlFor="Instagram">Instagram Handle </label>
+                            <input
+                            type="InstagramHandle"
+                            placeholder="Your Instagram"
+                            defaultValue={InstagramHandle}
+                            //value={InstagramHandle}
+                            onChange={this.onTextboxChangeInstagramHandle}
+                            />
+                            <br /> 
+                            <label htmlFor="Twitter">Twitter Handle </label>
+                            <input
+                            type="TwitterHandle"
+                            placeholder="@Twitter Account"
+                            defaultValue={TwitterHandle}
+                            //value={TwitterHandle}
+                            //onChange={this.update('TwitterHandle')}
+                            onChange={this.onTextboxChangeInstagramHandle}
+                            />
+                            <label htmlFor="ArtistBio">Biography/Mission Statement</label>
+                            <textarea 
+                            type="ArtistBio"
+                            class="form-control" 
+                            id='ArtistBio' 
+                            placeholder="Your Mission Statement here"
+                            rows="3"
+                            defaultValue={ArtistBio}
+                            onChange={this.onsignUpArtistBio}
+                            /> */}
+                        </form>
+                        <button type='button' class='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+                    </div>
+                </div>
+            </span>}
         </div>
-      </span>}
-    </div>
       );
-    } 
-    // if statement for !loading & has token
-      // {this.state.showSignUpProfile && <SignUpProfile />}
+    }  
   }
 }
 export default SignUp;
-   

@@ -199,13 +199,19 @@ class SignIn extends PureComponent {
   }
 
   //Functions that Open/Close modal
-  handleOpenModal (art, e) {
+  handleOpenModal () {
     this.setState({ showModal: true });
   }
   
   handleCloseModal () {
-    this.setState({ showModal: false });
+    console.log('We called it', this.state.showModal)
+    this.setState({ showModal: false},
+    ()=>console.log('setState as well', this.state.showModal));
   };
+  
+  componentDidUpdate(){
+    console.log('update', this.state.showModal)
+  }
 
   handleSignUp(){
     this.setState({showSignUp: true});
@@ -232,7 +238,9 @@ class SignIn extends PureComponent {
       //Add specific class to ReactModal
 
       return (
+        <div>
         <a id="signInModalTrigger" className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
+        </a>
 
         <ReactModal isOpen={this.state.showModal} style={{content: {
                                                             position: 'relative',
@@ -284,9 +292,9 @@ class SignIn extends PureComponent {
           {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <a href="#" onClick={this.handleSignUp}>Sign Up</a></h6>}
           {this.state.showSignUp && <SignUp />}
           {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <a href="#" onClick={this.handleSignIn}>Sign In</a></h6>}
-          <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
+          <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
         </ ReactModal>
-        </a>
+        </div>
       );
     }
 
