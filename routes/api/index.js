@@ -4,9 +4,9 @@ const account = require("./account/signin.js")
 const path = require("path");
 
 // Article routes
-router.use("/saved", artistsRoutes);
+router.use("/account", account);
 
-router.use("/account", account)
+router.use("/artist", artistsRoutes)
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {

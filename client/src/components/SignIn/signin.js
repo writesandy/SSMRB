@@ -134,33 +134,36 @@ class SignIn extends PureComponent {
     });
 
     // Post request to backend
-    fetch('routes/api/account/signin', {
+    fetch('../../../../routes/api/account/signin.js', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        //'Accept': 'application/json'
       },
       body: JSON.stringify({
         email: signInEmail,
         password: signInPassword,
       }),
     }).then(res => res.json())
-      .then(json => {
-        if (json.success) {
-          setInStorage('the_main_app', { token: json.token });
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: '',
-            token: json.token,
-          });
-        } else {
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-          });
-        }
-      });
+      .catch(error => console.log('Error: ', error))
+      .then(response => console.log('Success: ', response))
+      // .then(json => {
+      //   if (json.success) {
+      //     setInStorage('the_main_app', { token: json.token });
+      //     this.setState({
+      //       signInError: json.message,
+      //       isLoading: false,
+      //       signInPassword: '',
+      //       signInEmail: '',
+      //       token: json.token,
+      //     });
+      //   } else {
+      //     this.setState({
+      //       signInError: json.message,
+      //       isLoading: false,
+      //     });
+      //   }
+      // });
   }
 
   logout() {
@@ -195,6 +198,7 @@ class SignIn extends PureComponent {
   //Functions that Open/Close modal
   handleOpenModal () {
     this.setState({ showModal: true });
+    this.currentPath();
   }
   
   handleCloseModal () {
@@ -215,6 +219,8 @@ class SignIn extends PureComponent {
     this.setState({showSignUp: false})
   }
 
+  
+
   render() {
     const {
       isLoading,
@@ -228,13 +234,9 @@ class SignIn extends PureComponent {
       return (<div><p>Loading...</p></div>);
     }
     if (!token) {
-
-      //Add specific class to ReactModal
-
       return (
         <div>
-        <a id="signInModalTrigger" className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
-        </a>
+        <a id="signInModalTrigger" className="navbar-brand login" href={path} onClick={this.handleOpenModal}>Login</a>
 
         <ReactModal isOpen={this.state.showModal} style={{content: {
                                                             position: 'relative',
