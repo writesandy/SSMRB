@@ -239,6 +239,7 @@ onSignUp() {
                         ) : (null)
                         }
                         <form>
+                            <label htmlFor="firstName" className="hidden">Input your first name.</label>
                             <input
                                 type="firstName"
                                 placeholder="Your First Name"
@@ -248,6 +249,7 @@ onSignUp() {
                                 //onChange={this.update('firstName')}
                                 className="signUpInput"
                             />
+                            <label htmlFor="lastName" className="hidden">Input your last name.</label>
                             <input
                                 type="lastName"
                                 placeholder="Your Last Name"
@@ -257,6 +259,7 @@ onSignUp() {
                                 onChange={this.onTextboxChangeLastName}
                                 className="signUpInput"
                             />
+                            <label htmlFor="signUpEmail" className="hidden">Input your email address. This will act as your username.</label>
                             <input
                                 type="signUpEmail"
                                 placeholder="YourEmail@domain.com"
@@ -265,6 +268,7 @@ onSignUp() {
                                 onChange={this.onTextboxChangeSignUpEmail}
                                 className="signUpInput"
                             />
+                            <label htmlFor="signUpPassword" className="hidden">Input the password you would like for your account.</label>
                             <input
                                 type="signUpPassword"
                                 placeholder="Password"
@@ -276,6 +280,7 @@ onSignUp() {
                             />
 
                             <div id="artistBooleanGroup">
+                                <label htmlFor="checkbox" className="hidden">Check the box if you are already an Artist United member.</label>
                                 <input 
                                     type="checkbox" data-reverse
                                     data-group-cls="btn-group-sm"
@@ -284,7 +289,7 @@ onSignUp() {
                                     onChange={this.oncheckBoxUpdate}
                                     id="artistBoolean"
                                 />
-                                <h6 id="artistBooleanLabel">I am an Artist United member.</h6>
+                                <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                             </div>
                             {/* <input
                             type="phoneNumber"
