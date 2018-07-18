@@ -1,8 +1,10 @@
 import React from 'react';
 import Gallery from 'react-grid-gallery'
+// import ImageUpload from '../ImageUpload'
+
 // import { render } from 'react-dom';
 
-class GalleryPureComponent extends React.PureComponent {
+class GalleryComponent extends React.PureComponent {
     
     render() {
         const IMAGES =
@@ -31,12 +33,14 @@ class GalleryPureComponent extends React.PureComponent {
 }]
    
       return (
-        <div className="images">
-          <Gallery images={IMAGES}/>
+        <div className="container">
+                <div className="images">
+                        <Gallery images={IMAGES}/>
+                </div>
         </div>
       );
     }
    
   }
 
-  export default GalleryPureComponent;
+  export default GalleryComponent;

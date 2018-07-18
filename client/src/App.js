@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import './App.css';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// Constant Across All Pages
+// import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 import Footer from './components/Footer/Footer';
 
@@ -13,7 +12,6 @@ import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
-import ArtistThumbnail from './components/ArtistThumbnail';
 
 
 
@@ -27,9 +25,11 @@ class App extends PureComponent {
           <div className="contentArea">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/Artist' component={ArtistThumbnail}/>
+              <Route path='/Artist' component={ArtistLanding}/>
               <Route path='/Gallery' component={GalleryComponent}/>
-              {/* <Route path='Community' component={Community}/> */}
+
+              {/* Do not keep -- just for creating the page */}
+              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
             </Switch>
           </div>
           <Footer />

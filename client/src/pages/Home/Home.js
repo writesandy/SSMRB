@@ -6,11 +6,15 @@ import './Home.css';
     import About from '../../components/About';
     import Carousel from '../../components/Carousel';
 
-const Home = props => (
+class Home extends React.PureComponent {
+    render() {
+        return (
             <div>
                 <Carousel />
                 <About />
-            </div>
+            </div>    
         )
+    }
+}
 
 export default Home;

@@ -36,4 +36,3 @@
 <a href="https://app.xtensio.com/lp04bthh">![Group Leader User Profile](./assets/images/art-group-leader.png)</a>
 <a href="https://app.xtensio.com/lp04bthh">![Group Member User Profile](./assets/images/art-member.png)</a>
 <a href="https://app.xtensio.com/lp04bthh">![Art Enthusiast Profile](./assets/images/art-enthusiast.png)</a>
-
