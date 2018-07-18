@@ -3,6 +3,7 @@ import './ArtistProfiles.css'
 import Artists from '../../components/artistSeed.json'
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
+import API from "../../utils/API"
 
 
 class ArtistProfiles extends React.PureComponent {
@@ -28,6 +29,8 @@ class ArtistProfiles extends React.PureComponent {
     this.setState({ showModal: false });
     };
 
+
+
     
     render () {
         console.log(this.state);
@@ -47,9 +50,28 @@ class ArtistProfiles extends React.PureComponent {
                     })}
                 </div>
                 {/* Art Feature Modal */}
-                <ReactModal isOpen={this.state.showModal}>
+                <ReactModal isOpen={this.state.showModal} style={
+                    {content: {
+                        position: 'relative',
+                        top: 'unset',
+                        left: 'unset',
+                        right: 'unset',
+                        bottom: 'unset',
+                        border: '1px solid grey',
+                        background: 'white',
+                        overflow: 'hidden',
+                        borderRadius: '0px',
+                        outline: 'none',
+                        padding: '0px',
+                        width: 'fit-content',
+                        height: 'fit-content',
+                        margin: '80px auto',
+                        maxHight: '65%',
+                        maxWidth: '65%',
+                    }
+                }}>
                     <img id="feature-image" src={this.state.modalArt} />
-                    <button className="close-btn" onClick={this.handleCloseModal}><i className="fa fa-close"/></button>
+                    <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
                 </ReactModal>
              {/* Footer */}
             </div>            
