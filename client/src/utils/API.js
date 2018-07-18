@@ -11,7 +11,7 @@ const API = {
     return axios.delete('/api/users/' + id);
   },
   getImages: function() {
-    return axios.get("/images");
+    return axios.get("/files");
   },
   saveImages: function(userImage) {
     return axios.post('/upload', userImage);

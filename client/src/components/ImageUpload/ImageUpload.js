@@ -56,19 +56,26 @@ class ImageUpload extends PureComponent {
     loadSavedImages = () => {
         API.getImages()
             .then(res => {
+                console.log('loading images ', res.data)
                 this.setState({ files: res.data })
             })
             .catch(err => console.log(err))
     }
 
     componentDidMount() {
+        this.loadSavedImages()
         // API.getImages()
         //     .then(res=> console.log('check here', res.data))
     }
 
-    findOneImage = id => {
-        API.findImage(id)
-    }
+    // findOneImage = id => {
+    //     API.findImage(id)
+    //         .then(res => {
+    //             this.setState({
+    //                 file
+    //             })
+    //         })
+    // }
 
     handleDelete = id => {
         API.deleteImage(id)
@@ -77,34 +84,29 @@ class ImageUpload extends PureComponent {
             })
     }
 
-    deleteImage = id => {
-        
-    }
-
 render() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-6 m-auto">
-                    <h1 className="text-center display-4 my-4">Mongo File Uploads</h1>
-                    {/* <form action="/upload" method="POST" encType="multipart/form-data"> */}
-                    <form onSubmit={this.handleSubmit} method="POST" encType="multipart/form-data">   
+                <div className="col-md-12 m-auto">
+                    <h1 className="text-center">Image Uploader</h1>
+                    <form action="/upload" method="POST" encType="multipart/form-data">
                         <div className="custom-file mb-3">
                             <input type="file" name="file" id="file" className="custom-file-input"/>
                             <label htmlFor="file" className="custom-file-label">Choose File</label>
                         </div>
-                        <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
+                        <input onSubmit={this.handleSubmit} type="submit" value="Submit" className="btn btn-primary btn-block"/>
                     </form>
                         <hr/>
                        <div className="container">
                             <div className="row">
-                            {console.log(this.state.files)}
+                            {console.log('where is this ', this.state)}
                                 {this.state.files.length ? (
                                 <List>    
                                     {this.state.files.map((files) => (
-                                        <ListItem key={files.id} id={files.id}>
+                                        <ListItem key={files._id} id={files._id}>
                                             <div className='col-md-12 image'>
-                                                {files.filename}
+                                                <img key={files._id} alt={files.filename} src={files.filename}/>
                                             </div>
                                         </ListItem>
                                     ))}
