@@ -7,10 +7,9 @@ const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 const Grid = require('gridfs-stream');
 const path = require('path');
-// const GridFSStorage = require('multer-gridfs-storage');
+const GridFSStorage = require('multer-gridfs-storage');
 const crypto = require('crypto');
 const multer = require('multer');
-const fs = require('fs');
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,7 +51,7 @@ const storage = multer.diskStorage({
       cb(null, './upload/');
     },
     filename: function(req, file, cb) {
-      cb(null, new Date().toISOString() + file.originalname);
+      cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
     }
   });
   
@@ -72,6 +71,7 @@ const storage = multer.diskStorage({
     },
     fileFilter: fileFilter
   });
+
 // const storage = new GridFSStorage({
 //   url: dbUri,
 //   file: (req, file) => {
@@ -119,21 +119,13 @@ app.get('/images', (req, res) => {
 // @route POST /upload
 // @desc Uploads file to DB
 app.post('/upload', upload.single('file'), (req, res) => {
-      // res.json({file: req.file});
+  // res.json({file: req.file});
   console.log('this is req.file: ', req.file)
-    
-    // var filename = req.query.filename;
-		
-    // var writestream = gfs.createWriteStream({ filename: filename });
-    // fs.createReadStream(__dirname + "/uploads/" + filename).pipe(writestream);
-    // writestream.on('close', (file) => {
-    //     res.send('Stored File: ' + file.filename);
-    // });
 })
 
 // @route GET /files
 // @desc Display all files in JSON
-app.get('/files', (req, res) => {
+app.get('/files/', (req, res) => {
   gfs.files.find().toArray((err, files) => {
       // Check if files
       if(!files || files.length ===0) {
@@ -141,7 +133,6 @@ app.get('/files', (req, res) => {
               err: 'No files exist'
           });
       }
-      console.log(files)
 
       // Files exist
       return res.json(files);
@@ -150,7 +141,7 @@ app.get('/files', (req, res) => {
 
 // @route GET /files/:filename
 // @desc Display single file object
-app.get('/files/:filename', (req, res) => {
+app.get('/files/:filename/', (req, res) => {
   gfs.files.findOne({filename: req.params.filename}, (err, file) => {
       if (!file || file.length ===0) {
           return res.status(404).json({
@@ -161,7 +152,7 @@ app.get('/files/:filename', (req, res) => {
       return res.json(file);
   })
 });
- 
+
 // @route GET /image/:filename
 // @desc Display image
 app.get('/images/:filename/', (req, res) => {
