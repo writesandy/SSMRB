@@ -3,7 +3,8 @@ import './TestUploader.css';
 import Dropzone from 'react-dropzone';
 import sha1 from 'sha1';
 import superagent from 'superagent';
-import { callbackify } from 'util';
+import API from '../../utils/API'
+// import { callbackify } from 'util';
 class TestUploader extends PureComponent {
     constructor(){
         super()
@@ -44,11 +45,13 @@ class TestUploader extends PureComponent {
             const uploaded = res.body
             let updatedImages = Object.assign([], this.state.images)
             updatedImages.push(uploaded)
-                this.setState({
-                    images: updatedImages
-                })
             
+            this.setState({
+                images: updatedImages
+            })            
         })
+        .then(this.saveImage())
+
     }
 
     removeImage(event) {
@@ -61,20 +64,40 @@ class TestUploader extends PureComponent {
             })        
     }
 
+    saveImage = (event) => {
+        this.state.images.forEach((elem) => {
+            console.log(elem);
+            if(elem._id === event.target.id){
+                // console.log('event', event.target.id)
+                // console.log('elem', elem._id)
+                API.saveImage({
+                    
+                })
+                .then(res => {
+                    // console.log('this is res', res);
+                    this.state.savedArticles.push(res.articleData)
+                    this.loadSavedArticles();
+                })
+                .catch(err => console.log(err));
+        }
+    })
+}
+
     render() {
         const list = this.state.images.map((image, i) => {
             return(
                 <div key={i}>
                     <img className="image" alt={image.original_filename} src={image.secure_url} />
                     <br />
-                    <button id={i} onClick={this.removeImage.bind(this)}>remove</button>
+                    <button key={i} id={i} onClick={this.saveImage.bind(this) || null}>Save</button>
+                    <button key={i} id={i} onClick={this.removeImage.bind(this)}>Remove</button>
                 </div>
             )   
         })
         return (
             <div>
                 Images Component 
-                <Dropzone onDrop={this.uploadFile.bind(this)} />
+                <Dropzone onDrop={this.uploadFile.bind(this)} accept=".jpeg,.png" />
                 <ul>
                     { list }
                 </ul>
