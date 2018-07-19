@@ -22,7 +22,6 @@ const About = props => (
                     </p>
                 <p className="about-image">
                     <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="Responsive image" />
-
                 </p>
 
 
@@ -44,7 +43,18 @@ const About = props => (
                     Nunc tristique vel turpis ut ullamcorper.
                     Integer ante elit, tempor et ante in, elementum sagittis nunc.
                     Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
-
+                </p>
+                <p className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nunc tristique vel turpis ut ullamcorper.
+                    Integer ante elit, tempor et ante in, elementum sagittis nunc.
+                    Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                </p>
+                <p className="about-paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nunc tristique vel turpis ut ullamcorper.
+                    Integer ante elit, tempor et ante in, elementum sagittis nunc.
+                    Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
                 </p>
 
 
@@ -58,27 +68,29 @@ const About = props => (
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Nunc tristique vel turpis ut ullamcorper.
-                                                Integer ante elit, tempor et ante in, elementum sagittis nunc.
-                                                Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                        Nunc tristique vel turpis ut ullamcorper.
+                        Integer ante elit, tempor et ante in, elementum sagittis nunc.
+                        Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
                     </p>
+                    <br />
                     <span className="image-left">
                         <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" alt="Responsive image" />
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Nunc tristique vel turpis ut ullamcorper.
-                                                Integer ante elit, tempor et ante in, elementum sagittis nunc.
-                                                Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                        Nunc tristique vel turpis ut ullamcorper.
+                        Integer ante elit, tempor et ante in, elementum sagittis nunc.
+                        Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
                     </p>
+                    <br />
                     <span className="image-left">
                         <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="Responsive image" />
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Nunc tristique vel turpis ut ullamcorper.
-                                                Integer ante elit, tempor et ante in, elementum sagittis nunc.
-                                                Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                        Nunc tristique vel turpis ut ullamcorper.
+                        Integer ante elit, tempor et ante in, elementum sagittis nunc.
+                        Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
                     </p>
                 </div>
             </div>
