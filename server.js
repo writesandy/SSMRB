@@ -118,14 +118,17 @@ app.get('/images', (req, res) => {
 
 // @route POST /upload
 // @desc Uploads file to DB
-app.post('/upload', upload.single('productImage'), (req, res) => {
-    var filename = req.query.filename;
+app.post('/upload', upload.single('file'), (req, res) => {
+      // res.json({file: req.file});
+  console.log('this is req.file: ', req.file)
+    
+    // var filename = req.query.filename;
 		
-    var writestream = gfs.createWriteStream({ filename: filename });
-    fs.createReadStream(__dirname + "/uploads/" + filename).pipe(writestream);
-    writestream.on('close', (file) => {
-        res.send('Stored File: ' + file.filename);
-    });
+    // var writestream = gfs.createWriteStream({ filename: filename });
+    // fs.createReadStream(__dirname + "/uploads/" + filename).pipe(writestream);
+    // writestream.on('close', (file) => {
+    //     res.send('Stored File: ' + file.filename);
+    // });
 })
 
 // @route GET /files
