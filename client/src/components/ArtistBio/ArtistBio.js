@@ -5,7 +5,17 @@ import SocialContact from '../Social and Contact'
 import API from "../../utils/API"
 
 class ArtistBio extends React.Component {
+    state={
+        artist:{}
+    }
 
+    componentDidMount(){
+        //get all artist
+        //get the url nd set to varable
+        //filter by last name
+        //put artist on state
+        //access like normal
+    }
     render () {
         return (
             <div className="artistBio col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
