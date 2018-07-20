@@ -39,10 +39,10 @@ class FooterPage extends React.Component {
                                 <p><a href="#!" className="dark-grey-text">Watercolors</a></p>
                                 <p><a href="#!" className="dark-grey-text">Textiles and Fabric </a></p>
                                 <p><a href="#!" className="dark-grey-text">Sculpture</a></p>
-                                <p><a href="#!" className="dark-grey-text">Jewelery</a></p>
+                                <p><a href="#!" className="dark-grey-text">Jewelry</a></p>
                             </Col>
                             <Col md="3" lg="2" xl="2" className="mb-4 dark-grey-text">
-                                <h6 className="text-uppercase font-weight-bold"><strong>Existing Memembers</strong></h6>
+                                <h6 className="text-uppercase font-weight-bold"><strong>Existing Members</strong></h6>
                                 <hr />
                                 <p><a href="#!" className="dark-grey-text">Your Account</a></p>
                                 <p><a href="#!" className="dark-grey-text">Become a member of our artist Community</a></p>
