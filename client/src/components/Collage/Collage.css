@@ -1,0 +1,17 @@
+.collage-layout{
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+.react-grid-layout{
+    width: 100%;
+}
+
+.collage-section{
+    padding-left: 0px;
+}
+
+.collage-text{
+    padding-left: 0px;
+}
+

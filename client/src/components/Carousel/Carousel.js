@@ -51,7 +51,7 @@ class CarouselPage extends Component {
                         <CarouselInner>
                             <CarouselItem itemId="1">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="First slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="first carousel image" />
 
                                     <Mask overlay="black-light"></Mask>
                                 </View>
@@ -61,7 +61,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="2">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="Second slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="second carousel image" />
                                     <Mask overlay="black-strong"></Mask>
                                 </View>
                                 <CarouselCaption>
@@ -70,7 +70,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="3">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="Third slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="third carousel image" />
                                     <Mask overlay="black-slight"></Mask>
                                 </View>
                                 <CarouselCaption>
@@ -79,7 +79,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="4">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="Mattonit's item" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="fourth carousel image" />
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>
