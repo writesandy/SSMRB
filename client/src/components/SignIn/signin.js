@@ -47,7 +47,7 @@ class SignIn extends PureComponent {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
-      fetch('/api/account/verify?token=' + token)
+      fetch('api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
           
@@ -82,45 +82,6 @@ class SignIn extends PureComponent {
       signInPassword: event.target.value,
     });
   }
-  // onSignUp() {
-  //   // Grab state
-  //   const {
-  //     signInEmail,
-  //     signInPassword,
-  //   } = this.state;
-
-  //   this.setState({
-  //     isLoading: true,
-  //   });
-
-  //   // Post request to backend
-  //   fetch('/api/account/sign', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'// this also could be json data
-  //     },
-  //     body: JSON.stringify({
-  //       email: signInEmail,
-  //       password: signInPassword,
-  //     })
-  //   }).then(res => res.json())
-  //     .then(json => {
-  //       console.log('json', json);
-  //       if (json.success) {
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //           signUpEmail: '',
-  //           signUpPassword: '',
-  //         });
-  //       } else {
-  //         this.setState({
-  //           signUpError: json.message,
-  //           isLoading: false,
-  //         });
-  //       }
-  //     });
-  // }
 
   onSignIn() {
     // Grab state
@@ -134,7 +95,7 @@ class SignIn extends PureComponent {
     });
 
     // Post request to backend
-    fetch('routes/api/account/signin', {
+    fetch('api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -171,7 +132,7 @@ class SignIn extends PureComponent {
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('routes/api/account/logout?token=' + token)
+      fetch('/api/account/logout?token=' + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {

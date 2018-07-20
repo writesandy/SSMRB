@@ -270,7 +270,7 @@ onSignUp() {
                             />
                             <label htmlFor="signUpPassword" className="hidden">Input the password you would like for your account.</label>
                             <input
-                                type="signUpPassword"
+                                type="password"
                                 placeholder="Password"
                                 //defaultValue={signUpPassword}
                                 value={signUpPassword}
