@@ -1,7 +1,7 @@
 import React from "react";
 import "./ArtistThumbnail.css";
 import Artists from "../artistSeed.json";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import SocialIcons from '../Social Icons';
 import API from "../../utils/API"
 

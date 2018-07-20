@@ -219,10 +219,10 @@ onSignUp() {
       artistBoolean,
       firstName,
       lastName,
-      ArtistBio,
-      phoneNumber,
-      InstagramHandle,
-      TwitterHandle,
+      // ArtistBio,
+      // phoneNumber,
+      // InstagramHandle,
+      // TwitterHandle,
     } = this.state;
     if (isLoading) {
       return (<div><p>Loading...</p></div>);

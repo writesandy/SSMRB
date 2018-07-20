@@ -46,25 +46,52 @@ mongoose.connection.once('open', function () {
 })
 
 // Create storage engine
-const storage = new GridFSStorage({
-  url: dbUri,
-  file: (req, file) => {
-      return new Promise((resolve, reject) => {
-          crypto.randomBytes(16, (err, buf) => {
-              if (err) {
-                  return reject(err);
-              }
-              const filename = buf.toString('hex') + path.extname(file.originalname);
-              const fileInfo = {
-                  filename: filename,
-                  bucketName: 'uploads'
-              };
-              resolve(fileInfo);
-          });
-      });
-  }
-});
-const upload = multer({ storage });
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, './upload/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+    }
+  });
+  
+  const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  };
+  
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+  });
+
+// const storage = new GridFSStorage({
+//   url: dbUri,
+//   file: (req, file) => {
+//       return new Promise((resolve, reject) => {
+//           crypto.randomBytes(16, (err, buf) => {
+//               if (err) {
+//                   return reject(err);
+//               }
+//               const filename = buf.toString('hex') + path.extname(file.originalname);
+//               const fileInfo = {
+//                   filename: filename,
+//                   bucketName: 'uploads'
+//               };
+//               resolve(fileInfo);
+//           });
+//       });
+//   }
+// });
+// const upload = multer({ storage });
 
 // @route GET /
 // @desc Loads form
