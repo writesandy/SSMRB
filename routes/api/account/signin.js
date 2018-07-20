@@ -148,7 +148,6 @@ router.route('/verify').get( (req, res, next) => {
   const { query } = req;
   const { token } = query;
   // ?token=test
-
   // Verify the token is one of a kind and it's not deleted.
 
   UserSession.find({
@@ -156,7 +155,7 @@ router.route('/verify').get( (req, res, next) => {
     isDeleted: false
   }, (err, sessions) => {
     if (err) {
-      console.log(err);
+     // console.log(err);
       return res.send({
         success: false,
         message: 'Error: Server error'
@@ -182,6 +181,7 @@ router.route('/logout').get( (req, res, next) => {
 //     // Get the token
   const { query } = req;
   const { token } = query;
+  console.log(token)
    //token=test
 
   // Verify the token is one of a kind and it's not deleted.
@@ -211,4 +211,3 @@ router.route('/logout').get( (req, res, next) => {
 });
 
 module.exports = router;
-

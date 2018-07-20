@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
   loginAttempts: { type: Number, default: '' },
   profilePhoto: { data: Buffer, type: String },
   galleryPhotos: { data: Buffer, type: String },
+<<<<<<< HEAD
   first: {data: Buffer, type: String, default: ''},
   last: {data: Buffer, type: String, default: ''},
   title: {data: Buffer, type: String, default: ''},
@@ -17,6 +18,18 @@ const UserSchema = new mongoose.Schema({
   linkedin: {data: Buffer, type: String, default: ''}, 
   website: {data: Buffer, type: String, default: ''},
   image: {data: Buffer, type: String, default: ''}
+=======
+  firstName: {data: Buffer, type: String, default: 'Pablo'},
+  artistBio: {data: Buffer, type: String, default: 'Your Bio Here!'},
+  lastName: {data: Buffer, type: String, default: 'Picasso'},
+  title: {data: Buffer, type: String, default: 'Cofounder & CTO'},
+  InstagramHandle: {data: Buffer, type: String, default: 'www.instagram.com'},
+  TwitterHandle: {data: Buffer, type: String, default: 'www.twitter.com' },
+  phoneNumber: {data: Buffer, type:Number, default:''},
+  linkedin: {data: Buffer, type: String, default: 'www.linkedIN.com'}, 
+  website: {data: Buffer, type: String, default: 'www.squarespace.com/tour/portfolio-website'},
+  image: {data: Buffer, type: String, default: 'https://images.pexels.com/photos/556069/pexels-photo-556069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'}
+>>>>>>> 65d9f6534fc264643b958038cb533def32504926
 });
 
 UserSchema.methods.generateHash = function(password) {

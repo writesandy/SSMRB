@@ -1,19 +1,15 @@
 import React, { PureComponent } from 'react';
+//import Community from './components/Community/community.js'
 import './App.css';
-// import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import HeaderNav from './components/HeaderNav';
-import Footer from './components/Footer/Footer';
+//import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
 
-// Pages
-import Home from './pages/Home'
-import ArtistLanding from './pages/ArtistLanding'
+import ArtistThumbnail from './components/ArtistThumbnail/ArtistThumbnail';
+import ImageUpload from './components/ImageUpload'
 import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
-
-
 
 
 class App extends PureComponent {
@@ -39,5 +35,4 @@ class App extends PureComponent {
     )
   }
 }
-
 export default App;

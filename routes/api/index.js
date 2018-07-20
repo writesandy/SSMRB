@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const artistsRoutes = require("./artists");
-const account = require("./account/signin.js")
+const account = require("./account/SignIn.js")
 const path = require("path");
 
 // Article routes
