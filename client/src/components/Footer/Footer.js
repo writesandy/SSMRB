@@ -11,7 +11,7 @@ class FooterPage extends React.Component {
                         <Container>
                             <Row className="footer-header">
                                 <Col md="8" lg="8" className="">
-                                    <h5 className="mb-0 white-text">Get connected with us on social networks!</h5>
+                                    <h5 className="mb-0 white-text">Social</h5>
                                 </Col>
                                 <div>
                                     <Col md="4" lg="4" className="text-center text-md-right">
@@ -30,30 +30,30 @@ class FooterPage extends React.Component {
                             <Col md="3" lg="4" xl="3" className="mb-4 dark-grey-text">
                                 <h6 className="text-uppercase font-weight-bold"><strong>All Artist United</strong></h6>
                                 <hr />
-                                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                                amet, consectetur adipisicing elit.</p>
+                                <p>A Community of Artists</p>
                             </Col>
                             <Col md="2" lg="2" xl="2" className="mb-4 dark-grey-text">
-                                <h6 className="text-uppercase font-weight-bold"><strong>Products</strong></h6>
+                                <h6 className="text-uppercase font-weight-bold"><strong>Artist Area</strong></h6>
                                 <hr />
-                                <p><a href="#!" className="dark-grey-text">MDBootstrap</a></p>
-                                <p><a href="#!" className="dark-grey-text">MDWordPress</a></p>
-                                <p><a href="#!" className="dark-grey-text">BrandFlow</a></p>
-                                <p><a href="#!" className="dark-grey-text">Bootstrap Angular</a></p>
+                                <p><a href="#!" className="dark-grey-text">Oil Painting</a></p>
+                                <p><a href="#!" className="dark-grey-text">Watercolors</a></p>
+                                <p><a href="#!" className="dark-grey-text">Textiles and Fabric </a></p>
+                                <p><a href="#!" className="dark-grey-text">Sculpture</a></p>
+                                <p><a href="#!" className="dark-grey-text">Jewelry</a></p>
                             </Col>
                             <Col md="3" lg="2" xl="2" className="mb-4 dark-grey-text">
-                                <h6 className="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
+                                <h6 className="text-uppercase font-weight-bold"><strong>Existing Members</strong></h6>
                                 <hr />
                                 <p><a href="#!" className="dark-grey-text">Your Account</a></p>
-                                <p><a href="#!" className="dark-grey-text">Become an Affiliate</a></p>
+                                <p><a href="#!" className="dark-grey-text">Become a member of our artist Community</a></p>
                                 <p><a href="#!" className="dark-grey-text">Shipping Rates</a></p>
                                 <p><a href="#!" className="dark-grey-text">Help</a></p>
                             </Col>
                             <Col md="4" lg="3" xl="3" className="mb-4 dark-grey-text">
                                 <h6 className="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
                                 <hr />                                
-                                <p><i className="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                                <p><i className="fa fa-envelope mr-3"></i> info@example.com</p>
+                                <p><i className="fa fa-home mr-3"></i> McMinneville, Oregon</p>
+                                <p><i className="fa fa-envelope mr-3"></i>All Artists United</p>
                                 <p><i className="fa fa-phone mr-3"></i> + 01 234 567 88</p>
                                 <p><i className="fa fa-print mr-3"></i> + 01 234 567 89</p>
                             </Col>

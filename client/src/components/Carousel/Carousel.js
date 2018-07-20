@@ -56,7 +56,7 @@ class CarouselPage extends Component {
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Light mask</h3>
+                                    <h3 className="h3-responsive">The artist never entirely knows — We guess. We may be wrong, but we take leap after leap in the dark” ~Agnes de Mille</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="2">
@@ -65,7 +65,7 @@ class CarouselPage extends Component {
                                     <Mask overlay="black-strong"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Strong mask</h3>
+                                    <h3 className="h3-responsive">The artist is always beginning. Any work of art which is not a beginning, an invention, a discovery is of little worth.” ~Ezra Pound</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="3">
@@ -74,7 +74,7 @@ class CarouselPage extends Component {
                                     <Mask overlay="black-slight"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Slight mask</h3>
+                                    <h3 className="h3-responsive">“Art is not a thing, it is a way.” ~Elbert Hubbard</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="4">
@@ -83,7 +83,7 @@ class CarouselPage extends Component {
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Sopot Beach</h3>
+                                    <h3 className="h3-responsive">"The whole culture is telling you to hurry, while the art tells you to take your time. Always listen to the art.” ~Junot Diaz</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                         </CarouselInner>
