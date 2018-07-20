@@ -23,7 +23,7 @@ class Collage extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="collage-section col-lg-6 col-md-6 col-sm-12">
+                    <div className="collage-about col-lg-6 col-md-6 col-sm-12">
                         <h3>Our Art Defines Who We Are</h3>
                         
                             <p className="collage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -43,7 +43,7 @@ class Collage extends React.Component {
                         </p>
                         
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="collage-grid col-lg-6 col-md-6 col-sm-12">
                         <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
                             <div key="a"><img className="collage-layout" src="https://i.imgur.com/sUS0f6m.jpg" alt="collage image 1" /></div>
                             <div key="b"><img className="collage-layout" src="https://i.imgur.com/5zW8jAN.jpg" alt="collage image 2" /></div>

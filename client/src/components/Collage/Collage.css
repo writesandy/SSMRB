@@ -7,8 +7,12 @@
     width: 100%;
 }
 
-.collage-section{
+.collage-about{
     padding-left: 0px;
+}
+
+.collage-grid{
+    background: initial;    
 }
 
 .collage-text{
