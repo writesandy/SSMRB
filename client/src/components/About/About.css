@@ -1,15 +1,43 @@
 .about-us-2{
-padding: 0 5px;
+padding: 0px;
 }
 
 .about-image{
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    padding: 0px;
 }
 
 .about-paragraph{
-    padding: 0px;   
+padding: 0px;
 }
-.service-offerings{
 
+.services-offerings{
+    background: url(https://i.imgur.com/GsSByhj.png);
+    padding: 0px !important
 }
+span.image-left{
+    display: block;
+    float: left;
+    margin: 5px 15px 0px 0px;
+}
+
+span.image-right{
+    display: block;
+    float: right;
+    margin: 5px 0px 0px 15px;
+}
+.icon-img{
+    width: 40px;
+    height: auto;
+}
+.transbox{
+    background-color: #fff;
+    opacity: 0.9;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+
