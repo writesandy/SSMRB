@@ -11,7 +11,7 @@ import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 
 import About from './components/About'
-import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
+import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 
 
 
@@ -29,7 +29,7 @@ class App extends PureComponent {
               <Route path='/Gallery' component={GalleryComponent}/>
 
               {/* Do not keep -- just for creating the page */}
-              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
+              <Route path='*' component={ArtistBio}/>
             </Switch>
           </div>
           <Footer />
