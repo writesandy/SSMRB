@@ -21,22 +21,39 @@ class Collage extends React.Component {
 
         ];
         return (
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <p>Some Text Goes Here</p>
+            <div className="container">
+                <div className="row">
+                    <div className="collage-section col-lg-6 col-md-6 col-sm-12">
+                        <h3>Our Art Defines Who We Are</h3>
+                        
+                            <p className="collage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                Aenean commodo ligula eget dolor. Aenean massa.
+                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                                Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+                            <p className="collage-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus, purus lacinia gravida fermentum, nulla mauris ornare tortor, a pellentesque nibh enim non dui.
+                                Aenean feugiat nec est eget blandit. Praesent ligula metus, fermentum vitae scelerisque porta, scelerisque id nulla.
+                                Vivamus semper sapien nec metus convallis, id ornare risus ultrices.
+                                Nullam pulvinar massa nec tellus porttitor, nec tincidunt mi accumsan.
+                                Sed efficitur egestas sem, quis mollis odio pretium et.
+                                Mauris tempor, erat eget blandit mollis, augue lectus tempor mauris, sit amet hendrerit dui ligula nec urna.
+                                Maecenas nec venenatis velit, sit amet vulputate augue.
+                                Mauris facilisis, lorem vel efficitur vulputate, sem nibh venenatis elit, vestibulum interdum lorem arcu at sem.
+                        </p>
+                        
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
                         <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
-                            <div key="a"><img className="collage-layout" src="https://i.imgur.com/sUS0f6m.jpg" /></div>
-                            <div key="b"><img className="collage-layout" src="https://i.imgur.com/5zW8jAN.jpg" /></div>
-                            <div key="c"><img className="collage-layout" src="https://i.imgur.com/jpn6rlV.jpg" /></div>
-                            <div key="d"><img className="collage-layout" src="https://i.imgur.com/hMRYWEy.jpg" /></div>
-                            <div key="e"><img className="collage-layout" src="https://i.imgur.com/wGPySFn.jpg" /></div>
-                            <div key="f"><img className="collage-layout" src="https://i.imgur.com/WYfUfmO.jpg" /></div>
-                            <div key="g"><img className="collage-layout" src="https://i.imgur.com/0iWLz1p.jpg" /></div>
-                            <div key="h"><img className="collage-layout" src="https://i.imgur.com/1U8AK1n.jpg" /></div>
-                            <div key="j"><img className="collage-layout" src="https://i.imgur.com/fiyrPZb.jpg" /></div>
+                            <div key="a"><img className="collage-layout" src="https://i.imgur.com/sUS0f6m.jpg" alt="collage image 1" /></div>
+                            <div key="b"><img className="collage-layout" src="https://i.imgur.com/5zW8jAN.jpg" alt="collage image 2" /></div>
+                            <div key="c"><img className="collage-layout" src="https://i.imgur.com/jpn6rlV.jpg" alt="collage image 3" /></div>
+                            <div key="d"><img className="collage-layout" src="https://i.imgur.com/hMRYWEy.jpg" alt="collage image 4" /></div>
+                            <div key="e"><img className="collage-layout" src="https://i.imgur.com/wGPySFn.jpg" alt="collage image 5"/></div>
+                            <div key="f"><img className="collage-layout" src="https://i.imgur.com/WYfUfmO.jpg" alt="collage image 6"/></div>
+                            <div key="g"><img className="collage-layout" src="https://i.imgur.com/0iWLz1p.jpg" alt="collage image 7"/></div>
+                            <div key="h"><img className="collage-layout" src="https://i.imgur.com/1U8AK1n.jpg" alt="collage image 8"/></div>
+                            <div key="j"><img className="collage-layout" src="https://i.imgur.com/fiyrPZb.jpg" alt="collage image 9"/></div>
                         </GridLayout>
                     </div>
                 </div>

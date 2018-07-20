@@ -21,7 +21,7 @@ const About = props => (
                     Etiam euismod leo eu tellus rutrum, a mollis mauris venenatis. In in facilisis dolor. Praesent id iaculis massa. Donec non maximus neque.
                     </p>
                 <p className="about-image">
-                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="Responsive image" />
+                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile image" />
                 </p>
 
 
@@ -64,7 +64,7 @@ const About = props => (
             <div className="services-offerings col-lg-4 col-md-4 col-sm-12">
                 <div className="transbox">
                     <span className="image-left">
-                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img" alt="Responsive image" />
+                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img" alt="paint brush icon" />
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -74,7 +74,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" alt="Responsive image" />
+                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" alt="canvas icon" />
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -84,7 +84,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="Responsive image" />
+                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="art utensil icons  " />
                     </span>
                     <p className="offerings"><i className="icon-large icon-search"></i>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
