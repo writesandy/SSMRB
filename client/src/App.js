@@ -13,11 +13,13 @@ import GalleryComponent from './components/Gallery'
 import About from './components/About'
 import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 
+// require('dotenv').config()
 
 
 
 class App extends PureComponent {
   render() {
+    console.log(process.env)
     return (
       <Router>
         <div id="page">

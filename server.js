@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 const path = require('path');
 
-
 // Define middleware here
 app.use('/upload', express.static('upload'));
 app.use(bodyParser.urlencoded({ extended: true }));

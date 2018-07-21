@@ -2,12 +2,16 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
+import SignUpProfile from '../SignUp';
 import './SignIn.css';
 import {getFromStorage, setInStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
 
 // Bind modal to Login Button
 ReactModal.setAppElement('#root');
+// create key on state to keep track of modal - done -
+// check that state and display in render - done - 
+// add method that changes state
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -23,6 +27,7 @@ class SignIn extends PureComponent {
       showModal:false,
       //Toggle Sign In & Sign Up
       showSignUp: false,
+      showSignUpProfile: false,
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -36,6 +41,7 @@ class SignIn extends PureComponent {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
+    
   }
 
 //make the above into a fat arrow function 
@@ -245,7 +251,7 @@ class SignIn extends PureComponent {
                 </div>
                   </span> }
           {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <a href="#" onClick={this.handleSignUp}>Sign Up</a></h6>}
-          {this.state.showSignUp && <SignUp />}
+          {this.state.showSignUp && <SignUp handleCloseModal ={this.handleCloseModal.bind(this)}/>}
           {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <a href="#" onClick={this.handleSignIn}>Sign In</a></h6>}
           <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
         </ ReactModal>
