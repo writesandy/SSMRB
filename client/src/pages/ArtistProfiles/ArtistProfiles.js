@@ -3,7 +3,7 @@ import './ArtistProfiles.css'
 import Artists from '../../components/artistSeed.json'
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
-// import API from "../../utils/API"
+import API from "../../utils/API"
 
 
 class ArtistProfiles extends React.PureComponent {
@@ -33,6 +33,7 @@ class ArtistProfiles extends React.PureComponent {
 
     componentDidMount() {
        API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
+       console.log("Gallery", this.state.artist)
     }
 
     
@@ -45,14 +46,14 @@ class ArtistProfiles extends React.PureComponent {
                  artistData = {this.state.artist}/>
             {/* Gallery */}
                 <div id="art-gallery">
-                    {this.state.Artists[0].art.map ((art, index) => {
-                            let boundItemClick = this.handleOpenModal.bind(this,art);
+                    {this.state.artist.galleryPhotos ? this.state.artist.galleryPhotos.map((galleryPhotos, index) => {
+                            let boundItemClick = this.handleOpenModal.bind(this,galleryPhotos);
                             return (
                                 <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
-                                    <img alt="art" className="art-img" src={art} />
+                                    <img alt="art" className="art-img" src={galleryPhotos} />
                                 </div>
                             )
-                    })}
+                    }): null}
                 </div>
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal} style={
