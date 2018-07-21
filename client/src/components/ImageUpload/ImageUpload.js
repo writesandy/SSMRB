@@ -5,6 +5,7 @@ import './ImageUpload.css';
 import firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
+require('dotenv').config()
 
 class ImageUpload extends PureComponent {
     state = {
@@ -20,12 +21,12 @@ class ImageUpload extends PureComponent {
 
   componentWillMount() {
     var config = {
-        apiKey: "AIzaSyARsbPxkmRxU5VhKgWKeEC_rZ5YYgYVUXo",
-        authDomain: "all-artists-united.firebaseapp.com",
-        databaseURL: "https://all-artists-united.firebaseio.com",
-        projectId: "all-artists-united",
-        storageBucket: "all-artists-united.appspot.com",
-        messagingSenderId: "973958386828"
+        apiKey: "DB_APIKEY",
+        authDomain: "DB_AUTH_DOMAIN",
+        databaseURL: "DB_URL",
+        projectId: "DB_PROJECT_ID",
+        storageBucket: "DB_STORAGE_BUCKET",
+        messagingSenderId: "DB_MESSAGING_SENDER_ID"
       };
       firebase.initializeApp(config);
   }
