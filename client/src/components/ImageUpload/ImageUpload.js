@@ -1,122 +1,75 @@
 import React, { PureComponent } from 'react';
 import './ImageUpload.css';
-import API from '../../utils/API'
-import { List, ListItem } from "../../components/List";
+// import API from '../../utils/API'
+// import { List, ListItem } from "../../components/List";
+import firebase from "firebase";
+import FileUploader from "react-firebase-file-uploader";
+import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
 class ImageUpload extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
+    state = {
       name: '',
       file: null,
-      files: []
+      files: [],
+      username: "",
+      avatar: "",
+      isUploading: false,
+      progress: 0,
+      avatarURL: ""
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+  componentWillMount() {
+    var config = {
+        apiKey: "AIzaSyARsbPxkmRxU5VhKgWKeEC_rZ5YYgYVUXo",
+        authDomain: "all-artists-united.firebaseapp.com",
+        databaseURL: "https://all-artists-united.firebaseio.com",
+        projectId: "all-artists-united",
+        storageBucket: "all-artists-united.appspot.com",
+        messagingSenderId: "973958386828"
+      };
+      firebase.initializeApp(config);
   }
 
-    handleSubmit(event) {
-      event.preventDefault();
-      const data = new FormData(event.target);
+  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+  
+  handleProgress = progress => this.setState({ progress });
+  
+  handleUploadError = error => {
+    this.setState({ isUploading: false });
+    console.error(error);
+  };
 
-      fetch('/upload', {
-          method: 'POST',
-          body: data,
-      })
-      .then(this.state.files.forEach((elem) => {
-          console.log('LOOOOOOOK HEEEERE: ', this.state.files)
-        if(elem._id === event.target.id){
-            API.saveImages({
-                filename: elem.filename
-            })
-            .then(res => {
-                this.state.files.push(res.userImage)
-                this.loadSavedImages();
-            })
-            .catch(err => console.log(err));
-        }
-    }))
-    }
+  handleUploadSuccess = filename => {
+    this.setState({ avatar: filename, progress: 100, isUploading: false });
+    firebase
+      .storage()
+      .ref("images")
+      .child(filename)
+      .getDownloadURL()
+      .then(url => this.setState({ avatarURL: url }))
+      .then(alert("Succesfully uploaded"))
+      console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
+  };
 
-    saveImages = (event) => {
-        event.preventDefault();
-        this.state.files.forEach((elem) => {
-            if(elem._id === event.target.id){
-                API.saveImages({
-                    filename: elem.filename
-                })
-                .then(res => {
-                    this.state.files.push(res.userImage)
-                    this.loadSavedImages();
-                })
-                .catch(err => console.log(err));
-            }
-        })
-    }
-
-    loadSavedImages = () => {
-        API.getImages()
-            .then(res => {
-                this.setState({ files: res.data })
-            })
-            .catch(err => console.log(err))
-    }
-
-    componentDidMount() {
-        // API.getImages()
-        //     .then(res=> console.log('check here', res.data))
-    }
-
-    findOneImage = id => {
-        API.findImage(id)
-    }
-
-    handleDelete = id => {
-        API.deleteImage(id)
-            .then(res => {
-                this.loadSavedImages();
-            })
-    }
-
-    deleteImage = id => {
-        
-    }
-
-render() {
+  render() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6 m-auto">
-                    <h1 className="text-center display-4 my-4">Mongo File Uploads</h1>
-                    {/* <form action="/upload" method="POST" encType="multipart/form-data"> */}
-                    <form onSubmit={this.handleSubmit} method="POST" encType="multipart/form-data">   
-                        <div className="custom-file mb-3">
-                            <input type="file" name="file" id="file" className="custom-file-input"/>
-                            <label htmlFor="file" className="custom-file-label">Choose File</label>
-                        </div>
-                        <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
-                    </form>
-                        <hr/>
-                       <div className="container">
-                            <div className="row">
-                            {console.log(this.state.files)}
-                                {this.state.files.length ? (
-                                <List>    
-                                    {this.state.files.map((files) => (
-                                        <ListItem key={files.id} id={files.id}>
-                                            <div className='col-md-12 image'>
-                                                {files.filename}
-                                            </div>
-                                        </ListItem>
-                                    ))}
-                                </List>
-                                ) : (
-                                    <h3 className="noResults">No Results to Display</h3>
-                                )}
-                            </div>
-                       </div>
-                </div>
-            </div>
-        </div>                  
+      <div>
+        <form>
+          <label>Avatar:</label>
+          {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+          {this.state.avatarURL && <img src={this.state.avatarURL} />}
+          <FileUploader
+            accept="image/*"
+            name="avatar"
+            randomizeFilename
+            storageRef={firebase.storage().ref("images")}
+            onUploadStart={this.handleUploadStart}
+            onUploadError={this.handleUploadError}
+            onUploadSuccess={this.handleUploadSuccess}
+            onProgress={this.handleProgress}
+          />
+        </form>
+      </div>        
         )
     }
 }

@@ -3,7 +3,7 @@ import './ArtistProfiles.css'
 import Artists from '../../components/artistSeed.json'
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
-import API from "../../utils/API"
+// import API from "../../utils/API"
 
 
 class ArtistProfiles extends React.PureComponent {
@@ -49,7 +49,7 @@ class ArtistProfiles extends React.PureComponent {
                             let boundItemClick = this.handleOpenModal.bind(this,art);
                             return (
                                 <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
-                                    <img className="art-img" src={art} />
+                                    <img alt="art" className="art-img" src={art} />
                                 </div>
                             )
                     })}
@@ -75,7 +75,7 @@ class ArtistProfiles extends React.PureComponent {
                         maxWidth: '65%',
                     }
                 }}>
-                    <img id="feature-image" src={this.state.modalArt} />
+                    <img alt='featured' id="feature-image" src={this.state.modalArt} />
                     <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
                 </ReactModal>
              {/* Footer */}
