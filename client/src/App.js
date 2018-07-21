@@ -10,9 +10,8 @@ import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 
-
-// import About from './components/About'
-import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
+import About from './components/About'
+import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 
 // require('dotenv').config()
 
@@ -30,9 +29,9 @@ class App extends PureComponent {
               <Route exact path='/' component={Home}/>
               <Route path='/Artist' component={ArtistLanding}/>
               <Route path='/Gallery' component={GalleryComponent}/>
-
+              <Route path='/ArtistBio/:artistId' component={ArtistBio} />
               {/* Do not keep -- just for creating the page */}
-              <Route path='/ArtistProfiles' component={ArtistProfiles}/>
+              {/* <Route path='*' component={ArtistBio}/> */}
             </Switch>
           </div>
           <Footer />
