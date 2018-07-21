@@ -197,7 +197,7 @@ class SignIn extends PureComponent {
     if (!token) {
       return (
         <div>
-        <a id="signInModalTrigger" className="navbar-brand login" href={path} onClick={this.handleOpenModal}>Login</a>
+        <h5 id="signInModalTrigger" className="navbar-brand login" onClick={this.handleOpenModal}>Login</h5>
 
         <ReactModal isOpen={this.state.showModal} style={{content: {
                                                             position: 'relative',
