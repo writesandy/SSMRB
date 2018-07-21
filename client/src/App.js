@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 
-import About from './components/About'
+// import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
 
 
