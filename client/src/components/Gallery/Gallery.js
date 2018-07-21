@@ -34,7 +34,7 @@ class GalleryComponent extends React.PureComponent {
 }]
    
       return (
-        <div className="container">
+        <div className="container pageContentWidth">
                 <div className="images">
                         <Gallery images={IMAGES}/>
                 </div>
