@@ -17,10 +17,11 @@
     font-size: 25px;
 }
 
-#signUpForm {
-    margin-top: 150px;
-}
 .signUpInput {
     width: 100%;
     margin-bottom: 15px;
+}
+
+#artistBioTextarea{
+    height: 80px;
 }
