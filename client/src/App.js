@@ -10,14 +10,17 @@ import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 
+
 // import About from './components/About'
 import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
 
+// require('dotenv').config()
 
 
 
 class App extends PureComponent {
   render() {
+    console.log(process.env)
     return (
       <Router>
         <div id="page">
