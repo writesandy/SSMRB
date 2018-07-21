@@ -2,6 +2,7 @@ import React from "react";
 import "./ArtistBio.css";
 // import Artists from "../artistSeed.json";
 import SocialContact from '../Social and Contact'
+import {BrowserRouter as Router, Link} from "react-router-dom";
 import API from "../../utils/API"
 
 class ArtistBio extends React.Component {
@@ -10,7 +11,14 @@ class ArtistBio extends React.Component {
     }
 
     componentDidMount(){
-        //get all artist
+        API.getArtists().then(res=> this.setState({artists: res.data}))
+        .then((response) => {
+          console.log(response);
+          this.setState({events: response.data})
+        })
+       .catch((error)=>{
+          console.log(error);
+       });
         //get the url nd set to varable
         //filter by last name
         //put artist on state
@@ -19,6 +27,7 @@ class ArtistBio extends React.Component {
     render () {
         return (
             <div className="artistBio col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            
                 <div className="artistInfo col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <img className="profileImage" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
                     <div>{  }</div>
