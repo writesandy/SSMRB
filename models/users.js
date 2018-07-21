@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
   signUpDate: { type: Date, default: Date.now() },
   loginAttempts: { type: Number, default: '' },
   profilePhoto: { data: Buffer, type: String },
-  galleryPhotos: { data: Buffer, type: String },
+  galleryPhotos: { data: Buffer, type: Array },
   first: {data: Buffer, type: String, default: ''},
   last: {data: Buffer, type: String, default: ''},
   title: {data: Buffer, type: String, default: ''},
