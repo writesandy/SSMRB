@@ -1,7 +1,7 @@
 import React from "react"
 import GridLayout from 'react-grid-layout';
-import '../../../node_modules/react-grid-layout/css/styles.css';
-import '../../../node_modules/react-resizable/css/styles.css';
+//import '../../../node_modules/react-grid-layout/css/styles.css';
+//import '../../../node_modules/react-resizable/css/styles.css';
 import './Collage.css';
 
 
@@ -26,21 +26,13 @@ class Collage extends React.Component {
                     <div className="collage-section col-lg-6 col-md-6 col-sm-12">
                         <h3>Our Art Defines Who We Are</h3>
                         
-                            <p className="collage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                Aenean commodo ligula eget dolor. Aenean massa.
-                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                                Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
-                            <p className="collage-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque faucibus, purus lacinia gravida fermentum, nulla mauris ornare tortor, a pellentesque nibh enim non dui.
-                                Aenean feugiat nec est eget blandit. Praesent ligula metus, fermentum vitae scelerisque porta, scelerisque id nulla.
-                                Vivamus semper sapien nec metus convallis, id ornare risus ultrices.
-                                Nullam pulvinar massa nec tellus porttitor, nec tincidunt mi accumsan.
-                                Sed efficitur egestas sem, quis mollis odio pretium et.
-                                Mauris tempor, erat eget blandit mollis, augue lectus tempor mauris, sit amet hendrerit dui ligula nec urna.
-                                Maecenas nec venenatis velit, sit amet vulputate augue.
-                                Mauris facilisis, lorem vel efficitur vulputate, sem nibh venenatis elit, vestibulum interdum lorem arcu at sem.
-                        </p>
+                            <p className="collage-text">Our artist work in oil painting on canvas. Paintings can be commissioned by the sitter. 
+                            Every portrait that is painted with feeling is a portrait of the artist, not of the sitter.” 
+                            </p>
+                            <p className="collage-text">We have custom jewlers, sculptures, and found-art artists. Artists see the world differently. We notice things
+                            that are often overlooked by others. As we learn to begin to see the world differently, we begin to see people in a different light and notice aspects about them that may have been overlooked previously.
+                            If you're looking for artistic creations, know that Artists take risks. Artists aren't afraid to make mistakes.
+                            </p>
                         
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
