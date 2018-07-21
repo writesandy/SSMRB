@@ -180,41 +180,10 @@ onSignUp() {
         }
       });
   }
-  logout() {
-    this.setState({
-      isLoading: true,
-    });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
-      // Verify token
-      console.log(token);
-      fetch('routes/api/account/logout?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token: '',
-              isLoading: false
-            });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
-  }
 
   render()  {
     const {
-      showSignUpProfile,
       isLoading,
-      token,
       signUpError,
       LinkedIn,
       ArtistBio,
@@ -226,14 +195,13 @@ onSignUp() {
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
     }
-    //if (!token) {
       else {
       return (
   
   <span class = 'sign-in-page'> 
   
      <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-          <div id="signUpForm">
+          <div className="signUpForm">
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
@@ -267,23 +235,18 @@ onSignUp() {
               value={TwitterHandle}
               onChange={this.onTextboxTwitterHandle}
             />
-            <input
+            <textarea
+              id = "artistBioTextarea"
               className="signUpInput"
               type="ArtistBio"
-              placeholder="A "
+              placeholder="A little about you... "
               value={ArtistBio}
               onChange={this.onTextboxChangeArtistBio}
             />
-                      <a id="closeLogin" href="#" onClick={this.handleSignUp}>Submit Profile</a>
                       <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
                       </div>
             {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Close</button> */}
-          </div>
-         }
-      
-       <div>
-        <button type='button' className='btn btn-primary' onClick={this.logout}>Logout</button>
-      </div>
+          </div>      
   </span>
       );
     }  
