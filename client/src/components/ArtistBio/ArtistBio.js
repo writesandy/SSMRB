@@ -11,11 +11,7 @@ class ArtistBio extends React.Component {
         return (
             <div className="artistBio col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div className="artistInfo col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-<<<<<<< HEAD
                     <img className="profileImage" src= {this.props.artistData.profilePhoto} />
-=======
-                    <img alt='artist profile' className="profileImage" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
->>>>>>> 9d20412a13fbdd1d44ceebb3f4f87ac16bfdc13b
                     <SocialContact 
                         instagram={this.props.artistData.instagram}
                         twitter={this.props.artistData.twitter}
