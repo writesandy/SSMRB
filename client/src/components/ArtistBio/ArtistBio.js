@@ -12,7 +12,7 @@ class ArtistBio extends React.Component {
         return (
             <div className="artistBio col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div className="artistInfo col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img className="profileImage" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+                    <img alt='artist profile' className="profileImage" src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
                     <SocialContact 
                         instagram={this.state.Artists[0].instagram}
                         twitter={this.state.Artists[0].twitter}

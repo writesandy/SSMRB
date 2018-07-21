@@ -37,15 +37,15 @@ class Collage extends React.Component {
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                         <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
-                            <div key="a"><img className="collage-layout" src="https://i.imgur.com/sUS0f6m.jpg" alt="collage image 1" /></div>
-                            <div key="b"><img className="collage-layout" src="https://i.imgur.com/5zW8jAN.jpg" alt="collage image 2" /></div>
-                            <div key="c"><img className="collage-layout" src="https://i.imgur.com/jpn6rlV.jpg" alt="collage image 3" /></div>
-                            <div key="d"><img className="collage-layout" src="https://i.imgur.com/hMRYWEy.jpg" alt="collage image 4" /></div>
-                            <div key="e"><img className="collage-layout" src="https://i.imgur.com/wGPySFn.jpg" alt="collage image 5"/></div>
-                            <div key="f"><img className="collage-layout" src="https://i.imgur.com/WYfUfmO.jpg" alt="collage image 6"/></div>
-                            <div key="g"><img className="collage-layout" src="https://i.imgur.com/0iWLz1p.jpg" alt="collage image 7"/></div>
-                            <div key="h"><img className="collage-layout" src="https://i.imgur.com/1U8AK1n.jpg" alt="collage image 8"/></div>
-                            <div key="j"><img className="collage-layout" src="https://i.imgur.com/fiyrPZb.jpg" alt="collage image 9"/></div>
+                            <div key="a"><img className="collage-layout" src="https://i.imgur.com/sUS0f6m.jpg" alt="collage 1" /></div>
+                            <div key="b"><img className="collage-layout" src="https://i.imgur.com/5zW8jAN.jpg" alt="collage 2" /></div>
+                            <div key="c"><img className="collage-layout" src="https://i.imgur.com/jpn6rlV.jpg" alt="collage 3" /></div>
+                            <div key="d"><img className="collage-layout" src="https://i.imgur.com/hMRYWEy.jpg" alt="collage 4" /></div>
+                            <div key="e"><img className="collage-layout" src="https://i.imgur.com/wGPySFn.jpg" alt="collage 5"/></div>
+                            <div key="f"><img className="collage-layout" src="https://i.imgur.com/WYfUfmO.jpg" alt="collage 6"/></div>
+                            <div key="g"><img className="collage-layout" src="https://i.imgur.com/0iWLz1p.jpg" alt="collage 7"/></div>
+                            <div key="h"><img className="collage-layout" src="https://i.imgur.com/1U8AK1n.jpg" alt="collage 8"/></div>
+                            <div key="j"><img className="collage-layout" src="https://i.imgur.com/fiyrPZb.jpg" alt="collage 9"/></div>
                         </GridLayout>
                     </div>
                 </div>

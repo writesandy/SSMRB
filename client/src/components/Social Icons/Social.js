@@ -1,6 +1,6 @@
 import React from "react";
 import "./Social.css";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 
 const SocialIcons = props => (
