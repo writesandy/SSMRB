@@ -1,10 +1,15 @@
 import React from "react";
 import "./ArtistThumbnail.css";
 import Artists from "../artistSeed.json";
+<<<<<<< HEAD
 import {Link} from 'react-router-dom';
 import SocialIcons from '../Social Icons';
 import API from "../../utils/API"
 
+=======
+import SocialIcons from '../Social Icons'
+import API from '../../utils/API'
+>>>>>>> 30015b8fac7550ebd7a6c52320af79bb17608d7a
 
 
 class ArtistThumbnail extends React.PureComponent {
@@ -12,6 +17,7 @@ class ArtistThumbnail extends React.PureComponent {
         Artists
       };
 
+<<<<<<< HEAD
       componentDidMount() {
         console.log('it mounted')
         API.getArtists().then(res=> this.setState({Artists: res.data}))
@@ -19,6 +25,13 @@ class ArtistThumbnail extends React.PureComponent {
     }
 
 
+=======
+    componentDidMount() {
+        console.log('it mounted')
+        API.getArtists().then(res=> this.setState({Artists: res.data}))
+    }
+
+>>>>>>> 30015b8fac7550ebd7a6c52320af79bb17608d7a
     render () {
         return (
             <div className="artist-container">
@@ -35,7 +48,6 @@ class ArtistThumbnail extends React.PureComponent {
                                 linkedin={artist.linkedin}
                                 website={artist.website}
                                 email={artist.email}
-                                phone={artist.phone}
                             />
                         </div>
                     </div>

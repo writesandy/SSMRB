@@ -140,7 +140,8 @@ onSignUp() {
     fetch('/api/account/signup', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'// this also could be json data
+        'Content-Type': 'application/json',// this also could be json data
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
         email: signUpEmail,
