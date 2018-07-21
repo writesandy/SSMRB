@@ -169,106 +169,12 @@ onSignUp() {
       });
   }
 
-  // onSignUp() {
-  //   // Grab state
-  //   const {
-  //     signUpEmail,
-  //     signUpPassword,
-  //     TwitterHandle,
-  //     InstagramHandle,
-  //     ArtistBio,
-  //     firstName,
-  //     lastName,
-  //     phoneNumber,
-  //   } = this.state;
-
-  //   this.setState({
-  //     isLoading: true,
-  //   });
-
-  //   // Post request to backend
-  //   fetch('routes/api/account/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       email: signUpEmail,
-  //       password: signUpPassword,
-  //       TwitterHandle: TwitterHandle,
-  //       InstagramHandle: InstagramHandle,
-  //       ArtistBio: ArtistBio,
-  //       firstName: firstName,
-  //       lastName: lastName,
-  //       phoneNumber: phoneNumber, 
-  //     }),
-  //   }).then(res => res.json())
-  //     .then(json => {
-  //       if (json.success) {
-  //         setInStorage('the_main_app', { token: json.token });
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //           signUpPassword: '',
-  //           signUpEmail: '',
-  //           InstagramHandle: '',
-  //           ArtistBio: '',
-  //           TwitterHandle: '',
-  //           firstName: '',
-  //           lastName:'',
-  //           phoneNumber:'',
-  //           token: json.token,
-  //         });
-  //       } else {
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //         });
-  //       }
-  //     });
-  // }
-
-  logout() {
-    this.setState({
-      isLoading: true,
-    });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
-      // Verify token
-      console.log(token);
-      fetch('routes/api/account/logout?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token: '',
-              isLoading: false
-            });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
-  }
-
   render() {
     const {
       isLoading,
       token,
-      signUpEmail,
-      signUpPassword,
       signUpError,
-      firstName,
-      lastName,
       ArtistBio,
-      phoneNumber,
       InstagramHandle,
       TwitterHandle,
     } = this.state;
@@ -286,41 +192,6 @@ onSignUp() {
                 <p>{signUpError}</p>
               ) : (null)
             }
-            {/* <input
-              className="signUpInput"
-              type="signUpEmail"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            />
-            <input
-              className="signUpInput"
-              type="signUpPassword"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <input
-              className="signUpInput"
-              type="firstname"
-              placeholder="First Name"
-              value={firstName}
-              onChange={this.onTextboxChangefirstName}
-            />
-            <input
-              className="signUpInput"
-              type="Last Name"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={this.onTextboxChangelastName}
-            /> */}
-            <input
-              className="signUpInput"
-              type="phoneNumber"
-              placeholder="Phone Number"
-              value={phoneNumber}
-              onChange={this.onTextboxChangephoneNumber}
-            />
             <input
               className="signUpInput"
               type="InstagramHandle"
