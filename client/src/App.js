@@ -27,9 +27,9 @@ class App extends PureComponent {
               <Route exact path='/' component={Home}/>
               <Route path='/Artist' component={ArtistLanding}/>
               <Route path='/Gallery' component={GalleryComponent}/>
-
+              <Route path='/ArtistBio/:artistId' component={ArtistBio} />
               {/* Do not keep -- just for creating the page */}
-              <Route path='*' component={ArtistBio}/>
+              {/* <Route path='*' component={ArtistBio}/> */}
             </Switch>
           </div>
           <Footer />

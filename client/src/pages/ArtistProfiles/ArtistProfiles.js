@@ -13,7 +13,8 @@ class ArtistProfiles extends React.PureComponent {
         this.state = {
             showModal: false,
             modalArt:"",
-            Artists
+            Artists,
+            artist:{}
         };
         
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -30,6 +31,9 @@ class ArtistProfiles extends React.PureComponent {
     };
 
 
+    componentDidMount() {
+       API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
+    }
 
     
     render () {
@@ -37,7 +41,8 @@ class ArtistProfiles extends React.PureComponent {
         return (
             <div>
             {/* ArtistBio */}
-                <ArtistBio/>
+                <ArtistBio 
+                 artistData = {this.state.artist}/>
             {/* Gallery */}
                 <div id="art-gallery">
                     {this.state.Artists[0].art.map ((art, index) => {

@@ -24,7 +24,7 @@ class ArtistThumbnail extends React.PureComponent {
                     <div className="artist-thumbnail" key={artist.id}>
                         <img className="artist-thumbnail-image" src={artist.profilePhoto} alt="" />
                         <div className="artist-thumbnail-text-block">
-                        <Link to ={`/ArtistBio/${artist.first}-${artist.last}`}><h4 className="artistName">{artist.first} {artist.last}</h4></Link>
+                        <Link to ={`/ArtistBio/${artist._id}`}><h4 className="artistName">{artist.first} {artist.last}</h4></Link>
                             <h6 className="artistTitle">{artist.title}</h6>
                             <SocialIcons 
                                 instagram={artist.instagram}
