@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from 'react-grid-gallery'
-// import ImageUpload from '../ImageUpload'
+import ImageUpload from '../ImageUpload'
 
 // import { render } from 'react-dom';
 
@@ -35,8 +35,15 @@ class GalleryComponent extends React.PureComponent {
    
       return (
         <div className="container">
-                <div className="images">
-                        <Gallery images={IMAGES}/>
+                <div className="container-fluid">
+                        <div className="images">
+                                <Gallery images={IMAGES}/>
+                        </div>
+                </div>
+                <div className="container-fluid">
+                        <div className="imageUploader">
+                                <ImageUpload />
+                        </div>
                 </div>
         </div>
       );

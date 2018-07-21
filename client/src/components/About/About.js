@@ -20,7 +20,7 @@ const About = props => (
                     Etiam euismod leo eu tellus rutrum, a mollis mauris venenatis. In in facilisis dolor. Praesent id iaculis massa. Donec non maximus neque.
                 </p>
                 <div className="about-image">
-                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile image" />
+                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile" />
                 </div>
                 <p className="about-paragraph">
                     We are an artist-owned and artist-run community. We cultivate our community of artists and feature a new artist profile each month.
