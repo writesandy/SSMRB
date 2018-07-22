@@ -6,6 +6,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 const path = require('path');
+<<<<<<< HEAD
+=======
+const GridFSStorage = require('multer-gridfs-storage');
+const crypto = require('crypto');
+const multer = require('multer');
+const fs = require('fs');
+>>>>>>> 08b1b6020dfd8a7e89f45bbf939f42e4245cd1f1
 
 // Define middleware here
 app.use('/upload', express.static('upload'));
@@ -33,6 +40,137 @@ const dbUri = process.env.MONGODB_URI || "mongodb://localhost:27017/artist_db";
 
 mongoose.connect(dbUri).then(() => console.log('connected to DB!')).catch((err) => console.log(err));
 
+<<<<<<< HEAD
+=======
+let gfs;
+
+mongoose.connection.once('open', function () {
+  // Init stream
+  gfs = Grid(mongoose.connection.db, mongoose.mongo);
+  gfs.collection('uploads');
+//   console.log(gfs);
+})
+
+// Create storage engine
+const storage = new GridFSStorage({
+  url: dbUri,
+  file: (req, file) => {
+      return new Promise((resolve, reject) => {
+          crypto.randomBytes(16, (err, buf) => {
+              if (err) {
+                  return reject(err);
+              }
+              const filename = buf.toString('hex') + path.extname(file.originalname);
+              const fileInfo = {
+                  filename: filename,
+                  bucketName: 'uploads'
+              };
+              resolve(fileInfo);
+          });
+      });
+  }
+});
+const upload = multer({ storage });
+
+// @route GET /
+// @desc Loads form
+app.get('/images', (req, res) => { 
+  gfs.files.find().toArray((err, files) => {
+    //   console.log('before actions', files)
+      // Check if files
+      if(!files || files.length ===0) {
+        // console.log('after false', files)
+          res.send({files: false})
+      } else {
+          files.map(file => {
+            // console.log('after true: ', files)
+              if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+                  file.isImage = true;
+              } else {
+                  file.isImage = false;
+              }
+          })
+          res.send({files: files});
+
+      }
+  });
+});
+
+// @route POST /upload
+// @desc Uploads file to DB
+app.post('/upload', (req, res) => {
+    var filename = req.query.filename;
+		
+    var writestream = gfs.createWriteStream({ filename: filename });
+    fs.createReadStream(__dirname + "/uploads/" + filename).pipe(writestream);
+    writestream.on('close', (file) => {
+        res.send('Stored File: ' + file.filename);
+    });
+})
+
+// @route GET /files
+// @desc Display all files in JSON
+app.get('/files', (req, res) => {
+  gfs.files.find().toArray((err, files) => {
+      // Check if files
+      if(!files || files.length ===0) {
+          return res.status(404).json({
+              err: 'No files exist'
+          });
+      }
+      console.log(files)
+
+      // Files exist
+      return res.json(files);
+  });
+});
+
+// @route GET /files/:filename
+// @desc Display single file object
+app.get('/files/:filename', (req, res) => {
+  gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+      if (!file || file.length ===0) {
+          return res.status(404).json({
+              err: 'No file exist'
+          });
+      }
+      //File exists
+      return res.json(file);
+  })
+});
+ 
+// @route GET /image/:filename
+// @desc Display image
+app.get('/images/:filename/', (req, res) => {
+  gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+      if (!file || file.length ===0) {
+          return res.status(404).json({
+              err: 'No file exist'
+          });
+      }
+      // Check if image
+      if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+          // Read output to browser
+          const readstream = gfs.createReadStream(file.filename);
+          readstream.pipe(res);
+      } else {
+          res.status(404).json({err: 'Not and image'})
+      }
+  })
+});
+
+// @route DELETE /files/:id
+// @desc Delete file
+app.delete('/files/:id', (req, res) => {
+  gfs.remove({_id: req.params.id, root: 'uploads'}, (err, GridFSBucket) => {
+      if(err) {
+          return res.status(404).json({ err: err })
+      }
+      res.redirect('/')
+  })
+})
+
+>>>>>>> 08b1b6020dfd8a7e89f45bbf939f42e4245cd1f1
 // If no API routes are hit, send the React app
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, "/client/public/index.html"));

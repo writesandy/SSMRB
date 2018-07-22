@@ -17,5 +17,18 @@ export default {
   // Saves a artist to the database
   saveArtist: function(artistData) {
     return axios.post("/api/artist", artistData);
+  },
+  
+  getImages: function() {
+    return axios.get("/files");
+  },
+  saveImages: function(userImage) {
+    return axios.post('/upload', userImage);
+  },
+  findImage: function(id) {
+    return axios.get("/images/:filename" + id)
+  },
+  deleteImage: function(id) {
+    return axios.delete('files/:id', + id);
   }
 };
