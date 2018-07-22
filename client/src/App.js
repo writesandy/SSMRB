@@ -12,17 +12,13 @@ import ArtistThumbnail from './components/ArtistThumbnail';
 // import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
 // import ImageUpload from './components/ImageUpload'
-// import ImageUpload2 from './components/ImageUpload2'
-import TestUploader from './components/TestUploader'
 
 import firebase from 'firebase';
 
 // Pages
 import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
-import GalleryComponent from './components/Gallery'
-
-import About from './components/About'
+// import About from './components/About'
 import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 
 class App extends PureComponent {
