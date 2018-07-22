@@ -11,34 +11,39 @@ class ImageUpload extends PureComponent {
       name: '',
     //   file: null,
     //   files: [],
-      username: "",
-      imageName: "",
+      imageTitle: "",
+      generatedName: "",
       isUploading: false,
       progress: 0,
       imageURL: ""
     }
 
-  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
-  
-  handleProgress = progress => this.setState({ progress });
-  
-  handleUploadError = error => {
-    this.setState({ isUploading: false });
-    console.error(error);
-  };
 
-  databasePush = () => {
-    let itemsRef = firebase.database().ref('ImageData/')
-    console.log(this.state);
-    let updates = {
-        url: this.state.imageURL,
-        name: this.state.imageName
+    handleChangeImageTitle = event =>
+    this.setState({ imageTitle: event.target.value });
+
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    
+    handleProgress = progress => this.setState({ progress });
+    
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error(error);
+    };
+
+    databasePush = () => {
+        let itemsRef = firebase.database().ref('ImageData/')
+        console.log(this.state);
+        let updates = {
+            url: this.state.imageURL,
+            name: this.state.generatedName,
+            title: this.state.imageTitle
+        }
+        itemsRef.push(updates);
     }
-    itemsRef.push(updates);
-}
 
     handleUploadSuccess = filename => {
-        this.setState({ imageName: filename, progress: 100, isUploading: false });
+        this.setState({ generatedName: filename, progress: 100, isUploading: false });
         firebase
             .storage()
             .ref("images")
@@ -47,7 +52,7 @@ class ImageUpload extends PureComponent {
             .then(url => {
                 this.setState({ 
                     imageURL: url,
-                    imageName: filename 
+                    generatedName: filename,
                 })
             }).then(this.databasePush())
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
@@ -55,24 +60,31 @@ class ImageUpload extends PureComponent {
 
   render() {
     return (
-      <div>
-        <form>
-          <label>Upload an Image:</label>
-          {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.imageURL && <img alt={this.state.filename} src={this.state.imageURL} />}
-          <FileUploader
-            accept="image/*"
-            name="imageName"
-            randomizeFilename
-            storageRef={firebase.storage().ref("images")}
-            onUploadStart={this.handleUploadStart}
-            onUploadError={this.handleUploadError}
-            onUploadSuccess={this.handleUploadSuccess}
-            onProgress={this.handleProgress}
-            // onPushtoDatabase={this.handlePushToDatabase}
-          />
-        </form>
-      </div>        
+        <div>
+            <form>
+                <label>Add an Image Title</label>
+                <input
+                    type="text"
+                    value={this.state.imageTitle}
+                    name="imageTitle"
+                    onChange={this.handleChangeImageTitle}
+                />
+                <label>Upload an Image:</label>
+                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                {/* {this.state.imageURL && <img alt={this.state.filename} src={this.state.imageURL} />} */}
+                <FileUploader
+                    accept="image/*"
+                    name="generatedName"
+                    randomizeFilename
+                    storageRef={firebase.storage().ref("images")}
+                    onUploadStart={this.handleUploadStart}
+                    onUploadError={this.handleUploadError}
+                    onUploadSuccess={this.handleUploadSuccess}
+                    onProgress={this.handleProgress}
+                    // onPushtoDatabase={this.handlePushToDatabase}
+                />
+            </form>
+        </div>        
         )
     }
 }
