@@ -17,8 +17,9 @@
     font-size: 25px;
 }
 
-#signUpForm {
-    margin-top: 150px;
+.signUpForm {
+    display: table-cell;
+    vertical-align: middle;
 }
 .signUpInput {
     width: 100%;

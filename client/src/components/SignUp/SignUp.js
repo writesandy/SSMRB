@@ -234,7 +234,7 @@ onSignUp() {
         <div>
         {!this.state.showSignUpProfile && <span class = 'sign-in-page'>
             <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-                <div id="signUpForm">
+                <div className="signUpForm">
                     {
                     (signUpError) ? (
                         <p>{signUpError}</p>
@@ -289,7 +289,6 @@ onSignUp() {
                             />
                             <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                         </div>
-                       }
                     </form>
                     <button type='button' class='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
                 </div>
