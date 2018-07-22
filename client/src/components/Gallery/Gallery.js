@@ -1,5 +1,5 @@
 import React from 'react';
-import Gallery from 'react-grid-gallery'
+// import Gallery from 'react-grid-gallery'
 import ImageUpload from '../ImageUpload'
 import firebase from 'firebase';
 
@@ -39,6 +39,7 @@ componentWillMount() {
 
     render() {
         console.log('Images once rendered', this.state.Images);
+        console.log('Urls once rendered', this.state.Images[0] );
 
 //         const IMAGES =
 // [{
@@ -77,9 +78,16 @@ componentWillMount() {
       return (
         <div className="container">
                 <div className="container-fluid">
-                        <div className="imagesContainer">
-                                {/* <Gallery images={IMAGES}/> */}
-                        </div>
+                <div id="art-gallery">
+                    {this.state.Images.url ? this.state.Images[0].url.map((url, index) => {
+                            let boundItemClick = this.handleOpenModal.bind(this, url);
+                            return (
+                                <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
+                                    <img alt={this.state.title} className="art-img" src={url} />
+                                </div>
+                            )
+                    }): null}
+                </div>
                 </div>
                 <div className="container-fluid">
                         <div className="imageUploader">
