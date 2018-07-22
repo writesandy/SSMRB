@@ -1,11 +1,37 @@
 import React from 'react';
 import Gallery from 'react-grid-gallery'
 import ImageUpload from '../ImageUpload'
+import firebase from 'firebase';
 
 // import { render } from 'react-dom';
 
 class GalleryComponent extends React.PureComponent {
-    
+        getFirebaseData = () => {
+                const database = firebase.database();
+                database.ref('/ImageData').once('value').then(function(snapshot) {
+                        const imageObject = snapshot.val();
+                        // console.log(imageObject);
+                        const keys = Object.keys(imageObject);
+                        let image = document.createElement('img');
+                        let IMAGES = []
+
+                        for (let i = 0; i < keys.length; i++) {
+                                let currentObject = imageObject[keys[i]];
+                                // console.log('currentObject', currentObject);
+                                image.src = currentObject.url;
+                                // console.log('image.src', image.src);                                
+                                IMAGES.push(image.src)
+                        }
+                        console.log('Images', IMAGES);
+
+                })
+        }
+
+componentWillMount() {
+
+        this.getFirebaseData();
+}
+
     render() {
         const IMAGES =
 [{
@@ -31,12 +57,20 @@ class GalleryComponent extends React.PureComponent {
         thumbnailWidth: 200,
         thumbnailHeight: 200,
         caption: "Art is the Soul of the people"
+},
+
+{
+        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
+        thumbnailWidth: 200,
+        thumbnailHeight: 200,
+        caption: "Art is the Soul of the people"
 }]
    
       return (
         <div className="container">
                 <div className="container-fluid">
-                        <div className="images">
+                        <div className="imagesContainer">
                                 <Gallery images={IMAGES}/>
                         </div>
                 </div>

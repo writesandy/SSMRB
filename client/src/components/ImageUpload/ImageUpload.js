@@ -4,79 +4,19 @@ import './ImageUpload.css';
 // import { List, ListItem } from "../../components/List";
 import firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
-import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
+// import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
 class ImageUpload extends PureComponent {
     state = {
       name: '',
-      file: null,
-      files: []
+    //   file: null,
+    //   files: [],
+      username: "",
+      imageName: "",
+      isUploading: false,
+      progress: 0,
+      imageURL: ""
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-    handleSubmit(event) {
-      event.preventDefault();
-      const data = new FormData(event.target);
-
-      fetch('/upload', {
-          method: 'POST',
-          body: data,
-      })
-      .then(this.state.files.forEach((elem) => {
-          console.log('LOOOOOOOK HEEEERE: ', this.state.files)
-        if(elem._id === event.target.id){
-            API.saveImages({
-                filename: elem.filename
-            })
-            .then(res => {
-                this.state.files.push(res.userImage)
-                this.loadSavedImages();
-            })
-            .catch(err => console.log(err));
-        }
-    }))
-    }
-
-    saveImages = (event) => {
-        event.preventDefault();
-        this.state.files.forEach((elem) => {
-            if(elem._id === event.target.id){
-                API.saveImages({
-                    filename: elem.filename
-                })
-                .then(res => {
-                    this.state.files.push(res.userImage)
-                    this.loadSavedImages();
-                })
-                .catch(err => console.log(err));
-            }
-        })
-    }
-
-    loadSavedImages = () => {
-        API.getImages()
-            .then(res => {
-                console.log('loading images ', res.data)
-                this.setState({ files: res.data })
-            })
-            .catch(err => console.log(err))
-    }
-
-    componentDidMount() {
-        this.loadSavedImages()
-        // API.getImages()
-        //     .then(res=> console.log('check here', res.data))
-    }
-
-    // findOneImage = id => {
-    //     API.findImage(id)
-    //         .then(res => {
-    //             this.setState({
-    //                 file
-    //             })
-    //         })
-    // }
 
   handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
   
@@ -87,34 +27,49 @@ class ImageUpload extends PureComponent {
     console.error(error);
   };
 
-  handleUploadSuccess = filename => {
-    this.setState({ avatar: filename, progress: 100, isUploading: false });
-    firebase
-      .storage()
-      .ref("images")
-      .child(filename)
-      .getDownloadURL()
-      .then(url => this.setState({ avatarURL: url }))
-      .then(alert("Succesfully uploaded"))
-      console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
-  };
+  databasePush = () => {
+    let itemsRef = firebase.database().ref('ImageData/')
+    console.log(this.state);
+    let updates = {
+        url: this.state.imageURL,
+        name: this.state.imageName
+    }
+    itemsRef.push(updates);
+}
+
+    handleUploadSuccess = filename => {
+        this.setState({ imageName: filename, progress: 100, isUploading: false });
+        firebase
+            .storage()
+            .ref("images")
+            .child(filename)
+            .getDownloadURL()
+            .then(url => {
+                this.setState({ 
+                    imageURL: url,
+                    imageName: filename 
+                })
+            }).then(this.databasePush())
+            // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
+    };    
 
   render() {
     return (
       <div>
         <form>
-          <label>Avatar:</label>
+          <label>Upload an Image:</label>
           {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-          {this.state.avatarURL && <img src={this.state.avatarURL} />}
+          {this.state.imageURL && <img alt={this.state.filename} src={this.state.imageURL} />}
           <FileUploader
             accept="image/*"
-            name="avatar"
+            name="imageName"
             randomizeFilename
             storageRef={firebase.storage().ref("images")}
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
+            // onPushtoDatabase={this.handlePushToDatabase}
           />
         </form>
       </div>        
