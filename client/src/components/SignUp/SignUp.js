@@ -26,16 +26,16 @@ import {
         signUpError: '',
         signUpEmail: '',
         signUpPassword: '',
-        firstName: '',
-        lastName: '',
+        first: '',
+        last: '',
         artistBoolean: true,
         
       };
   
       this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
       this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-      this.onTextboxChangefirstName = this.onTextboxChangefirstName.bind(this);
-      this.onTextboxChangelastName = this.onTextboxChangelastName.bind(this);
+      this.onTextboxChangefirst = this.onTextboxChangefirst.bind(this);
+      this.onTextboxChangelast = this.onTextboxChangelast.bind(this);
       this.onSignUp = this.onSignUp.bind(this);
       this.logout = this.logout.bind(this); 
     
@@ -98,14 +98,14 @@ import {
       signUpPassword: event.target.value,
     });
   }
-  onTextboxChangefirstName(event){
+  onTextboxChangefirst(event){
     this.setState({
-      firstName: event.target.value,
+      first: event.target.value,
     });
   }
-  onTextboxChangelastName(event) {
+  onTextboxChangelast(event) {
     this.setState({
-      lastName: event.target.value,
+      last: event.target.value,
     });
   }
  
@@ -140,15 +140,15 @@ onSignUp() {
       showSignUpProfile,
       signUpEmail,
       signUpPassword,
-      firstName,
-      lastName,
+      first,
+      last,
       artistBoolean: artistBoolean,
     } = this.state;
     this.setState({
       isLoading: true,
     });
     // Post request to backend
-    fetch('/api/account/signin', {
+    fetch('/api/account/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json' 
@@ -156,8 +156,8 @@ onSignUp() {
       body: JSON.stringify({
         email: signUpEmail,
         password: signUpPassword,
-        firstName: firstName,
-        lastName: lastName,
+        first: first ,
+        last: last,
         artistBoolean: artistBoolean
       })
     }).then(res => res.json())
@@ -172,8 +172,8 @@ onSignUp() {
             artistBoolean: true,
             signUpEmail: '',
             signUpPassword: '',
-            firstName: '',
-            lastName: '',  
+            first: '',
+            last: '',  
             token: json.token,         
           });
         } else {
@@ -222,8 +222,8 @@ onSignUp() {
       signUpPassword,
       signUpError,
       artistBoolean,
-      firstName,
-      lastName,
+      first ,
+      last,
     } = this.state;
     if (isLoading) {
       return (<div><p>Loading...</p></div>);
@@ -241,21 +241,20 @@ onSignUp() {
                     ) : (null)
                     }
                     <form>
-                        <label htmlFor="firstName" className="hidden">Input your first name.</label>
+                        <label htmlFor="first" className="hidden">Input your first name.</label>
                         <input
-                            type="firstName"
+                            type="first"
                             placeholder="Your First Name"
-                            value={firstName}
-                            onChange={this.onTextboxChangefirstName}
+                            value={first}
+                            onChange={this.onTextboxChangefirst}
                             className="signUpInput"
                         />
-                        <label htmlFor="lastName" className="hidden">Input your last name.</label>
+                        <label htmlFor="last" className="hidden">Input your last name.</label>
                         <input
-                            type="lastName"
+                            type="last"
                             placeholder="Your Last Name"
-                            defaultValue={lastName}
-                            
-                            onChange={this.onTextboxChangeLastName}
+                            Value={last}
+                            onChange={this.onTextboxChangelast}
                             className="signUpInput"
                         />
                         <label htmlFor="signUpEmail" className="hidden">Input your email address. This will act as your username.</label>
@@ -283,7 +282,7 @@ onSignUp() {
                                 type="checkbox" data-reverse
                                 data-group-cls="btn-group-sm"
                                 placeholder="True"
-                                defaultValue={artistBoolean}
+                                value={artistBoolean}
                                 onChange={this.oncheckBoxUpdate}
                                 id="artistBoolean"
                             />

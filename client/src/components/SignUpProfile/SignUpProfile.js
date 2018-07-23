@@ -26,7 +26,7 @@ import {
         ArtistBio: '',
         firstName: '',
         lastName: '',
-        website: '',
+        Website: '',
         showSignUpProfile: true,
       };
       this.onTextboxChangeTwitterHandle = this.onTextboxChangeTwitterHandle.bind(this);
@@ -93,9 +93,15 @@ import {
       phoneNumber: event.target.value,
     });
   }
-  onTextboxChangefirstName(event) {
+  
+  onTextboxChangeWebsite(event) {
     this.setState({
-      firstName: event.target.value,
+      Website: event.target.value,
+    });
+  }
+  onTextboxChangetitle(event) {
+    this.setState({
+      title: event.target.value,
     });
   }
 
@@ -109,14 +115,10 @@ import {
       ArtistBio: event.target.value,
     });
   }
-  onTextboxChangeWebsite(event) {
-    this.setState({
-      ArtistBio: event.target.value,
-    });
-  }
+  
   onTextboxChangeLinkedIn(event) {
     this.setState({
-      LinkedIN: event.target.value,
+      LinkedIn: event.target.value,
     });
   }
 
@@ -127,16 +129,17 @@ import {
   };
 
 onSignUp() {
-  this.props.handleCloseModal()
+ // this.props.handleCloseModal()
     // Grab state
     const {
-      signUpEmail,
-      signUpPassword,
+      //signUpEmail,
+      //signUpPassword,
       InstagramHandle,
       TwitterHandle,
       ArtistBio,
       LinkedIn,
       Website,
+      title,
 
     } = this.state;
 
@@ -145,18 +148,19 @@ onSignUp() {
     });
 
     // Post request to backend
-    fetch('routes/api/account/signin', {
+    fetch('routes/api/account/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'// this also could be json data
       },
       body: JSON.stringify({
-        email: signUpEmail,
-        password: signUpPassword,
+        //email: signUpEmail,
+        //password: signUpPassword,
         TwitterHandle: TwitterHandle,
         InstagramHandle: InstagramHandle,
         Website: Website,
         LinkedIn: LinkedIn,
+        title, title,
       })
     }).then(res => res.json())
       .then(json => {
@@ -190,6 +194,7 @@ onSignUp() {
       Website,
       InstagramHandle,
       TwitterHandle,
+      title,
     } = this.state;
 
     if (isLoading) {
@@ -221,6 +226,13 @@ onSignUp() {
               value={Website}
               onChange={this.onTextboxChangeWebsite}
             />
+             <input
+              className="signUpInput"
+              type="Title"
+              placeholder="Title"
+              value={title}
+              onChange={this.onTextboxtitle}
+            />
             <input
               className="signUpInput"
               type="InstagramHandle"
@@ -245,7 +257,7 @@ onSignUp() {
             />
                       <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
                       </div>
-            {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Close</button> */}
+            {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button> */}
           </div>      
   </span>
       );
