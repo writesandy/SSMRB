@@ -14,7 +14,7 @@ const About = props => (
                     Every artist dips his brush in his own soul and paints his own nature into his pictures. -Henry Ward Beecher
                     </p>
                 <div className="about-image">
-                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile image" />
+                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile" />
                 </div>
                 <p className="about-paragraph">
                     We are an artist-owned and artist-run community. We cultivate our community of artists and feature a new artist profile each month.

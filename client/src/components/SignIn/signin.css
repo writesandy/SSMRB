@@ -27,11 +27,14 @@
     background-color: white !important;
     height:100%;
     box-shadow: -5px 0px 15px 0px #00000021;
+    display: table;
+    height: 100%;
+    width: 100%;
 }
 
 #signInForm {
-    margin-top: 150px;
-    height: 30%;
+    display: table-cell;
+    vertical-align: middle;
 }
 .signInInput {
     width: 100%;
