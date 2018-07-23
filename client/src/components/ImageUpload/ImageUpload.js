@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import './ImageUpload.css';
 // import API from '../../utils/API'
 // import { List, ListItem } from "../../components/List";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import 'firebase/storage';
+import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
