@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 import Footer from './components/Footer/Footer';
-
+//let authUrl = "http://localhost:3000"
 // Pages
 import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
@@ -20,6 +20,8 @@ import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 class App extends PureComponent {
   render() {
     console.log(process.env)
+
+
     return (
       <Router>
         <div id="page">

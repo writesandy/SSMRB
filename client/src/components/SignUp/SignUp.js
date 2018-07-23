@@ -148,7 +148,7 @@ onSignUp() {
       isLoading: true,
     });
     // Post request to backend
-    fetch('/api/account/signup', {
+    fetch('/api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json' 
