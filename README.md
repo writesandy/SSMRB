@@ -47,7 +47,7 @@
 ## *__Week 2 Project Board/Schedule__*
 (click image to go to full page)
 
-<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board-wk-2.png)</a>
+<a href="https://github.com/writesandy/SSMRB/projects/1">![Project Board/Schedule](./assets/images/project-board-wk-2.PNG)</a>
 
 
 
