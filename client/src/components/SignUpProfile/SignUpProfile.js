@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 import 'whatwg-fetch'
 import './SignUpProfile.css'
-import SignIn from '../SignIn';
+// import SignIn from '../SignIn';
 
 import {
     getFromStorage,
@@ -136,7 +136,7 @@ onSignUp() {
       //signUpPassword,
       InstagramHandle,
       TwitterHandle,
-      ArtistBio,
+      // ArtistBio,
       LinkedIn,
       Website,
       title,

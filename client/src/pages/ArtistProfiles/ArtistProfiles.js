@@ -33,7 +33,7 @@ class ArtistProfiles extends React.PureComponent {
 
     componentDidMount() {
        API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
-       console.log("Gallery", this.state.artist)
+    //    console.log("Gallery", this.state.artist)
     }
 
     

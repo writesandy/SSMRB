@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
-import SignUpProfile from '../SignUp';
+// import SignUpProfile from '../SignUp';
 import './SignIn.css';
 import {getFromStorage, setInStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
@@ -171,7 +171,7 @@ class SignIn extends PureComponent {
   };
   
   componentDidUpdate(){
-    console.log('update', this.state.showModal)
+    // console.log('update', this.state.showModal)
   }
 
   handleSignUp(){

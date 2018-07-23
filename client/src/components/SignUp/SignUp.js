@@ -130,14 +130,14 @@ handleCloseModal () {
 // }
 
 componentDidUpdate(){
-  console.log('update', this.state.showModal)
+  // console.log('update', this.state.showModal)
 }
 
 
 onSignUp() {
     // Grab state
     const {
-      showSignUpProfile,
+      // showSignUpProfile,
       signUpEmail,
       signUpPassword,
       first,
@@ -216,8 +216,8 @@ onSignUp() {
   render() {
     const {
       isLoading,
-      token,
-      showSignUpProfile,
+      // token,
+      // showSignUpProfile,
       signUpEmail,
       signUpPassword,
       signUpError,
