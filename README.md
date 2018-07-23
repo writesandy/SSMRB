@@ -12,11 +12,11 @@
 
 ## Summary of Issues
 
-### Image Uploader - The image uploader has been especially difficult as we tried to connect it to MongoDB as part of the class requirements. MongoDB does not have enough storage capability for images. The storage method was changed to Firebase and it is now working in development.
+* Image Uploader - The image uploader has been especially difficult as we tried to connect it to MongoDB as part of the class requirements. MongoDB does not have enough storage capability for images. The storage method was changed to Firebase and it is now working in development.
 
-### Sign In page - Sign in page original setup had a hiccup with naming that we have not been able to clear in GitHub. We have tried everything from changing it in everyone's branches to going on GitHub and making the correction. It stubbornley reverts and causes the app to not compile when it is pulled new from the master.
+* Sign In page - Sign in page original setup had a hiccup with naming that we have not been able to clear in GitHub. We have tried everything from changing it in everyone's branches to going on GitHub and making the correction. It stubbornley reverts and causes the app to not compile when it is pulled new from the master.
 
-### Heroku link - This is still actively being worked. The links work in the local version on the Artist Bio page, but do not work from Heroku for the artist instagram, linkedin, etc.
+* Heroku link - This is still actively being worked. The links work in the local version on the Artist Bio page, but do not work from Heroku for the artist instagram, linkedin, etc.
 
 ## Completion Plan
 
