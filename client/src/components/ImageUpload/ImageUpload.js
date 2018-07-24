@@ -36,6 +36,8 @@ class ImageUpload extends PureComponent {
     databasePush = () => {
         let itemsRef = firebase.database().ref('ImageData/')
         // console.log(this.state);
+        console.log(this.state.imageURL)
+        
         let updates = {
             url: this.state.imageURL,
             name: this.state.generatedName,
@@ -43,6 +45,9 @@ class ImageUpload extends PureComponent {
         }
         itemsRef.push(updates);
     }
+
+// put databasePush into compnonentDidUpdate
+// lifecycle method in react.
 
     handleUploadSuccess = filename => {
         this.setState({ generatedName: filename, progress: 100, isUploading: false });
@@ -56,7 +61,9 @@ class ImageUpload extends PureComponent {
                     imageURL: url,
                     generatedName: filename,
                 })
-            }).then(this.databasePush())
+            }).then(() => {
+                this.databasePush()
+            })
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
 

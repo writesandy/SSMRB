@@ -46,6 +46,7 @@ class ArtistProfiles extends React.PureComponent {
                  artistData = {this.state.artist}/>
             {/* Gallery */}
                 <div id="art-gallery">
+                    {console.log('look into this artist array', this.state.artist)}
                     {this.state.artist.galleryPhotos ? this.state.artist.galleryPhotos.map((galleryPhotos, index) => {
                             let boundItemClick = this.handleOpenModal.bind(this,galleryPhotos);
                             return (
