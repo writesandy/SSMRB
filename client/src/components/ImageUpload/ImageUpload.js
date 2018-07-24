@@ -35,7 +35,7 @@ class ImageUpload extends PureComponent {
 
     databasePush = () => {
         let itemsRef = firebase.database().ref('ImageData/')
-        console.log(this.state);
+        // console.log(this.state);
         let updates = {
             url: this.state.imageURL,
             name: this.state.generatedName,

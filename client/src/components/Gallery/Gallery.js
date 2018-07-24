@@ -10,28 +10,48 @@ class GalleryComponent extends React.PureComponent {
         constructor(props) {
                 super(props);
         this.state = {
-                Images: []
+                imageTitle: "",
+                generatedName: "",
+                imageURL: ""
         }
 }
-
         getFirebaseData = () => {
-                const database = firebase.database();
-                let IMAGES = []
-                database.ref('/ImageData').once('value').then(function(snapshot) {
-                        const imageObject = snapshot.val();
-                        const keys = Object.keys(imageObject);
-                        // let image = document.createElement('img');
-                        // let imageName = document.createElement('img');
-                        for (let i = 0; i < keys.length; i++) {
-                                let currentObject = imageObject[keys[i]];                         
-                                IMAGES.push(currentObject)
-                        }
-                }).then(
-                        // console.log('is it here?', IMAGES)
-                        this.setState(prevState => ({
-                                Images: [...prevState.Images, IMAGES]
-                        }))
-                )
+                const ref = firebase.database().ref();
+
+                // ref.on('value', function(snapshot) {
+                //         console.log(snapshot.val());
+                // }, function (error) {
+                //         console.log('error: ' + error.code)
+                // })
+                ref.on('child_added', childSnapshot => {
+                        console.log(childSnapshot.val());
+                        this.setState = ({
+                                imageTitle: childSnapshot.val().title,
+                                generatedName: childSnapshot.val().generatedName,
+                                imageURL: childSnapshot.val().url
+                        })
+                })
+
+                // const database = firebase.database();
+                // let IMAGES = []
+                // database.ref('/ImageData').once('value')
+                // .then(snapshot => {
+                //         const imageObject = snapshot.val();
+                //         const keys = Object.keys(imageObject);
+                //         // let image = document.createElement('img');
+                //         // let imageName = document.createElement('img');
+                //         // console.log('this is keys', keys)
+                //         for (let i = 0; i < keys.length; i++) {
+                //                 let currentObject = imageObject[keys[i]];                         
+                //                 // console.log(currentObject);
+                //                 IMAGES.push(currentObject)
+                //         }
+                // }).then(
+                //         // console.log('is it here?', IMAGES)
+                //         this.setState(prevState => ({
+                //                 Images: [...prevState.Images, IMAGES]
+                //         }))
+                // )
         }
 
 componentWillMount() {
@@ -39,8 +59,8 @@ componentWillMount() {
 }
 
     render() {
-        console.log('Images once rendered', this.state.Images);
-        console.log('Urls once rendered', this.state.Images[0] );
+        console.log('Images once rendered', this.state);
+        // console.log('Urls once rendered', this.state.Images[0]);
 
 //         const IMAGES =
 // [{
@@ -80,11 +100,11 @@ componentWillMount() {
         <div className="container">
                 <div className="container-fluid">
                 <div id="art-gallery">
-                    {this.state.Images.url ? this.state.Images[0].url.map((url, index) => {
+                    {this.state.imageURL ? this.state.imageURL.map((url, index) => {
                             let boundItemClick = this.handleOpenModal.bind(this, url);
                             return (
                                 <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
-                                    <img alt={this.state.title} className="art-img" src={url} />
+                                    <img alt={this.state.imageTitle} className="art-img" src={url} />
                                 </div>
                             )
                     }): null}
