@@ -20,26 +20,21 @@ class GalleryComponent extends React.PureComponent {
 
         getFirebaseData = () => {
                 const database = firebase.database();
-                let IMAGES = [];
+                const images = [];
                 database.ref('/ImageData').once('value').then(function(snapshot) {
+                        console.log('snapshot.val', snapshot.val())
                         const imageObject = snapshot.val();
                         const keys = Object.keys(imageObject);
                         // let image = document.createElement('img');
                         // let imageName = document.createElement('img');
                         for (let i = 0; i < keys.length; i++) {
                                 let currentObject = imageObject[keys[i]];                         
-                                IMAGES.push(currentObject)
+                                images.push(currentObject)
                         }
                 }).then(() => {
-                        this.setState(() => ({
-                                Images: IMAGES
-                        }))
-                }).then(() => {
-                        this.setState({
-                                UrlArray: IMAGES.map(element => element.url),
-                                Titles: IMAGES.map(element => element.title)
-
-                        })
+                        this.setState({ images })
+                        // console.log('IMAGES', IMAGES)
+                        // console.log('state Images', Images)
                 })
         }
 
@@ -47,9 +42,12 @@ componentWillMount() {
         this.getFirebaseData();
 }
 
-handleOpenModal (art, e) {
-        this.setState({modalArt:`${art}`});
-        this.setState({ showModal: true });
+handleOpenModal (index, e) {
+        this.setState({
+                // modalArt:`${art}`,
+                showModal: true,
+                pickedImg: {...this.state.images[index]}
+        });
       }
       
     handleCloseModal () {
@@ -58,20 +56,27 @@ handleOpenModal (art, e) {
 
 
     render() {
-        // console.log(this.state);
+        let pics, modalPicUrl, modalPicTitle;
+        
+        if (this.state.images) {
+                pics = this.state.images.map((image, i) => {
+                        return (
+                                // using an Object, we will be able to pass all the information to the modal.
+                                <div key={image.name} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={() => this.handleOpenModal(i)}>
+                                    <img alt={image.title} className="art-img" src={image.url} />
+                                </div>
+                            )
+                })
+        }
+        if (this.state.pickedImg) {
+                modalPicUrl = this.state.pickedImg.url
+                modalPicTitle = this.state.pickedImg.title
+        }
       return (
         <div className="container">
                 <div className="container-fluid">
                 <div id="art-gallery">
-                {/* {console.log(this.state.UrlArray)} */}
-                    {this.state.UrlArray ? this.state.UrlArray.map((url, index) => {
-                            let boundItemClick = this.handleOpenModal.bind(this, url);
-                            return (
-                                <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
-                                    <img alt={url} className="art-img" src={url} />
-                                </div>
-                            )
-                    }): null}
+                    {pics}
                 </div>
                 </div>
                 <div className="container-fluid">
@@ -100,10 +105,12 @@ handleOpenModal (art, e) {
                     maxWidth: '65%',
                 }
             }}>
-                <img alt='featured' id="feature-image" src={this.state.modalArt} />
+            
+                <img alt={modalPicTitle} id="feature-image" src={modalPicUrl} />
                 <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
             </ReactModal>
         </div>
+                
         
       );
     }
