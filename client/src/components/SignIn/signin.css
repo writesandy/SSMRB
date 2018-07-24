@@ -12,6 +12,9 @@
     float:right;
     margin: 0px;
 }
+#signInModalTrigger:hover {
+    color: #23527c;
+}
 
 .modalImage {
     object-fit: cover;
