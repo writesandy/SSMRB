@@ -1,15 +1,24 @@
 import axios from "axios";
 
-const API = {
-  getSavedUsers: function () {
-    return axios.get("/api/users");
+export default {
+  // Gets all arists
+  getArtists: function() {
+    console.log('it works get artists')
+    return axios.get("/api/artist");
   },
-  saveUser: function(userData) {
-    return axios.post('/api/users', userData);
+  // Gets the artist with the given id
+  getOneArtist: function(id) {
+    return axios.get("/api/artist/" + id);
   },
-  deleteUser: function(id) {
-    return axios.delete('/api/users/' + id);
+  // Deletes the artist with the given id
+  deleteArtist: function(id) {
+    return axios.delete("/api/artist/" + id);
   },
+  // Saves a artist to the database
+  saveArtist: function(artistData) {
+    return axios.post("/api/artist", artistData);
+  },
+  
   getImages: function() {
     return axios.get("/files");
   },
@@ -23,5 +32,3 @@ const API = {
     return axios.delete('files/:id', + id);
   }
 };
-
-export default API;

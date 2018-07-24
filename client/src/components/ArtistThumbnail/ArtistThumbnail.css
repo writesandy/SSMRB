@@ -1,12 +1,14 @@
 /* Fonts */
 .artistName {
-    font-size: medium;
+    font-size: 20px;
     text-align: center;
 }
 
 .artistTitle {
-    font-size: 9px !important;
+    font-size: 10px !important;
     text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 p {

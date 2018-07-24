@@ -9,7 +9,7 @@ router.route("/signup").post( (req, res, next) => {
 
   const { password } = body;
 
-  let { email } = body;
+  let { email, first, last, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, artistBoolean } = body;
 
   if (!email) {
     console.log("no email")
@@ -51,6 +51,9 @@ router.route("/signup").post( (req, res, next) => {
 
     newUser.email = email;
     newUser.password = newUser.generateHash(password);
+    newUser.first = first;
+    newUser.last = last;
+
     console.log(newUser);
     newUser.save((err, user) => {
       if (err) {

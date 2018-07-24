@@ -1,5 +1,7 @@
 import React from "react";
 import "./Social.css";
+// import {Link} from 'react-router-dom';
+
 
 const SocialIcons = props => (
     <div className="social col-md-12">

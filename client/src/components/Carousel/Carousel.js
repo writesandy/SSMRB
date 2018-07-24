@@ -51,39 +51,39 @@ class CarouselPage extends Component {
                         <CarouselInner>
                             <CarouselItem itemId="1">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="First slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="first carousel" />
 
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Light mask</h3>
+                                    <h3 className="h3-responsive">The artist never entirely knows — We guess. We may be wrong, but we take leap after leap in the dark” ~Agnes de Mille</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="2">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="Second slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="second carousel" />
                                     <Mask overlay="black-strong"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Strong mask</h3>
+                                    <h3 className="h3-responsive">The artist is always beginning. Any work of art which is not a beginning, an invention, a discovery is of little worth.” ~Ezra Pound</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="3">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="Third slide" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="third carousel" />
                                     <Mask overlay="black-slight"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Slight mask</h3>
+                                    <h3 className="h3-responsive">“Art is not a thing, it is a way.” ~Elbert Hubbard</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                             <CarouselItem itemId="4">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="Mattonit's item" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="fourth carousel" />
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>
-                                    <h3 className="h3-responsive">Sopot Beach</h3>
+                                    <h3 className="h3-responsive">"The whole culture is telling you to hurry, while the art tells you to take your time. Always listen to the art.” ~Junot Diaz</h3>
                                 </CarouselCaption>
                             </CarouselItem>
                         </CarouselInner>

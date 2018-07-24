@@ -6,9 +6,9 @@ import beardImage from './Image.Beard.png';
 
    
 const Community = () => (
-  <div class='flavor col-sm-6'>Flavor Text About our Project. 
-  Come see our favorite artists and their projects. 
-  These are people who are really talented and have a community to share. 
+  <div className='flavor col-sm-6'>The Gallery represeents the finest arts and crafts created in our local 
+  artist community. 
+  We represent art, for which a portion or all of the proceeds goes toward worthwhile causes.
   <img src={beardImage} className="beard-image" alt="beard-image" />
   <button style={{ float: "left" }} className="btn btn-success"> Join </button>
   <button style={{ float: "left" }} className="btn btn-success" > Learn More</button>
