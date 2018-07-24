@@ -35,7 +35,7 @@ class App extends PureComponent {
       firebase.initializeApp(config);
   }
   render() {
-    console.log(process.env)
+    // console.log(process.env)
 
 
     return (
