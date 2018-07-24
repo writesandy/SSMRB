@@ -1,6 +1,7 @@
 import React from "react"
 import './About.css';
 import Collage from '../Collage'
+import FeaturedArtist from '../Featured Artist'
 
 
 const About = props => (
@@ -28,10 +29,9 @@ const About = props => (
                 Art heals, unifies, and spotlights the best aspects in of our human lives.
                 </p>
                 <p className="about-paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc tristique vel turpis ut ullamcorper.
-                    Integer ante elit, tempor et ante in, elementum sagittis nunc.
-                    Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                We'd love to have you visit our galleries, join one of our featured educational opportunities, 
+                and come to our demonstrations of our finest work examples.
+
                 </p>
                 <p className="about-paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -73,15 +73,11 @@ const About = props => (
                         Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
                     </p>
                 </div>
-                <p className="about-paragraph">
-
-                    </p>
-                <p>
-                    We'd love to have you visit our galleries, join one of our featured educational opportunities, and come to our demonstrations of our finest work examples.
-                    </p>
             </div>
         </div>
-        <Collage />
+        {/* Collage Tag Goes Here -- here this is where the flex grid goes */}  
+      <Collage />
+      <FeaturedArtist />
     </div>
 
 

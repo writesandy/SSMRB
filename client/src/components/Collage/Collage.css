@@ -7,8 +7,19 @@
     width: 100%;
 }
 
+.collage-container{
+    margin: 20px 0px;
+}
+.collage-section{
+    margin: 0px;
+}
 .collage-about{
-    padding-left: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.handle > h3{
+    margin: 0px;
 }
 
 .collage-grid{
@@ -16,6 +27,24 @@
 }
 
 .collage-text{
-    padding-left: 0px;
+    padding: 0px;
 }
 
+.collage-text > p, .customizable-artboard > p{
+    padding: 0px;
+}
+
+.customizable-artboard{
+    border: 2px solid #2699FB;  
+    min-height: 625px;
+    max-height: 100%;
+    min-width: 100%;
+}
+
+.draggable-artboard{
+    width: 100%;
+}
+
+.collage-image{
+    padding: 0px !important;
+}
