@@ -12,7 +12,8 @@ class GalleryComponent extends React.PureComponent {
                 super(props);
         this.state = {
                 Titles: [],
-                Urls: []
+                Urls: [],
+                images:  []
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -21,16 +22,18 @@ class GalleryComponent extends React.PureComponent {
         getFirebaseData = () => {
                 const database = firebase.database();
                 const images = [];
-                database.ref('/ImageData').once('value').then(function(snapshot) {
+                database.ref('/ImageData').once('value').then((snapshot) => {
                         console.log('snapshot.val', snapshot.val())
                         const imageObject = snapshot.val();
                         const keys = Object.keys(imageObject);
+                        console.log(keys)
                         // let image = document.createElement('img');
                         // let imageName = document.createElement('img');
-                        for (let i = 0; i < keys.length; i++) {
-                                let currentObject = imageObject[keys[i]];                         
-                                images.push(currentObject)
-                        }
+                        // for (let i = 0; i < keys.length; i++) {
+                        //         let currentObject = imageObject[keys[i]];                         
+                        //         images.push(currentObject)
+                        // }
+                        keys.forEach(key => images.push(imageObject[key]))
                 }).then(() => {
                         this.setState({ images })
                         // console.log('IMAGES', IMAGES)
@@ -81,7 +84,7 @@ handleOpenModal (index, e) {
                 </div>
                 <div className="container-fluid">
                         <div className="imageUploader">
-                                <ImageUpload />
+                                <ImageUpload fetchNewImages={this.getFirebaseData}/>
                         </div>
                 </div>
                 {/* Art Feature Modal */}

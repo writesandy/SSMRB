@@ -65,6 +65,10 @@ class ImageUpload extends PureComponent {
                 })
             }).then(() => {
                 this.databasePush()
+                this.setState({
+                    imageTitle: ''
+                })
+                this.props.fetchNewImages()
             })
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
