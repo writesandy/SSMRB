@@ -27,7 +27,7 @@
   to { transform: rotate(360deg); }
 }
 
-.contentArea {
+.pageContentWidth {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -35,7 +35,7 @@
   margin-bottom:20px;
 }
 @media only screen and (min-width: 400px) {
-  .contentArea{
+  .pageContentWidth{
     width: 75%;
   }
 }

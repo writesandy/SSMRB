@@ -42,7 +42,6 @@ class App extends PureComponent {
       <Router>
         <div id="page">
           <HeaderNav />
-          <div className="contentArea">
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/Artist' component={ArtistLanding}/>
@@ -51,7 +50,6 @@ class App extends PureComponent {
               {/* Do not keep -- just for creating the page */}
               {/* <Route path='*' component={ArtistBio}/> */}
             </Switch>
-          </div>
           <Footer />
         </div>
       </Router>
