@@ -10,7 +10,7 @@ class ArtistThumbnail extends React.PureComponent {
         artists: []
       };
 
-      componentDidMount() {
+    componentDidMount() {
         console.log('it mounted')
         API.getArtists().then(res=> this.setState({artists: res.data}))
 
@@ -32,7 +32,6 @@ class ArtistThumbnail extends React.PureComponent {
                                 linkedin={artist.linkedin}
                                 website={artist.website}
                                 email={artist.email}
-                                phone={artist.phone}
                             />
                         </div>
                     </div>

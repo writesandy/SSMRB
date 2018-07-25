@@ -7,7 +7,7 @@ class ArtistLanding extends PureComponent {
 
     render () {
         return (
-            <div>
+            <div className="pageContentWidth">
                 <ArtistThumbnail />
             </div>
         )

@@ -4,7 +4,7 @@ import Collage from '../Collage'
 
 
 const About = props => (
-    <div className="container">
+    <div className="container pageContentWidth">
         <div className="row">
             <div className="col-lg-12">
                 <h3>ABOUT US</h3>
