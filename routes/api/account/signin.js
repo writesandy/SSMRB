@@ -133,7 +133,7 @@ router.route("/signupprofile").post( (req, res, next) => {
     });
   });
 
-//});
+});
 
 router.route("/signin").post( (req, res, next) => {
   const { body } = req;
@@ -216,7 +216,6 @@ router.route('/verify').get( (req, res, next) => {
   // ?token=test
 
   // Verify the token is one of a kind and it's not deleted.
-
   UserSession.find({
     _id: token,
     isDeleted: false
@@ -275,6 +274,7 @@ router.route('/logout').get( (req, res, next) => {
     });
   });
 });
+
 
 module.exports = router;
 
