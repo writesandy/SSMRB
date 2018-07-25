@@ -14,9 +14,9 @@ const HeaderNav = props => (
                 </button>
                 <div className="leftside-Nav">
                     <Link to="/" className="navbar-brand">Artist United</Link>
-                    <Link to="/Community" className="navbar-brand">Community</Link>
+                    {/* <Link to="/Community" className="navbar-brand">Community</Link> */}
                     <Link to="/Artist" className="navbar-brand">Artist</Link>
-                    <Link to="/Events" className="navbar-brand">Events</Link>
+                    {/* <Link to="/Events" className="navbar-brand">Events</Link> */}
                     <Link to="/Gallery" className="navbar-brand">Gallery</Link>
                 </div>
 

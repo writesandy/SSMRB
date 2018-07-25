@@ -1,20 +1,5 @@
-// This will be good for replacing a profile image for individual users
-// more needs to be changed, but it overwrites all data
-// in the folder on firebase meaning only one photo is
-// accessable at a time. Think I'd need to add a different folder 
-// structure where we add a unique id to the folder tied to their
-// user id or account name?
-
-// databasePush = () => {
-//     let itemsRef = firebase.database().ref('ImageData/').set({
-//         url: this.state.imageURL,
-//         name: this.state.generatedName,
-//         title: this.state.imageTitle
-//     })
-// }
-
 import React, { PureComponent } from 'react';
-import './UserProfileUploader.css';
+import './UserGalleryUploader.css';
 // import API from '../../utils/API'
 // import { List, ListItem } from "../../components/List";
 import firebase from "firebase/app";
@@ -23,7 +8,7 @@ import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
-class UserProfileUploader extends PureComponent {
+class UserGalleryUploader extends PureComponent {
     state = {
       name: '',
     //   file: null,
@@ -53,7 +38,7 @@ class UserProfileUploader extends PureComponent {
     databasePush = () => {
         //Adding a piece tied to their login to the folder will allow for them to have
         // a unique folder for just them.
-        let itemsRef = firebase.database().ref('ProfilePhoto/')
+        let itemsRef = firebase.database().ref('UserGallery/')
         console.log(this.state.imageURL)
         
         let updates = {
@@ -87,6 +72,8 @@ class UserProfileUploader extends PureComponent {
     };    
 
   render() {
+    console.log(this.props)
+
     return (
         <div>
             <form>
@@ -118,4 +105,4 @@ class UserProfileUploader extends PureComponent {
     }
 }
 
-    export default UserProfileUploader;
+    export default UserGalleryUploader;

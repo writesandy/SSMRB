@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 const path = require('path');
 
 // Define middleware here
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
