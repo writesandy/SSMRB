@@ -76,8 +76,8 @@ handleOpenModal (index, e) {
                 modalPicTitle = this.state.pickedImg.title
         }
       return (
-        <div className="container">
-                <div className="container-fluid">
+        <div className="container pageContentWidth">
+            <div className="container-fluid">
                 <div id="art-gallery">
                     {pics}
                 </div>

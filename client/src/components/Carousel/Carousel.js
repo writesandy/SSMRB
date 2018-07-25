@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Carousel.css'
 import { Carousel, CarouselCaption, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, View, Mask, Container } from 'mdbreact';
 
 class CarouselPage extends Component {
@@ -42,7 +43,7 @@ class CarouselPage extends Component {
         const { activeItem } = this.state;
         return (
 
-            <div>
+            <div className="container-fluid" id="edge-to-edge">
                 <Container fluid>
                     <Carousel
                         activeItem={this.state.activeItem}

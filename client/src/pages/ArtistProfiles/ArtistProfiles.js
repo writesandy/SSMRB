@@ -40,7 +40,7 @@ class ArtistProfiles extends React.PureComponent {
     render () {
         console.log(this.state);
         return (
-            <div>
+            <div className="pageContentWidth">
             {/* ArtistBio */}
                 <ArtistBio 
                  artistData = {this.state.artist}/>

@@ -8,6 +8,14 @@
     font: Roboto;
     font-size: 25px;
 }
+#signInModalTrigger{
+    float:right;
+    margin: 0px;
+}
+#signInModalTrigger:hover {
+    color: #23527c;
+}
+
 .modalImage {
     object-fit: cover;
     width:100%;
