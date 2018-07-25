@@ -26,7 +26,7 @@ class Collage extends React.Component {
             <div className="container collage-container draggable-artboard">
                 <div className="row">
 
-                    <div className="collage-about col-lg-4 col-md-4 col-sm-12">
+                    {/* <div className="collage-about col-lg-4 col-md-12 col-sm-12">
                         <DraggableContainer>
                             <div className="collage-text">
                                 <h3>CUSTOMIZABLE ARTBOARD</h3>
@@ -39,23 +39,23 @@ class Collage extends React.Component {
 
                         </div>
 
-                    </div>
-                    <div className="collage-about col-lg-8 col-md-8 col-sm-12">
+                    </div> */}
+                    <div className="collage-about col-lg-12 col-md-12 col-sm-12">
                         {/*1st Row in Collage Grid */}
                         <div className="row">
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/DUYDX7Z.jpg" alt="collage image 1" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/2fCAwFr.jpg" alt="collage image 1" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/IXfqGpA.jpg" alt="collage image 2" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/kPvKSmi.jpg" alt="collage image 2" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/JsBSLGN.jpg" alt="collage image 3" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/krCI7iM.jpg" alt="collage image 3" />
                                 </DraggableContainer>
                             </div>
                         </div>
@@ -64,17 +64,17 @@ class Collage extends React.Component {
                         <div className="row">
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/7AGpYER.jpg" alt="collage image 4" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/nYR5uCB.jpg" alt="collage image 4" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/A9gvtfm.jpg" alt="collage image 5" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/ROyXWl5.jpg" alt="collage image 5" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/ISGTE29.jpg" alt="collage image 6" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/gnANVZO.jpg" alt="collage image 6" />
                                 </DraggableContainer>
                             </div>
                         </div>
@@ -83,17 +83,17 @@ class Collage extends React.Component {
                         <div className="row">
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/lQVI3Ua.jpg" alt="collage image 7" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/9zGeotG.jpg" alt="collage image 7" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/1rRglIP.jpg" alt="collage image 8" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/R7WXT9g.jpg" alt="collage image 8" />
                                 </DraggableContainer>
                             </div>
                             <div className="collage-image col-lg-4">
                                 <DraggableContainer>
-                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/81s5GHr.jpg" alt="collage image 9" />
+                                    <img className="collage-layout" class="img-fluid" src="https://i.imgur.com/dRtxs1h.jpg" alt="collage image 9" />
                                 </DraggableContainer>
                             </div>
                         </div>

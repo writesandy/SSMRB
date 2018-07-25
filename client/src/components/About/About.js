@@ -20,7 +20,7 @@ const About = props => (
                     <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile image" />
                 </div>
             </div>
-            <div className="about-us-2 col-lg-4 col-md-4 col-sm-12">
+            <div className="about-us-2 col-lg-4 col-md-12 col-sm-12">
                 <p className="about-paragraph">
                     Artistic expression can be a powerful means of personal transformation and emotional and spiritual healing.
                 </p>
@@ -41,10 +41,10 @@ const About = props => (
                 </p>
             </div>
 
-            <div className="services-offerings col-lg-4 col-md-4 col-sm-12">
+            <div className="services-offerings col-lg-4 col-md-12 col-sm-12">
                 <div className="transbox">
                     <span className="image-left">
-                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img" alt="paint brush icon" />
+                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img" class="img-fluid" alt="paint brush icon" />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -54,7 +54,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" alt="canvas icon" />
+                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" class="img-fluid" alt="canvas icon" />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -64,7 +64,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="art utensil icons  " />
+                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" class="img-fluid" alt="art utensil icons  " />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

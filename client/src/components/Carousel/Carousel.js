@@ -42,7 +42,7 @@ class CarouselPage extends Component {
         const { activeItem } = this.state;
         return (
 
-            <div className="container-fluid">
+            <div>
                 <Container fluid>
                     <Carousel
                         activeItem={this.state.activeItem}
