@@ -165,7 +165,7 @@ class SignIn extends PureComponent {
   //Functions that Open/Close modal
   handleOpenModal () {
     this.setState({ showModal: true });
-    this.currentPath();
+ 
   }
   
   handleCloseModal () {

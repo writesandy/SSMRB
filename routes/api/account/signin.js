@@ -10,6 +10,12 @@ router.route("/signup").post( (req, res, next) => {
   const { password } = body;
 
   let { email, first, last, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, artistBoolean } = body;
+  
+  // if (!TwitterHandle )
+  //   return res.send({
+  //     message: "Twitter handle must contain an '@'"
+  //   });
+
 
   if (!email) {
     console.log("no email")
