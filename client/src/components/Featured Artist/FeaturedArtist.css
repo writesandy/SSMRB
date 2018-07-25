@@ -1,0 +1,13 @@
+.featured-container{
+    margin: 10px 0px;
+}
+
+.img-fluid{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.featured-bio{
+    padding-bottom: 20px;
+}
