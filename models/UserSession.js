@@ -13,6 +13,18 @@ const UserSessionSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  InstagramHandle: {
+    type: String,
+    default: ''
+  },
+  first: {
+    type: String,
+    default: ''
+  },
+  last: {
+    type: String,
+    default: ''
+  },
 
 
 

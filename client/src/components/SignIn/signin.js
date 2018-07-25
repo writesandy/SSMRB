@@ -2,12 +2,16 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
+// import SignUpProfile from '../SignUp';
 import './SignIn.css';
 import {getFromStorage, setInStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
 
 // Bind modal to Login Button
 ReactModal.setAppElement('#root');
+// create key on state to keep track of modal - done -
+// check that state and display in render - done - 
+// add method that changes state
 
 class SignIn extends PureComponent {
   constructor(props) {
@@ -23,6 +27,7 @@ class SignIn extends PureComponent {
       showModal:false,
       //Toggle Sign In & Sign Up
       showSignUp: false,
+      showSignUpProfile: false,
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -36,6 +41,7 @@ class SignIn extends PureComponent {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
+    
   }
 
 //make the above into a fat arrow function 
@@ -95,33 +101,36 @@ class SignIn extends PureComponent {
     });
 
     // Post request to backend
-    fetch('api/account/signin', {
+    fetch('../../../../routes/api/account/signin.js', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        //'Accept': 'application/json'
       },
       body: JSON.stringify({
         email: signInEmail,
         password: signInPassword,
       }),
     }).then(res => res.json())
-      .then(json => {
-        if (json.success) {
-          setInStorage('the_main_app', { token: json.token });
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-            signInPassword: '',
-            signInEmail: '',
-            token: json.token,
-          });
-        } else {
-          this.setState({
-            signInError: json.message,
-            isLoading: false,
-          });
-        }
-      });
+      .catch(error => console.log('Error: ', error))
+      .then(response => console.log('Success: ', response))
+      // .then(json => {
+      //   if (json.success) {
+      //     setInStorage('the_main_app', { token: json.token });
+      //     this.setState({
+      //       signInError: json.message,
+      //       isLoading: false,
+      //       signInPassword: '',
+      //       signInEmail: '',
+      //       token: json.token,
+      //     });
+      //   } else {
+      //     this.setState({
+      //       signInError: json.message,
+      //       isLoading: false,
+      //     });
+      //   }
+      // });
   }
 
   logout() {
@@ -156,6 +165,7 @@ class SignIn extends PureComponent {
   //Functions that Open/Close modal
   handleOpenModal () {
     this.setState({ showModal: true });
+    this.currentPath();
   }
   
   handleCloseModal () {
@@ -165,7 +175,7 @@ class SignIn extends PureComponent {
   };
   
   componentDidUpdate(){
-    console.log('update', this.state.showModal)
+    // console.log('update', this.state.showModal)
   }
 
   handleSignUp(){
@@ -175,6 +185,8 @@ class SignIn extends PureComponent {
   handleSignIn(){
     this.setState({showSignUp: false})
   }
+
+  
 
   render() {
     const {
@@ -189,13 +201,9 @@ class SignIn extends PureComponent {
       return (<div><p>Loading...</p></div>);
     }
     if (!token) {
-
-      //Add specific class to ReactModal
-
       return (
         <div>
-        <a id="signInModalTrigger" className="navbar-brand login" href="#" onClick={this.handleOpenModal}>Login
-        </a>
+        <h5 id="signInModalTrigger" className="navbar-brand login" onClick={this.handleOpenModal}>Login</h5>
 
         <ReactModal isOpen={this.state.showModal} style={{content: {
                                                             position: 'relative',
@@ -245,7 +253,7 @@ class SignIn extends PureComponent {
                 </div>
                   </span> }
           {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <a href="#" onClick={this.handleSignUp}>Sign Up</a></h6>}
-          {this.state.showSignUp && <SignUp />}
+          {this.state.showSignUp && <SignUp handleCloseModal ={this.handleCloseModal.bind(this)}/>}
           {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <a href="#" onClick={this.handleSignIn}>Sign In</a></h6>}
           <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
         </ ReactModal>

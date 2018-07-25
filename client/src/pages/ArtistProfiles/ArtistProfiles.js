@@ -13,7 +13,8 @@ class ArtistProfiles extends React.PureComponent {
         this.state = {
             showModal: false,
             modalArt:"",
-            Artists
+            Artists,
+            artist:{}
         };
         
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -30,24 +31,30 @@ class ArtistProfiles extends React.PureComponent {
     };
 
 
+    componentDidMount() {
+       API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
+    //    console.log("Gallery", this.state.artist)
+    }
 
     
     render () {
         console.log(this.state);
         return (
-            <div>
+            <div className="pageContentWidth">
             {/* ArtistBio */}
-                <ArtistBio/>
+                <ArtistBio 
+                 artistData = {this.state.artist}/>
             {/* Gallery */}
                 <div id="art-gallery">
-                    {this.state.Artists[0].art.map ((art, index) => {
-                            let boundItemClick = this.handleOpenModal.bind(this,art);
+                    {console.log('look into this artist array', this.state.artist)}
+                    {this.state.artist.galleryPhotos ? this.state.artist.galleryPhotos.map((galleryPhotos, index) => {
+                            let boundItemClick = this.handleOpenModal.bind(this,galleryPhotos);
                             return (
                                 <div key={index} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={boundItemClick}>
-                                    <img className="art-img" src={art} />
+                                    <img alt="art" className="art-img" src={galleryPhotos} />
                                 </div>
                             )
-                    })}
+                    }): null}
                 </div>
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal} style={
@@ -70,7 +77,7 @@ class ArtistProfiles extends React.PureComponent {
                         maxWidth: '65%',
                     }
                 }}>
-                    <img id="feature-image" src={this.state.modalArt} />
+                    <img alt='featured' id="feature-image" src={this.state.modalArt} />
                     <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
                 </ReactModal>
              {/* Footer */}

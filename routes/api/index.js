@@ -4,8 +4,9 @@ const account = require("./account/signin.js")
 const path = require("path");
 
 // Article routes
+router.use("/account", account);
 
-router.use("/account", account)
+router.use("/artist", artistsRoutes)
 
 router.use("/artist", artistsRoutes)
 

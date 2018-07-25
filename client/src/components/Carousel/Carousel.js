@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Carousel.css'
 import { Carousel, CarouselCaption, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, View, Mask, Container } from 'mdbreact';
 
 class CarouselPage extends Component {
@@ -42,7 +43,7 @@ class CarouselPage extends Component {
         const { activeItem } = this.state;
         return (
 
-            <div className="container-fluid">
+            <div className="container-fluid" id="edge-to-edge">
                 <Container fluid>
                     <Carousel
                         activeItem={this.state.activeItem}
@@ -51,7 +52,7 @@ class CarouselPage extends Component {
                         <CarouselInner>
                             <CarouselItem itemId="1">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="first carousel image" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/5DOL5Gg.jpg" alt="first carousel" />
 
                                     <Mask overlay="black-light"></Mask>
                                 </View>
@@ -61,7 +62,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="2">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="second carousel image" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/9FJNJwp.jpg" alt="second carousel" />
                                     <Mask overlay="black-strong"></Mask>
                                 </View>
                                 <CarouselCaption>
@@ -70,7 +71,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="3">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="third carousel image" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/jVew2O5.jpg" alt="third carousel" />
                                     <Mask overlay="black-slight"></Mask>
                                 </View>
                                 <CarouselCaption>
@@ -79,7 +80,7 @@ class CarouselPage extends Component {
                             </CarouselItem>
                             <CarouselItem itemId="4">
                                 <View>
-                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="fourth carousel image" />
+                                    <img className="d-block w-100" src="https://i.imgur.com/7dlNIwA.jpg " alt="fourth carousel" />
                                     <Mask overlay="black-light"></Mask>
                                 </View>
                                 <CarouselCaption>

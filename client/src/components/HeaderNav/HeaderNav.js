@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import SignIn from '../SignIn'
 
 const HeaderNav = props => (
-    <div className="container-fluid sticky">
-        <nav className="navbar navbar-default">
+    <div className="container-fluid sticky headerContainer">
+        <nav className="navbar">
             <div className="navbar-header">
                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
                     <span className="icon-bar"></span>

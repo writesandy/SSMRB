@@ -1,44 +1,38 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
 import './SignUpProfile.css'
-
-
-import {
-    getFromStorage,
-    setInStorage,
-  } from '../../utils/storage';
+ 
+import { getFromStorage,setInStorage, } from '../../utils/storage';
 
   class SignUpProfile extends PureComponent {
     constructor(props) {
       super(props);
-  
+     //this.props.handleCloseModal()
+
       this.state = {
         isLoading: true,
         token: '',
         signUpError: '',
-        signUpEmail: '',
-        signUpPassword: '',
         InstagramHandle: '',
         TwitterHandle: '',
+        LinkedIn: '',
         ArtistBio: '',
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
+        Website: '',
+        title: '',
+        showSignUpProfile: true,
       };
       this.onTextboxChangeTwitterHandle = this.onTextboxChangeTwitterHandle.bind(this);
       this.onTextboxChangeInstagramHandle = this.onTextboxChangeInstagramHandle.bind(this);
-      this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-      this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
+      this.onTextboxChangetitle = this.onTextboxChangetitle.bind(this);
       this.onTextboxChangeArtistBio = this.onTextboxChangeArtistBio.bind(this);
-      this.onTextboxChangephoneNumber = this.onTextboxChangephoneNumber.bind(this);
-      this.onTextboxChangefirstName = this.onTextboxChangefirstName.bind(this);
-      this.onTextboxChangelastName = this.onTextboxChangelastName.bind(this);
-     
+      this.onTextboxChangeWebsite = this.onTextboxChangeWebsite.bind(this);
+      this.onTextboxChangeLinkedIn = this.onTextboxChangeLinkedIn.bind(this);
+      
       this.onSignUp = this.onSignUp.bind(this);
-      this.logout = this.logout.bind(this);
     }
   
     componentDidMount() {
+      console.log("sign up email state", this.props.signUpEmail)
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -68,17 +62,6 @@ import {
       }
     }
 
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
-
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value,
-    });
-  }
   onTextboxChangeInstagramHandle(event) {
     this.setState({
       InstagramHandle: event.target.value,
@@ -89,20 +72,15 @@ import {
       TwitterHandle: event.target.value,
     });
   }
-  onTextboxChangephoneNumber(event) {
+  
+  onTextboxChangeWebsite(event) {
     this.setState({
-      phoneNumber: event.target.value,
+      Website: event.target.value,
     });
   }
-  onTextboxChangefirstName(event) {
+  onTextboxChangetitle(event) {
     this.setState({
-      firstName: event.target.value,
-    });
-  }
-
-  onTextboxChangelastName(event) {
-    this.setState({
-      lastName: event.target.value,
+      title: event.target.value,
     });
   }
   onTextboxChangeArtistBio(event) {
@@ -110,38 +88,49 @@ import {
       ArtistBio: event.target.value,
     });
   }
+  
+  onTextboxChangeLinkedIn(event) {
+    this.setState({
+      LinkedIn: event.target.value,
+    });
+  }
+
+  handleCloseModal () {
+    console.log('We called it', this.state.showModal)
+    this.setState({ showModal: false},
+    ()=>console.log('setState as well', this.state.showModal));
+  };
+
 onSignUp() {
+ //this.props.handleCloseModal()
     // Grab state
     const {
-      signUpEmail,
-      signUpPassword,
       InstagramHandle,
       TwitterHandle,
+      LinkedIn,
+      Website,
+      title,
       ArtistBio,
-      firstName,
-      lastName,
-      phoneNumber,
-    } = this.state;
-
-    this.setState({
+      } = this.state;
+     
+      this.setState({
       isLoading: true,
     });
 
     // Post request to backend
-    fetch('routes/api/account/signin', {
+    fetch('/api/account/signin', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'// this also could be json data
+        'Content-Type': 'application/json' 
       },
       body: JSON.stringify({
-        email: signUpEmail,
-        password: signUpPassword,
         TwitterHandle: TwitterHandle,
         InstagramHandle: InstagramHandle,
+        Website: Website,
+        LinkedIn: LinkedIn,
+        title: title,
         ArtistBio: ArtistBio,
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phoneNumber,
+        email: this.signUpEmail,
       })
     }).then(res => res.json())
       .then(json => {
@@ -151,228 +140,111 @@ onSignUp() {
           this.setState({
             signUpError: json.message,
             isLoading: false,
-            signUpEmail: '',
-            signUpPassword: '',
             TwitterHandle: '',
             InstagramHandle: '',
             ArtistBio: '',
-            firstName: '',
-            lastName: '',
-            phoneNumber: '',
+            LinkedIn: '',
+            Website: '',
+            title: '',
           });
         } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false,
+           // isLoading: false,
           });
         }
-      });
+      }).catch(err => console.log(err))
   }
 
-  // onSignUp() {
-  //   // Grab state
-  //   const {
-  //     signUpEmail,
-  //     signUpPassword,
-  //     TwitterHandle,
-  //     InstagramHandle,
-  //     ArtistBio,
-  //     firstName,
-  //     lastName,
-  //     phoneNumber,
-  //   } = this.state;
-
-  //   this.setState({
-  //     isLoading: true,
-  //   });
-
-  //   // Post request to backend
-  //   fetch('routes/api/account/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       email: signUpEmail,
-  //       password: signUpPassword,
-  //       TwitterHandle: TwitterHandle,
-  //       InstagramHandle: InstagramHandle,
-  //       ArtistBio: ArtistBio,
-  //       firstName: firstName,
-  //       lastName: lastName,
-  //       phoneNumber: phoneNumber, 
-  //     }),
-  //   }).then(res => res.json())
-  //     .then(json => {
-  //       if (json.success) {
-  //         setInStorage('the_main_app', { token: json.token });
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //           signUpPassword: '',
-  //           signUpEmail: '',
-  //           InstagramHandle: '',
-  //           ArtistBio: '',
-  //           TwitterHandle: '',
-  //           firstName: '',
-  //           lastName:'',
-  //           phoneNumber:'',
-  //           token: json.token,
-  //         });
-  //       } else {
-  //         this.setState({
-  //           signInError: json.message,
-  //           isLoading: false,
-  //         });
-  //       }
-  //     });
-  // }
-
-  logout() {
-    this.setState({
-      isLoading: true,
-    });
-    const obj = getFromStorage('the_main_app');
-    if (obj && obj.token) {
-      const { token } = obj;
-      // Verify token
-      console.log(token);
-      fetch('routes/api/account/logout?token=' + token)
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            this.setState({
-              token: '',
-              isLoading: false
-            });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        });
-    } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
-  }
-
-  render() {
+  render()  {
     const {
-      isLoading,
-      token,
-      signUpEmail,
-      signUpPassword,
+      // isLoading,
       signUpError,
-      firstName,
-      lastName,
+      // LinkedIn,
       ArtistBio,
-      phoneNumber,
-      InstagramHandle,
-      TwitterHandle,
+      // Website,
+      // InstagramHandle,
+      // TwitterHandle,
+      // title,
     } = this.state;
 
-    if (isLoading) {
-      return (<div><p>Loading...</p></div>);
-    }
-    if (token) {
+    // if (isLoading) {
+    //   return (<div><p>Loading...</p></div>);
+    // }
+    //   else {
       return (
+  
   <span class = 'sign-in-page'> 
-        <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-          <div id="signUpForm">
+ 
+     <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
+     <form>
+          <div className="signUpForm">
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
               ) : (null)
             }
-            {/* <input
-              className="signUpInput"
-              type="signUpEmail"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            />
+            <label htmlFor="signUpInput" className="hidden">Input your LinkedIn. Optional. </label>
             <input
               className="signUpInput"
-              type="signUpPassword"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignInPassword}
+              type="LinkedIn"
+              placeholder="LinkedIn"
+              value={this.state.value}
+              onChange={this.onTextboxChangeLinkedIn}
             />
-            <input
+             <label htmlFor="signUpInput" className="hidden">Input your Website.Optional. </label>
+             <input
               className="signUpInput"
-              type="firstname"
-              placeholder="First Name"
-              value={firstName}
-              onChange={this.onTextboxChangefirstName}
+              type="Website"
+              placeholder="Website"
+              value={this.state.value}
+              onChange={this.onTextboxChangeWebsite}
             />
-            <input
+             <label htmlFor="signUpInput" className="hidden">Input your title. Optional. </label>
+             <input
               className="signUpInput"
-              type="Last Name"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={this.onTextboxChangelastName}
-            /> */}
-            <input
-              className="signUpInput"
-              type="phoneNumber"
-              placeholder="Phone Number"
-              value={phoneNumber}
-              onChange={this.onTextboxChangephoneNumber}
+              type="Title"
+              placeholder="Title"
+              value={this.state.value}
+              onChange={this.onTextboxtitle}
             />
+            <label htmlFor="signUpInput" className="hidden">Input your Instagram. Optional. </label>
             <input
               className="signUpInput"
               type="InstagramHandle"
               placeholder="Instagram Handle"
-              value={InstagramHandle}
+              value={this.state.value}
               onChange={this.onTextboxInstagramHandle}
             />
+            <label htmlFor="signUpInput" className="hidden">Input your Twitter. Optional. </label>
             <input
               className="signUpInput"
               type="TwitterHandle"
               placeholder="Twitter Handle"
-              value={TwitterHandle}
+              value={this.state.value}
               onChange={this.onTextboxTwitterHandle}
             />
-            <input
+              <label htmlFor="signUpInput" className="hidden">Input your ArtistBiography. Optional. </label>
+            <textarea
+              id = "artistBioTextarea"
               className="signUpInput"
               type="ArtistBio"
-              placeholder="A "
+              placeholder="A little about you... "
               value={ArtistBio}
               onChange={this.onTextboxChangeArtistBio}
             />
-            {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button> */}
-          </div>
-          {/* <br />
-          <br />
-          <div>
-         
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-            <input class
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            /><br />
-            <input class 
-              type="password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            /><br />
-            <button type='button' className='btn btn-primary' onClick={this.onSignUp}>Sign Up</button>
-          </div> */}
-          
-          </div>
-   </span>
+           
+                      <a id="closeLogin" href="#signup" onClick={this.handleCloseModal}>CLOSE X </a>
+                      </div>
+                      <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button>
+           {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={() => {this.onSignUp}}>Save Profile </button> */}
+            </form>
+          </div>  
+        
+  </span>
       );
     }  
   }
-}
+//}
 export default SignUpProfile;
    
