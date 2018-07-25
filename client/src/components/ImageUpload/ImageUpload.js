@@ -21,8 +21,10 @@ class ImageUpload extends PureComponent {
     }
 
 
-    handleChangeImageTitle = event =>
+    handleChangeImageTitle = event => {
     this.setState({ imageTitle: event.target.value });
+    document.getElementById('titleInput').value=''
+    }
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
     
@@ -63,6 +65,10 @@ class ImageUpload extends PureComponent {
                 })
             }).then(() => {
                 this.databasePush()
+                this.setState({
+                    imageTitle: ''
+                })
+                this.props.fetchNewImages()
             })
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
@@ -74,6 +80,7 @@ class ImageUpload extends PureComponent {
                 <label>Add an Image Title</label>
                 <input
                     type="text"
+                    id="titleInput"
                     value={this.state.imageTitle}
                     name="imageTitle"
                     onChange={this.handleChangeImageTitle}
