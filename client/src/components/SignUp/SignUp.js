@@ -39,19 +39,16 @@ import {
       this.onSignUp = this.onSignUp.bind(this);
       this.logout = this.logout.bind(this); 
     
-      //this.handleInputChange = this.handleInputChange.bind(this);
 
       //modal
 
       this.handleOpenModal = this.handleOpenModal.bind(this);
       this.handleCloseModal = this.handleCloseModal.bind(this);
-       //this.handleSignUp = this.handleSignUp.bind(this);
-       //this.handleSignUpProfile = this.handleSignUpProfile.bind(this);
-      
-
+     
     }
-  
+    
     componentDidMount() {
+     
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -88,11 +85,12 @@ import {
     //     this.setState({[field]: e.target.value});
     //   };
     // }
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
+    onTextboxChangeSignUpEmail(event) {
+      this.setState({
+        signUpEmail: event.target.value,
+      });
+      console.log("This state sign up email", this.state.signUpEmail)
+    }
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
@@ -125,10 +123,7 @@ handleCloseModal () {
   ()=>console.log('setState as well', this.state.showModal));
 };
 
-// handleSignUp(){
-//   this.setState({showSignUpProfile: true});
-// }
-
+ 
 componentDidUpdate(){
   // console.log('update', this.state.showModal)
 }
@@ -154,7 +149,7 @@ onSignUp() {
         'Content-Type': 'application/json' 
       },
       body: JSON.stringify({
-        email: signUpEmail,
+        signUpEmail: signUpEmail,
         password: signUpPassword,
         first: first ,
         last: last,
@@ -253,7 +248,7 @@ onSignUp() {
                         <input
                             type="last"
                             placeholder="Your Last Name"
-                            Value={last}
+                            value={last}
                             onChange={this.onTextboxChangelast}
                             className="signUpInput"
                         />
@@ -293,7 +288,7 @@ onSignUp() {
                 </div>
             </div>
         </span>}
-        {this.state.showSignUpProfile && <SignUpProfile/>}
+        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail}/>}
     </div>                   
  );
  }
