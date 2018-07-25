@@ -12,6 +12,12 @@ const About = props => (
             </div>
             <div className="about-us-1 col-lg-4 col-md-4 col-sm-12">
                 <p className="about-paragraph">
+                    Every artist dips his brush in his own soul and paints his own nature into his pictures. -Henry Ward Beecher
+                    </p>
+                <div className="about-image">
+                    <img src="https://i.imgur.com/fUZx5Gz.jpg" className="img-fluid" alt="about us profile" />
+                </div>
+                <p className="about-paragraph">
                     We are an artist-owned and artist-run community. We cultivate our community of artists and feature a new artist profile each month.
                     Our mission is to provide a space for each artist to practice their craft and present to the public.
                     Artists will be available for commissioned pieces.
@@ -34,10 +40,8 @@ const About = props => (
 
                 </p>
                 <p className="about-paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc tristique vel turpis ut ullamcorper.
-                    Integer ante elit, tempor et ante in, elementum sagittis nunc.
-                    Donec lobortis massa et nunc placerat, at mattis nisi sollicitudin.
+                   " We have to continue to be jumping off cliffs and developing our wings
+                    on the way down." - Kurt Vonnegut
                 </p>
             </div>
 
