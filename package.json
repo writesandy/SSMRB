@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "main": "server.js",
+  "homepage": "https://github.com/writesandy/SSMRB#readme",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "dev": "node server.js",
     "client": "node scripts/start-client.js",
@@ -15,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^3.6.0",
+    "concurrently": "^3.6.1",
     "nodemon": "^1.17.5"
   },
   "dependencies": {
@@ -40,7 +42,5 @@
   },
   "bugs": {
     "url": "https://github.com/writesandy/SSMRB/issues"
-  },
-  "homepage": "https://github.com/writesandy/SSMRB#readme",
-  "proxy": "http://localhost:3001"
+  }
 }
