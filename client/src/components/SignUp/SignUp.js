@@ -1,17 +1,8 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
-import ReactModal from 'react-modal';
-import SignUpProfile from '../SignUpProfile';
-import './SignUp.css'
-import {
-    getFromStorage,
-    setInStorage,
-  } from '../../utils/storage';
-
-   // create key on state to keep track of modal - done -
-  // check that state and display in render - done - 
-  // add method that changes state
-  ReactModal.setAppElement('#root');
+import '../SignUpProfile/SignUpProfile.css'
+ 
+import { getFromStorage,setInStorage, } from '../../utils/storage';
 
   class SignUp extends PureComponent {
     constructor(props) {
