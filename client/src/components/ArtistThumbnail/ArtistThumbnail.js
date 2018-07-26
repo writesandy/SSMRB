@@ -13,6 +13,7 @@ class ArtistThumbnail extends React.PureComponent {
     componentDidMount() {
         console.log('it mounted')
         API.getArtists().then(res=> this.setState({artists: res.data}))
+        console.log('this is artists', this.state.artists);
 
     }
 
