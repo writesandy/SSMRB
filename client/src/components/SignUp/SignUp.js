@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
 import './SignUp.css'
+import SignUpProfile from '../SignUpProfile';
  
 import { getFromStorage,setInStorage, } from '../../utils/storage';
 
