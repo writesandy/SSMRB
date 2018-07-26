@@ -160,7 +160,7 @@ onSignUp() {
         InstagramHandle: InstagramHandle,
         Website: Website,
         LinkedIn: LinkedIn,
-        title, title,
+        title: title,
       })
     }).then(res => res.json())
       .then(json => {
@@ -255,7 +255,7 @@ onSignUp() {
               value={ArtistBio}
               onChange={this.onTextboxChangeArtistBio}
             />
-                      <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
+                      <span id="closeLogin" className="node-link" onClick={this.handleCloseModal}>CLOSE X </span>
                       </div>
             {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button> */}
           </div>      

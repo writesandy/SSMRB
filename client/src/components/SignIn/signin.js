@@ -165,7 +165,6 @@ class SignIn extends PureComponent {
   //Functions that Open/Close modal
   handleOpenModal () {
     this.setState({ showModal: true });
-    this.currentPath();
   }
   
   handleCloseModal () {
@@ -203,7 +202,7 @@ class SignIn extends PureComponent {
     if (!token) {
       return (
         <div>
-        <h5 id="signInModalTrigger" className="navbar-brand login" onClick={this.handleOpenModal}>Login</h5>
+        <span id="signInModalTrigger" className="navbar-brand login node-link" onClick={this.handleOpenModal}>Login</span>
 
         <ReactModal isOpen={this.state.showModal} style={{content: {
                                                             position: 'relative',
@@ -252,10 +251,10 @@ class SignIn extends PureComponent {
                   </div>
                 </div>
                   </span> }
-          {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <a href="#" onClick={this.handleSignUp}>Sign Up</a></h6>}
+          {!this.state.showSignUp && <h6 className="memberStatus">Not a Member? <span className="node-link sign-toggle" onClick={this.handleSignUp}>Sign Up</span></h6>}
           {this.state.showSignUp && <SignUp handleCloseModal ={this.handleCloseModal.bind(this)}/>}
-          {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <a href="#" onClick={this.handleSignIn}>Sign In</a></h6>}
-          <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE X </a>
+          {this.state.showSignUp && <h6 className="memberStatus">Already a Member? <span className="node-link sign-toggle" onClick={this.handleSignIn}>Sign In</span></h6>}
+          <span id="closeLogin" className="node-link" onClick={this.handleCloseModal}>CLOSE X </span>
         </ ReactModal>
         </div>
       );

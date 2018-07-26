@@ -73,3 +73,11 @@
     border: none !important;
     width: 100% !important;
 }
+
+.node-link {
+    cursor: pointer;
+}
+
+.sign-toggle {
+    color: #2699FB;
+}
