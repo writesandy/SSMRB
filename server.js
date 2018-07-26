@@ -3,8 +3,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+<<<<<<< HEAD
 const PORT = process.env.PORT || 3001;
 // const methodOverride = require('method-override');
+=======
+const PORT = process.env.PORT || 3003;
+const methodOverride = require('method-override');
+>>>>>>> 73a8bbd364e30d0b08e907150739d8749e9ac8c7
 const path = require('path');
 
 // Define middleware here
@@ -29,12 +34,14 @@ app.post('/', (req, res) => {
 mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
+<<<<<<< HEAD
 const dbUri = process.env.MONGODB_URI || "mongodb://localhost:27017/artist_db";
+=======
+>>>>>>> 73a8bbd364e30d0b08e907150739d8749e9ac8c7
+
 
 mongoose.connect(dbUri).then(() => console.log('connected to DB!')).catch((err) => console.log(err));
-
-//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
+ 
 // If no API routes are hit, send the React app
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, "/client/public/index.html"));
