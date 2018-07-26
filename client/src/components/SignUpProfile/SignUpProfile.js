@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch';
-import '../SignUpProfile';
+import './SignUpProfile.css';
  
 import { getFromStorage,setInStorage, } from '../../utils/storage';
 
@@ -27,7 +27,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
       this.onTextboxChangeArtistBio = this.onTextboxChangeArtistBio.bind(this);
       this.onTextboxChangeWebsite = this.onTextboxChangeWebsite.bind(this);
       this.onTextboxChangeLinkedIn = this.onTextboxChangeLinkedIn.bind(this);
-      
+
       this.onSignUp = this.onSignUp.bind(this);
     }
   
