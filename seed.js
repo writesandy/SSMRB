@@ -1,5 +1,5 @@
 module.exports = {
-	"undefined": "localhost/LOCAL_DB_NAME",
-	"dev": "localhost/DEV_DB_NAME",
-	"prod": "localhost/PROD_DB_NAME"
+	"undefined": "mongodb://localhost:27017/artist_db",
+	"dev": "mongodb://localhost:27017/artist_db",
+	"prod": "mongodb://localhost:27017/artist_db"
 }

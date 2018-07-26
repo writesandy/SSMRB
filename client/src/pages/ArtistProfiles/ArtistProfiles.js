@@ -1,6 +1,9 @@
 import React from 'react';
 import './ArtistProfiles.css'
+
+// Is this supposed to be here??
 import Artists from '../../components/artistSeed.json'
+
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 import API from "../../utils/API"
