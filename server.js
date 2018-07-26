@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 const methodOverride = require('method-override');
 const path = require('path');
 
@@ -29,12 +29,10 @@ app.post('/', (req, res) => {
 mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
-const dbUri = process.env.MONGODB_URI || "mongodb://rikkihon:melisandrebran99$@ds231501.mlab.com:31501/users";
+
 
 mongoose.connect(dbUri).then(() => console.log('connected to DB!')).catch((err) => console.log(err));
-
-//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
+ 
 // If no API routes are hit, send the React app
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, "/client/public/index.html"));
