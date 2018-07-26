@@ -276,7 +276,7 @@ onSignUp() {
                             <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                         </div>
                     </form>
-                    <button type='button' class='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+                    <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
                 </div>
             </div>
         </span>}
