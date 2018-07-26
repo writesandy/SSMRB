@@ -27,7 +27,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
       this.onTextboxChangeArtistBio = this.onTextboxChangeArtistBio.bind(this);
       this.onTextboxChangeWebsite = this.onTextboxChangeWebsite.bind(this);
       this.onTextboxChangeLinkedIn = this.onTextboxChangeLinkedIn.bind(this);
-      
+
       this.onSignUp = this.onSignUp.bind(this);
     }
   

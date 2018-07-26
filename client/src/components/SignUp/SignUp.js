@@ -4,7 +4,7 @@ import './SignUp.css'
  
 import { getFromStorage,setInStorage, } from '../../utils/storage';
 
-  class SignUpProfile extends PureComponent {
+  class SignUp extends PureComponent {
     constructor(props) {
       super(props);
      //this.props.handleCloseModal()
@@ -158,14 +158,14 @@ onSignUp() {
 
   render()  {
     const {
-      isLoading,
+      // isLoading,
       signUpError,
-      LinkedIn,
+      // LinkedIn,
       ArtistBio,
-      Website,
-      InstagramHandle,
-      TwitterHandle,
-      title,
+      // Website,
+      // InstagramHandle,
+      // TwitterHandle,
+      // title,
     } = this.state;
 
     // if (isLoading) {
@@ -246,4 +246,4 @@ onSignUp() {
     }  
   }
 //}
-export default SignUpProfile;
+export default SignUp;
