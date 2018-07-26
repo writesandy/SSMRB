@@ -158,14 +158,14 @@ onSignUp() {
 
   render()  {
     const {
-      isLoading,
+      // isLoading,
       signUpError,
-      LinkedIn,
+      // LinkedIn,
       ArtistBio,
-      Website,
-      InstagramHandle,
-      TwitterHandle,
-      title,
+      // Website,
+      // InstagramHandle,
+      // TwitterHandle,
+      // title,
     } = this.state;
 
     // if (isLoading) {

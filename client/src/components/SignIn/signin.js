@@ -53,7 +53,7 @@ class SignIn extends PureComponent {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
-      fetch('api/account/verify?token=' + token)
+      fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
           
