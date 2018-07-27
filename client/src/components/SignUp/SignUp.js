@@ -129,7 +129,7 @@ onSignUp() {
       signUpPassword,
       first,
       last,
-      artistBoolean: artistBoolean,
+      artistBoolean,
     } = this.state;
     this.setState({
       isLoading: true,
@@ -207,7 +207,7 @@ onSignUp() {
       else {
       return (
         <div>
-        {!this.state.showSignUpProfile && <span class = 'sign-in-page'>
+        {!this.state.showSignUpProfile && <span className='sign-in-page'>
             <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
                 <div className="signUpForm">
                     {
