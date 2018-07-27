@@ -1,17 +1,11 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
-import ReactModal from 'react-modal';
 import SignUpProfile from '../SignUpProfile';
 import './SignUp.css'
 import {
     getFromStorage,
     setInStorage,
   } from '../../utils/storage';
-
-   // create key on state to keep track of modal - done -
-  // check that state and display in render - done - 
-  // add method that changes state
-  ReactModal.setAppElement('#root');
 
   class SignUp extends PureComponent {
     constructor(props) {
@@ -232,7 +226,7 @@ onSignUp() {
       else {
       return (
         <div>
-        {!this.state.showSignUpProfile && <span class = 'sign-in-page'>
+        {!this.state.showSignUpProfile && <span className = 'sign-in-page'>
             <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
                 <div className="signUpForm">
                     {
@@ -253,7 +247,7 @@ onSignUp() {
                         <input
                             type="last"
                             placeholder="Your Last Name"
-                            Value={last}
+                            value={last}
                             onChange={this.onTextboxChangelast}
                             className="signUpInput"
                         />
@@ -289,7 +283,7 @@ onSignUp() {
                             <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                         </div>
                     </form>
-                    <button type='button' class='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+                    <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
                 </div>
             </div>
         </span>}

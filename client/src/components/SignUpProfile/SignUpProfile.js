@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
-// import ReactModal from 'react-modal';
 import 'whatwg-fetch'
 import './SignUpProfile.css'
-// import SignIn from '../SignIn';
 
 import {
     getFromStorage,
@@ -18,31 +16,23 @@ import {
         isLoading: true,
         token: '',
         signUpError: '',
-        signUpEmail: '',
-        signUpPassword: '',
         InstagramHandle: '',
         TwitterHandle: '',
         LinkedIn: '',
         ArtistBio: '',
-        firstName: '',
         lastName: '',
-        Website: '',
         showSignUpProfile: true,
       };
       this.onTextboxChangeTwitterHandle = this.onTextboxChangeTwitterHandle.bind(this);
       this.onTextboxChangeInstagramHandle = this.onTextboxChangeInstagramHandle.bind(this);
-       
-     
       this.onTextboxChangeArtistBio = this.onTextboxChangeArtistBio.bind(this);
       this.onTextboxChangeWebsite = this.onTextboxChangeWebsite.bind(this);
       this.onTextboxChangeLinkedIn = this.onTextboxChangeLinkedIn.bind(this);
-      
-      //this.handleCloseModal = this.handleCloseModal.bind(this);
-      //this.onSignUp = this.onSignUp.bind(this);
-      //this.logout = this.logout.bind(this);
+      this.onSignUp = this.onSignUp.bind(this);
     }
   
     componentDidMount() {
+      console.log("sign up email state", this.props.signUpEmail)
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -72,12 +62,6 @@ import {
       }
     }
 
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
-
   onTextboxChangeInstagramHandle(event) {
     this.setState({
       InstagramHandle: event.target.value,
@@ -105,11 +89,6 @@ import {
     });
   }
 
-  onTextboxChangelastName(event) {
-    this.setState({
-      lastName: event.target.value,
-    });
-  }
   onTextboxChangeArtistBio(event) {
     this.setState({
       ArtistBio: event.target.value,
@@ -132,15 +111,12 @@ onSignUp() {
  // this.props.handleCloseModal()
     // Grab state
     const {
-      //signUpEmail,
-      //signUpPassword,
       InstagramHandle,
       TwitterHandle,
-      // ArtistBio,
+      ArtistBio,
       LinkedIn,
       Website,
       title,
-
     } = this.state;
 
     this.setState({
@@ -148,19 +124,19 @@ onSignUp() {
     });
 
     // Post request to backend
-    fetch('routes/api/account/signup', {
+    fetch('/api/account/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'// this also could be json data
       },
       body: JSON.stringify({
-        //email: signUpEmail,
-        //password: signUpPassword,
         TwitterHandle: TwitterHandle,
         InstagramHandle: InstagramHandle,
         Website: Website,
         LinkedIn: LinkedIn,
         title: title,
+        ArtistBio: ArtistBio,
+        email: this.signUpEmail,
       })
     }).then(res => res.json())
       .then(json => {
@@ -175,14 +151,15 @@ onSignUp() {
             ArtistBio: '',
             LinkedIn: '',
             Website: '',
+            title: '',
           });
         } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false,
+            //isLoading: false,
           });
         }
-      });
+      }).catch(err => console.log(err));
   }
 
   render()  {
@@ -203,7 +180,7 @@ onSignUp() {
       else {
       return (
   
-  <span class = 'sign-in-page'> 
+  <span className = 'sign-in-page'> 
   
      <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
           <div className="signUpForm">
@@ -216,35 +193,35 @@ onSignUp() {
               className="signUpInput"
               type="LinkedIn"
               placeholder="LinkedIn"
-              value={LinkedIn}
+              value={this.state.value}
               onChange={this.onTextboxChangeLinkedIn}
             />
              <input
               className="signUpInput"
               type="Website"
               placeholder="Website"
-              value={Website}
+              value={this.state.value}
               onChange={this.onTextboxChangeWebsite}
             />
              <input
               className="signUpInput"
               type="Title"
               placeholder="Title"
-              value={title}
+              value={this.state.value}
               onChange={this.onTextboxtitle}
             />
             <input
               className="signUpInput"
               type="InstagramHandle"
               placeholder="Instagram Handle"
-              value={InstagramHandle}
+              value={this.state.value}
               onChange={this.onTextboxInstagramHandle}
             />
             <input
               className="signUpInput"
               type="TwitterHandle"
               placeholder="Twitter Handle"
-              value={TwitterHandle}
+              value={this.state.value}
               onChange={this.onTextboxTwitterHandle}
             />
             <textarea
@@ -252,13 +229,13 @@ onSignUp() {
               className="signUpInput"
               type="ArtistBio"
               placeholder="A little about you... "
-              value={ArtistBio}
+              value={this.state.value}
               onChange={this.onTextboxChangeArtistBio}
             />
-                      <span id="closeLogin" className="node-link" onClick={this.handleCloseModal}>CLOSE X </span>
-                      </div>
-            {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button> */}
-          </div>      
+            <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button>
+            <span id="closeLogin" className="node-link" onClick={this.handleCloseModal}>CLOSE X </span>
+          </div>
+      </div>      
   </span>
       );
     }  
