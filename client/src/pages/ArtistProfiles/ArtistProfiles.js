@@ -36,18 +36,16 @@ class ArtistProfiles extends React.PureComponent {
     componentDidMount() {
        API.getOneArtist(this.props.match.params.artistId)
         .then( artist=>this.setState({artist: artist.data}) )
-        // console.log("Gallery", this.state.artist._id)
     }
 
     
     render () {
-        // console.log(this.state);
         return (
             <div className="pageContentWidth">
             {/* ArtistBio */}
                 <ArtistBio artistData = {this.state.artist}/>
             {/* Gallery */}
-                <div id="art-gallery">
+                {/* <div id="art-gallery">
                     {this.state.artist.galleryPhotos ? this.state.artist.galleryPhotos.map((galleryPhotos, index) => {
                             let boundItemClick = this.handleOpenModal.bind(this,galleryPhotos);
                             return (
@@ -56,9 +54,8 @@ class ArtistProfiles extends React.PureComponent {
                                 </div>
                             )
                     }): null}
-                </div>
+                </div> */}
                 <div>
-                    {/* {console.log('lloooooook', this.state.artist.first)} */}
                     <UserGallery artistIdfromParent={this.state.artist._id}/>
                 </div>
                 {/* Art Feature Modal */}
