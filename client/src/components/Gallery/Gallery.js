@@ -21,12 +21,14 @@ class GalleryComponent extends React.PureComponent {
                 const database = firebase.database();
                 const images = [];
                 database.ref('/ImageData').once('value').then((snapshot) => {
-                        // console.log('snapshot', snapshot)
-                        // console.log('snapshot.val', snapshot.val())
+                        if (snapshot.val() !== null) {                        
                         const imageObject = snapshot.val();
                         const keys = Object.keys(imageObject);
                         // console.log(keys)
                         keys.forEach(key => images.push(imageObject[key]))
+                        } else {
+                                console.log("No Images to display")
+                        } 
                 }).then(() => {
                         this.setState({ images })
                 })
