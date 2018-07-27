@@ -29,6 +29,6 @@ export default {
     return axios.get("/images/:filename" + id)
   },
   deleteImage: function(id) {
-    return axios.delete('files/:id', + id);
+    return axios.delete('/files/:id', + id);
   }
 };

@@ -13,6 +13,19 @@
     width: 100%;
 }
 
+.navbar-header{
+    background-color: #2699FB;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    box-shadow: 0 -3px 8px 5px #0000009e;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar-brand {
+    color: white;
+}
+
 .sticky{
     top: 0;
     width: 100%;

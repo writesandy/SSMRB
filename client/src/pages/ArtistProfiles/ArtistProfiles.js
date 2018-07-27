@@ -1,6 +1,9 @@
 import React from 'react';
 import './ArtistProfiles.css'
+
+// Is this supposed to be here??
 import Artists from '../../components/artistSeed.json'
+
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 import API from "../../utils/API"
@@ -33,7 +36,7 @@ class ArtistProfiles extends React.PureComponent {
 
     componentDidMount() {
        API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
-    //    console.log("Gallery", this.state.artist)
+        console.log("Gallery", this.state.artist)
     }
 
     

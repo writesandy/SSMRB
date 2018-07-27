@@ -14,7 +14,7 @@
 // }
 
 import React, { PureComponent } from 'react';
-import './ImageUpload.css';
+import './UserProfileUploader.css';
 // import API from '../../utils/API'
 // import { List, ListItem } from "../../components/List";
 import firebase from "firebase/app";
@@ -23,7 +23,7 @@ import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
-class ImageUpload extends PureComponent {
+class UserProfileUploader extends PureComponent {
     state = {
       name: '',
     //   file: null,
@@ -51,8 +51,9 @@ class ImageUpload extends PureComponent {
     };
 
     databasePush = () => {
-        let itemsRef = firebase.database().ref('ImageData/')
-        // console.log(this.state);
+        //Adding a piece tied to their login to the folder will allow for them to have
+        // a unique folder for just them.
+        let itemsRef = firebase.database().ref('ProfilePhoto/')
         console.log(this.state.imageURL)
         
         let updates = {
@@ -62,9 +63,6 @@ class ImageUpload extends PureComponent {
         }
         itemsRef.push(updates);
     }
-
-// put databasePush into compnonentDidUpdate
-// lifecycle method in react.
 
     handleUploadSuccess = filename => {
         this.setState({ generatedName: filename, progress: 100, isUploading: false });
@@ -80,6 +78,10 @@ class ImageUpload extends PureComponent {
                 })
             }).then(() => {
                 this.databasePush()
+                this.setState({
+                    imageTitle: ''
+                })
+                this.props.fetchNewImages()
             })
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
@@ -116,4 +118,4 @@ class ImageUpload extends PureComponent {
     }
 }
 
-    export default ImageUpload;
+    export default UserProfileUploader;

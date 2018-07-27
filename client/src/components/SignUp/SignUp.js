@@ -81,7 +81,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
       this.setState({
         signUpEmail: event.target.value,
       });
-      console.log("This state sign up email", this.state.signUpEmail)
+     
     }
   onTextboxChangeSignUpPassword(event) {
     this.setState({
@@ -124,7 +124,7 @@ componentDidUpdate(){
 onSignUp() {
     // Grab state
     const {
-      // showSignUpProfile,
+      //showSignUpProfile,
       signUpEmail,
       signUpPassword,
       first,
@@ -149,28 +149,20 @@ onSignUp() {
       })
     }).then(res => res.json())
       .then(json => {
+        setInStorage('the_main_app', {token: json.token});
         console.log('json', json)
-        if (json.success) {
-          setInStorage('the_main_app', {token: json.token});
-          this.setState({
-            signUpError: json.message,
-            showSignUpProfile: true,
-            isLoading: false,
-            artistBoolean: true,
-            signUpEmail: '',
-            signUpPassword: '',
-            first: '',
-            last: '',  
-            token: json.token,         
-          });
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            showSignUpProfile: false,
-          });
-        }
-      });
+        this.setState({
+          isLoading:false,
+          showSignUpProfile:true,
+        })
+      }).catch(err=>{
+        console.log(err)
+        this.setState({
+          signUpError: err.message,
+          isLoading: false,
+          showSignUpProfile: false,
+        });
+      })
   }
   logout() {
     this.setState({
@@ -204,7 +196,6 @@ onSignUp() {
     const {
       isLoading,
       // token,
-      // showSignUpProfile,
       signUpEmail,
       signUpPassword,
       signUpError,
@@ -219,7 +210,7 @@ onSignUp() {
       else {
       return (
         <div>
-        {!this.state.showSignUpProfile && <span class = 'sign-in-page'>
+        {!this.state.showSignUpProfile && <span className = 'sign-in-page'>
             <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
                 <div className="signUpForm">
                     {
@@ -276,7 +267,7 @@ onSignUp() {
                             <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                         </div>
                     </form>
-                    <button type='button' class='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+                    <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
                 </div>
             </div>
         </span>}
@@ -286,5 +277,7 @@ onSignUp() {
  }
   }
 } 
+    
+  
 
 export default SignUp;

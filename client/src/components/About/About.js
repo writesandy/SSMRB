@@ -40,7 +40,7 @@ const About = props => (
             <div className="services-offerings col-lg-4 col-md-12 col-sm-12">
                 <div className="transbox">
                     <span className="image-left">
-                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img" class="img-fluid" alt="paint brush icon" />
+                        <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img img-fluid"alt="paint brush icon" />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -50,7 +50,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img" class="img-fluid" alt="canvas icon" />
+                        <img src="https://i.imgur.com/b8owwlb.png" className="icon-img img-fluid" alt="canvas icon" />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -60,7 +60,7 @@ const About = props => (
                     </p>
                     <br />
                     <span className="image-left">
-                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" class="img-fluid" alt="art utensil icons  " />
+                        <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="art utensil icons  " />
                     </span>
                     <p className="offerings">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
