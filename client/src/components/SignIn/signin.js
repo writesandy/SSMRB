@@ -189,7 +189,7 @@ class SignIn extends PureComponent {
 
   render() {
     const {
-      isLoading,
+      // isLoading,
       token,
       signInError,
       signInEmail,

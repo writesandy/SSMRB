@@ -158,7 +158,7 @@ onSignUp() {
 
   render()  {
     const {
-      // isLoading,
+      isLoading,
       signUpError,
       LinkedIn,
       ArtistBio,

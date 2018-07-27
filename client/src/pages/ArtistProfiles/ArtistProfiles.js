@@ -58,12 +58,12 @@ class ArtistProfiles extends React.PureComponent {
                             )
                     }): null}
                 </div>
-                {/* <Delay wait={3000}>
+                {/* <Delay wait={3000}> */}
                 <div>
                     {console.log('lloooooook', this.state.artist.first)}
                     <UserGallery artistIdfromParent={this.state.artist._id}/>
                 </div>
-                </Delay> */}
+                {/* </Delay> */}
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal} style={
                     {content: {
