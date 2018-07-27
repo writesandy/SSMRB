@@ -4,7 +4,6 @@
   "private": true,
   "main": "server.js",
   "homepage": "https://github.com/writesandy/SSMRB#readme",
-  "proxy": "http://localhost:3001",
   "scripts": {
     "dev": "node server.js",
     "client": "node scripts/start-client.js",

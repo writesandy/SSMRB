@@ -149,28 +149,16 @@ onSignUp() {
       })
     }).then(res => res.json())
       .then(json => {
+        setInStorage('the_main_app', {token: json.token});
         console.log('json', json)
-        if (json.success) {
-          setInStorage('the_main_app', {token: json.token});
-          this.setState({
-            signUpError: json.message,
-            showSignUpProfile: true,
-            isLoading: false,
-            artistBoolean: true,
-            signUpEmail: '',
-            signUpPassword: '',
-            first: '',
-            last: '',  
-            token: json.token,         
-          });
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            showSignUpProfile: false,
-          });
-        }
-      });
+      }).catch(err=>{
+        console.log(err)
+        this.setState({
+          signUpError: err.message,
+          isLoading: false,
+          showSignUpProfile: false,
+        });
+      })
   }
   logout() {
     this.setState({
