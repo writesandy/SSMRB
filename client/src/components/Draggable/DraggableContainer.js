@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Draggable, {DraggableCore} from 'react-draggable';
+import Draggable from 'react-draggable';
 import './Draggable.css';
 
  

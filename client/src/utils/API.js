@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all arists
   getArtists: function() {
-    console.log('it works get artists')
+    // console.log('it works get artists')
     return axios.get("/api/artist");
   },
   // Gets the artist with the given id

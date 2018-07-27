@@ -5,14 +5,6 @@
 // structure where we add a unique id to the folder tied to their
 // user id or account name?
 
-// databasePush = () => {
-//     let itemsRef = firebase.database().ref('ImageData/').set({
-//         url: this.state.imageURL,
-//         name: this.state.generatedName,
-//         title: this.state.imageTitle
-//     })
-// }
-
 import React, { PureComponent } from 'react';
 import './UserProfileUploader.css';
 // import API from '../../utils/API'
@@ -50,9 +42,15 @@ class UserProfileUploader extends PureComponent {
         console.error(error);
     };
 
+// databasePush = () => {
+//     let itemsRef = firebase.database().ref('ImageData/').set({
+//         url: this.state.imageURL,
+//         name: this.state.generatedName,
+//         title: this.state.imageTitle
+//     })
+// }
+
     databasePush = () => {
-        //Adding a piece tied to their login to the folder will allow for them to have
-        // a unique folder for just them.
         let itemsRef = firebase.database().ref('ProfilePhoto/')
         console.log(this.state.imageURL)
         

@@ -15,15 +15,16 @@ class GalleryComponent extends React.PureComponent {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
 }
-
         getFirebaseData = () => {
+                console.log('props here?', this.props)
+
                 const database = firebase.database();
                 const images = [];
                 database.ref('/ImageData').once('value').then((snapshot) => {
-                        console.log('snapshot.val', snapshot.val())
+                        // console.log('snapshot.val', snapshot.val())
                         const imageObject = snapshot.val();
                         const keys = Object.keys(imageObject);
-                        console.log(keys)
+                        // console.log(keys)
                         keys.forEach(key => images.push(imageObject[key]))
                 }).then(() => {
                         this.setState({ images })
