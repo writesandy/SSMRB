@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import SignUp from '../SignUp';
 // import SignUpProfile from '../SignUp';
 import './SignIn.css';
-import {getFromStorage, setInStorage} from '../../utils/storage';
+import {getFromStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
 
 // Bind modal to Login Button

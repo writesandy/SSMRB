@@ -22,8 +22,8 @@ class UserGalleryUploader extends PureComponent {
 
 
     handleChangeImageTitle = event => {
-    this.setState({ imageTitle: event.target.value });
-    document.getElementById('titleInput').value=''
+        this.setState({ imageTitle: event.target.value });
+        document.getElementById('titleInput').value=''
     }
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
@@ -38,7 +38,8 @@ class UserGalleryUploader extends PureComponent {
     databasePush = () => {
         //Adding a piece tied to their login to the folder will allow for them to have
         // a unique folder for just them.
-        let itemsRef = firebase.database().ref('UserGallery/')
+        console.log('props', this.props.artistIdfromParent)
+        let itemsRef = firebase.database().ref(`${this.props.artistIdfromParent}UserGallery/`)
         console.log(this.state.imageURL)
         
         let updates = {
