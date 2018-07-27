@@ -81,7 +81,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
       this.setState({
         signUpEmail: event.target.value,
       });
-      console.log("This state sign up email", this.state.signUpEmail)
+     
     }
   onTextboxChangeSignUpPassword(event) {
     this.setState({
@@ -124,7 +124,7 @@ componentDidUpdate(){
 onSignUp() {
     // Grab state
     const {
-      // showSignUpProfile,
+      //showSignUpProfile,
       signUpEmail,
       signUpPassword,
       first,
@@ -151,6 +151,10 @@ onSignUp() {
       .then(json => {
         setInStorage('the_main_app', {token: json.token});
         console.log('json', json)
+        this.setState({
+          isLoading:false,
+          showSignUpProfile:true,
+        })
       }).catch(err=>{
         console.log(err)
         this.setState({
@@ -192,7 +196,6 @@ onSignUp() {
     const {
       isLoading,
       // token,
-      // showSignUpProfile,
       signUpEmail,
       signUpPassword,
       signUpError,
@@ -207,7 +210,7 @@ onSignUp() {
       else {
       return (
         <div>
-        {!this.state.showSignUpProfile && <span className='sign-in-page'>
+        {!this.state.showSignUpProfile && <span className = 'sign-in-page'>
             <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
                 <div className="signUpForm">
                     {

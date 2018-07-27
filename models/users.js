@@ -12,9 +12,9 @@ const UserSchema = new mongoose.Schema({
   first: {data: Buffer, type: String, default: ''},
   last: {data: Buffer, type: String, default: ''},
   title: {data: Buffer, type: String, default: ''},
-  instagram: {data: Buffer, type: String, default: ''},
-  twitter: {data: Buffer, type: String, default: '' },
-  linkedin: {data: Buffer, type: String, default: ''}, 
+  InstagramHandle: {data: Buffer, type: String, default: ''},
+  TwitteHandle: {data: Buffer, type: String, default: '' },
+  LinkedIn: {data: Buffer, type: String, default: ''}, 
   website: {data: Buffer, type: String, default: ''},
   image: {data: Buffer, type: String, default: ''}
 });

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
-// import SignUpProfile from '../SignUp';
 import './SignIn.css';
 import {getFromStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
@@ -99,21 +98,21 @@ class SignIn extends PureComponent {
     this.setState({
       isLoading: true,
     });
-
     // Post request to backend
-    fetch('../../../../routes/api/account/signin.js', {
+    fetch('/api/account/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        //'Accept': 'application/json'
       },
       body: JSON.stringify({
         email: signInEmail,
         password: signInPassword,
       }),
     }).then(res => res.json())
-      .catch(error => console.log('Error: ', error))
+      .catch(error => console.log('Error: ', "sign in error", error))
       .then(response => console.log('Success: ', response))
+
+      // .then (setInStorage('the_main_app', { token: json.token }))
       // .then(json => {
       //   if (json.success) {
       //     setInStorage('the_main_app', { token: json.token });
@@ -171,7 +170,7 @@ class SignIn extends PureComponent {
   handleCloseModal () {
     console.log('We called it', this.state.showModal)
     this.setState({ showModal: false},
-    ()=>console.log('setState as well', this.state.showModal));
+    ()=>console.log(this.state.showModal));
   };
   
   componentDidUpdate(){
@@ -197,9 +196,9 @@ class SignIn extends PureComponent {
       signInPassword,
     } = this.state;
 
-    if (isLoading) {
-      return (<div><p>Loading...</p></div>);
-    }
+    // if (isLoading) {
+    //   return (<div><p>LogOut</p></div>);
+    // }
     if (!token) {
       return (
         <div>

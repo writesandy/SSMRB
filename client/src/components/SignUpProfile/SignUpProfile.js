@@ -107,18 +107,18 @@ onSignUp() {
     const {
       InstagramHandle,
       TwitterHandle,
+      ArtistBio,
       LinkedIn,
       Website,
       title,
-      ArtistBio,
-      } = this.state;
-     
-      this.setState({
+    } = this.state;
+
+    this.setState({
       isLoading: true,
     });
 
     // Post request to backend
-    fetch('/api/account/signin', {
+    fetch('/api/account/signupprofile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json' 
@@ -160,12 +160,12 @@ onSignUp() {
     const {
       // isLoading,
       signUpError,
-      // LinkedIn,
+      LinkedIn,
       ArtistBio,
-      // Website,
-      // InstagramHandle,
-      // TwitterHandle,
-      // title,
+      Website,
+      InstagramHandle,
+      TwitterHandle,
+      title,
     } = this.state;
 
     // if (isLoading) {
@@ -174,11 +174,11 @@ onSignUp() {
     //   else {
       return (
   
-  <span class = 'sign-in-page'> 
- 
+  <span className = 'sign-in-page'> 
+  
      <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-     <form>
-          <div className="signUpForm">
+     <form className="signUpForm">
+          <div >
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
@@ -206,7 +206,7 @@ onSignUp() {
               type="Title"
               placeholder="Title"
               value={this.state.value}
-              onChange={this.onTextboxtitle}
+              onChange={this.onTextboxChangetitle}
             />
             <label htmlFor="signUpInput" className="hidden">Input your Instagram. Optional. </label>
             <input
@@ -214,7 +214,7 @@ onSignUp() {
               type="InstagramHandle"
               placeholder="Instagram Handle"
               value={this.state.value}
-              onChange={this.onTextboxInstagramHandle}
+              onChange={this.onTextboxChangeInstagramHandle}
             />
             <label htmlFor="signUpInput" className="hidden">Input your Twitter. Optional. </label>
             <input
@@ -222,7 +222,7 @@ onSignUp() {
               type="TwitterHandle"
               placeholder="Twitter Handle"
               value={this.state.value}
-              onChange={this.onTextboxTwitterHandle}
+              onChange={this.onTextboxChangeTwitterHandle}
             />
               <label htmlFor="signUpInput" className="hidden">Input your ArtistBiography. Optional. </label>
             <textarea
@@ -230,17 +230,14 @@ onSignUp() {
               className="signUpInput"
               type="ArtistBio"
               placeholder="A little about you... "
-              value={ArtistBio}
+              value={this.state.value}
               onChange={this.onTextboxChangeArtistBio}
             />
-           
-                      <a id="closeLogin" href="#signup" onClick={this.handleCloseModal}>CLOSE X </a>
-                      </div>
-                      <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button>
-           {/* <button type='button' className='btn btn-primary signInUpBtn' onClick={() => {this.onSignUp}}>Save Profile </button> */}
-            </form>
-          </div>  
-        
+            <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Save Profile </button>
+            <span id="closeLogin" className="node-link" onClick={this.handleCloseModal}>CLOSE X </span>
+          </div>
+        </form>
+    </div>  
   </span>
       );
     }  

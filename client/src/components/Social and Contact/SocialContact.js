@@ -1,5 +1,4 @@
 import React from "react";
-import ReactTooltip from "react-tooltip";
 import "./SocialContact.css";
 
 const SocialContact = props => (
@@ -10,7 +9,6 @@ const SocialContact = props => (
         <i href={props.website} className="fa fa-globe socialContactMin col-md-1 col-sm-1 col-xs-1"></i>
         {/* Below: email shouldn't be an a tag but it can't be an i tag -- h6? */}
         <a className="fa col-md-8 col-sm-8 col-xs-8 socialContactMax">{props.email}</a>
-    <ReactTooltip />
     </div>
 );
 
