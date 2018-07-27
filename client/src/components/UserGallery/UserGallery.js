@@ -1,5 +1,4 @@
 import React from 'react';
-// import ImageUpload from '../ImageUpload'
 import firebase from 'firebase/app';
 import "firebase/database";
 import ReactModal from 'react-modal'
@@ -12,7 +11,7 @@ class UserGallery extends React.PureComponent {
                 Titles: [],
                 Urls: [],
                 images:  [],
-                userId: ''
+                userId: '',
             }
             this.handleOpenModal = this.handleOpenModal.bind(this);
             this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -21,28 +20,27 @@ class UserGallery extends React.PureComponent {
     getFirebaseData = () => {
         const database = firebase.database();
         const images = [];
-        database.ref(`/${this.props.artistIdfromParent}ImageData`).once('value').then((snapshot) => {
-                console.log('snapshot.val', snapshot.val())
+        database.ref(`/${this.props.artistIdfromParent}UserGallery/`).once('value').then((snapshot) => {
+                if (snapshot.val() !== null) {
                 const imageObject = snapshot.val();
                 const keys = Object.keys(imageObject);
-                // console.log(keys)
                 keys.forEach(key => images.push(imageObject[key]))
+                } else {
+                    console.log("No Images to display")
+                }
         }).then(() => {
-                this.setState({ images })
+                this.setState({ 
+                    images,
+                    userId: this.props.artistIdfromParent
+                 })
         })
        
     }
 
-    componentDidMount = () => {
-        let what = 'what'
-        this.setState ({
-            userId: what
-        })
-            console.log('didMount', this.state)
-    }
-
-    componentWillMount() {
-        this.getFirebaseData();
+    componentDidUpdate(prevProps) {
+        if (this.props.artistIdfromParent !== prevProps.artistIdfromParent) {
+            this.getFirebaseData();
+        }
     }
 
     handleOpenModal (index, e) {
@@ -57,7 +55,6 @@ class UserGallery extends React.PureComponent {
     };
 
     render() {
-        console.log('props on render', this.props)
         let pics, modalPicUrl, modalPicTitle;
         
         if (this.state.images) {
@@ -82,7 +79,7 @@ class UserGallery extends React.PureComponent {
                 </div>
                 <div className="container-fluid">
                     <div className="imageUploader">
-                        <UserGalleryUploader fetchNewImages={this.getFirebaseData}/>
+                        <UserGalleryUploader fetchNewImages={this.getFirebaseData} passingID={this.state.userId} />
                     </div>
                 </div>
                 {/* Art Feature Modal */}

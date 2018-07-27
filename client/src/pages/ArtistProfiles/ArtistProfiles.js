@@ -8,7 +8,6 @@ import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 import API from "../../utils/API"
 import UserGallery from '../../components/UserGallery';
-import Delay from 'react-delay'
 
 class ArtistProfiles extends React.PureComponent {
 
@@ -37,7 +36,7 @@ class ArtistProfiles extends React.PureComponent {
     componentDidMount() {
        API.getOneArtist(this.props.match.params.artistId)
         .then( artist=>this.setState({artist: artist.data}) )
-        console.log("Gallery", this.state.artist._id)
+        // console.log("Gallery", this.state.artist._id)
     }
 
     
@@ -58,12 +57,10 @@ class ArtistProfiles extends React.PureComponent {
                             )
                     }): null}
                 </div>
-                {/* <Delay wait={3000}> */}
                 <div>
-                    {console.log('lloooooook', this.state.artist.first)}
+                    {/* {console.log('lloooooook', this.state.artist.first)} */}
                     <UserGallery artistIdfromParent={this.state.artist._id}/>
                 </div>
-                {/* </Delay> */}
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal} style={
                     {content: {
