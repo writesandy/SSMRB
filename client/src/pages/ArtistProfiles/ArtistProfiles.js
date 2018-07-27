@@ -55,7 +55,7 @@ class ArtistProfiles extends React.PureComponent {
                             )
                     }): null}
                 </div> */}
-                <div id="art-gallery">
+                <div>
                     <UserGallery artistIdfromParent={this.state.artist._id}/>
                 </div>
                 {/* Art Feature Modal */}
