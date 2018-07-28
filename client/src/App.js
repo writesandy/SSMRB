@@ -1,24 +1,15 @@
 import React, { PureComponent } from 'react';
 import './App.css';
-// import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav';
 import Footer from './components/Footer/Footer';
-
-// import About from './components/About'
-// import ArtistProfiles from './pages/ArtistProfiles/ArtistProfiles';
-// import ArtistThumbnail from './components/ArtistThumbnail';
-//import Community from './components/Community/Community'
-// import ArtistLanding from './pages/ArtistLanding'
 import GalleryComponent from './components/Gallery'
-// import ImageUpload from './components/ImageUpload'
 
 import firebase from 'firebase/app';
 
 // Pages
 import Home from './pages/Home'
 import ArtistLanding from './pages/ArtistLanding'
-// import About from './components/About'
 import ArtistBio from './pages/ArtistProfiles/ArtistProfiles';
 
 class App extends PureComponent {
@@ -31,13 +22,10 @@ class App extends PureComponent {
         storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
         messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
       };
-    //   console.log(config)
       firebase.initializeApp(config);
   }
   render() {
-    console.log(process.env)
-
-
+    
     return (
       <Router>
         <div id="page">

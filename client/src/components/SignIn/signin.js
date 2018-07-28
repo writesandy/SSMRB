@@ -53,7 +53,7 @@ class SignIn extends PureComponent {
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
-      fetch('api/account/verify?token=' + token)
+      fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
           
@@ -165,6 +165,7 @@ class SignIn extends PureComponent {
   //Functions that Open/Close modal
   handleOpenModal () {
     this.setState({ showModal: true });
+ 
   }
   
   handleCloseModal () {
@@ -179,6 +180,7 @@ class SignIn extends PureComponent {
 
   handleSignUp(){
     this.setState({showSignUp: true});
+
   }
 
   handleSignIn(){

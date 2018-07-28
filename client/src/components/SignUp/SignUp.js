@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react';
 import 'whatwg-fetch'
-import SignUpProfile from '../SignUpProfile';
 import './SignUp.css'
-import {
-    getFromStorage,
-    setInStorage,
-  } from '../../utils/storage';
+import SignUpProfile from '../SignUpProfile';
+ 
+import { getFromStorage,setInStorage, } from '../../utils/storage';
 
   class SignUp extends PureComponent {
     constructor(props) {
@@ -33,19 +31,16 @@ import {
       this.onSignUp = this.onSignUp.bind(this);
       this.logout = this.logout.bind(this); 
     
-      //this.handleInputChange = this.handleInputChange.bind(this);
 
       //modal
 
       this.handleOpenModal = this.handleOpenModal.bind(this);
       this.handleCloseModal = this.handleCloseModal.bind(this);
-       //this.handleSignUp = this.handleSignUp.bind(this);
-       //this.handleSignUpProfile = this.handleSignUpProfile.bind(this);
-      
-
+     
     }
-  
+    
     componentDidMount() {
+     
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -82,11 +77,12 @@ import {
     //     this.setState({[field]: e.target.value});
     //   };
     // }
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
+    onTextboxChangeSignUpEmail(event) {
+      this.setState({
+        signUpEmail: event.target.value,
+      });
+      console.log("This state sign up email", this.state.signUpEmail)
+    }
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
@@ -119,10 +115,7 @@ handleCloseModal () {
   ()=>console.log('setState as well', this.state.showModal));
 };
 
-// handleSignUp(){
-//   this.setState({showSignUpProfile: true});
-// }
-
+ 
 componentDidUpdate(){
   // console.log('update', this.state.showModal)
 }
@@ -131,7 +124,7 @@ componentDidUpdate(){
 onSignUp() {
     // Grab state
     const {
-      // showSignUpProfile,
+      //showSignUpProfile,
       signUpEmail,
       signUpPassword,
       first,
@@ -156,28 +149,20 @@ onSignUp() {
       })
     }).then(res => res.json())
       .then(json => {
+        setInStorage('the_main_app', {token: json.token});
         console.log('json', json)
-        if (json.success) {
-          setInStorage('the_main_app', {token: json.token});
-          this.setState({
-            signUpError: json.message,
-            showSignUpProfile: true,
-            isLoading: false,
-            artistBoolean: true,
-            signUpEmail: '',
-            signUpPassword: '',
-            first: '',
-            last: '',  
-            token: json.token,         
-          });
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            showSignUpProfile: false,
-          });
-        }
-      });
+        this.setState({
+          isLoading:false,
+          showSignUpProfile:true,
+        })
+      }).catch(err=>{
+        console.log(err)
+        this.setState({
+          signUpError: err.message,
+          isLoading: false,
+          showSignUpProfile: false,
+        });
+      })
   }
   logout() {
     this.setState({
@@ -211,7 +196,6 @@ onSignUp() {
     const {
       isLoading,
       // token,
-      // showSignUpProfile,
       signUpEmail,
       signUpPassword,
       signUpError,
@@ -287,7 +271,7 @@ onSignUp() {
                 </div>
             </div>
         </span>}
-        {this.state.showSignUpProfile && <SignUpProfile/>}
+        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail}/>}
     </div>                   
  );
  }

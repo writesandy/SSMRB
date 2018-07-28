@@ -25,7 +25,18 @@ const UserSessionSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-
+  TwitterHandle: {
+    type: String,
+    default: ''
+  },
+  website: {
+    type: String,
+    default: ''
+  },
+  LinkedIn: {
+    type: String,
+    default: ''
+  },
 
 
 

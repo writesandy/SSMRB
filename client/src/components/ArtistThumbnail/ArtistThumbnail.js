@@ -13,6 +13,7 @@ class ArtistThumbnail extends React.PureComponent {
     componentDidMount() {
         console.log('it mounted')
         API.getArtists().then(res=> this.setState({artists: res.data}))
+        console.log('this is artists', this.state.artists);
 
     }
 
@@ -21,7 +22,7 @@ class ArtistThumbnail extends React.PureComponent {
             <div className="artist-container">
               {this.state.artists.map(artist => (
                 <div key={artist.id} className="artist-thumbnail-container col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">  
-                    <div className="artist-thumbnail" key={artist.id}>
+                    <div className="artist-thumbnail">
                         <img className="artist-thumbnail-image" src={artist.profilePhoto} alt={`${artist.first} ${artist.last}`}/>
                         <div className="artist-thumbnail-text-block">
                         <Link to ={`/ArtistBio/${artist._id}`}><h4 className="artistName">{artist.first} {artist.last}</h4></Link>

@@ -21,8 +21,10 @@ class ImageUpload extends PureComponent {
     }
 
 
-    handleChangeImageTitle = event =>
+    handleChangeImageTitle = event => {
     this.setState({ imageTitle: event.target.value });
+    document.getElementById('titleInput').value=''
+    }
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
     
@@ -35,7 +37,9 @@ class ImageUpload extends PureComponent {
 
     databasePush = () => {
         let itemsRef = firebase.database().ref('ImageData/')
-        console.log(this.state);
+        // console.log(this.state);
+        console.log(this.state.imageURL)
+        
         let updates = {
             url: this.state.imageURL,
             name: this.state.generatedName,
@@ -43,6 +47,9 @@ class ImageUpload extends PureComponent {
         }
         itemsRef.push(updates);
     }
+
+// put databasePush into compnonentDidUpdate
+// lifecycle method in react.
 
     handleUploadSuccess = filename => {
         this.setState({ generatedName: filename, progress: 100, isUploading: false });
@@ -56,7 +63,13 @@ class ImageUpload extends PureComponent {
                     imageURL: url,
                     generatedName: filename,
                 })
-            }).then(this.databasePush())
+            }).then(() => {
+                this.databasePush()
+                this.setState({
+                    imageTitle: ''
+                })
+                this.props.fetchNewImages()
+            })
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
 
@@ -67,6 +80,7 @@ class ImageUpload extends PureComponent {
                 <label>Add an Image Title</label>
                 <input
                     type="text"
+                    id="titleInput"
                     value={this.state.imageTitle}
                     name="imageTitle"
                     onChange={this.handleChangeImageTitle}
