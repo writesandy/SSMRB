@@ -1,12 +1,5 @@
-// This will be good for replacing a profile image for individual users
-// more needs to be changed, but it overwrites all data
-// in the folder on firebase meaning only one photo is
-// accessable at a time. Think I'd need to add a different folder 
-// structure where we add a unique id to the folder tied to their
-// user id or account name?
-
 import React, { PureComponent } from 'react';
-import './UserProfileUploader.css';
+import './UserGalleryUploader.css';
 // import API from '../../utils/API'
 // import { List, ListItem } from "../../components/List";
 import firebase from "firebase/app";
@@ -15,7 +8,7 @@ import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
-class UserProfileUploader extends PureComponent {
+class UserGalleryUploader extends PureComponent {
     state = {
       name: '',
     //   file: null,
@@ -29,8 +22,8 @@ class UserProfileUploader extends PureComponent {
 
 
     handleChangeImageTitle = event => {
-    this.setState({ imageTitle: event.target.value });
-    document.getElementById('titleInput').value=''
+        this.setState({ imageTitle: event.target.value });
+        document.getElementById('titleInput').value=''
     }
 
     handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
@@ -42,24 +35,19 @@ class UserProfileUploader extends PureComponent {
         console.error(error);
     };
 
-// databasePush = () => {
-//     let itemsRef = firebase.database().ref('ImageData/').set({
-//         url: this.state.imageURL,
-//         name: this.state.generatedName,
-//         title: this.state.imageTitle
-//     })
-// }
-
     databasePush = () => {
-        let itemsRef = firebase.database().ref('ProfilePhoto/')
-        console.log(this.state.imageURL)
+        //Adding a piece tied to their login to the folder will allow for them to have
+        // a unique folder for just them.
+        console.log('props', this.props.passingID)
+        let itemsRef = firebase.database().ref(`${this.props.passingID}ProfilePhoto/`)
+        // console.log(this.state.imageURL)
         
         let updates = {
             url: this.state.imageURL,
             name: this.state.generatedName,
             title: this.state.imageTitle
         }
-        itemsRef.push(updates);
+        itemsRef.set(updates);
     }
 
     handleUploadSuccess = filename => {
@@ -85,6 +73,7 @@ class UserProfileUploader extends PureComponent {
     };    
 
   render() {
+
     return (
         <div>
             <form>
@@ -116,4 +105,4 @@ class UserProfileUploader extends PureComponent {
     }
 }
 
-    export default UserProfileUploader;
+    export default UserGalleryUploader;

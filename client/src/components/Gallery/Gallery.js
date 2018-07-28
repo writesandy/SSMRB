@@ -16,7 +16,7 @@ class GalleryComponent extends React.PureComponent {
         this.handleCloseModal = this.handleCloseModal.bind(this);
 }
         getFirebaseData = () => {
-                console.log('props here?', this.props)
+                // console.log('props here?', this.props)
 
                 const database = firebase.database();
                 const images = [];
