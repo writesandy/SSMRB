@@ -110,60 +110,53 @@ handleOpenModal () {
 }
 
 handleCloseModal () {
-  console.log('We called it', this.state.showModal)
   this.setState({ showModal: false},
   ()=>console.log('setState as well', this.state.showModal));
 };
 
- 
-componentDidUpdate(){
-  // console.log('update', this.state.showModal)
-}
-
-
 onSignUp() {
     // Grab state
-    const {
+    // const {
       //showSignUpProfile,
-      signUpEmail,
-      signUpPassword,
-      first,
-      last,
-      artistBoolean: artistBoolean,
-    } = this.state;
-    this.setState({
-      isLoading: true,
-    });
+    //   signUpEmail,
+    //   signUpPassword,
+    //   first,
+    //   last,
+    //   artistBoolean,
+    // } = this.state;
+    // this.setState({
+    //   isLoading: true,
+    // });
     // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify({
-        email: signUpEmail,
-        password: signUpPassword,
-        first: first ,
-        last: last,
-        artistBoolean: artistBoolean
-      })
-    }).then(res => res.json())
-      .then(json => {
-        setInStorage('the_main_app', {token: json.token});
-        console.log('json', json)
+    // fetch('/api/account/signup', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json' 
+    //   },
+    //   body: JSON.stringify({
+    //     email: signUpEmail,
+    //     password: signUpPassword,
+    //     first: first ,
+    //     last: last,
+    //     artistBoolean: artistBoolean
+    //   })
+    // }).then(res => res.json())
+    //   .then(json => {
+        // setInStorage('the_main_app', {token: json.token});
+        // console.log('json', json)
         this.setState({
           isLoading:false,
           showSignUpProfile:true,
         })
-      }).catch(err=>{
-        console.log(err)
-        this.setState({
-          signUpError: err.message,
-          isLoading: false,
-          showSignUpProfile: false,
-        });
-      })
-  }
+      // }).catch(err=>{
+      //   console.log(err)
+      //   this.setState({
+      //     signUpError: err.message,
+      //     isLoading: false,
+      //     showSignUpProfile: false,
+      //   });
+      // }
+      }
   logout() {
     this.setState({
       isLoading: true,
@@ -271,7 +264,7 @@ onSignUp() {
                 </div>
             </div>
         </span>}
-        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail}/>}
+        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail} first={this.state.first} last={this.state.last} signUppassword={this.state.signUppassword}/>}
     </div>                   
  );
  }

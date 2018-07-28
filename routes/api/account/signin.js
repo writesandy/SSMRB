@@ -5,17 +5,9 @@ const router = require("express").Router();
 router.route("/signup").post( (req, res, next) => {
   
   const { body } = req;
-  //console.log(body);
-
   const { password } = body;
 
   let { email, first, last, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, artistBoolean } = body;
-  
-  // if (!TwitterHandle )
-  //   return res.send({
-  //     message: "Twitter handle must contain an '@'"
-  //   });
-
 
   if (!email) {
     console.log("no email")
@@ -31,8 +23,7 @@ router.route("/signup").post( (req, res, next) => {
     });
   }
 
-  email = email.toLowerCase();
-  //put regex expression here looking for full email address 
+  email = email.toLowerCase()
   email = email.trim();
   console.log(email);
   // Steps:
@@ -73,7 +64,7 @@ router.route("/signup").post( (req, res, next) => {
       //console.log(res.success);
       return res.send({
         success: true,
-        message: 'Signed up'
+        message: 'Profile Created. You are Signed up'
       });
     });
   });
@@ -83,16 +74,26 @@ router.route("/signup").post( (req, res, next) => {
 
 router.route("/signupprofile").post( (req, res, next) => { 
   const { body } = req;
- console.log(body);
+   console.log(body);
  
-  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn } = body;
+  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, password } = body;
+
+
+  if (!email) {
+    console.log("no email")
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
   
   email = email.toLowerCase();
-  //email.match((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]))
-  //put regex expression here looking for full email address 
-  //(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
-  //
- 
+
+  // function validateEmail(email){
+  // var expression = (^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$);
+  // var test = email.match(expression);
+  // console.log("this is the match", test);
+  // }
   User.find({
     email: email
   }, 
@@ -110,7 +111,8 @@ router.route("/signupprofile").post( (req, res, next) => {
 
     newUser.email = email;
     //newUser.password = newUser.generateHash(password);
-
+    newUser.first = first;
+    newUser.last = last;
     newUser.InstagramHandle = InstagramHandle;
     newUser.TwitterHandle = TwitterHandle;
     newUser.website = website;
@@ -126,7 +128,6 @@ router.route("/signupprofile").post( (req, res, next) => {
           message: 'Error: Server error'
         });
       }
-      //console.log(res.success);
       return res.send({
         success: true,
         message: 'Signed up'
@@ -166,7 +167,6 @@ router.route("/signin").post( (req, res, next) => {
     email: email
   }, (err, users) => {
     if (err) {
-      console.log('err 2:', err);
       return res.send({
         success: false,
         message: 'Error: server error'

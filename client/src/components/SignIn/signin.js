@@ -109,27 +109,24 @@ class SignIn extends PureComponent {
         password: signInPassword,
       }),
     }).then(res => res.json())
-      .catch(error => console.log('Error: ', "sign in error", error))
-      .then(response => console.log('Success: ', response))
-
-      // .then (setInStorage('the_main_app', { token: json.token }))
-      // .then(json => {
-      //   if (json.success) {
-      //     setInStorage('the_main_app', { token: json.token });
-      //     this.setState({
-      //       signInError: json.message,
-      //       isLoading: false,
-      //       signInPassword: '',
-      //       signInEmail: '',
-      //       token: json.token,
-      //     });
-      //   } else {
-      //     this.setState({
-      //       signInError: json.message,
-      //       isLoading: false,
-      //     });
-      //   }
-      // });
+      .then(json => {
+        console.log('json', json);
+        if (json.success) {
+          setInStorage('the_main_app', { token: json.token });
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+            signInPassword: '',
+            signInEmail: '',
+            token: json.token,
+          });
+        } else {
+          this.setState({
+            signInError: json.message,
+            isLoading: false,
+          });
+        }
+      });
   }
 
   logout() {
