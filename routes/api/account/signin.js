@@ -88,8 +88,7 @@ router.route("/signupprofile").post( (req, res, next) => {
   }
   
   email = email.toLowerCase();
-
-  // function validateEmail(email){
+ // function validateEmail(email){
   // var expression = (^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$);
   // var test = email.match(expression);
   // console.log("this is the match", test);
@@ -130,7 +129,7 @@ router.route("/signupprofile").post( (req, res, next) => {
       }
       return res.send({
         success: true,
-        message: 'Signed up'
+        message: 'Success'
       });
     });
   });
