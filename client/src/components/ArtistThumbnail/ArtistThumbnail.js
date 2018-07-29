@@ -22,8 +22,7 @@ class ArtistThumbnail extends React.PureComponent {
               {this.state.artists.map(artist => (
                 <div key={artist._id} className="artist-thumbnail-container col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">  
                     <div className="artist-thumbnail">
-                        
-                        <img className="artist-thumbnail-image" src={artist.profilePhoto} onError={(e)=>{e.target.src="../../../public/assets/images/profile-placeholder.jpg"}} alt={`${artist.first} ${artist.last}`}/>
+                        <img className="artist-thumbnail-image" src={artist.profilePhoto} alt={`${artist.first} ${artist.last}`}/>
                         <div className="artist-thumbnail-text-block">
                         <Link to ={`/ArtistBio/${artist._id}`}><h4 className="artistName">{artist.first} {artist.last}</h4></Link>
                             <h6 className="artistTitle">{artist.title}</h6>

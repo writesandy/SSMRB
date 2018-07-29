@@ -48,29 +48,24 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
         fetch('/api/account/verify?token=' + token)
           .then(res => res.json())
           .then(json => {
-            
             if (json.success) {
               this.setState({
                 token,
                 isLoading: false
               });
             } else {
-              this.setState({
-                isLoading: false,
-              });
+              this.setState({ isLoading: false });
             }
           }).catch(err=>{
             console.log(err)
           })
         } else {
-        this.setState({
-          isLoading: false,
-        });
+        this.setState({ isLoading: false });
       }
     }
    
     handleChange(event) {
-      this.setState({value: event.target.value});
+      this.setState({ value: event.target.value });
     }
     // update(field) {
     //   return (e) => {
@@ -78,11 +73,9 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
     //   };
     // }
     onTextboxChangeSignUpEmail(event) {
-      this.setState({
-        signUpEmail: event.target.value,
-      });
-     
+      this.setState({ signUpEmail: event.target.value });
     }
+
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value,
@@ -111,7 +104,7 @@ handleOpenModal () {
 
 handleCloseModal () {
   console.log('We called it', this.state.showModal)
-  this.setState({ showModal: false},
+  this.setState({ showModal: false },
   ()=>console.log('setState as well', this.state.showModal));
 };
 
@@ -165,9 +158,7 @@ onSignUp() {
       })
   }
   logout() {
-    this.setState({
-      isLoading: true,
-    });
+    this.setState({ isLoading: true });
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
@@ -181,15 +172,11 @@ onSignUp() {
               isLoading: false
             });
           } else {
-            this.setState({
-              isLoading: false,
-            });
+            this.setState({ isLoading: false });
           }
         });
     } else {
-      this.setState({
-        isLoading: false,
-      });
+      this.setState({ isLoading: false });
     }
   }
   render() {
@@ -211,68 +198,68 @@ onSignUp() {
       return (
         <div>
         {!this.state.showSignUpProfile && <span className = 'sign-in-page'>
-            <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
-                <div className="signUpForm">
-                    {
-                    (signUpError) ? (
-                        <p>{signUpError}</p>
-                    ) : (null)
-                    }
-                    <form>
-                        <label htmlFor="first" className="hidden">Input your first name.</label>
-                        <input
-                            type="first"
-                            placeholder="Your First Name"
-                            value={first}
-                            onChange={this.onTextboxChangefirst}
-                            className="signUpInput"
-                        />
-                        <label htmlFor="last" className="hidden">Input your last name.</label>
-                        <input
-                            type="last"
-                            placeholder="Your Last Name"
-                            value={last}
-                            onChange={this.onTextboxChangelast}
-                            className="signUpInput"
-                        />
-                        <label htmlFor="signUpEmail" className="hidden">Input your email address. This will act as your username.</label>
-                        <input
-                            type="signUpEmail"
-                            placeholder="YourEmail@domain.com"
-                            value={signUpEmail}
-                            onChange={this.onTextboxChangeSignUpEmail}
-                            className="signUpInput"
-                        />
-                        <label htmlFor="signUpPassword" className="hidden">Input the password you would like for your account.</label>
-                        <input
-                            type="password"
-                            placeholder="Password"
-                          
-                            value={signUpPassword}
-                             
-                            onChange={this.onTextboxChangeSignUpPassword}
-                            className="signUpInput"
-                        />
+          <div className='modalFields col-12  col-xs-12 col-sm-6 col-md-4'>
+            <div className="signUpForm">
+              {
+              (signUpError) ? (
+                  <p>{signUpError}</p>
+              ) : (null)
+              }
+              <form>
+                <label htmlFor="first" className="hidden">Input your first name.</label>
+                <input
+                    type="first"
+                    placeholder="Your First Name"
+                    value={first}
+                    onChange={this.onTextboxChangefirst}
+                    className="signUpInput"
+                />
+                <label htmlFor="last" className="hidden">Input your last name.</label>
+                <input
+                    type="last"
+                    placeholder="Your Last Name"
+                    value={last}
+                    onChange={this.onTextboxChangelast}
+                    className="signUpInput"
+                />
+                <label htmlFor="signUpEmail" className="hidden">Input your email address. This will act as your username.</label>
+                <input
+                    type="signUpEmail"
+                    placeholder="YourEmail@domain.com"
+                    value={signUpEmail}
+                    onChange={this.onTextboxChangeSignUpEmail}
+                    className="signUpInput"
+                />
+                <label htmlFor="signUpPassword" className="hidden">Input the password you would like for your account.</label>
+                <input
+                    type="password"
+                    placeholder="Password"
+                  
+                    value={signUpPassword}
+                      
+                    onChange={this.onTextboxChangeSignUpPassword}
+                    className="signUpInput"
+                />
 
-                        <div id="artistBooleanGroup">
-                            <label htmlFor="checkbox" className="hidden">Check the box if you are already an Artist United member.</label>
-                            <input 
-                                type="checkbox" data-reverse
-                                data-group-cls="btn-group-sm"
-                                placeholder="True"
-                                value={artistBoolean}
-                                onChange={this.oncheckBoxUpdate}
-                                id="artistBoolean"
-                            />
-                            <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
-                        </div>
-                    </form>
-                    <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
+                <div id="artistBooleanGroup">
+                    <label htmlFor="checkbox" className="hidden">Check the box if you are already an Artist United member.</label>
+                    <input 
+                        type="checkbox" data-reverse
+                        data-group-cls="btn-group-sm"
+                        placeholder="True"
+                        value={artistBoolean}
+                        onChange={this.oncheckBoxUpdate}
+                        id="artistBoolean"
+                    />
+                    <h6 id="artistBooleanLabel">I am already an Artist United member.</h6>
                 </div>
+              </form>
+              <button type='button' className='btn btn-primary signInUpBtn' onClick={this.onSignUp}>Create Profile</button>
             </div>
+          </div>
         </span>}
         {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail}/>}
-    </div>                   
+      </div>                   
  );
  }
   }

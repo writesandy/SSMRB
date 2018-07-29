@@ -55,37 +55,26 @@ class SignIn extends PureComponent {
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
-          
           if (json.success) {
             this.setState({
               token,
               isLoading: false
             });
-          } else {
-            this.setState({
-              isLoading: false,
-            });
-          }
+          } else { this.setState({ isLoading: false }); }
         }).catch(err=>{
           console.log(err)
         })
       } else {
-      this.setState({
-        isLoading: false,
-      });
-    }
+      this.setState({ isLoading: false, });
+      }
   }
 
   onTextboxChangeSignInEmail(event) {
-    this.setState({
-      signInEmail: event.target.value,
-    });
+    this.setState({ signInEmail: event.target.value, });
   }
 
   onTextboxChangeSignInPassword(event) {
-    this.setState({
-      signInPassword: event.target.value,
-    });
+    this.setState({ signInPassword: event.target.value, });
   }
 
   onSignIn() {
@@ -95,9 +84,7 @@ class SignIn extends PureComponent {
       signInPassword,
     } = this.state;
 
-    this.setState({
-      isLoading: true,
-    });
+    this.setState({ isLoading: true, });
     // Post request to backend
     fetch('/api/account/signin', {
       method: 'POST',
@@ -133,9 +120,7 @@ class SignIn extends PureComponent {
   }
 
   logout() {
-    this.setState({
-      isLoading: true,
-    });
+    this.setState({ isLoading: true, });
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
@@ -149,27 +134,20 @@ class SignIn extends PureComponent {
               isLoading: false
             });
           } else {
-            this.setState({
-              isLoading: false,
-            });
+            this.setState({ isLoading: false });
           }
         });
     } else {
-      this.setState({
-        isLoading: false,
-      });
+      this.setState({ isLoading: false });
     }
   }
 
   //Functions that Open/Close modal
-  handleOpenModal () {
-    this.setState({ showModal: true });
- 
-  }
+  handleOpenModal () { this.setState({ showModal: true }) }
   
   handleCloseModal () {
     console.log('We called it', this.state.showModal)
-    this.setState({ showModal: false},
+    this.setState({ showModal: false },
     ()=>console.log(this.state.showModal));
   };
   
@@ -178,11 +156,11 @@ class SignIn extends PureComponent {
   }
 
   handleSignUp(){
-    this.setState({showSignUp: true});
+    this.setState({ showSignUp: true });
   }
 
   handleSignIn(){
-    this.setState({showSignUp: false})
+    this.setState({ showSignUp: false })
   }
 
   
