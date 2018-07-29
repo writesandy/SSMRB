@@ -31,7 +31,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
     }
   
     componentDidMount() {
-      //console.log("sign up email", this.props.signUpEmail, "First name", this.props.first, "last name", this.props.last, "this password", this.props.signUppassword)
+      console.log("sign up email", this.props.signUpEmail, "First name", this.props.first, "last name", this.props.last, "this password", this.props.signUppassword)
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
