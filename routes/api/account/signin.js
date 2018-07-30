@@ -76,9 +76,9 @@ const Regex = require("regex");
 router.route("/signupprofile").post( (req, res, next) => { 
   const { body } = req;
    console.log(body);
- 
-  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, password } = body;
+   //const { password } = body;
 
+  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, password } = body;
 
   if (!email) {
     console.log("no email")
@@ -87,7 +87,12 @@ router.route("/signupprofile").post( (req, res, next) => {
       message: 'Error: Email cannot be blank.'
     });
   }
-  
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
   //this function checks the regex to be sure there is a real email address entered
   //null means there are no matches
   email = email.toLowerCase();
@@ -107,14 +112,19 @@ router.route("/signupprofile").post( (req, res, next) => {
   User.find({
     email: email
   }, 
-   (err) => {
-      
+   (err, previousUsers) => {
+      console.log(previousUsers)
     if (err) {
       return res.send({
         success: false,
         message: 'Error: Server error'
       });
-     }
+    } else if (previousUsers.length > 0){
+      return res.send({
+        success: false,
+        message: "error: Account already exists"
+      })
+    }
 
     // Save the new user
     const newUser = new User();
