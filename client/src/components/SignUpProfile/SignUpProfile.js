@@ -159,7 +159,7 @@ onSignUp() {
 
   render()  {
     const {
-      isLoading,
+      // isLoading,
       signUpError,
     } = this.state;
       return (

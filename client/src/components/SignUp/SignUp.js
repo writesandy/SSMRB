@@ -103,12 +103,7 @@ handleOpenModal () {
 }
 
 handleCloseModal () {
-<<<<<<< HEAD
   this.setState({ showModal: false},
-=======
-  console.log('We called it', this.state.showModal)
-  this.setState({ showModal: false },
->>>>>>> 5d5ed64455279660c3a4e1bd709f18d4b87574e4
   ()=>console.log('setState as well', this.state.showModal));
 };
 
@@ -116,7 +111,6 @@ onSignUp() {
     // Grab state
     // const {
       //showSignUpProfile,
-<<<<<<< HEAD
     //   signUpEmail,
     //   signUpPassword,
     //   first,
@@ -126,17 +120,6 @@ onSignUp() {
     // this.setState({
     //   isLoading: true,
     // });
-=======
-      signUpEmail,
-      signUpPassword,
-      first,
-      last,
-      artistBoolean,
-    } = this.state;
-    this.setState({
-      isLoading: true,
-    });
->>>>>>> 5d5ed64455279660c3a4e1bd709f18d4b87574e4
     // Post request to backend
     // fetch('/api/account/signup', {
     //   method: 'POST',
@@ -268,13 +251,8 @@ onSignUp() {
             </div>
           </div>
         </span>}
-<<<<<<< HEAD
-        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail} first={this.state.first} last={this.state.last} signUppassword={this.state.signUppassword}/>}
+        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail} first={this.state.first} last={this.state.last} signUpPassword={this.state.signUppassword}/>}
     </div>                   
-=======
-        {this.state.showSignUpProfile && <SignUpProfile signUpEmail={this.state.signUpEmail}/>}
-      </div>                   
->>>>>>> 5d5ed64455279660c3a4e1bd709f18d4b87574e4
  );
  }
   }

@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
 import './SignIn.css';
-import {getFromStorage} from '../../utils/storage';
+import {setInStorage, getFromStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
 
 // Bind modal to Login Button
