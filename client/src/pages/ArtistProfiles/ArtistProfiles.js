@@ -1,13 +1,10 @@
 import React from 'react';
 import './ArtistProfiles.css'
-
-// Is this supposed to be here??
 import Artists from '../../components/artistSeed.json'
-
 import ArtistBio from '../../components/ArtistBio'
 import ReactModal from 'react-modal'
 import API from "../../utils/API"
-
+import UserGallery from '../../components/UserGallery';
 
 class ArtistProfiles extends React.PureComponent {
 
@@ -17,9 +14,8 @@ class ArtistProfiles extends React.PureComponent {
             showModal: false,
             modalArt:"",
             Artists,
-            artist:{}
+            artist:{},
         };
-        
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
@@ -30,26 +26,24 @@ class ArtistProfiles extends React.PureComponent {
       }
       
     handleCloseModal () {
-    this.setState({ showModal: false });
+     this.setState({ showModal: false });
     };
 
 
     componentDidMount() {
-       API.getOneArtist(this.props.match.params.artistId).then(artist=>this.setState({artist: artist.data}))
-        console.log("Gallery", this.state.artist)
+       API.getOneArtist(this.props.match.params.artistId)
+        .then( artist=>this.setState({artist: artist.data}) )
+        console.log('what is this', this.state)
     }
 
     
     render () {
-        console.log(this.state);
         return (
             <div className="pageContentWidth">
             {/* ArtistBio */}
-                <ArtistBio 
-                 artistData = {this.state.artist}/>
+                <ArtistBio artistData = {this.state.artist}/>
             {/* Gallery */}
-                <div id="art-gallery">
-                    {console.log('look into this artist array', this.state.artist)}
+                {/* <div id="art-gallery">
                     {this.state.artist.galleryPhotos ? this.state.artist.galleryPhotos.map((galleryPhotos, index) => {
                             let boundItemClick = this.handleOpenModal.bind(this,galleryPhotos);
                             return (
@@ -58,6 +52,9 @@ class ArtistProfiles extends React.PureComponent {
                                 </div>
                             )
                     }): null}
+                </div> */}
+                <div>
+                    <UserGallery artistIdfromParent={this.state.artist._id}/>
                 </div>
                 {/* Art Feature Modal */}
                 <ReactModal isOpen={this.state.showModal} style={
