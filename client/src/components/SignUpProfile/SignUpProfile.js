@@ -7,7 +7,6 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
   class SignUpProfile extends PureComponent {
     constructor(props) {
       super(props);
-     //this.props.handleCloseModal()
 
       this.state = {
         isLoading: true,
@@ -32,7 +31,7 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
     }
   
     componentDidMount() {
-      console.log("sign up email", this.props.signUpEmail)
+      console.log("sign up email", this.props.signUpEmail, "First name", this.props.first, "last name", this.props.last, "this password", this.props.signUppassword)
       const obj = getFromStorage('the_main_app');
       if (obj && obj.token) {
         const { token } = obj;
@@ -41,11 +40,11 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
         fetch('/api/account/verify?token=' + token)
           .then(res => res.json())
           .then(json => {
-            
             if (json.success) {
               this.setState({
                 token,
                 isLoading: false
+
               });
             } else {
               this.setState({
@@ -96,13 +95,11 @@ import { getFromStorage,setInStorage, } from '../../utils/storage';
   }
 
   handleCloseModal () {
-    console.log('We called it', this.state.showModal)
     this.setState({ showModal: false},
     ()=>console.log('setState as well', this.state.showModal));
   };
 
 onSignUp() {
- //this.props.handleCloseModal()
     // Grab state
     const {
       InstagramHandle,
@@ -131,10 +128,14 @@ onSignUp() {
         title: title,
         ArtistBio: ArtistBio,
         email: this.props.signUpEmail,
+        first: this.props.first,
+        last: this.props.last,
+        password: this.props.signUppassword,
+
       })
     }).then(res => res.json())
       .then(json => {
-        console.log('json', json);
+       // console.log('json', json);
         if (json.success) {
           setInStorage('the_main_app', {token: json.token});
           this.setState({
@@ -160,18 +161,7 @@ onSignUp() {
     const {
       isLoading,
       signUpError,
-      LinkedIn,
-      ArtistBio,
-      Website,
-      InstagramHandle,
-      TwitterHandle,
-      title,
     } = this.state;
-
-    // if (isLoading) {
-    //   return (<div><p>Loading...</p></div>);
-    // }
-    //   else {
       return (
   
   <span className = 'sign-in-page'> 
@@ -241,6 +231,10 @@ onSignUp() {
   </span>
       );
     }  
+    // return (
+    //   <unmount={this.signUpProfileUnmount} /> 
+
+    // )
   }
 //}
 export default SignUpProfile;

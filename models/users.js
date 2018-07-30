@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   last: {data: Buffer, type: String, default: ''},
   title: {data: Buffer, type: String, default: ''},
   InstagramHandle: {data: Buffer, type: String, default: ''},
-  TwitteHandle: {data: Buffer, type: String, default: '' },
+  TwitterHandle: {data: Buffer, type: String, default: '' },
   LinkedIn: {data: Buffer, type: String, default: ''}, 
   website: {data: Buffer, type: String, default: ''},
   image: {data: Buffer, type: String, default: ''}
