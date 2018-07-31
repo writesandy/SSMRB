@@ -3,6 +3,7 @@ import './HeaderNav.css';
 import {Link} from 'react-router-dom';
 import SignIn from '../SignIn'
 
+
 const HeaderNav = props => (
     <div className="container-fluid sticky headerContainer">
         <nav className="navbar">
