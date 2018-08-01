@@ -131,7 +131,7 @@ onSignUp() {
         password: signUpPassword,
         first: first ,
         last: last,
-        artistBoolean: artistBoolean
+        //artistBoolean: artistBoolean
       })
     }).then(res => res.json())
       .then(json => {

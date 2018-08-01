@@ -3,7 +3,11 @@ import ReactModal from 'react-modal';
 import 'whatwg-fetch';
 import SignUp from '../SignUp';
 import './SignIn.css';
+<<<<<<< HEAD
 import {setInStorage, getFromStorage} from '../../utils/storage';
+=======
+import {setInStorage,getFromStorage} from '../../utils/storage';
+>>>>>>> 9f99e378687b7151fec6ef98046f7422f9d45c13
 //import style from "..styles/vendor/style.less";
 
 // Bind modal to Login Button
@@ -99,7 +103,7 @@ class SignIn extends PureComponent {
       .then(json => {
         console.log('json', json);
         if (json.success) {
-          setInStorage('the_main_app', { token: json.token });
+          //setInStorage('the_main_app', { token: json.token });
           this.setState({
             signInError: json.message,
             isLoading: false,
