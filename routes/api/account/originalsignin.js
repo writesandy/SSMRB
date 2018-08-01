@@ -75,9 +75,9 @@ router.route("/signup").post( (req, res, next) => {
 
 router.route("/signupprofile").post( (req, res, next) => { 
   const { body } = req;
-   console.log("the body from line 78 is", body);
-  const { password } = body;
-console.log("the body from line 80 of signin is" , body)
+   console.log(body);
+   //const { password } = body;
+
   let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, signUpPassword } = body;
 
   if (!email) {
@@ -155,7 +155,7 @@ console.log("the body from line 80 of signin is" , body)
       });
     });
   });
-console.log("It made it to there")
+
 });
 
 router.route("/signin").post( (req, res, next) => {

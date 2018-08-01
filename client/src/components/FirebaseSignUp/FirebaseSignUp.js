@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
+import '/Users/rikki/Desktop/SSMRB/client/src/components/FirebaseSignUp/FirebaseSignUp.css'
 import { Link, withRouter } from 'react-router-dom';
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
+ 
+
 
 const FirebaseSignUp = ({ history }) =>
   <div>
@@ -27,6 +30,8 @@ class FirebaseSignUpForm extends PureComponent {
 
     this.state = { ...INITIAL_STATE };
   }
+
+
 
   onSubmit = (event) => {
     const {
@@ -65,14 +70,17 @@ class FirebaseSignUpForm extends PureComponent {
     username === '';
 
     return (
+        <div className="SignUp">
       <form onSubmit={this.onSubmit}>
-        <input
+        <input 
+          class ="signUpInput"
           value={username}
           onChange={event => this.setState(byPropKey('username', event.target.value))}
           type="text"
           placeholder="Full Name"
         />
         <input
+          class = "signUpInput"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
@@ -96,6 +104,7 @@ class FirebaseSignUpForm extends PureComponent {
 
         { error && <p>{error.message}</p> }
       </form>
+     </div>
     );
   }
 }
