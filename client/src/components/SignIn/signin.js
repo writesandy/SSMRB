@@ -5,7 +5,6 @@ import SignUp from '../SignUp';
 import './SignIn.css';
 import {setInStorage, getFromStorage} from '../../utils/storage';
 //import style from "..styles/vendor/style.less";
-
 // Bind modal to Login Button
 ReactModal.setAppElement('#root');
 // create key on state to keep track of modal - done -
