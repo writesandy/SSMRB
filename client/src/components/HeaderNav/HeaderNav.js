@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import FirebaseAuthUserContext from '../FirebaseAuthUserContext';
 import FirebaseSignOut from '../FirebaseSignOut'
 import * as routes from '../../constants/routes';
-// import SignIn from '../SignIn'
+import SignIn from '../SignIn'
 
 const HeaderNav = () => 
     <FirebaseAuthUserContext.Consumer>
@@ -37,9 +37,9 @@ const NavigationAuth = () =>
                     <FirebaseSignOut />
                 </div>
 
-                {/* <div className="rightside-Nav">
+               <div className="rightside-Nav">
                     <SignIn />
-                </div> */}
+                </div> 
             </div>
         </nav>
     </div>
