@@ -3,82 +3,12 @@ const UserSession = require('../../../models/UserSession');
 const router = require("express").Router();
 const Regex = require("regex");
 
-// router.route("/signup").post( (req, res, next) => {
+router.route("/signup").post( (req, res, next) => {
   
-//   const { body } = req;
-//   const { password } = body;
-
-//   let { email, first, last, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, artistBoolean } = body;
-
-//   if (!email) {
-//     console.log("no email")
-//     return res.send({
-//       success: false,
-//       message: 'Error: Email cannot be blank.'
-//     });
-//   }
-//   if (!password) {
-//     return res.send({
-//       success: false,
-//       message: 'Error: Password cannot be blank.'
-//     });
-//   }
-
-//   email = email.toLowerCase()
-//   email = email.trim();
-//   console.log(email);
-  // Steps:
-  // 1. Verify email doesn't exist
-  // 2. Save
-  // User.find({
-  //   email: email
-  // }, (err, previousUsers) => {
-  //   console.log(previousUsers)
-  //   if (err) {
-  //     return res.send({
-  //       success: false,
-  //       message: 'Error: Server error'
-  //     });
-  //   } else if (previousUsers.length > 0) {
-  //     return res.send({
-  //       success: false,
-  //       message: 'Error: Account already exist.'
-  //     });
-  //   }
-
-    // Save the new user
-//     const newUser = new User();
-
-//     newUser.email = email;
-//     newUser.password = newUser.generateHash(password);
-//     newUser.first = first;
-//     newUser.last = last;
-
-//     console.log(newUser);
-//     newUser.save((err, user) => {
-//       if (err) {
-//         return res.send({
-//           success: false,
-//           message: 'Error: Server error'
-//         });
-//       }
-//       //console.log(res.success);
-//       return res.send({
-//         success: true,
-//         message: 'Profile Created. You are Signed up'
-//       });
-//     });
-//   });
-
-// });
-
-
-router.route("/signupprofile").post( (req, res, next) => { 
   const { body } = req;
-   console.log(body);
- 
-  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, password } = body;
+  const { password } = body;
 
+  let { email, first, last } = body;
 
   if (!email) {
     console.log("no email")
@@ -87,13 +17,88 @@ router.route("/signupprofile").post( (req, res, next) => {
       message: 'Error: Email cannot be blank.'
     });
   }
-  
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
+
+  email = email.toLowerCase()
+  email = email.trim();
+  console.log(email);
+  // Steps:
+  // 1. Verify email doesn't exist
+  // 2. Save
+  User.find({
+    email: email
+  }, (err, previousUsers) => {
+    console.log(previousUsers)
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error'
+      });
+    } else if (previousUsers.length > 0) {
+      return res.send({
+        success: false,
+        message: 'Error: Account already exist.'
+      });
+    }
+
+   // Save the new user
+    const newUser = new User();
+
+    newUser.email = email;
+    newUser.password = newUser.generateHash(password);
+    newUser.first = first;
+    newUser.last = last;
+
+    console.log(newUser);
+    newUser.save((err, user) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: Server error'
+        });
+      }
+      //console.log(res.success);
+      return res.send({
+        success: true,
+        message: 'Profile Created. You are Signed up'
+      });
+    });
+  });
+
+});
+
+
+router.route("/signupprofile").post( (req, res, next) => { 
+  const { body } = req;
+   console.log("the body from line 78 is", body);
+  const { password } = body;
+console.log("the body from line 80 of signin is" , body)
+  let { email, InstagramHandle, TwitterHandle, title, website, artistBio, LinkedIn, first, last, signUpPassword } = body;
+
+  if (!email) {
+    console.log("no email")
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  // if (!signUpPassword) {
+  //   return res.send({
+  //     success: false,
+  //     message: 'Error: Password cannot be blank.'
+  //   });
+  // }
   //this function checks the regex to be sure there is a real email address entered
   //null means there are no matches
   email = email.toLowerCase();
 
   let result = email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-  console.log("The email match result is", result)
+  //console.log("The email match result is", result)
 
   if (result == null){
     console.log("Please validate to ensure an actual email address is entered")
@@ -107,20 +112,26 @@ router.route("/signupprofile").post( (req, res, next) => {
   User.find({
     email: email
   }, 
-   (err) => {
-      
+  //(err) => {
+   (err, previousUsers) => {
+    console.log(previousUsers)
     if (err) {
       return res.send({
         success: false,
         message: 'Error: Server error'
       });
-     }
+    } else if (previousUsers.length > 0){
+      return res.send({
+        success: false,
+        message: "error: Account already exists"
+      })
+    }
 
     // Save the new user
     const newUser = new User();
 
     newUser.email = email;
-    //newUser.password = newUser.generateHash(password);
+    newUser.signUpPassword = newUser.generateHash(signUpPassword);
     newUser.first = first;
     newUser.last = last;
     newUser.InstagramHandle = InstagramHandle;
@@ -130,7 +141,7 @@ router.route("/signupprofile").post( (req, res, next) => {
     newUser.artistBio = artistBio;
     newUser.title = title;
 
-    console.log("New user", newUser);
+    //console.log("New user", newUser);
     newUser.save((err, user) => {
       if (err) {
         return res.send({
@@ -144,7 +155,7 @@ router.route("/signupprofile").post( (req, res, next) => {
       });
     });
   });
-
+console.log("It made it to there")
 });
 
 router.route("/signin").post( (req, res, next) => {
