@@ -27,6 +27,13 @@ class FirebaseSignInForm extends PureComponent {
     super(props);
 
     this.state = { ...INITIAL_STATE };
+
+    //Modal
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleSignIn = this.handleSignIn.bind(this);
+
   }
 
   onSubmit = (event) => {
