@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
+import ReactModal from 'react-modal';
 
 import { SignUpLink } from '../FirebaseSignUp';
+import { PasswordForgetLink } from '../FirebasePasswordForget'
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
 
@@ -9,6 +11,7 @@ const FirebaseSignIn = ({ history }) =>
   <div>
     <h1>SignIn</h1>
     <FirebaseSignInForm history={history} />
+    <PasswordForgetLink />
     <SignUpLink />
   </div>
 
@@ -28,11 +31,11 @@ class FirebaseSignInForm extends PureComponent {
 
     this.state = { ...INITIAL_STATE };
 
-    //Modal
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-    this.handleSignUp = this.handleSignUp.bind(this);
-    this.handleSignIn = this.handleSignIn.bind(this);
+    // //Modal
+    // this.handleOpenModal = this.handleOpenModal.bind(this);
+    // this.handleCloseModal = this.handleCloseModal.bind(this);
+    // this.handleSignUp = this.handleSignUp.bind(this);
+    // this.handleSignIn = this.handleSignIn.bind(this);
 
   }
 

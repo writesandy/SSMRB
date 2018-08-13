@@ -1,1 +1,1 @@
-export { default } from "./FirebasePasswordForget";
+export { default, PasswordForgetLink, PasswordForgetForm } from "./FirebasePasswordForget";
