@@ -6,7 +6,7 @@ import './Home.css';
 import About from '../../components/About';
 import Carousel from '../../components/Carousel';
 import Draggable from '../../components/Draggable';
-
+import withAuthorization from '../../components/FirebaseWithAuthorization'
 class Home extends React.PureComponent {
     render() {
         return (
@@ -18,9 +18,10 @@ class Home extends React.PureComponent {
                     <About />
                     <Draggable />
                 </div>
-            </div >
+            </div>
         )
     }
 }
-
-export default Home;
+// const authCondition = (authUser) => !!authUser;
+// export default withAuthorization(authCondition)(Home);
+export default Home

@@ -16,7 +16,7 @@ const HeaderNav = () =>
 
 const NavigationAuth = () =>
     <div className="container-fluid sticky headerContainer">
-        {console.log("we are in NavigationAuth")}
+        {/* {console.log("we are in NavigationAuth")} */}
         <nav className="navbar">
             <div className="navbar-header">
                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
@@ -46,7 +46,7 @@ const NavigationAuth = () =>
 
 const NavigationNonAuth = () =>
     <div className="container-fluid sticky headerContainer">
-        {console.log("we are in NavigationNonAuth")}
+        {/* {console.log("we are in NavigationNonAuth")} */}
         <nav className="navbar">
             <div className="navbar-header">
                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">

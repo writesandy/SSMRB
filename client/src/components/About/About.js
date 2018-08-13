@@ -42,29 +42,29 @@ const About = props => (
                     <span className="image-left">
                         <img src="https://i.imgur.com/QgEXqIW.png" className="icon-img img-fluid"alt="paint brush icon" />
                     </span>
-                    <p className="offerings">
+                    <div className="offerings">
                         <p>"We Paint Together"</p>
-                        AMP has been together for over 10 years. The group includes people at all levels 
+                        <p>AMP has been together for over 10 years. The group includes people at all levels 
                         and all media types. We find growth in our art by sharing the practice of painting regularly 
-                        together and sharing our insights.
-                    </p>
+                        together and sharing our insights.</p>
+                    </div>
                     <br />
                     <span className="image-left">
                         <img src="https://i.imgur.com/b8owwlb.png" className="icon-img img-fluid" alt="canvas icon" />
                     </span>
-                    <p className="offerings">
+                    <div className="offerings">
                     <p>"We Critique Our Work"</p>
-                        Once a month we set aside time to critique our work under the guidance of 
-                        a local artist. The critique process gives us insight into our paintings and helps to refine our work.
-                    </p>
+                        <p>Once a month we set aside time to critique our work under the guidance of 
+                        a local artist. The critique process gives us insight into our paintings and helps to refine our work.</p>
+                    </div>
                     <br />
                     <span className="image-left">
                         <img src="https://i.imgur.com/qdaZxDH.png" className="icon-img" alt="art utensil icons  " />
                     </span>
-                    <p className="offerings">
+                    <div className="offerings">
                         <p>"We Show Our Work"</p>
-                        Once or twice a year we have local shows to get feedback from our family, friends sand the community about out work.
-                    </p>
+                        <p>Once or twice a year we have local shows to get feedback from our family, friends sand the community about out work.</p>
+                    </div>
                 </div>
             </div>
         </div>
