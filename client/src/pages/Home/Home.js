@@ -6,7 +6,7 @@ import './Home.css';
 import About from '../../components/About';
 import Carousel from '../../components/Carousel';
 import Draggable from '../../components/Draggable';
-import withAuthorization from '../../components/FirebaseWithAuthorization'
+// import withAuthorization from '../../components/FirebaseWithAuthorization'
 class Home extends React.PureComponent {
     render() {
         return (

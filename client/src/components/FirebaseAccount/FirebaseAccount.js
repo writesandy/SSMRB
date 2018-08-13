@@ -2,6 +2,7 @@ import React from 'react';
 import AuthUserContext from '../FirebaseAuthUserContext';
 import { PasswordForgetForm } from '../FirebasePasswordForget';
 import PasswordChangeForm from '../FirebasePasswordReset';
+import withAuthorization from '../FirebaseWithAuthorization';
 
 const FirebaseAccount = () =>
 <AuthUserContext.Consumer>
@@ -14,4 +15,7 @@ const FirebaseAccount = () =>
 }
 </AuthUserContext.Consumer>
 
-export default FirebaseAccount;
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(FirebaseAccount);
+// export default FirebaseAccount;
