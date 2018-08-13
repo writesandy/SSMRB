@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import './UserGalleryUploader.css';
+import './UserProfileUploader.css';
 // import API from '../../utils/API'
 // import { List, ListItem } from "../../components/List";
 import firebase from "firebase/app";
@@ -8,7 +8,7 @@ import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
-class UserGalleryUploader extends PureComponent {
+class UserProfileUploader extends PureComponent {
     state = {
       name: '',
     //   file: null,
@@ -105,4 +105,4 @@ class UserGalleryUploader extends PureComponent {
     }
 }
 
-    export default UserGalleryUploader;
+    export default UserProfileUploader;

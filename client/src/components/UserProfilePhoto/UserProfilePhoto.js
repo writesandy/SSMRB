@@ -2,9 +2,10 @@ import React from 'react';
 import firebase from 'firebase/app';
 import "firebase/database";
 import ReactModal from 'react-modal'
-import UserGalleryUploader from '../UserGalleryUploader';
+import UserProfileUploader from '../UserProfileUploader';
+import './UserProfilePhoto.css';
 
-class UserGallery extends React.PureComponent {
+class UserProfilePhoto extends React.PureComponent {
     constructor(props) {
         super(props);
             this.state = {
@@ -13,8 +14,6 @@ class UserGallery extends React.PureComponent {
                 images:  [],
                 userId: '',
             }
-            this.handleOpenModal = this.handleOpenModal.bind(this);
-            this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     getFirebaseData = () => {
@@ -43,25 +42,14 @@ class UserGallery extends React.PureComponent {
         }
     }
 
-    handleOpenModal (index, e) {
-        this.setState({
-            showModal: true,
-            pickedImg: {...this.state.images[index]}
-        });
-    }
-      
-    handleCloseModal () {
-        this.setState({ showModal: false });
-    };
-
     render() {
-        let pics, modalPicUrl, modalPicTitle;
+        let pics;
         
         if (this.state.images) {
             pics = this.state.images.map((image, i) => {
                 return (
-                    <div key={image.name} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12"  onClick={() => this.handleOpenModal(i)}>
-                        <img alt={image.title} className="art-img" src={image.url} />
+                    <div key={image.name} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+                        <img alt={image.title} className="profileImage" src={image.url} />
                     </div>
                 )
             })
@@ -72,41 +60,16 @@ class UserGallery extends React.PureComponent {
         }
       return (
         <div className="container pageContentWidth">
-            <div className="container-fluid">
-                <div id="art-gallery">
+            <div className="container">
+                <div id="profilePhoto">
                     {pics}
                 </div>
+            </div>
+            <div className="container-fluid">
+                <div className="imageUploader">
+                    <UserProfileUploader fetchNewImages={this.getFirebaseData} passingID={this.state.userId} />
                 </div>
-                <div className="container-fluid">
-                    <div className="imageUploader">
-                        <UserGalleryUploader fetchNewImages={this.getFirebaseData} passingID={this.state.userId} />
-                    </div>
-                </div>
-                {/* Art Feature Modal */}
-        <ReactModal isOpen={this.state.showModal} style={
-                {content: {
-                    position: 'relative',
-                    top: 'unset',
-                    left: 'unset',
-                    right: 'unset',
-                    bottom: 'unset',
-                    border: '1px solid grey',
-                    background: 'white',
-                    overflow: 'hidden',
-                    borderRadius: '0px',
-                    outline: 'none',
-                    padding: '0px',
-                    width: 'fit-content',
-                    height: 'fit-content',
-                    margin: '80px auto',
-                    maxHight: '65%',
-                    maxWidth: '65%',
-                }
-            }}>
-            
-                <img alt={modalPicTitle} id="feature-image" src={modalPicUrl} />
-                <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
-            </ReactModal>
+            </div>
         </div>
                 
         
@@ -115,4 +78,4 @@ class UserGallery extends React.PureComponent {
    
   }
 
-  export default UserGallery;
+  export default UserProfilePhoto;
