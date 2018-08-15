@@ -29,7 +29,7 @@ class UserProfilePhoto extends React.PureComponent {
                     console.log("No Images to display")
                 }
         }).then(() => {
-            console.log('is the id still here?', this.props.artistFirebaseIDfromParent)
+            // console.log('is the id still here?', this.props.artistFirebaseIDfromParent)
                 this.setState({ 
                     images,
                     userId: this.props.artistFirebaseIDfromParent
@@ -38,44 +38,32 @@ class UserProfilePhoto extends React.PureComponent {
        
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.artistFirebaseIDfromParent !== prevProps.artistFirebaseIDfromParent) {
-            this.getFirebaseData();
-        }
+    componentDidMount() {
+        this.getFirebaseData();
     }
 
     render() {
-        let pics;
-        console.log('is there anything here?', this.state)
+        // console.log('is there anything here?', this.state.images)
         if (this.state.images) {
-            pics = this.state.images.map((image, i) => {
+            // pics = this.state.images.map((image, i) => {
+                // console.log('what is here', this.state.images[2])
                 return (
-                    <div key={image.name} className="profileImageContainer">
-                        <img alt={image.title} className="profileImage" src={image.url} />
+                    <div className="container pageContentWidth">
+                        <div className="profilePhotoHeader">
+                            <h4>Profile Photo</h4>
+                        </div>
+                        <div key={this.state.images[0]} className="profileImageContainer">
+                            <img alt={this.state.images[1]} className="profileImage" src={this.state.images[2]} />
+                        </div>
+                        <div className="container-fluid">
+                            <div className="imageUploader">
+                                <UserProfileUploader fetchNewImages={this.getFirebaseData} passingID={this.state.userId} />
+                            </div>
+                        </div>
                     </div>
                 )
-            })
+            // })
         }
-        // if (this.state.pickedImg) {
-        //     modalPicUrl = this.state.pickedImg.url
-        //     modalPicTitle = this.state.pickedImg.title
-        // }
-      return (
-        <div className="container pageContentWidth">
-            <div className="container">
-                <div id="profilePhoto">
-                    {pics}
-                </div>
-            </div>
-            <div className="container-fluid">
-                <div className="imageUploader">
-                    <UserProfileUploader fetchNewImages={this.getFirebaseData} passingID={this.state.userId} />
-                </div>
-            </div>
-        </div>
-                
-        
-      );
     }
    
   }

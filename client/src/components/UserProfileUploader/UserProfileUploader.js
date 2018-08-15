@@ -38,7 +38,7 @@ class UserProfileUploader extends PureComponent {
     databasePush = () => {
         //Adding a piece tied to their login to the folder will allow for them to have
         // a unique folder for just them.
-        console.log('props', this.props)
+        // console.log('props', this.props)
         let itemsRef = firebase.database().ref(`${this.props.passingID}ProfilePhoto/`)
         // console.log(this.state.imageURL)
         
@@ -73,6 +73,7 @@ class UserProfileUploader extends PureComponent {
     };    
 
   render() {
+    // console.log('props here?', this.props)
     return (
         <div>
             <form>

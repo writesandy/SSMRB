@@ -43,11 +43,11 @@ handleOpenModal (index, e) {
                 showModal: true,
                 pickedImg: {...this.state.images[index]}
         });
-      }
+}
       
-    handleCloseModal () {
-    this.setState({ showModal: false });
-    };
+handleCloseModal () {
+        this.setState({ showModal: false });
+};
 
 
     render() {
