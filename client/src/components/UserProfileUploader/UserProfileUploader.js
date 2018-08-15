@@ -6,6 +6,7 @@ import firebase from "firebase/app";
 import 'firebase/storage';
 import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
+import AuthUserContext from '../FirebaseAuthUserContext';
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
 class UserProfileUploader extends PureComponent {
@@ -19,7 +20,6 @@ class UserProfileUploader extends PureComponent {
       progress: 0,
       imageURL: ""
     }
-
 
     handleChangeImageTitle = event => {
         this.setState({ imageTitle: event.target.value });
@@ -38,7 +38,7 @@ class UserProfileUploader extends PureComponent {
     databasePush = () => {
         //Adding a piece tied to their login to the folder will allow for them to have
         // a unique folder for just them.
-        console.log('props', this.props.passingID)
+        console.log('props', this.props)
         let itemsRef = firebase.database().ref(`${this.props.passingID}ProfilePhoto/`)
         // console.log(this.state.imageURL)
         
@@ -73,7 +73,6 @@ class UserProfileUploader extends PureComponent {
     };    
 
   render() {
-
     return (
         <div>
             <form>

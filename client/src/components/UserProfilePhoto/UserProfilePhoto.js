@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import "firebase/database";
-import ReactModal from 'react-modal'
+// import ReactModal from 'react-modal'
 import UserProfileUploader from '../UserProfileUploader';
 import './UserProfilePhoto.css';
 
@@ -19,7 +19,8 @@ class UserProfilePhoto extends React.PureComponent {
     getFirebaseData = () => {
         const database = firebase.database();
         const images = [];
-        database.ref(`/${this.props.artistIdfromParent}ProfilePhoto/`).once('value').then((snapshot) => {
+        console.log('email here?', this.props.artistFirebaseIDfromParent)
+        database.ref(`/${this.props.artistFirebaseIDfromParent}ProfilePhoto/`).once('value').then((snapshot) => {
                 if (snapshot.val() !== null) {
                 const imageObject = snapshot.val();
                 const keys = Object.keys(imageObject);
@@ -28,36 +29,37 @@ class UserProfilePhoto extends React.PureComponent {
                     console.log("No Images to display")
                 }
         }).then(() => {
+            console.log('is the id still here?', this.props.artistFirebaseIDfromParent)
                 this.setState({ 
                     images,
-                    userId: this.props.artistIdfromParent
+                    userId: this.props.artistFirebaseIDfromParent
                  })
         })
        
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.artistIdfromParent !== prevProps.artistIdfromParent) {
+        if (this.props.artistFirebaseIDfromParent !== prevProps.artistFirebaseIDfromParent) {
             this.getFirebaseData();
         }
     }
 
     render() {
         let pics;
-        
+        console.log('is there anything here?', this.state)
         if (this.state.images) {
             pics = this.state.images.map((image, i) => {
                 return (
-                    <div key={image.name} className="art col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+                    <div key={image.name} className="profileImageContainer">
                         <img alt={image.title} className="profileImage" src={image.url} />
                     </div>
                 )
             })
         }
-        if (this.state.pickedImg) {
-            modalPicUrl = this.state.pickedImg.url
-            modalPicTitle = this.state.pickedImg.title
-        }
+        // if (this.state.pickedImg) {
+        //     modalPicUrl = this.state.pickedImg.url
+        //     modalPicTitle = this.state.pickedImg.title
+        // }
       return (
         <div className="container pageContentWidth">
             <div className="container">
