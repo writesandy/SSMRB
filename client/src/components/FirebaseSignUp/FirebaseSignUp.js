@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import * as routes from '../../constants/routes';
 
 const FirebaseSignUp = ({ history }) =>
@@ -28,6 +28,10 @@ class FirebaseSignUpForm extends PureComponent {
     this.state = { ...INITIAL_STATE };
   }
 
+  handleSignIn = () => {
+    window.location.assign('/account');
+  }
+
   onSubmit = (event) => {
     const {
         username,
@@ -39,11 +43,21 @@ class FirebaseSignUpForm extends PureComponent {
   
       auth.doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
-          this.setState({ ...INITIAL_STATE });
-          history.push(routes.HOME);
+           // Create a user in your own accessible Firebase Database too
+          db.doCreateUser(authUser.user.uid, username, email)
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+            history.push(routes.HOME);
+          })
+          .catch(error => {
+            this.setState(byPropKey('error', error));
+          });
         })
         .catch(error => {
           this.setState(byPropKey('error', error));
+        })
+        .then (() => {
+          this.handleSignIn();
         });
   
       event.preventDefault();

@@ -3,7 +3,7 @@ import ImageUpload from '../ImageUpload'
 import firebase from 'firebase/app';
 import "firebase/database";
 import ReactModal from 'react-modal'
-
+// ReactModal.setAppElement('#enterAnIdHere')
 class GalleryComponent extends React.PureComponent {
         constructor(props) {
                 super(props);
@@ -98,10 +98,10 @@ handleCloseModal () {
                     maxHight: '65%',
                     maxWidth: '65%',
                 }
-            }}>
+            }} >
             
                 <img alt={modalPicTitle} id="feature-image" src={modalPicUrl} />
-                <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
+                <button id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></button>
             </ReactModal>
         </div>
                 

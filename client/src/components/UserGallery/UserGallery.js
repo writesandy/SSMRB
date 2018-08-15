@@ -105,7 +105,7 @@ class UserGallery extends React.PureComponent {
             }}>
             
                 <img alt={modalPicTitle} id="feature-image" src={modalPicUrl} />
-                <a id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></a>
+                <button id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></button>
             </ReactModal>
         </div>
                 
