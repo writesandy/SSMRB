@@ -6,7 +6,7 @@ import firebase from "firebase/app";
 import 'firebase/storage';
 import 'firebase/database';
 import FileUploader from "react-firebase-file-uploader";
-import AuthUserContext from '../FirebaseAuthUserContext';
+// import AuthUserContext from '../FirebaseAuthUserContext';
 // import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 
 class UserProfileUploader extends PureComponent {

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 import { SignUpLink } from '../FirebaseSignUp';
 import { PasswordForgetLink } from '../FirebasePasswordForget'
@@ -39,6 +39,10 @@ class FirebaseSignInForm extends PureComponent {
 
   }
 
+  handleSignIn = () => {
+    window.location.assign('/account');
+  }
+
   onSubmit = (event) => {
     const {
       email,
@@ -56,7 +60,10 @@ class FirebaseSignInForm extends PureComponent {
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
-      });
+      })
+      .then (() => {
+        this.handleSignIn();
+      })
 
     event.preventDefault();
   }
