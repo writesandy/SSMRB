@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { auth, db } from '../../firebase';
 import * as routes from '../../constants/routes';
+import "./FirebaseSignUp.css";
+
 
 const FirebaseSignUp = ({ history }) =>
   <div>
@@ -81,30 +83,34 @@ class FirebaseSignUpForm extends PureComponent {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className='signUpInput'
           value={username}
           onChange={event => this.setState(byPropKey('username', event.target.value))}
           type="text"
           placeholder="Full Name"
         />
         <input
+          className='signUpInput'
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
         <input
+          className='signUpInput'
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
           type="password"
           placeholder="Password"
         />
         <input
+          className='signUpInput'
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type="submit" className='signUpSubmit'>
           Sign Up
         </button>
 

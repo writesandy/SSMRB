@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
 // import ReactModal from 'react-modal';
-
 import { SignUpLink } from '../FirebaseSignUp';
 import { PasswordForgetLink } from '../FirebasePasswordForget'
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
+import "./FirebaseSignIn.css";
+
 
 const FirebaseSignIn = ({ history }) =>
   <div>
@@ -82,18 +83,20 @@ class FirebaseSignInForm extends PureComponent {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className='signInInput'
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
         <input
+          className='signInInput'
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type="submit" className='signInSubmit'>
           Sign In
         </button>
 

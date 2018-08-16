@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import './FirebasePasswordForget.css'
 import { auth } from '../../firebase';
 
 const PasswordForgetPage = () =>
@@ -50,6 +50,7 @@ class PasswordForgetForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className='passwordForgetInput'
           value={this.state.email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"

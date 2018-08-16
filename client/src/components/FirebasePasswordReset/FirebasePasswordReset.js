@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FirebasePasswordReset.css'
 
 import { auth } from '../../firebase';
 
@@ -47,12 +48,14 @@ class PasswordChangeForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className='passwordResetInput'
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
           type="password"
           placeholder="New Password"
         />
         <input
+          className='passwordResetInput'
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
           type="password"

@@ -72,11 +72,22 @@ class UserProfileUploader extends PureComponent {
             // console.log(firebase.storage().ref("images").child(filename).getDownloadURL())
     };    
 
+    // validateForm = () => {
+    //     const x = document.forms["myForm"]["imageTitle"].value;
+    //     if (x === "") {
+    //         alert("Image Title must be filled out");
+    //         return false;
+    //     }
+    // }
+
   render() {
     // console.log('props here?', this.props)
     return (
         <div>
-            <form>
+            <form name='myForm'>
+            <label>Upload an Image:</label>
+                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                <br/>
                 <label>Add an Image Title</label>
                 <input
                     type="text"
@@ -85,13 +96,12 @@ class UserProfileUploader extends PureComponent {
                     name="imageTitle"
                     onChange={this.handleChangeImageTitle}
                 />
-                <label>Upload an Image:</label>
-                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
                 {/* {this.state.imageURL && <img alt={this.state.filename} src={this.state.imageURL} />} */}
                 <FileUploader
                     accept="image/*"
                     name="generatedName"
                     randomizeFilename
+                    // onSubmit={this.validateForm()}
                     storageRef={firebase.storage().ref("images")}
                     onUploadStart={this.handleUploadStart}
                     onUploadError={this.handleUploadError}
