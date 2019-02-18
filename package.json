@@ -42,5 +42,10 @@
   },
   "bugs": {
     "url": "https://github.com/writesandy/SSMRB/issues"
-  }
+  },
+  "api": {
+    "headers": {
+      Connection: "keep-alive",
+      }
+   }
 }
