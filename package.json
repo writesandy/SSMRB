@@ -45,7 +45,7 @@
   },
   "api": {
     "headers": {
-      Connection: "keep-alive",
+      "connection": "keep-alive",
       }
    }
 }
